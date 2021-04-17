@@ -7,6 +7,7 @@ import config from '../../config';
 import { SchemaType } from '../../misc/schema';
 import { awaitAll } from '../../prelude/await-all';
 import { sanitizeUrl } from '../../misc/sanitize-url';
+import { USER_ACTIVE_THRESHOLD, USER_ONLINE_THRESHOLD } from '../../const';
 
 export type PackedUser = SchemaType<typeof packedUserSchema>;
 
@@ -161,6 +162,17 @@ export class UserRepository extends Repository<User> {
 		}
 	}
 
+	public getOnlineStatus(user: User): string {
+		if (user.hideOnlineStatus == null) return 'unknown';
+		if (user.lastActiveDate == null) return 'unknown';
+		const elapsed = Date.now() - user.lastActiveDate.getTime();
+		return (
+			elapsed < USER_ONLINE_THRESHOLD ? 'online' :
+			elapsed < USER_ACTIVE_THRESHOLD ? 'active' :
+			'offline'
+		);
+	}
+
 	public async pack(
 		src: User['id'] | User,
 		me?: User['id'] | User | null | undefined,
@@ -211,6 +223,7 @@ export class UserRepository extends Repository<User> {
 				},
 				select: ['name', 'host', 'url', 'aliases']
 			}) : [],
+			onlineStatus: this.getOnlineStatus(user),
 			noindex: user.noindex || falsy,
 
 			...(opts.detail ? {
@@ -259,6 +272,7 @@ export class UserRepository extends Repository<User> {
 				noCrawle: profile!.noCrawle,
 				isExplorable: user.isExplorable,
 				isDeleted: user.isDeleted,
+				hideOnlineStatus: user.hideOnlineStatus,
 				hasUnreadSpecifiedNotes: NoteUnreads.count({
 					where: { userId: user.id, isSpecified: true },
 					take: 1

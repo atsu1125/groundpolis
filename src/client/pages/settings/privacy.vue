@@ -11,6 +11,14 @@
 		{{ $ts.makeReactionsPublic }}
 		<template #desc>{{ $ts.makeReactionsPublicDescription }}</template>
 	</FormSwitch>
+	<FormSwitch v-model:value="hideOnlineStatus" @update:value="save()">
+		{{ $ts.hideOnlineStatus }}
+		<template #desc>{{ $ts.hideOnlineStatusDescription }}</template>
+	</FormSwitch>
+	<FormSwitch v-model:value="noCrawle" @update:value="save()">
+		{{ $ts.noCrawle }}
+		<template #desc>{{ $ts.noCrawleDescription }}</template>
+	</FormSwitch>
 	<FormGroup>
 		<FormSwitch v-model:value="hideFF" @update:value="save()">
 			{{ $ts.hideFF }}
@@ -81,6 +89,7 @@ export default defineComponent({
 			noCrawle: false,
 			isExplorable: false,
 			publicReactions: false,
+			hideOnlineStatus: false,
 		};
 	},
 
@@ -119,6 +128,7 @@ export default defineComponent({
 		this.noCrawle = this.$i.noCrawle;
 		this.isExplorable = this.$i.isExplorable;
 		this.publicReactions = this.$i.publicReactions;
+		this.hideOnlineStatus = this.$i.hideOnlineStatus;
 	},
 
 	mounted() {
@@ -136,6 +146,7 @@ export default defineComponent({
 				noCrawle: !!this.noCrawle,
 				isExplorable: !!this.isExplorable,
 				publicReactions: !!this.publicReactions,
+				hideOnlineStatus: !!this.hideOnlineStatus,
 			});
 		}
 	}
