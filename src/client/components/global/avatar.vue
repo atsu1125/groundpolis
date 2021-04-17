@@ -1,9 +1,11 @@
 <template>
 <span class="eiwwqkts" :class="[$store.reactiveState.iconShape.value, { cat, animated } ]" :title="acct(user)" v-if="disableLink" v-user-preview="disablePreview ? undefined : user.id" @click="onClick">
 	<img class="inner" :class="$store.reactiveState.iconShape.value" :src="url"/>
+	<MkUserOnlineIndicator v-if="showIndicator" class="indicator" :user="user"/>
 </span>
 <MkA class="eiwwqkts" :class="[$store.reactiveState.iconShape.value, { cat, animated } ]" :to="userPage(user)" :title="acct(user)" :target="target" v-else v-user-preview="disablePreview ? undefined : user.id">
 	<img class="inner" :class="$store.reactiveState.iconShape.value" :src="url"/>
+	<MkUserOnlineIndicator v-if="showIndicator" class="indicator" :user="user"/>
 </MkA>
 </template>
 
@@ -12,8 +14,12 @@ import { defineComponent } from 'vue';
 import { getStaticImageUrl } from '@/scripts/get-static-image-url';
 import { extractAvgColorFromBlurhash } from '@/scripts/extract-avg-color-from-blurhash';
 import { acct, userPage } from '@/filters/user';
+import MkUserOnlineIndicator from '@/components/user-online-indicator.vue';
 
 export default defineComponent({
+	components: {
+		MkUserOnlineIndicator
+	},
 	props: {
 		user: {
 			type: Object,
@@ -30,6 +36,10 @@ export default defineComponent({
 		},
 		disablePreview: {
 			type: Boolean,
+			required: false,
+			default: false
+		},
+		showIndicator: {
 			required: false,
 			default: false
 		}
@@ -122,7 +132,7 @@ export default defineComponent({
 		}
 	}
 
-	.inner {
+	> .inner {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -134,6 +144,15 @@ export default defineComponent({
 		width: 100%;
 		height: 100%;
 		transition: border-radius 0.8s ease-out;
+	}
+
+	> .indicator {
+		position: absolute;
+		z-index: 1;
+		bottom: 0;
+		left: 0;
+		width: 20%;
+		height: 20%;
 	}
 }
 

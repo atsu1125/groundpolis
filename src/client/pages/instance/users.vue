@@ -58,7 +58,7 @@
 
 			<MkPagination :pagination="pagination" #default="{items}" class="users" ref="users">
 				<button class="user _panel _button _vMargin" v-for="user in items" :key="user.id" @click="show(user)">
-					<MkAvatar class="avatar" :user="user" :disable-link="true"/>
+					<MkAvatar class="avatar" :user="user" :disable-link="true" :show-indicator="true"/>
 					<div class="body">
 						<header>
 							<MkUserName class="name" :user="user"/>

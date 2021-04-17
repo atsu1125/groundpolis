@@ -32,7 +32,7 @@
 						<MkA v-else-if="$i && $i.id == user.id" to="/settings/profile" class="edit-profile _button">{{ $ts.editProfile }}</MkA>
 					</div>
 				</div>
-				<MkAvatar class="avatar" :user="user" :disable-preview="true" :disable-link="true" @click="onAvatarClicked"/>
+				<MkAvatar class="avatar" :user="user" :disable-preview="true" :disable-link="true" :show-indicator="true" @click="onAvatarClicked"/>
 				<div class="title">
 					<MkUserName :user="user" :nowrap="false" class="name"/>
 					<div class="bottom">

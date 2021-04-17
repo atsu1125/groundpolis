@@ -2,7 +2,7 @@
 <div class="_panel vjnjpkug">
 	<div class="banner" :style="user.bannerUrl ? `background-image: url(${user.bannerUrl})` : ''"></div>
 	<div v-if="showFollowed && user.isFollowed" class="followed" v-text="$ts.followsYou" />
-	<MkAvatar class="avatar" :user="user" :disable-preview="true"/>
+	<MkAvatar class="avatar" :user="user" :disable-preview="true" :show-indicator="true"/>
 	<div class="title">
 		<MkA class="name" :to="userPage(user)"><MkUserName :user="user" :nowrap="false"/></MkA>
 		<p class="username"><MkAcct :user="user"/></p>
@@ -114,7 +114,7 @@ export default defineComponent({
 		> .mfm {
 			display: -webkit-box;
 			-webkit-line-clamp: 3;
-			-webkit-box-orient: vertical;  
+			-webkit-box-orient: vertical;
 			overflow: hidden;
 		}
 	}
