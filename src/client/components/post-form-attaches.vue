@@ -93,6 +93,27 @@ export default defineComponent({
 				file.name = result;
 			});
 		},
+
+		async describe(file) {
+			os.popup(import("@/components/media-caption.vue"), {
+				title: this.$ts.describeFile,
+				input: {
+					placeholder: this.$ts.inputNewDescription,
+					default: file.comment !== null ? file.comment : "",
+				},
+				image: file
+			}, {
+				done: result => {
+					if (!result || result.canceled) return;
+					let comment = result.result;
+					os.api('drive/files/update', {
+						fileId: file.id,
+						comment: comment.length == 0 ? null : comment
+					});
+				}
+			}, 'closed');
+		},
+
 		showFileMenu(file, ev: MouseEvent) {
 			if (this.menu) return;
 			this.menu = os.modalMenu([{
@@ -103,6 +124,10 @@ export default defineComponent({
 				text: file.isSensitive ? this.$ts.unmarkAsSensitive : this.$ts.markAsSensitive,
 				icon: file.isSensitive ? faEyeSlash : faEye,
 				action: () => { this.toggleSensitive(file) }
+			}, {
+				text: this.$ts.describeFile,
+				icon: faICursor,
+				action: () => { this.describe(file) }
 			}, {
 				text: this.$ts.attachCancel,
 				icon: faTimesCircle,

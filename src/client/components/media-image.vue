@@ -1,6 +1,6 @@
 <template>
 <div class="qjewsnkg" v-if="hide" @click="hide = false">
-	<ImgWithBlurhash class="bg" :hash="image.blurhash" :title="image.name"/>
+	<ImgWithBlurhash class="bg" :hash="image.blurhash" :title="image.comment" :alt="image.comment"/>
 	<div class="text">
 		<div>
 			<b><Fa :icon="faExclamationTriangle"/> {{ $ts.sensitive }}</b>
@@ -14,7 +14,7 @@
 		:href="image.url"
 		:title="image.name"
 	>
-		<ImgWithBlurhash :hash="image.blurhash" :src="url" :alt="image.name" :title="image.name" :cover="false"/>
+		<ImgWithBlurhash :hash="image.blurhash" :src="url" :alt="image.comment" :title="image.comment" :cover="false"/>
 		<div class="gif" v-if="image.type === 'image/gif'">GIF</div>
 	</a>
 </div>

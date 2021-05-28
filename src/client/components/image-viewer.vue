@@ -10,7 +10,7 @@
 				<Fa :icon="faChevronRight" />
 			</button>
 		</header>
-		<img :src="current.url" :alt="current.name" :title="current.name" @click="$refs.modal.close()"/>
+		<img :src="current.url" :alt="current.comment" :title="current.comment" @click="$refs.modal.close()"/>
 		<footer v-if="current.name || current.type || current.size || current.properties">
 			<span v-if="current.name">{{ current.name }}</span>
 			<span v-if="current.type">{{ current.type }}</span>
