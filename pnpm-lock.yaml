@@ -96,6 +96,7 @@ specifiers:
   blurhash: 1.1.5
   bootstrap-icons-vue: 0.8.0
   bull: 4.10.4
+  cacheable-lookup: 6.0.0
   cafy: 15.2.1
   cbor: 8.1.0
   chalk: 4.1.2
@@ -128,6 +129,7 @@ specifiers:
   gulp-terser: 2.1.0
   gulp-typescript: 6.0.0-alpha.1
   hard-source-webpack-plugin: 0.13.1
+  hpagent: 0.1.2
   html-minifier: 4.0.0
   http-proxy-agent: 5.0.0
   http-signature: 1.3.6
@@ -153,7 +155,6 @@ specifiers:
   koa-slow: 2.1.0
   koa-views: 8.0.0
   langmap: 0.0.16
-  lookup-dns-cache: 2.1.0
   markdown-it: 12.3.2
   markdown-it-anchor: 8.4.1
   matter-js: 0.18.0
@@ -331,6 +332,7 @@ dependencies:
   blurhash: 1.1.5
   bootstrap-icons-vue: 0.8.0
   bull: 4.10.4
+  cacheable-lookup: 6.0.0
   cafy: 15.2.1
   cbor: 8.1.0
   chalk: 4.1.2
@@ -359,6 +361,7 @@ dependencies:
   gulp-terser: 2.1.0
   gulp-typescript: 6.0.0-alpha.1_typescript@4.9.5
   hard-source-webpack-plugin: 0.13.1_webpack@5.72.1
+  hpagent: 0.1.2
   html-minifier: 4.0.0
   http-proxy-agent: 5.0.0
   http-signature: 1.3.6
@@ -384,7 +387,6 @@ dependencies:
   koa-slow: 2.1.0
   koa-views: 8.0.0_gudyprbunxvk76igg2usafr23u
   langmap: 0.0.16
-  lookup-dns-cache: 2.1.0
   markdown-it: 12.3.2
   markdown-it-anchor: 8.4.1_2zb4u3vubltivolgu556vv4aom
   matter-js: 0.18.0
@@ -775,7 +777,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       debug: 4.3.4
-      hpagent: 0.1.1
+      hpagent: 0.1.2
       ms: 2.1.3
       pump: 3.0.0
       secure-json-parse: 2.1.0
@@ -2547,12 +2549,6 @@ packages:
       async-done: 1.3.2
     dev: false
 
-  /async/2.6.0:
-    resolution: {integrity: sha512-xAfGg1/NTLBBKlHFmnd7PlmUW9KhVQIUuSrYem9xzFUZy13ScvtyGGejaae9iAVRiRq9+Cx7DPFaAAhCpyxyPw==}
-    dependencies:
-      lodash: 4.17.21
-    dev: false
-
   /async/3.2.3:
     resolution: {integrity: sha512-spZRyzKL5l5BZQrr/6m/SqFdBN0q3OCI0f9rjfBzCMBIP4p75P620rR3gTmaksNOhmzgdxcaxdNfMy6anrbM0g==}
     dev: false
@@ -2913,6 +2909,11 @@ packages:
   /cacheable-lookup/5.0.3:
     resolution: {integrity: sha512-W+JBqF9SWe18A72XFzN/V/CULFzPm7sBXzzR6ekkE+3tLG72wFZrBiBZhrZuDoYexop4PHJVdFAKb/Nj9+tm9w==}
     engines: {node: '>=10'}
+    dev: false
+
+  /cacheable-lookup/6.0.0:
+    resolution: {integrity: sha512-5qeyMn8/BERrUPdIfcOLkdMrwltVbxIpgnYM61OLWOg3BuSSh9HrkUtTTRxYthQpBrocvYqD0tJ7vU0y6T7OWw==}
+    engines: {node: '>=10.6.0'}
     dev: false
 
   /cacheable-request/7.0.2:
@@ -5615,8 +5616,8 @@ packages:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
     dev: false
 
-  /hpagent/0.1.1:
-    resolution: {integrity: sha512-IxJWQiY0vmEjetHdoE9HZjD4Cx+mYTr25tR7JCxXaiI3QxW0YqYyM11KyZbHufoa/piWhMb2+D3FGpMgmA2cFQ==}
+  /hpagent/0.1.2:
+    resolution: {integrity: sha512-ePqFXHtSQWAFXYmj+JtOTHr84iNrII4/QRlAAPPE+zqnKy4xJo7Ie1Y4kC7AdB+LxLxSTTzBMASsEcy0q8YyvQ==}
     dev: false
 
   /html-comment-regex/1.1.2:
@@ -7060,15 +7061,6 @@ packages:
       chalk: 4.1.2
       is-unicode-supported: 0.1.0
     dev: true
-
-  /lookup-dns-cache/2.1.0:
-    resolution: {integrity: sha512-tLcJ7rkqWzZ77D7pN5R2ceWKZsIJ5/6HaLQdmhw3M9fBQQmqS4LZqvBcstKzQ6kuZet5LY4TWTiShx7QmO+Q8w==}
-    engines: {node: '>=6.0'}
-    dependencies:
-      async: 2.6.0
-      lodash: 4.17.21
-      rr: 0.1.0
-    dev: false
 
   /lower-case/1.1.4:
     resolution: {integrity: sha512-2Fgx1Ycm599x+WGpIYwJOvsjmXFzTSc34IwDWALRA/8AopUKAVPwfJ+h5+f85BCp0PWmmJcWzEpxOpoXycMpdA==}
@@ -9618,10 +9610,6 @@ packages:
     dependencies:
       rangestr: 0.0.1
       seedrandom: 2.4.2
-    dev: false
-
-  /rr/0.1.0:
-    resolution: {integrity: sha512-iBkuF5DdONGO9Wfbj9O56fLgiKPzStNZUAeEG2d/61f9G1ZZjOT1W5WjNJvajRK2jWws1Mxas9wUZaSHcteouA==}
     dev: false
 
   /run-parallel/1.2.0:
