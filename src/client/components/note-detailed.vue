@@ -26,10 +26,11 @@
 				<MkTime :time="note.createdAt"/>
 			</button>
 			<span class="visibility" v-if="note.visibility !== 'public'">
-				<Fa v-if="note.visibility === 'home'" :icon="faHome"/>
-				<Fa v-if="note.visibility === 'followers'" :icon="faUnlock"/>
-				<Fa v-if="note.visibility === 'specified'" :icon="faEnvelope"/>
-				<Fa v-if="note.visibility === 'users'" :icon="faUsers"/>
+				<VisibilityIcon
+					:visibility="note.visibility"
+					:localOnly="note.localOnly"
+					:remoteFollowersOnly="note.remoteFollowersOnly"
+					/>
 			</span>
 		</div>
 	</div>
@@ -87,16 +88,12 @@
 						<MkTime :time="note.createdAt" mode="detail"/>
 					</div>
 					<div>
-						<span class="visibility">
-							<Fa v-if="appearNote.visibility === 'public'" :icon="faGlobe"/>
-							<Fa v-else-if="appearNote.visibility === 'home'" :icon="faHome"/>
-							<Fa v-else-if="appearNote.visibility === 'followers'" :icon="faUnlock"/>
-							<Fa v-else-if="appearNote.visibility === 'specified'" :icon="faEnvelope"/>
-							<Fa v-else-if="note.visibility === 'users'" :icon="faUsers"/>
-						</span>
+						<VisibilityIcon class="visibility _mr-1"
+							:visibility="appearNote.visibility"
+							:localOnly="appearNote.localOnly"
+							:remoteFollowersOnly="appearNote.remoteFollowersOnly"
+							/>
 						<span>{{$t('_visibility.' + note.visibility)}}</span>
-						<span v-if="note.localOnly">({{$ts._visibility.localOnly}})</span>
-						<span v-if="note.remoteFollowersOnly">({{$ts._visibility.remoteFollowersOnly}})</span>
 					</div>
 				</div>
 				<div class="renotes" v-if="renoteState">
@@ -153,17 +150,18 @@
 </template>
 
 <script lang="ts">
-import { computed, defineAsyncComponent, defineComponent, markRaw, ref } from 'vue';
+import { defineAsyncComponent, defineComponent, markRaw } from 'vue';
 import { faSatelliteDish, faBolt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faEllipsisH, faHome, faUnlock, faEnvelope, faThumbtack, faBan, faQuoteRight, faPlug, faExclamationCircle, faPaperclip, faUsers, faGlobe, faHeart as faHeartS, faAlignLeft, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faCopy, faTrashAlt, faEdit, faEye, faEyeSlash, faHeart as faHeartR, faMehRollingEyes, faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
-import { parse } from '../../mfm/parse';
-import { sum, unique } from '../../prelude/array';
+import { sum } from '../../prelude/array';
+import * as mfm from 'mfm-js';
 import XSub from './note.sub.vue';
 import XNoteHeader from './note-header.vue';
 import XNotePreview from './note-preview.vue';
 import XReactionsViewer from './reactions-viewer.vue';
 import XMediaList from './media-list.vue';
 import XCwButton from './cw-button.vue';
+import VisibilityIcon from './visibility-icon.vue';
 import XPoll from './poll.vue';
 import { pleaseLogin } from '@/scripts/please-login';
 import { focusPrev, focusNext } from '@/scripts/focus';
@@ -173,6 +171,7 @@ import { checkWordMute } from '@/scripts/check-word-mute';
 import { userPage } from '@/filters/user';
 import * as os from '@/os';
 import { noteActions, noteViewInterruptors } from '@/store';
+import { extractUrlFromMfm } from '../../misc/extract-url-from-mfm';
 
 function markRawAll(...xs) {
 	for (const x of xs) {
@@ -195,6 +194,7 @@ export default defineComponent({
 		XCwButton,
 		XPoll,
 		MkUrlPreview: defineAsyncComponent(() => import('@/components/url-preview.vue')),
+		VisibilityIcon,
 	},
 
 	inject: {
@@ -295,21 +295,7 @@ export default defineComponent({
 
 		urls(): string[] {
 			if (this.appearNote.text) {
-				const ast = parse(this.appearNote.text);
-				// TODO: 再帰的にURL要素がないか調べる
-				const urls = unique(ast
-					.filter(t => ((t.node.type == 'url' || t.node.type == 'link') && t.node.props.url && !t.node.props.silent))
-					.map(t => t.node.props.url));
-
-				// unique without hash
-				// [ http://a/#1, http://a/#2, http://b/#3 ] => [ http://a/#1, http://b/#3 ]
-				const removeHash = x => x.replace(/#[^#]*$/, '');
-
-				return urls.reduce((array, url) => {
-					const removed = removeHash(url);
-					if (!array.map(x => removeHash(x)).includes(removed)) array.push(url);
-					return array;
-				}, []);
+				return extractUrlFromMfm(mfm.parse(this.appearNote.text));
 			} else {
 				return null;
 			}

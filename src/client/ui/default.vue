@@ -52,7 +52,7 @@
 		</button>
 	</div>
 
-	<button class="fab _button" :class="{ navHidden }" @click="onFabClicked"><Fa :key="fabIcon" :icon="fabIcon"/></button>
+	<button class="fab _button" :class="{ navHidden }" v-if="fabIcon" @click="onFabClicked"><Fa :key="fabIcon" :icon="fabIcon"/></button>
 
 	<transition name="tray-back">
 		<div class="tray-back _modalBg"
@@ -127,7 +127,7 @@ export default defineComponent({
 		},
 
 		fabIcon() {
-			return this.pageInfo && this.pageInfo.action ? this.pageInfo.action.icon : faPencilAlt;
+			return this.pageInfo && this.pageInfo.action ? this.pageInfo.action.icon : null;
 		},
 	},
 
@@ -158,10 +158,7 @@ export default defineComponent({
 
 		ro.observe(this.$refs.contents);
 
-		window.addEventListener('resize', () => {
-			this.isMobile = (window.innerWidth <= MOBILE_THRESHOLD);
-			this.isDesktop = (window.innerWidth >= DESKTOP_THRESHOLD);
-		}, { passive: true });
+		window.addEventListener('resize', this.adjustUI, { passive: true });
 
 		if (this.$store.state.aiChanMode) {
 			let iframeRect = this.$refs.live2d.getBoundingClientRect();
@@ -191,7 +188,7 @@ export default defineComponent({
 
 		adjustUI() {
 			const navWidth = this.$refs.nav.$el.offsetWidth;
-			this.navHidden = navWidth === 0;
+			this.navHidden = navWidth <= 1;
 			if (this.$refs.contents == null) return;
 			const width = this.$refs.contents.offsetWidth;
 			if (this.$refs.header) this.$refs.header.style.width = `${width}px`;
@@ -327,7 +324,7 @@ export default defineComponent({
 			-webkit-backdrop-filter: blur(32px);
 			backdrop-filter: blur(32px);
 			background-color: var(--header);
-			//border-bottom: solid 1px var(--divider);
+			border-bottom: solid 1px var(--divider);
 			user-select: none;
 		}
 

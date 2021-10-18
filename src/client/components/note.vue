@@ -27,14 +27,11 @@
 				<Fa class="dropdownIcon" v-if="isMyRenote" :icon="faEllipsisV"/>
 				<MkTime :time="note.createdAt"/>
 			</button>
-			<span class="visibility" v-if="note.visibility !== 'public'">
-				<Fa v-if="note.visibility === 'home'" :icon="faHome"/>
-				<Fa v-if="note.visibility === 'followers'" :icon="faLock"/>
-				<Fa v-if="note.visibility === 'specified'" :icon="faEnvelope"/>
-				<Fa v-if="note.visibility === 'users'" :icon="faUsers"/>
-			</span>
-			<span class="localOnly" v-if="note.localOnly"><Fa :icon="faHeartS"/></span>
-			<span class="localOnly" v-if="note.remoteFollowersOnly"><Fa :icon="faHeartbeat"/></span>
+			<VisibilityIcon class="visibility" v-if="note.visibility !== 'public' || note.localOnly || note.remoteFollowersOnly"
+				:visibility="note.visibility"
+				:localOnly="note.localOnly"
+				:remoteFollowersOnly="note.remoteFollowersOnly"
+				/>
 		</div>
 	</div>
 	<article class="article" @contextmenu.stop="onContextmenu">
@@ -132,8 +129,8 @@
 import { defineAsyncComponent, defineComponent, markRaw } from 'vue';
 import { faSatelliteDish, faFireAlt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faHome, faLock, faEnvelope, faThumbtack, faBan, faQuoteLeft, faQuoteRight, faHeart as faHeartS, faEllipsisV, faUsers, faHeartbeat, faPlug, faExclamationCircle, faAlignLeft, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import { faCopy, faTrashAlt, faEdit, faEye, faEyeSlash, faMehRollingEyes, faClock, faHeart as faHeartR } from '@fortawesome/free-regular-svg-icons';
-import { parse } from '../../mfm/parse';
-import { sum, unique } from '../../prelude/array';
+import * as mfm from 'mfm-js';
+import { sum } from '../../prelude/array';
 import XSub from './note.sub.vue';
 import XNoteHeader from './note-header.vue';
 import XNotePreview from './note-preview.vue';
@@ -149,6 +146,8 @@ import { checkWordMute } from '@/scripts/check-word-mute';
 import { userPage } from '@/filters/user';
 import * as os from '@/os';
 import { noteActions, noteViewInterruptors } from '@/store';
+import { extractUrlFromMfm } from '@/../misc/extract-url-from-mfm';
+import VisibilityIcon from './visibility-icon.vue';
 
 function markRawAll(...xs: any[]) {
 	for (const x of xs) {
@@ -171,6 +170,7 @@ export default defineComponent({
 		XCwButton,
 		XPoll,
 		MkUrlPreview: defineAsyncComponent(() => import('@/components/url-preview.vue')),
+		VisibilityIcon,
 	},
 
 	inject: {
@@ -299,21 +299,7 @@ export default defineComponent({
 
 		urls(): string[] {
 			if (this.appearNote.text) {
-				const ast = parse(this.appearNote.text);
-				// TODO: 再帰的にURL要素がないか調べる
-				const urls = unique(ast
-					.filter(t => ((t.node.type == 'url' || t.node.type == 'link') && t.node.props.url && !t.node.props.silent))
-					.map(t => t.node.props.url));
-
-				// unique without hash
-				// [ http://a/#1, http://a/#2, http://b/#3 ] => [ http://a/#1, http://b/#3 ]
-				const removeHash = x => x.replace(/#[^#]*$/, '');
-
-				return urls.reduce((array, url) => {
-					const removed = removeHash(url);
-					if (!array.map(x => removeHash(x)).includes(removed)) array.push(url);
-					return array;
-				}, []);
+				return extractUrlFromMfm(mfm.parse(this.appearNote.text));
 			} else {
 				return null;
 			}

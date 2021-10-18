@@ -19,13 +19,11 @@
 				<Fa :icon="faQuestionCircle" />
 			</button>
 			<button class="_button visibility" @click="setVisibility" ref="visibilityButton" v-tooltip="$ts.visibility" v-if="channel == null">
-					<Fa v-if="visibility === 'public'" :icon="faGlobe" />
-					<Fa v-if="visibility === 'home'" :icon="faHome" />
-					<Fa v-if="visibility === 'followers'" :icon="faUnlock" />
-					<Fa v-if="visibility === 'specified'" :icon="faEnvelope" />
-					<Fa v-if="visibility === 'users'" :icon="faUsers" />
-					<Fa class="localOnly" v-if="localOnly" :icon="faHeart" />
-					<Fa class="localOnly" v-if="remoteFollowersOnly" :icon="faHeartbeat" />
+				<VisibilityIcon
+					:visibility="visibility"
+					:localOnly="localOnly"
+					:remoteFollowersOnly="remoteFollowersOnly"
+					/>
 			</button>
 			<!-- <div class="spacer"></div> -->
 		</div>
@@ -83,7 +81,7 @@ import insertTextAtCursor from 'insert-text-at-cursor';
 import { length } from 'stringz';
 import { toASCII } from 'punycode';
 import XNotePreview from './note-preview.vue';
-import { parse } from '../../mfm/parse';
+import * as mfm from 'mfm-js';
 import { host, url } from '@/config';
 import { erase, unique } from '../../prelude/array';
 import extractMentions from '../../misc/extract-mentions';
@@ -94,6 +92,7 @@ import * as os from '@/os';
 import { selectFile } from '@/scripts/select-file';
 import { FormItem } from '../scripts/form';
 import { defaultStore, notePostInterruptors, postFormActions } from '@/store';
+import VisibilityIcon from './visibility-icon.vue';
 import MkSwitch from './ui/switch.vue';
 
 export default defineComponent({
@@ -101,7 +100,8 @@ export default defineComponent({
 		XNotePreview,
 		MkSwitch,
 		XPostFormAttaches: defineAsyncComponent(() => import('./post-form-attaches.vue')),
-		XPollEditor: defineAsyncComponent(() => import('./poll-editor.vue'))
+		XPollEditor: defineAsyncComponent(() => import('./poll-editor.vue')),
+		VisibilityIcon,
 	},
 
 	inject: ['modal'],
@@ -291,7 +291,7 @@ export default defineComponent({
 		}
 
 		if (this.reply && this.reply.text != null) {
-			const ast = parse(this.reply.text);
+			const ast = mfm.parse(this.reply.text);
 
 			for (const x of extractMentions(ast)) {
 				const mention = x.host ? `@${x.username}@${toASCII(x.host)}` : `@${x.username}`;
@@ -721,7 +721,7 @@ export default defineComponent({
 					this.deleteDraft();
 					this.$emit('posted');
 					if (this.text && this.text != '') {
-						const hashtags = parse(this.text)!.filter(x => x.node.type === 'hashtag').map(x => x.node.props.hashtag);
+						const hashtags = mfm.parse(this.text)!.filter(x => x.node.type === 'hashtag').map(x => x.node.props.hashtag);
 						const history = JSON.parse(localStorage.getItem('hashtags') || '[]') as string[];
 						localStorage.setItem('hashtags', JSON.stringify(unique(hashtags.concat(history))));
 					}

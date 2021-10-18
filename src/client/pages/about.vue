@@ -1,9 +1,17 @@
 <template>
 <FormBase class="mmnnbwxb" v-if="meta">
-	<div class="_formItem logo">
-		<img v-if="meta.logoImageUrl" :src="meta.logoImageUrl">
-		<span v-else class="text">{{ instanceName }}</span>
-	</div>
+	<section class="_formItem about">
+		<div class="_formPanel panel" ref="about">
+			<div class="icon" ref="icon" draggable="false">
+				<img class="_shadow-2" v-if="meta.iconUrl" :src="meta.iconUrl" alt="" draggable="false"/>
+			</div>
+			<div class="name">{{ instanceName }}</div>
+		</div>
+	</section>
+	<section class="_formItem">
+		{{ meta.description || $ts.introMisskey }}
+	</section>
+
 	<FormGroup>
 		<FormKeyValueView>
 			<template #key>Groundpolis</template>
@@ -22,7 +30,7 @@
 		</FormKeyValueView>
 	</FormGroup>
 
-	<FormLink v-if="meta.tosUrl" :to="meta.tosUrl" external>{{ $ts.tos }}</FormLink>
+	<FormLink v-if="meta.tosUrl" :to="meta.tosUrl" :external="!isInternalUrl(meta.tosUrl)">{{ $ts.tos }}</FormLink>
 
 	<FormGroup v-if="stats">
 		<template #label>{{ $ts.statistics }}</template>
@@ -48,6 +56,7 @@ import FormGroup from '@/components/form/group.vue';
 import FormKeyValueView from '@/components/form/key-value-view.vue';
 import * as os from '@/os';
 import number from '@/filters/number';
+import { url } from '@/config';
 
 export default defineComponent({
 	components: {
@@ -83,6 +92,9 @@ export default defineComponent({
 	},
 
 	methods: {
+		isInternalUrl(link: string) {
+			return link.startsWith(url);
+		},
 		number
 	}
 });
@@ -100,6 +112,35 @@ export default defineComponent({
 		> img {
 			vertical-align: bottom;
 			max-height: 100px;
+		}
+	}
+
+	.panel {
+		position: relative;
+		text-align: center;
+		padding: 16px;
+		background: var(--bg);
+
+		> .icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			margin: 0 auto;
+			background: var(--bg);
+
+			> img {
+				width: 100%;
+				height: 100%;
+				border-radius: 16px;
+			}
+		}
+
+		> .name {
+			margin: 0.75em auto 0.3em auto;
+			width: max-content;
+			font-size: 24px;
+			font-weight: bold;
 		}
 	}
 }

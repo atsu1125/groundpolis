@@ -333,6 +333,8 @@ driveCapacityPerRemoteAccount: "リモートユーザーひとりあたりのド
 inMb: "メガバイト単位"
 iconUrl: "アイコン画像のURL"
 bannerUrl: "バナー画像のURL"
+backgroundImageUrl: "背景画像のURL"
+logoImageUrl: "ロゴ画像のURL"
 basicInfo: "基本情報"
 pinnedUsers: "ピン留めユーザー"
 pinnedUsersDescription: "「みつける」ページなどにピン留めしたいユーザーを改行で区切って記述します。"
@@ -807,7 +809,6 @@ pageLikesCount: "Pageにいいねした数"
 pageLikedCount: "Pageにいいねされた数"
 reversiCount: "リバーシの対局数"
 contact: "連絡先"
-useSystemFont: "システムのデフォルトのフォントを使う"
 clips: "クリップ"
 experimentalFeatures: "実験的機能"
 developer: "開発者"
@@ -844,6 +845,7 @@ deleteConfirm: "削除しますか？"
 invalidValue: "有効な値ではありません。"
 registry: "レジストリ"
 closeAccount: "アカウントを閉鎖する"
+closeAccountDisabledReason: "重大な不具合がいくつか存在するため、一時的に削除機能を閉鎖しています。本機能は修正され次第開放される予定です。ご不便をおかけし申し訳ありません。"
 discardPostFormDraftConfirm: "本当に投稿フォームの下書きを削除しますか？"
 closeAccountConfirm: "本当にアカウントを削除しますか？"
 closeAccountConfirmDesc: "アカウントを一度削除すると、もう元に戻すことができません。本当によろしければ、確認の為にパスワードを入力してください。"
@@ -873,6 +875,8 @@ confirmBeforePostDesc: "オンにすると投稿フォームにスイッチが�
 confirmBeforePostLabel: "投稿内容に間違いはありませんか？"
 noFeaturedPages: "人気のページはまだ無いようです。右下のボタンを押して、今すぐページを作りましょう。"
 aiChanMode: "藍モード"
+customize: "カスタマイズ"
+enterInstanceUrlToShare: "共有先のインスタンスURLを入力してください"
 
 _plugin:
   install: "プラグインのインストール"
@@ -946,12 +950,15 @@ _renoteButtonMode:
 _labs:
   title: "ラボ"
   description: "Groundpolis の開発中の新機能をテストしてみませんか。このページでは、開発中の新機能や仕様変更を有効化し、体験することができます。"
+  review: "もし問題があれば、気軽にレビューを送ってください。"
   notAvailable: "現在利用可能な機能はありません。"
   useLike: "リアクションの代わりに「いいね」を使う"
   useLikeDesc: "オンにすると、リアクション機能を「いいね」機能で置き換えます。全てのリアクションは「いいね」の総数として表現され、あなたの「いいね」はインスタンスのフォールバック リアクションに変換されます。"
   customCss: "カスタム CSS"
   customCssDesc: "直接CSSを編集し、思い通りの見た目を作り上げましょう。"
   customCssWarn: "CSSに詳しくない場合は、むやみに触らないでください。"
+  tryNewPostForm: "新たな投稿フォームを試す"
+  tryNewPostFormDesc: "機能の関連性を論理的に整理し、より柔軟に再配置するよう設計した、次世代の新たな投稿フォームをお試しください。" 
 
 _mfm:
   cheatSheet: "GPFMチートシート"
@@ -1418,9 +1425,13 @@ _visibility:
   remoteFollowersOnlyDescription: "リモートでの二次拡散を防ぐ"
 
 _postForm:
-  replyPlaceholder: "このノートに返信..."
-  quotePlaceholder: "このノートを引用..."
-  channelPlaceholder: "チャンネルに投稿..."
+  attachMedia: メディア添付
+  cwOn: 投稿内容を隠す
+  cwOff: 投稿内容を隠さない
+  poll: アンケート
+  broadcast: 実況モード
+  switchUser: ユーザー切り替え
+  cwPlaceholder: 注釈文(省略可能)
   _placeholders:
     a: "いまどうしてる？"
     b: "何かありましたか？"
@@ -1428,6 +1439,19 @@ _postForm:
     d: "言いたいことは？"
     e: "ここに書いてください"
     f: "あなたが書くのを待っています..."
+  replyPlaceholder: "このノートへの返信内容を書いてください"
+  quotePlaceholder: "この引用ノートに添える文章を書いてください"
+  channelPlaceholder: "チャンネルに投稿..."
+  insertQuote: 引用を挿入
+  insertLink: リンクを挿入
+  insertFunction: 関数を挿入
+  insertMention: メンションを挿入
+  openEmojiPalette: 絵文字パレットを開く
+  kaoGacha: 顔文字ガチャ
+  broadcastPlaceholder: ノートの末尾に加えるテキスト
+  createNote: 投稿
+  reply: リプライ
+  quoteNote: 引用
 
 _profile:
   name: "名前"
