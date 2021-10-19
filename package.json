@@ -1,6 +1,6 @@
 {
 	"name": "groundpolis",
-	"version": "12.69.0-gp-4.14.3-chillout",
+	"version": "12.69.0-gp-4.15.1",
 	"private": true,
 	"author": "Xeltica <xeltica@gmail.com>",
 	"contributors": [
@@ -9,7 +9,7 @@
 	"codename": "sonic",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/chillout-chat/groundpolis.git"
+		"url": "https://github.com/Milkey-homes/groundpolis.git"
 	},
 	"scripts": {
 		"bs": "npm run build && npm run start",
