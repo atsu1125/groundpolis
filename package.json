@@ -1,6 +1,6 @@
 {
 	"name": "groundpolis",
-	"version": "12.69.0-gp-4.15.1",
+	"version": "2021.11.0",
 	"private": true,
 	"author": "Xeltica <xeltica@gmail.com>",
 	"contributors": [
@@ -190,7 +190,7 @@
 		"markdown-it": "12.0.4",
 		"markdown-it-anchor": "7.0.1",
 		"matter-js": "0.16.1",
-		"mfm-js": "https://github.com/Groundpolis/gpfm.js",
+		"mfm-js": "Groundpolis/gpfm.js#1.0.3",
 		"mocha": "8.2.1",
 		"moji": "0.5.1",
 		"ms": "2.1.3",
@@ -203,7 +203,8 @@
 		"p-cancelable": "2.0.0",
 		"parse5": "6.0.1",
 		"parsimmon": "1.16.0",
-		"pg": "8.5.1",
+		"pg": "8.7.1",
+		"photoswipe": "git://github.com/dimsemenov/photoswipe#v5-beta",
 		"portscanner": "2.2.0",
 		"postcss": "8.2.10",
 		"postcss-loader": "5.0.0",

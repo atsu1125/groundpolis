@@ -383,6 +383,12 @@ export default defineComponent({
 			insertTextAtCursor(textRef.value, text);
 		};
 
+
+		const focus = () => {
+			if (!textRef.value) return;
+			textRef.value.focus();
+		};
+
 		const post = async () => {
 			if (props.reply && props.reply.user.host !== null && localOnly.value) {
 				await dialog({
@@ -556,7 +562,12 @@ export default defineComponent({
 				cw.value = init.cw;
 				useCw.value = init.cw != null;
 				if (init.poll) {
-					draft.poll = init.poll;
+					draft.poll = {
+						choices: init.poll.choices.map(x => x.text),
+						multiple: init.poll.multiple,
+						expiresAt: init.poll.expiresAt,
+						expiredAfter: init.poll.expiredAfter,
+					};
 				}
 				visibility.value = init.visibility;
 				localOnly.value = init.localOnly;
