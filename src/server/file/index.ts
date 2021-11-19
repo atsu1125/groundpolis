@@ -16,7 +16,7 @@ const _dirname = dirname(_filename);
 const app = new Koa();
 app.use(cors());
 app.use(async (ctx, next) => {
-	ctx.set('Content-Security-Policy', `default-src none; style-src 'unsafe-inline'; font-src https://github.com`);
+	ctx.set('Content-Security-Policy', `default-src 'none'; style-src 'unsafe-inline'`);
 	await next();
 });
 
