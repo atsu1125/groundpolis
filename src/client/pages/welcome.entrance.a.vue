@@ -3,7 +3,7 @@
 	<div class="top">
 		<MkFeaturedPhotos class="bg"/>
 		<XTimeline class="tl"/>
-		<img src="/assets/icon_transparent.svg" class="misskey"/>
+		<img src="/assets/milkey_transparent.svg" class="misskey"/>
 		<div class="emojis">
 			<MkEmoji :normal="true" :no-style="true" emoji="🎉"/>
 			<MkEmoji :normal="true" :no-style="true" emoji="🧡"/>
@@ -191,10 +191,10 @@ export default defineComponent({
 			position: absolute;
 			top: 32px;
 			left: 32px;
-			width: 64px;
+			width: 72px;
 
 			@media (max-width: 450px) {
-				width: 64px;
+				width: 72px;
 			}
 		}
 
