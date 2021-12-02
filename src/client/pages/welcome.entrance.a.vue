@@ -3,7 +3,8 @@
 	<div class="top">
 		<MkFeaturedPhotos class="bg"/>
 		<XTimeline class="tl"/>
-		<img src="/assets/milkey_transparent.svg" class="misskey"/>
+		<img src="/assets/icon_transparent.svg" class="gplogo"/>
+		<img src="/assets/milkey_transparent.svg" class="milkeylogo"/>
 		<div class="emojis">
 			<MkEmoji :normal="true" :no-style="true" emoji="🎉"/>
 			<MkEmoji :normal="true" :no-style="true" emoji="🧡"/>
@@ -187,15 +188,18 @@ export default defineComponent({
 			clip-path: polygon(0% 0%, 50% 0%, 15% 100%, 0% 100%);
 		}
 
-		> .misskey {
+		> .gplogo {
 			position: absolute;
 			top: 32px;
 			left: 32px;
-			width: 72px;
+			height: 72px;
+		}
 
-			@media (max-width: 450px) {
-				width: 72px;
-			}
+		> .milkeylogo {
+			position: absolute;
+			top: 38px;
+			left: 110px;
+			height: 58px;
 		}
 
 		> .emojis {
