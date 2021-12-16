@@ -3,7 +3,7 @@ name: Build and Push to Container Registry
 on:
   push:
     branches:
-      - Milkey-homes/main
+      - sakura-tel/main
 
 jobs:
   build-and-push:
@@ -27,4 +27,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/milkey-homes/groundpolis:latest
+          tags: ghcr.io/sakura-tel/groundpolis:latest
