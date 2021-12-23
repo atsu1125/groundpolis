@@ -168,8 +168,13 @@ if (isMobile || window.innerWidth <= 1024) {
 }
 
 //#region Set lang attr
+const [l] = lang.split('-');
 const html = document.documentElement;
-html.setAttribute('lang', lang);
+html.setAttribute('lang', l);
+const metaLang = document.createElement('meta');
+metaLang.httpEquiv = 'content-language';
+metaLang.content = l;
+html.querySelector('head')?.appendChild(metaLang);
 //#endregion
 
 //#region Fetch user
@@ -220,9 +225,9 @@ stream.init($i);
 await getAccounts();
 
 const app = createApp(await (
-	window.location.search === '?zen' ? import('@/ui/zen.vue') :
-	!$i                               ? import('@/ui/visitor.vue') :
-	ui === 'deck'                     ? import('@/ui/deck.vue') :
+	window.location.search === '?zen'     ? import('@/ui/zen.vue') :
+	!$i                                   ? import('@/ui/visitor.vue') :
+	defaultStore.state.uiMode === 'deck'  ? import('@/ui/deck.vue') :
 	import('@/ui/default.vue')
 ).then(x => x.default));
 
@@ -321,6 +326,13 @@ for (const plugin of ColdDeviceStorage.get('plugins').filter(p => p.active)) {
 }
 
 if ($i) {
+	if ($i.isDeleted) {
+		dialog({
+			type: 'warning',
+			text: i18n.locale.accountDeletionInProgress,
+		});
+	}
+
 	if ('Notification' in window) {
 		// 許可を得ていなかったらリクエスト
 		if (Notification.permission === 'default') {

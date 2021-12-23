@@ -293,7 +293,7 @@ circularReferenceFolder: "移動先のフォルダーは、移動するフォル
 hasChildFilesOrFolders: "このフォルダは空でないため、削除できません。"
 copyUrl: "URLをコピー"
 rename: "名前を変更"
-avatar: "アイコン"
+avatar: "アバター"
 banner: "バナー"
 nsfw: "閲覧注意"
 whenServerDisconnected: "サーバーとの接続が失われたとき"
@@ -885,6 +885,30 @@ legacyWebkitCompatibleModeDialogTitle: "古いバージョンのiOSを使用し�
 legacyWebkitCompatibleModeDialogText: "GroundpolisはiOS 14以前では正常に動作しません。iOS 15へのアップデートをお願いします。\nなお、互換モードを有効化することで一時的に動作するようになります。\n\n互換モードを有効化しますか？"
 makeReactionsPublic: "リアクション一覧を公開する"
 makeReactionsPublicDescription: "あなたがしたリアクション一覧を誰でも見れるようにします。"
+accountDeletionInProgress: "アカウントの削除が進行中です"
+template: "定型文"
+deleteMode: "削除モード"
+added: "追加しました。"
+useDefaultNoteVisibilityOnRenote: "リノートにデフォルトの公開範囲を適用する"
+defaultRenoteVisibility: "デフォルトの公開範囲 (リノート)"
+defaultRenoteLocalOnly: "ローカルのみ (リノート)"
+defaultRenoteRemoteFollowersOnly: "リモートフォロワーとローカル (リノート)"
+
+_template:
+  edit: "定型文を編集…"
+  insert: "定型文を挿入"
+  desc: "定型文を使うと、素早くノートを作成できます。よく使う言葉を登録しておきましょう。"
+  nothing: "まだ定型文はありません。"
+  label: "ラベル"
+  labelDesc: "ラベルは定型文に付ける短い名前です。このラベルは入力補完機能に使われるので、半角英数字のみを使うことをおすすめします。"
+  body: "本文"
+  info: "投稿フォームなどで「.」と入力すると、作成した定型文をすぐに挿入できます。"
+  registerAs: "定型文として登録"
+  inputLabel: "ラベルを入力してください"
+  data: "定型文データ"
+  overwriteMode: "上書きモード"
+  overwriteModeDesc: "オンにすると、既存の定型文を全て削除した上で読み込みます。"
+  exportDesc: "このデータをインポート時に貼り付けます。"
 
 _plugin:
   install: "プラグインのインストール"
@@ -1943,3 +1967,7 @@ _deck:
     list: "リスト"
     mentions: "あなた宛て"
     direct: "ダイレクト"
+
+_ui:
+  basic: "ベーシック UI"
+  deck: "デッキ UI"

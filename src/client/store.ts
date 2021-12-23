@@ -5,6 +5,11 @@ import { Theme } from './scripts/theme';
 import { Rgba } from './scripts/rgba';
 import { NoteVisibility } from '../types';
 
+export type Template = {
+	label: string;
+	body: string;
+};
+
 export const postFormActions = [];
 export const userActions = [];
 export const noteActions = [];
@@ -320,6 +325,36 @@ export const defaultStore = markRaw(new Storage('base', {
 
 	tryNewPostForm: {
 		where: 'device',
+		default: false
+	},
+
+	uiMode: {
+		where: 'deviceAccount',
+		default: 'basic' as 'basic' | 'deck',
+	},
+
+	templates: {
+		where: 'deviceAccount',
+		default: [] as Template[],
+	},
+
+	useDefaultNoteVisibilityOnRenote: {
+		where: 'account',
+		default: false
+	},
+
+	defaultRenoteVisibility: {
+		where: 'account',
+		default: 'public' as NoteVisibility
+	},
+
+	defaultRenoteLocalOnly: {
+		where: 'account',
+		default: false
+	},
+
+	defaultRenoteRemoteFollowersOnly: {
+		where: 'account',
 		default: false
 	},
 

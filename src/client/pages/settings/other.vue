@@ -39,15 +39,13 @@
 
 	<FormGroup>
 		<template #label>{{ $ts.dangerousSettings }}</template>
-		<FormButton danger @click="discardPostFormDraft"><Fa :icon="faTrashAlt"/> {{ $ts.discardPostFormDraft }}</FormButton>
+		<FormButton danger @click="discardPostFormDraft"><Fa :icon="faTrashAlt" class="_mr-1"/> {{ $ts.discardPostFormDraft }}</FormButton>
 		<template #caption>{{ $ts.discardPostFormDraftDescription }}</template>
 	</FormGroup>
 
 	<FormGroup>
-		<FormButton @click="closeAccount" danger disabled>{{ $ts.closeAccount }}</FormButton>
-		<template #caption>{{ $ts.closeAccountDisabledReason }}</template>
+		<FormButton @click="closeAccount" danger>{{ $ts.closeAccount }}</FormButton>
 	</FormGroup>
-
 </FormBase>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-<MkModal ref="modal" :src="src" @click="$refs.modal.close()" @closed="$emit('closed')">
+<MkModal ref="modal" :src="src" @click="$refs.modal.close()" @closed="$emit('closed')" transparent>
 	<div class="omfetrab _popup" :class="['w' + width, 'h' + height, { big }]">
 		<input ref="search" class="search" :class="{ filled: q != null && q != '' }" v-model.trim="q" :placeholder="$ts.search" @paste.stop="paste" @keyup.enter="done()">
 		<div class="emojis" ref="emojis">
@@ -346,11 +346,11 @@ export default defineComponent({
 			this.$refs.modal.close();
 
 			// 最近使った絵文字更新
-			if (!this.pinned.includes(key)) {
+			if (!this.pinned.includes(key) || this.$store.reactiveState.emojiPickerHidePinnedEmojis.value) {
 				let recents = this.$store.state.recentlyUsedEmojis;
 				recents = recents.filter((e: any) => e !== key);
 				recents.unshift(key);
-				this.$store.set('recentlyUsedEmojis', recents.splice(0, 16));
+				this.$store.set('recentlyUsedEmojis', recents.splice(0, 35));
 			}
 		},
 

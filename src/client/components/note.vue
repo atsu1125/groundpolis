@@ -127,7 +127,7 @@
 
 <script lang="ts">
 import { defineAsyncComponent, defineComponent, markRaw } from 'vue';
-import { faSatelliteDish, faFireAlt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faHome, faLock, faEnvelope, faThumbtack, faBan, faQuoteLeft, faQuoteRight, faHeart as faHeartS, faEllipsisV, faUsers, faHeartbeat, faPlug, faExclamationCircle, faAlignLeft, faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import { faSatelliteDish, faFireAlt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faHome, faLock, faEnvelope, faThumbtack, faBan, faQuoteLeft, faQuoteRight, faHeart as faHeartS, faEllipsisV, faUsers, faHeartbeat, faPlug, faExclamationCircle, faAlignLeft, faPaperclip, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import { faCopy, faTrashAlt, faEdit, faEye, faEyeSlash, faMehRollingEyes, faClock, faHeart as faHeartR } from '@fortawesome/free-regular-svg-icons';
 import * as mfm from 'mfm-js';
 import { sum } from '../../prelude/array';
@@ -519,8 +519,23 @@ export default defineComponent({
 				})).canceled;
 				if (canceled) return;
 
+				const visibility = this.$store.state.useDefaultNoteVisibilityOnRenote ? (
+					this.$store.state.rememberNoteVisibility ? this.$store.state.visibility : this.$store.state.defaultNoteVisibility
+				) : this.$store.state.defaultRenoteVisibility;
+
+				const localOnly = this.$store.state.useDefaultNoteVisibilityOnRenote ? (
+					this.$store.state.rememberNoteVisibility ? this.$store.state.localOnly : this.$store.state.defaultNoteLocalOnly
+				) : this.$store.state.defaultRenoteLocalOnly;
+
+				const remoteFollowersOnly = this.$store.state.useDefaultNoteVisibilityOnRenote ? (
+					this.$store.state.rememberNoteVisibility ? this.$store.state.remoteFollowersOnly : this.$store.state.defaultNoteRemoteFollowersOnly
+				) : this.$store.state.defaultRenoteRemoteFollowersOnly;
+
 				await os.api('notes/create', {
-					renoteId: this.appearNote.id
+					renoteId: this.appearNote.id,
+					visibility,
+					localOnly,
+					remoteFollowersOnly,
 				});
 			};
 			const quote = () => {
@@ -762,6 +777,12 @@ export default defineComponent({
 					}]
 					: []
 				),
+				...(this.appearNote.text ? [{
+						icon: faClipboardList,
+						text: this.$ts._template.registerAs,
+						action: this.registerAsTemplate,
+					}] : []
+				),
 				...(this.appearNote.userId != this.$i.id ? [
 					null,
 					{
@@ -972,6 +993,33 @@ export default defineComponent({
 			const u = this.appearNote.uri || this.appearNote.url || `${url}/notes/${this.appearNote.id}`;
 			const text = this.appearNote.text + (rule === 3 ? '\n\n' + u : '');
 			os.createNoteInstantly(text, this.appearNote.cw, this.appearNote.visibility);
+		},
+
+		async registerAsTemplate() {
+			if (!this.appearNote.text) return;
+
+			os.dialog({
+				title: this.$ts._template.inputLabel,
+				text: this.$ts._template.labelDesc,
+				input:  {
+					default: '',
+				},
+				autoComplete: true
+			}).then(({ canceled, result }) => {
+				if (canceled) return;
+				if (!result) return;
+				this.$store.set('templates', [
+					...this.$store.state.templates,
+					{
+						label: result,
+						body: this.appearNote.text,
+					}
+				]);
+				os.dialog({
+					type: 'success',
+					text: this.$ts.added,
+				});
+			});
 		},
 
 		focus() {
