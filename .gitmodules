@@ -1,6 +1,3 @@
 [submodule "misskey-assets"]
 	path = misskey-assets
 	url = https://github.com/misskey-dev/assets.git
-[submodule "src/client/assets/Koruri"]
-	path = src/client/assets/Koruri
-	url = https://github.com/remitocat/Koruri.git
