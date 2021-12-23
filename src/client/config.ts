@@ -17,4 +17,4 @@ export const legacyWebkitCompatibleMode = localStorage.getItem('legacyWebkitComp
 
 // フォーク先を指す場合はここを書き換える
 // ただし、GitHubリポジトリであることを前提としているので注意
-export const repositoryName = 'Groundpolis/Groundpolis';
+export const repositoryName = 'sakura-tel/groundpolis';
