@@ -1,12 +1,24 @@
 <template>
 <form class="mk-signup" @submit.prevent="onSubmit" :autocomplete="Math.random()">
 	<template v-if="meta">
+<<<<<<< HEAD
 		<MkInput v-if="meta.disableRegistration" v-model:value="invitationCode" type="text" :autocomplete="Math.random()" spellcheck="false" required>
 			<span>{{ $ts.invitationCode }}</span>
 			<template #prefix><Fa :icon="faKey"/></template>
 		</MkInput>
 		<MkInput v-model:value="username" type="text" pattern="^[a-zA-Z0-9_]{1,20}$" :autocomplete="Math.random()" spellcheck="false" required @update:value="onChangeUsername">
 			<span>{{ $ts.username }}</span>
+=======
+		<div class="info">
+			{{ $t('signupInfo') }}
+		</div>
+		<mk-input v-if="meta.disableRegistration" v-model="invitationCode" type="text" :autocomplete="Math.random()" spellcheck="false" required>
+			<span>{{ $t('invitationCode') }}</span>
+			<template #prefix><fa :icon="faKey"/></template>
+		</mk-input>
+		<mk-input v-model="username" type="text" pattern="^[a-zA-Z0-9_]{1,20}$" :autocomplete="Math.random()" spellcheck="false" required @input="onChangeUsername">
+			<span>{{ $t('username') }}</span>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			<template #prefix>@</template>
 			<template #suffix>@{{ host }}</template>
 			<template #desc>
@@ -87,8 +99,11 @@ export default defineComponent({
 		}
 	},
 
+<<<<<<< HEAD
 	emits: ['signup'],
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	data() {
 		return {
 			host: toUnicode(host),

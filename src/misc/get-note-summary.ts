@@ -25,6 +25,7 @@ export const getNoteSummary = (note: any, locale: any): string => {
 		summary += ` (${locale['withNFiles'].replace('{n}', note.files.length)})`;
 	}
 
+<<<<<<< HEAD
 	// 投票が添付されているとき
 	if (note.poll) {
 		summary += ` (${locale['poll']})`;
@@ -48,5 +49,7 @@ export const getNoteSummary = (note: any, locale: any): string => {
 		}
 	}
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	return summary.trim();
 };

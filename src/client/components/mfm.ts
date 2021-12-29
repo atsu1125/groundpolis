@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { VNode, defineComponent, h } from 'vue';
 import * as mfm from 'mfm-js';
 import MkUrl from '@/components/global/url.vue';
@@ -13,6 +14,20 @@ import { host } from '@/config';
 import { mfmFunctions, MfmFunctionStyleProp } from './mfm.functions';
 
 export default defineComponent({
+=======
+import Vue, { VNode } from 'vue';
+import { MfmForest } from '../../mfm/prelude';
+import { parse, parsePlain } from '../../mfm/parse';
+import MkUrl from './url.vue';
+import MkLink from './link.vue';
+import { concat } from '../../prelude/array';
+import MkFormula from './formula.vue';
+import MkMention from './mention.vue';
+import MkCode from './code.vue';
+import MkGoogle from './google.vue';
+
+export default Vue.component('misskey-flavored-markdown', {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	props: {
 		text: {
 			type: String,
@@ -55,11 +70,18 @@ export default defineComponent({
 
 					if (!this.plain) {
 						const x = text.split('\n')
+<<<<<<< HEAD
 							.map(t => t == '' ? [h('br')] : [h('span', t), h('br')]);
 						x[x.length - 1].pop();
 						return x.flatMap(_ => _);
 					} else {
 						return [h('span', text.replace(/\n/g, ' '))];
+=======
+							.map(t => t == '' ? [createElement('br')] : [createElement('span', t), createElement('br')]);						x[x.length - 1].pop();
+						return x;
+					} else {
+						return [createElement('span', text.replace(/\n/g, ' '))];
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					}
 				}
 
@@ -146,8 +168,14 @@ export default defineComponent({
 				case 'mention': {
 					return [h(MkMention, {
 						key: Math.random(),
+<<<<<<< HEAD
 						host: (token.props.host == null && this.author && this.author.host != null ? this.author.host : token.props.host) || host,
 						username: token.props.username
+=======
+						props: {
+							noteId: token.node.props.noteId
+						}
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					})];
 				}
 

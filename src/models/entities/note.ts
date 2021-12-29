@@ -181,6 +181,7 @@ export class Note {
 	})
 	public hasPoll: boolean;
 
+<<<<<<< HEAD
 	@Index()
 	@Column({
 		...id(),
@@ -194,6 +195,12 @@ export class Note {
 	})
 	@JoinColumn()
 	public channel: Channel | null;
+=======
+	@Column('boolean', {
+		default: false
+	})
+	public isAnnouncement: boolean;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	//#region Denormalized fields
 	@Index()

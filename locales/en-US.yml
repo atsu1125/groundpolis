@@ -1,25 +1,31 @@
 ---
 _lang_: "English"
+<<<<<<< HEAD
 headlineMisskey: "Network connected by notes"
 introMisskey: "Welcome! Groundpolis is an open source, decentralized microblogging service.\nCreate \"notes\" to share what is happening now, or to share it with everyone around you. 📡\nWith \"reactions\", you can also quickly express your feelings about everyone's notes. 👍\nLet's explore a new world! 🚀"
+=======
+introMisskey: "Welcome! Hitorisskey is a distributed micro-blogging service that specializes in \"soliloquy\".\n Create a \"note\" and write a soliloquy that no one else can tell you 📡\nThe note doesn't contain your personal information, so you can focus on your soliloquy with peace of mind ☺️\nYou can also react to everyone's notes with the \"reaction\" feature 👍 \nYour haven is here 😘"
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 monthAndDay: "{month}/{day}"
-search: "Search"
-notifications: "Notifications"
 username: "Username"
 password: "Password"
-fetchingAsApObject: "Fetching from Fediverse..."
 ok: "OK"
 gotIt: "Got it!"
 cancel: "Cancel"
 enterUsername: "Enter username"
-renotedBy: "Renoted by {user}"
 noNotes: "No notes"
+<<<<<<< HEAD
 noNotifications: "There are no notifications yet. When you get a response to your note, or someone follows you, etc, you will receive notifications and they will displayed here."
 instance: "Instance"
 settings: "Settings"
 basicSettings: "Basic Settings"
 otherSettings: "Other Settings"
 openInWindow: "Open in window"
+=======
+instance: "Instance"
+settings: "Settings"
+customize: "Customize"
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 profile: "Profile"
 timeline: "Timeline"
 noAccountDescription: "This user has not written their bio yet."
@@ -31,6 +37,7 @@ uploading: "Uploading"
 save: "Save"
 users: "Users"
 addUser: "Add a user"
+<<<<<<< HEAD
 favorite: "Favorite"
 favorites: "Favorites"
 unfavorite: "Unfavorite"
@@ -41,9 +48,11 @@ pin: "Pin to profile"
 unpin: "Unpin from profile"
 copyContent: "Copy contents"
 copyLink: "Copy link"
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 delete: "Delete"
 deleteAndEdit: "Delete and Edit"
-deleteAndEditConfirm: "Are you sure you want to delete this note and edit it? You will lose all reactions, renotes and replies to it."
+deleteAndEditConfirm: "Are you sure you want to delete this note and edit it? You will lose all reactions to it."
 addToList: "Add to list"
 sendMessage: "Send a message"
 copyUsername: "Copy username"
@@ -383,7 +392,16 @@ exploreFediverse: "Explore Fediverse"
 popularTags: "Trending Tags"
 userList: "Lists"
 about: "About"
+<<<<<<< HEAD
 aboutMisskey: "About Groundpolis"
+=======
+aboutMisskey: "About Hitorisskey"
+aboutMisskeyText: "Hitorisskey is an open-source software forked from Misskey by syuilo and developed by Xeltica since 2020."
+misskeySource: "Source code is available here:"
+misskeyDonate: "Help us to keep improving the software by donating here:"
+morePatrons: "We really appreciate the support of many other helpers not listed here. Thank you! 🥰"
+patrons: "Backers"
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 administrator: "Admin"
 token: "Token"
 twoStepAuthentication: "Two-factor authentication"
@@ -582,6 +600,7 @@ enableInfiniteScroll: "Enable infinite scrolling"
 visibility: "Visiblility"
 poll: "Poll"
 useCw: "Hide content"
+<<<<<<< HEAD
 paint: "Paint"
 usePressure: "Pressure Sensitivity"
 usePressureDescription: "When pressure sensing is enabled, the thickness of the pen changes according to the pressure of the brush when using a compatible device, such as the Apple Pencil."
@@ -1099,6 +1118,23 @@ _wordMute:
   soft: "Soft"
   hard: "Hard"
   mutedNotes: "Muted notes"
+=======
+exploreEveryone: "Explore notes by everyone"
+reportedNotes: "Reported Notes"
+report: "Report"
+reporter: "Reporter"
+enterTheReasonToReportThisNote: 'Enter the reason to report this note'
+reason: 'Reason'
+thisNoteIsDeleted: 'This note has been deleted'
+signupInfo: 'Your entered informations are only needed to login, and they will not be disclosed to any users other than moderators.'
+thisIsAnnouncement: 'Official note by the moderator'
+officialNote: 'Official Note'
+makeNotePrivate: 'Make this note private'
+copyContent: 'Copy the content'
+copyLink: 'Copy the link'
+makeResponse: 'Make a response'
+
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 _theme:
   explore: "Explore Themes"
   install: "Install theme"
@@ -1221,6 +1257,7 @@ _time:
   hour: "h"
   day: "d"
 _tutorial:
+<<<<<<< HEAD
   title: "How to use Groundpolis"
   step1_1: "Welcome!"
   step1_2: 'This page is called "timeline". It shows chronologically ordered "notes" of people who you "follow".'
@@ -1243,6 +1280,25 @@ _tutorial:
   step7_1: "Congratulations! You have now finished Groundpolis's basic tutorial."
   step7_2: "If you would like to learn more about Groundpolis, try the {help} section."
   step7_3: "Good luck and have fun! 🚀"
+=======
+  title: "How to use Hitorisskey"
+  step1_1: "Welcome!"
+  step1_2: "This page is called \"timeline\". Your \"notes\" will be displayed."
+  step1_3: "Your timeline is currently empty, since you have not posted any notes or followed anyone yet."
+  step2_1: "Try and post some notes first. Navigate the submission form just below this."
+  step2_2: "Once you have written your content, you can submit it by pressing the button at the top right of the form."
+  step3_1: "Finished posting your first note?"
+  step3_2: "If your notes show up in the timeline, you've succeeded."
+  step4_1: "Next, let's take a look at the notes of people who have come here just like you."
+  step4_2: "Tap the ^ at the top of the screen to open the menu."
+  step4_3: "Please select \"Everyone's notes\" from the menu."
+  step5_1: "Now you will be able to see other users' notes on your timeline."
+  step5_2: "You can also put \"reactions\" on other people's notes to quickly respond."
+  step5_3: "To attach a \"reaction\", press the \"+\" mark on another user's note and choose an emoji you'd like to react with."
+  step6_1: "Congratulations! You have now finished Hitorisskey's basic tutorial."
+  step6_2: "If you would like to learn more about Hitorisskey, try the {help} section."
+  step6_3: "Good luck and have fun! 🚀"
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 _2fa:
   alreadyRegistered: "You have already registered 2-factor authentication device."
   registerDevice: "Register a new device"
@@ -1421,6 +1477,7 @@ _instanceCharts:
   files: "Difference in # of files"
   filesTotal: "Cumulative total # of files"
 _timelines:
+<<<<<<< HEAD
   home: "Home"
   local: "Local"
   social: "Social"
@@ -1428,6 +1485,11 @@ _timelines:
   cat: "Cat"
   remoteFollowing: "Remote Following"
   followers: "Followers"
+=======
+  myself: "My notes"
+  everyone: "Everyone's notes"
+  reacted: "Notes you reacted before"
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 _rooms:
   roomOf: "{user}'s room"
   addFurniture: "Place furniture"

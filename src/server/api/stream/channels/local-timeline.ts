@@ -1,11 +1,16 @@
 import autobind from 'autobind-decorator';
+<<<<<<< HEAD
 import { isMutedUserRelated } from '../../../../misc/is-muted-user-related';
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 import Channel from '../channel';
-import { fetchMeta } from '../../../../misc/fetch-meta';
-import { Notes } from '../../../../models';
 import { PackedNote } from '../../../../models/repositories/note';
+<<<<<<< HEAD
 import { PackedUser } from '../../../../models/repositories/user';
 import { checkWordMute } from '../../../../misc/check-word-mute';
+=======
+import { Notes } from '../../../../models';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default class extends Channel {
 	public readonly chName = 'localTimeline';
@@ -14,17 +19,21 @@ export default class extends Channel {
 
 	@autobind
 	public async init(params: any) {
+<<<<<<< HEAD
 		const meta = await fetchMeta();
 		if (meta.disableLocalTimeline) {
 			if (!this.user || (!this.user.isAdmin && !this.user.isModerator)) return;
 		}
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		// Subscribe events
 		this.subscriber.on('notesStream', this.onNote);
 	}
 
 	@autobind
 	private async onNote(note: PackedNote) {
+<<<<<<< HEAD
 		if ((note.user as PackedUser).host !== null) return;
 		if (note.visibility !== 'public') return;
 		if (note.channelId != null && !this.followingChannels.has(note.channelId)) return;
@@ -58,8 +67,15 @@ export default class extends Channel {
 		// レコードが追加されるNoteでも追加されるより先にここのストリーミングの処理に到達することが起こる。
 		// そのためレコードが存在するかのチェックでは不十分なので、改めてcheckWordMuteを呼んでいる
 		if (this.userProfile && await checkWordMute(note, this.user, this.userProfile.mutedWords)) return;
+=======
+		// 流れるノートは投稿主に向けてpackしたものなので、packし直す
+		const repacked = await Notes.pack(note.id, this.user!);
 
-		this.send('note', note);
+		// パブリックでなければ送らない
+		if (repacked.visibility !== 'public') return;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
+
+		this.send('note', repacked);
 	}
 
 	@autobind

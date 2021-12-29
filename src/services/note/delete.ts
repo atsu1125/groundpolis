@@ -1,4 +1,5 @@
 import { publishNoteStream } from '../stream';
+<<<<<<< HEAD
 import renderDelete from '../../remote/activitypub/renderer/delete';
 import renderAnnounce from '../../remote/activitypub/renderer/announce';
 import renderUndo from '../../remote/activitypub/renderer/undo';
@@ -14,6 +15,14 @@ import { deliverToFollowers, deliverToUser } from '../../remote/activitypub/deli
 import { countSameRenotes } from '../../misc/count-same-renotes';
 import { deliverToRelays } from '../relay';
 import { Brackets, In } from 'typeorm';
+=======
+import { User } from '../../models/entities/user';
+import { Note } from '../../models/entities/note';
+import { Notes } from '../../models';
+import { notesChart, perUserNotesChart } from '../chart';
+import { countSameRenotes } from '../../misc/count-same-renotes';
+import { Brackets } from 'typeorm';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 /**
  * 投稿を削除します。
@@ -34,6 +43,7 @@ export default async function(user: User, note: Note, quiet = false) {
 			deletedAt: deletedAt
 		});
 
+<<<<<<< HEAD
 		//#region ローカルの投稿なら削除アクティビティを配送
 		if (Users.isLocalUser(user)) {
 			let renote: Note | undefined;
@@ -62,16 +72,11 @@ export default async function(user: User, note: Note, quiet = false) {
 		}
 		//#endregion
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		// 統計を更新
 		notesChart.update(note, false);
 		perUserNotesChart.update(user, note, false);
-
-		if (Users.isRemoteUser(user)) {
-			registerOrFetchInstanceDoc(user.host).then(i => {
-				Instances.decrement({ id: i.id }, 'notesCount', 1);
-				instanceChart.updateNote(i.host, note, false);
-			});
-		}
 	}
 
 	await Notes.delete({
@@ -79,6 +84,7 @@ export default async function(user: User, note: Note, quiet = false) {
 		userId: user.id
 	});
 }
+<<<<<<< HEAD
 
 async function findCascadingNotes(note: Note) {
 	const cascadingNotes: Note[] = [];
@@ -135,3 +141,5 @@ async function deliverToConcerned(user: ILocalUser, note: Note, content: any) {
 		deliverToUser(user, content, remoteUser);
 	}
 }
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109

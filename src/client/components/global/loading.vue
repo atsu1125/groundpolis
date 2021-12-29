@@ -1,4 +1,4 @@
-<template>
+<template functional>
 <div class="yxspomdl" :class="{ inline }">
 	<div class="ring"></div>
 </div>
@@ -8,7 +8,12 @@
 import { defineComponent } from 'vue';
 import * as os from '@/os';
 
+<<<<<<< HEAD:src/client/components/global/loading.vue
 export default defineComponent({
+=======
+export default Vue.extend({
+	name: 'MkLoading',
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109:src/client/components/loading.vue
 	props: {
 		inline: {
 			type: Boolean,

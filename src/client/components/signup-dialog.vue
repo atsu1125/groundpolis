@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <XModalWindow ref="dialog"
 	:width="366"
 	:height="500"
@@ -11,6 +12,12 @@
 		<XSignup :auto-set="autoSet" @signup="onSignup"/>
 	</div>
 </XModalWindow>
+=======
+<x-window ref="window" :width="366" :height="640" @closed="() => { $emit('closed'); destroyDom(); }">
+	<template #header>{{ $t('signup') }}</template>
+	<x-signup :auto-set="autoSet" @signup="onSignup"/>
+</x-window>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 </template>
 
 <script lang="ts">

@@ -1,23 +1,13 @@
 export const kinds = [
-	'read:account',
-	'write:account',
-	'read:blocks',
-	'write:blocks',
 	'read:drive',
 	'write:drive',
-	'read:favorites',
-	'write:favorites',
-	'read:following',
-	'write:following',
-	'read:messaging',
-	'write:messaging',
-	'read:mutes',
-	'write:mutes',
+	'write:account',
 	'write:notes',
 	'read:notifications',
 	'write:notifications',
 	'read:reactions',
 	'write:reactions',
+<<<<<<< HEAD:src/misc/api-permissions.ts
 	'write:votes',
 	'read:pages',
 	'write:pages',
@@ -27,4 +17,6 @@ export const kinds = [
 	'write:user-groups',
 	'read:channels',
 	'write:channels',
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109:src/server/api/kinds.ts
 ];

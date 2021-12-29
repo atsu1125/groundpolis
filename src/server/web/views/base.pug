@@ -8,12 +8,21 @@ html(style="--bg: #222222; --fg: white")
 
 	head
 		meta(charset='utf-8')
+<<<<<<< HEAD
 		meta(name='application-name' content='Groundpolis')
 		meta(name='referrer' content='origin')
 		meta(name='theme-color' content='#86b300')
 		meta(name='theme-color-orig' content='#86b300')
 		meta(property='og:site_name' content= instanceName || 'Groundpolis')
 		meta(name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover')
+=======
+		meta(name='application-name' content='Hitorisskey')
+		meta(name='referrer' content='origin')
+		meta(name='theme-color' content='#86b300')
+		meta(property='og:site_name' content= instanceName || 'Hitorisskey')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		meta(name='robots' content='noindex,nofollow')
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		link(rel='icon' href= icon || '/favicon.ico')
 		link(rel='apple-touch-icon' href= icon || '/apple-touch-icon.png')
 		link(rel='manifest' href='/manifest.json')
@@ -21,10 +30,14 @@ html(style="--bg: #222222; --fg: white")
 		meta(name='fe' content=fe)
 		title
 			block title
+<<<<<<< HEAD
 				= title || 'Groundpolis'
+=======
+				= title || 'Hitorisskey'
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 		block desc
-			meta(name='description' content= desc || '✨🌎✨ A federated blogging platform ✨🚀✨')
+			meta(name='description' content= desc || '✨👽✨ An anonymous microblogging platform ✨😎✨')
 
 		block meta
 

@@ -27,7 +27,10 @@ export default defineComponent({
 			return concat([
 				this.note.text ? [this.$t('_cw.chars', { count: length(this.note.text) })] : [],
 				this.note.files && this.note.files.length !== 0 ? [this.$t('_cw.files', { count: this.note.files.length }) ] : [],
+<<<<<<< HEAD
 				this.note.poll != null ? [this.$ts.poll] : []
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			] as string[][]).join(' / ');
 		},
 		isCompactMode(): boolean {

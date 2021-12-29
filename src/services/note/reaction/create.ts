@@ -1,4 +1,5 @@
 import { publishNoteStream } from '../../stream';
+<<<<<<< HEAD
 import { renderLike } from '../../../remote/activitypub/renderer/like';
 import DeliverManager from '../../../remote/activitypub/deliver-manager';
 import { renderActivity } from '../../../remote/activitypub/renderer';
@@ -7,15 +8,30 @@ import { User, IRemoteUser } from '../../../models/entities/user';
 import { Note } from '../../../models/entities/note';
 import { NoteReactions, Users, NoteWatchings, Notes, Emojis } from '../../../models';
 import { Not } from 'typeorm';
+=======
+import watch from '../watch';
+import { toDbReaction } from '../../../misc/reaction-lib';
+import { User } from '../../../models/entities/user';
+import { Note } from '../../../models/entities/note';
+import { NoteReactions, Users, Notes, UserProfiles } from '../../../models';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 import { perUserReactionsChart } from '../../chart';
 import { genId } from '../../../misc/gen-id';
-import { createNotification } from '../../create-notification';
 import deleteReaction from './delete';
 
+<<<<<<< HEAD
 export default async (user: User, note: Note, reaction?: string, isDislike = false) => {
 	const dbReaction = await toDbReaction(reaction, user.host);
 	reaction = dbReaction ? dbReaction : await getFallbackReaction();
 	const isFallback = !dbReaction;
+=======
+export default async (user: User, note: Note, reaction?: string) => {
+	if (!reaction || !['👍', '❤️', '❤', '😆', '😇', '😮', '🎉', '👏', '🍣', '🍮', '🙏', '🤯', '🥴'].includes(reaction)) {
+		reaction = '👍'
+	}
+
+	reaction = await toDbReaction(reaction);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	const exist = await NoteReactions.findOne({
 		noteId: note.id,
@@ -33,7 +49,7 @@ export default async (user: User, note: Note, reaction?: string, isDislike = fal
 	}
 
 	// Create reaction
-	const inserted = await NoteReactions.save({
+	await NoteReactions.save({
 		id: genId(),
 		createdAt: new Date(),
 		noteId: note.id,
@@ -57,53 +73,12 @@ export default async (user: User, note: Note, reaction?: string, isDislike = fal
 
 	perUserReactionsChart.update(user, note);
 
-	// カスタム絵文字リアクションだったら絵文字情報も送る
-	const decodedReaction = decodeReaction(reaction);
-
-	let emoji = await Emojis.findOne({
-		where: {
-			name: decodedReaction.name,
-			host: decodedReaction.host
-		},
-		select: ['name', 'host', 'url']
-	});
-
-	if (emoji) {
-		emoji = {
-			name: emoji.host ? `${emoji.name}@${emoji.host}` : `${emoji.name}@.`,
-			url: emoji.url
-		} as any;
-	}
-
 	publishNoteStream(note.id, 'reacted', {
-		reaction: decodedReaction.reaction,
-		emoji: emoji,
-		userId: user.id
+		reaction: reaction,
+		userId: user.id,
 	});
 
-	// リアクションされたユーザーがローカルユーザーなら通知を作成
-	if (note.userHost === null) {
-		createNotification(note.userId, 'reaction', {
-			notifierId: user.id,
-			noteId: note.id,
-			reaction: reaction
-		});
-	}
-
-	// Fetch watchers
-	NoteWatchings.find({
-		noteId: note.id,
-		userId: Not(user.id)
-	}).then(watchers => {
-		for (const watcher of watchers) {
-			createNotification(watcher.userId, 'reaction', {
-				notifierId: user.id,
-				noteId: note.id,
-				reaction: reaction
-			});
-		}
-	});
-
+<<<<<<< HEAD
 	//#region 配信
 	if (Users.isLocalUser(user) && !note.localOnly) {
 		const content = renderActivity(await renderLike(inserted, note, isFallback));
@@ -114,6 +89,13 @@ export default async (user: User, note: Note, reaction?: string, isDislike = fal
 		}
 		dm.addFollowersRecipe();
 		dm.execute();
+=======
+	const profile = await UserProfiles.findOne(user.id);
+
+	// ユーザーがローカルユーザーかつ自動ウォッチ設定がオンならばこの投稿をWatchする
+	if (Users.isLocalUser(user) && profile!.autoWatch) {
+		watch(user.id, note);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	}
 	//#endregion
 };

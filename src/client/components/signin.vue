@@ -1,5 +1,6 @@
 <template>
 <form class="eppvobhk" :class="{ signing, totpLogin }" @submit.prevent="onSubmit">
+<<<<<<< HEAD
 	<div class="auth _section">
 		<div class="avatar" :style="{ backgroundImage: user ? `url('${ user.avatarUrl }')` : null }" v-show="withAvatar"></div>
 		<div class="normal-signin" v-if="!totpLogin">
@@ -13,6 +14,32 @@
 				<template #prefix><Fa :icon="faLock"/></template>
 			</MkInput>
 			<MkButton type="submit" primary :disabled="signing" style="margin: 0 auto;">{{ signing ? $ts.loggingIn : $ts.login }}</MkButton>
+=======
+	<div class="normal-signin" v-if="!totpLogin">
+		<mk-input v-model="username" type="text" pattern="^[a-zA-Z0-9_]+$" spellcheck="false" autofocus required @input="onUsernameChange">
+			<span>{{ $t('username') }}</span>
+			<template #prefix>@</template>
+			<template #suffix>@{{ host }}</template>
+		</mk-input>
+		<mk-input v-model="password" type="password" :with-password-toggle="true" v-if="!user || user && !user.usePasswordLessLogin" required>
+			<span>{{ $t('password') }}</span>
+			<template #prefix><fa :icon="faLock"/></template>
+		</mk-input>
+		<mk-button type="submit" primary :disabled="signing" style="margin: 0 auto;">{{ signing ? $t('loggingIn') : $t('login') }}</mk-button>
+		<a class="_panel _button" style="margin: 8px auto;" v-if="meta && meta.enableTwitterIntegration" :href="`${apiUrl}/signin/twitter`"><fa :icon="faTwitter" style="margin-right: 4px;"/>{{ $t('signinWith', { x: 'Twitter' }) }}</a>
+		<a class="_panel _button" style="margin: 8px auto;" v-if="meta && meta.enableGithubIntegration" :href="`${apiUrl}/signin/github`"><fa :icon="faGithub" style="margin-right: 4px;"/>{{ $t('signinWith', { x: 'GitHub' }) }}</a>
+		<a class="_panel _button" style="margin: 8px auto;" v-if="meta && meta.enableDiscordIntegration" :href="`${apiUrl}/signin/discord`"><fa :icon="faDiscord" style="margin-right: 4px;"/>{{ $t('signinWith', { x: 'Discord' }) }}</a>
+	</div>
+	<div class="2fa-signin" v-if="totpLogin" :class="{ securityKeys: user && user.securityKeys }">
+		<div v-if="user && user.securityKeys" class="twofa-group tap-group">
+			<p>{{ $t('tapSecurityKey') }}</p>
+			<mk-button @click="queryKey" v-if="!queryingKey">
+				{{ $t('retry') }}
+			</mk-button>
+		</div>
+		<div class="or-hr" v-if="user && user.securityKeys">
+			<p class="or-msg">{{ $t('or') }}</p>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		</div>
 		<div class="2fa-signin" v-if="totpLogin" :class="{ securityKeys: user && user.securityKeys }">
 			<div v-if="user && user.securityKeys" class="twofa-group tap-group">
@@ -65,11 +92,6 @@ export default defineComponent({
 	},
 
 	props: {
-		withAvatar: {
-			type: Boolean,
-			required: false,
-			default: true
-		},
 		autoSet: {
 			type: Boolean,
 			required: false,
@@ -204,6 +226,7 @@ export default defineComponent({
 	}
 });
 </script>
+<<<<<<< HEAD
 
 <style lang="scss" scoped>
 .eppvobhk {
@@ -220,3 +243,5 @@ export default defineComponent({
 	}
 }
 </style>
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109

@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <MkA class="ldlomzub" :class="{ isMe }" :to="url" v-user-preview="canonical" v-if="url.startsWith('/')">
 	<img class="icon" :src="`/avatar/@${username}@${host}`" alt="">
 	<span class="main">
@@ -20,16 +21,24 @@ import { toUnicode } from 'punycode';
 import { host as localHost } from '@/config';
 import { wellKnownServices } from '../../well-known-services';
 import * as os from '@/os';
+=======
+<router-link class="ldlomzub" :to="'/notes/' + noteId">
+	<span class="main">
+		<span class="username">@{{ noteId }}</span>
+	</span>
+</router-link>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default defineComponent({
 	props: {
-		username: {
+		noteId: {
 			type: String,
 			required: true
-		},
-		host: {
-			type: String,
-			required: true
+<<<<<<< HEAD
 		}
 	},
 	data() {
@@ -54,15 +63,16 @@ export default defineComponent({
 				`@${this.username}@${toUnicode(this.host)}` === `@${this.$i.username}@${toUnicode(localHost)}`.toLowerCase()
 			);
 		}
+=======
+		},
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
-	methods: {
-		toUnicode
-	}
 });
 </script>
 
 <style lang="scss" scoped>
 .ldlomzub {
+<<<<<<< HEAD
 	background-color: var(--mention);
 	color: white;
 	border-radius: 999px;
@@ -99,5 +109,8 @@ export default defineComponent({
 	&:hover > .icon {
 		transform: scale(2);
 	}
+=======
+	color: var(--mention);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 }
 </style>

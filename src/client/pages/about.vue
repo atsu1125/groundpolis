@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <FormBase class="mmnnbwxb" v-if="meta">
 	<section class="_formItem about">
 		<div class="_formPanel panel" ref="about">
@@ -6,6 +7,26 @@
 				<img class="_shadow-2" v-if="meta.iconUrl" :src="meta.iconUrl" alt="" draggable="false"/>
 			</div>
 			<div class="name">{{ instanceName }}</div>
+=======
+<div class="mmnnbwxb">
+	<portal to="icon"><fa :icon="faInfoCircle"/></portal>
+	<portal to="title">{{ $t('about') }}</portal>
+
+	<section class="_card info" v-if="meta">
+		<div class="_title"><fa :icon="faInfoCircle"/> {{ $t('instanceInfo') }}</div>
+		<div class="_content" v-if="meta.description">
+			<div v-html="meta.description"></div>
+		</div>
+		<div class="_content table" v-if="meta.maintainerName || meta.maintainerEmail || meta.tosUrl">
+			<div v-if="meta.maintainerName"><b>{{ $t('administrator') }}</b><span>{{ meta.maintainerName }}</span></div>
+			<div v-if="meta.maintainerEmail"><b></b><span>{{ meta.maintainerEmail }}</span></div>
+		</div>
+		<div class="_content table" v-if="meta.tosUrl">
+			<div><b>{{ $t('tos') }}</b><a :href="meta.tosUrl">{{ meta.tosUrl }}</a></div>
+		</div>
+		<div class="_content table">
+			<div><b>Hitorisskey</b><span>v{{ version }}</span></div>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		</div>
 	</section>
 	<section class="_formItem _panel _pa-2">

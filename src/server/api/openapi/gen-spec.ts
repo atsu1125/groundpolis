@@ -11,14 +11,22 @@ export function genOpenapiSpec(lang = 'ja-JP') {
 
 		info: {
 			version: 'v1',
+<<<<<<< HEAD
 			title: 'Groundpolis API',
+=======
+			title: 'Hitorisskey API',
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			description: getDescription(lang),
 			'x-logo': { url: '/assets/api-doc.png' }
 		},
 
 		externalDocs: {
 			description: 'Repository',
+<<<<<<< HEAD
 			url: 'https://github.com/xeltica/groundpolis'
+=======
+			url: 'https://github.com/xeltica/hitorisskey'
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		servers: [{
@@ -120,7 +128,11 @@ export function genOpenapiSpec(lang = 'ja-JP') {
 			description: desc,
 			externalDocs: {
 				description: 'Source code',
+<<<<<<< HEAD
 				url: `https://github.com/xeltica/groundpolis/blob/develop/src/server/api/endpoints/${endpoint.name}.ts`
+=======
+				url: `https://github.com/xeltica/hitorisskey/blob/develop/src/server/api/endpoints/${endpoint.name}.ts`
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			},
 			...(endpoint.meta.tags ? {
 				tags: [endpoint.meta.tags[0]]

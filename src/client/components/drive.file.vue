@@ -166,7 +166,14 @@ export default defineComponent({
 
 		copyUrl() {
 			copyToClipboard(this.file.url);
+<<<<<<< HEAD
 			os.success();
+=======
+			this.$root.dialog({
+				type: 'success',
+				iconOnly: true, autoClose: true
+			});
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		addApp() {

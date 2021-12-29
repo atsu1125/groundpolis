@@ -1,5 +1,6 @@
 import { App, defineAsyncComponent } from 'vue';
 
+<<<<<<< HEAD
 export default function(app: App) {
 	app.component('MkwMemo', defineAsyncComponent(() => import('./memo.vue')));
 	app.component('MkwNotifications', defineAsyncComponent(() => import('./notifications.vue')));
@@ -43,3 +44,11 @@ export const widgets = [
 	'aiscript',
 	'aichan',
 ];
+=======
+Vue.component('mkw-memo', () => import('./memo.vue').then(m => m.default));
+Vue.component('mkw-calendar', () => import('./calendar.vue').then(m => m.default));
+Vue.component('mkw-rss', () => import('./rss.vue').then(m => m.default));
+Vue.component('mkw-clock', () => import('./clock.vue').then(m => m.default));
+Vue.component('mkw-activity', () => import('./activity.vue').then(m => m.default));
+Vue.component('mkw-photos', () => import('./photos.vue').then(m => m.default));
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109

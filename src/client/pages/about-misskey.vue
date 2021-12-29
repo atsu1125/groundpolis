@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <div style="overflow: hidden;">
 	<FormBase class="znqjceqz">
 		<FormGroup>
@@ -57,6 +58,26 @@
 			<template #caption><MkLink :url="`https://github.com/${repositoryName}/graphs/contributors`">{{ $ts._aboutMisskey.allContributors }}</MkLink></template>
 		</FormGroup>
 	</FormBase>
+=======
+<div class="znqjceqz">
+	<portal to="title">{{ $t('aboutMisskey') }}</portal>
+
+	<section class="_card">
+		<div class="_title">{{ $t('aboutMisskey') }}</div>
+		<div class="_content" style="text-align: center;">
+			<img src="/assets/icons/512.png" alt="" style="display: block; width: 100px; margin: 0 auto; border-radius: 16px;"/>
+			<div style="margin-top: 0.75em;">Hitorisskey</div>
+			<div style="opacity: 0.5;">v{{ version }}</div>
+		</div>
+		<div class="_content">
+			<div style="margin-bottom: 1em;">{{ $t('aboutMisskeyText') }}</div>
+			<div style="margin-top: 1em;">📦 {{ $t('misskeySource') }}</div>
+			<mk-url url="https://github.com/xeltica/hitorisskey"/>
+			<div style="margin-top: 1em;">💴 {{ $t('misskeyDonate') }}</div>
+			<mk-url url="https://www.patreon.com/syuilo"/>
+		</div>
+	</section>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 </div>
 </template>
 

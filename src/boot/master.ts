@@ -31,15 +31,24 @@ function greet() {
 		console.log(chalk.gray(v));
 		//#endregion
 
+<<<<<<< HEAD
 		console.log(' Groundpolis is an open-source decentralized microblogging platform forked from Misskey.');
+=======
+		console.log(' Hitorisskey is an open-source decentralized microblogging platform forked Misskey.');
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		console.log(chalk.keyword('orange')(' If you like Misskey, please donate to support development. https://www.patreon.com/syuilo'));
 
 		console.log('');
 		console.log(chalk`--- ${os.hostname()} {gray (PID: ${process.pid.toString()})} ---`);
 	}
 
+<<<<<<< HEAD
 	bootLogger.info('Welcome to Groundpolis!');
 	bootLogger.info(`Groundpolis v${meta.version}`, null, true);
+=======
+	bootLogger.info('Welcome to Hitorisskey!');
+	bootLogger.info(`Hitorisskey v${meta.version}`, null, true);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 }
 
 /**
@@ -83,7 +92,6 @@ export async function masterMain() {
 
 	if (!program.noDaemons) {
 		require('../daemons/server-stats').default();
-		require('../daemons/queue-stats').default();
 		require('../daemons/janitor').default();
 	}
 }

@@ -1,6 +1,9 @@
 <template>
 <div class="yohlumlk">
+<<<<<<< HEAD
 	<MkAvatar class="avatar" :user="note.user"/>
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	<div class="main">
 		<XNoteHeader class="header" :note="note" :mini="true"/>
 		<div class="body">
@@ -52,30 +55,6 @@ export default defineComponent({
 	padding: 0;
 	overflow: hidden;
 	font-size: 0.95em;
-
-	> .avatar {
-
-		@media (min-width: 350px) {
-			margin: 0 10px 0 0;
-			width: 44px;
-			height: 44px;
-		}
-
-		@media (min-width: 500px) {
-			margin: 0 12px 0 0;
-			width: 48px;
-			height: 48px;
-		}
-	}
-
-	> .avatar {
-		flex-shrink: 0;
-		display: block;
-		margin: 0 10px 0 0;
-		width: 40px;
-		height: 40px;
-		border-radius: 8px;
-	}
 
 	> .main {
 		flex: 1;

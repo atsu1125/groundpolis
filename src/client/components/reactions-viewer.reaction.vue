@@ -4,23 +4,35 @@
 	:class="{ reacted: note.myReaction == reaction, canToggle }"
 	@click="toggleReaction(reaction)"
 	v-if="count > 0"
+<<<<<<< HEAD
 	@touchstart.passive="onMouseover"
 	@mouseover="onMouseover"
 	@mouseleave="onMouseleave"
 	@touchend="onMouseleave"
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	ref="reaction"
 	v-particle="canToggle"
 >
+<<<<<<< HEAD
 	<XReactionIcon :reaction="reaction" :custom-emojis="note.emojis"/>
+=======
+	<x-reaction-icon :reaction="reaction" ref="icon"/>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	<span>{{ count }}</span>
 </button>
 </template>
 
 <script lang="ts">
+<<<<<<< HEAD
 import { defineComponent, ref } from 'vue';
 import XDetails from '@/components/reactions-viewer.details.vue';
 import XReactionIcon from '@/components/reaction-icon.vue';
 import * as os from '@/os';
+=======
+import Vue from 'vue';
+import XReactionIcon from './reaction-icon.vue';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default defineComponent({
 	components: {
@@ -63,7 +75,10 @@ export default defineComponent({
 	watch: {
 		count(newCount, oldCount) {
 			if (oldCount < newCount) this.anime();
+<<<<<<< HEAD
 			if (this.close != null) this.openDetails();
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 	},
 	mounted() {
@@ -92,6 +107,7 @@ export default defineComponent({
 				});
 			}
 		},
+<<<<<<< HEAD
 		onMouseover() {
 			if (this.preview) return;
 			if (this.isHovering) return;
@@ -139,6 +155,8 @@ export default defineComponent({
 				this.close = null;
 			}
 		},
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		anime() {
 			if (document.hidden) return;
 

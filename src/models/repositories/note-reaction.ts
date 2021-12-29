@@ -1,6 +1,9 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { NoteReaction } from '../entities/note-reaction';
+<<<<<<< HEAD
 import { Notes, Users } from '..';
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 import { ensure } from '../../prelude/ensure';
 import { SchemaType } from '../../misc/schema';
 import { convertLegacyReaction } from '../../misc/reaction-lib';
@@ -26,7 +29,6 @@ export class NoteReactionRepository extends Repository<NoteReaction> {
 		return {
 			id: reaction.id,
 			createdAt: reaction.createdAt.toISOString(),
-			user: await Users.pack(reaction.userId, me),
 			type: convertLegacyReaction(reaction.reaction),
 			...(opts.withNote ? {
 				note: await Notes.pack(reaction.noteId, me),
@@ -51,12 +53,6 @@ export const packedNoteReactionSchema = {
 			optional: false as const, nullable: false as const,
 			format: 'date-time',
 			description: 'The date that the reaction was created.'
-		},
-		user: {
-			type: 'object' as const,
-			optional: false as const, nullable: false as const,
-			ref: 'User',
-			description: 'User who performed this reaction.'
 		},
 		type: {
 			type: 'string' as const,

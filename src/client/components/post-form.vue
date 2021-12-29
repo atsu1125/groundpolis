@@ -6,6 +6,7 @@
 	@dragleave="onDragleave"
 	@drop.stop="onDrop"
 >
+<<<<<<< HEAD
 	<header>
 		<button v-if="!fixed" class="cancel _button" @click="cancel"><Fa :icon="faTimes"/></button>
 		<div>
@@ -62,6 +63,23 @@
 			<button class="submit _buttonPrimary" :disabled="!canPost" @click="post">
 				<Fa :icon="faPaperPlane" />
 			</button>
+=======
+	<div class="form" :class="{ fixed }">
+		<input v-show="useCw" ref="cw" class="cw" v-model="cw" :placeholder="$t('annotation')" v-autocomplete="{ model: 'cw' }">
+		<textarea v-model="text" class="text" :class="{ withCw: useCw }" ref="text" :disabled="posting" :placeholder="placeholder" v-autocomplete="{ model: 'text' }" @keydown="onKeydown" @paste="onPaste"></textarea>
+		<x-post-form-attaches class="attaches" :files="files"/>
+		<x-uploader ref="uploader" @uploaded="attachMedia" @change="onChangeUploadings"/>
+		<footer>
+			<button class="_button" v-tooltip="$t('attachFile')" @click="chooseFileFrom"><fa :icon="faPhotoVideo"/></button>
+			<button class="_button" v-tooltip="$t('useCw')" @click="useCw = !useCw" :class="{ active: useCw }"><fa :icon="faEyeSlash"/></button>
+			<button class="_button" v-tooltip="$t('emoji')" @click="insertEmoji"><fa :icon="faLaughSquint"/></button>
+			<button class="_button" v-tooltip="$t('officialNote')" v-if="$store.state.i.isAdmin || $store.state.i.isModerator" @click="announcement = !announcement" :class="{ active: announcement }"><fa :icon="faBullhorn"/></button>
+			<button class="_button" v-tooltip="$t('makeNotePrivate')" @click="setVisibility" :class="{ active: isPrivate }"><fa :icon="isPrivate ? faLock : faUnlock"/></button>
+			<div class="right">
+				<span class="text-count" :class="{ over: trimmedLength(text) > max }">{{ max - trimmedLength(text) }}</span>
+				<button class="submit _buttonPrimary" :disabled="!canPost" @click="post"><fa :icon="faPaperPlane"/></button>
+			</div>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		</footer>
 		<MkSwitch v-if="requiredConfirmation" v-model:value="confirmed" class="confirm-switch">
 			{{ $ts.confirmBeforePostLabel }}
@@ -75,6 +93,7 @@
 </template>
 
 <script lang="ts">
+<<<<<<< HEAD
 import { defineComponent, defineAsyncComponent } from 'vue';
 import { faReply, faQuoteRight, faPaperPlane, faTimes, faUpload, faPollH, faGlobe, faHome, faUnlock, faEnvelope, faPlus, faPhotoVideo, faCloud, faLink, faAt, faHeart, faUsers, faFish, faHeartbeat, faQuestionCircle, faBullhorn, faPlug, faChevronDown, faEllipsisV, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import { faEyeSlash, faLaughSquint } from '@fortawesome/free-regular-svg-icons';
@@ -104,11 +123,28 @@ export default defineComponent({
 		XPostFormAttaches: defineAsyncComponent(() => import('./post-form-attaches.vue')),
 		XPollEditor: defineAsyncComponent(() => import('./poll-editor.vue')),
 		VisibilityIcon,
+=======
+import Vue from 'vue';
+import { faPaperPlane, faUpload, faUnlock, faPhotoVideo, faCloud, faBullhorn, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faEyeSlash, faLaughSquint } from '@fortawesome/free-regular-svg-icons';
+import insertTextAtCursor from 'insert-text-at-cursor';
+import { length } from 'stringz';
+import { parse } from '../../mfm/parse';
+import { unique } from '../../prelude/array';
+import { formatTimeString } from '../../misc/format-time-string';
+import { selectDriveFile } from '../scripts/select-drive-file';
+
+export default Vue.extend({
+	components: {
+		XUploader: () => import('./uploader.vue').then(m => m.default),
+		XPostFormAttaches: () => import('./post-form-attaches.vue').then(m => m.default),
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 
 	inject: ['modal'],
 
 	props: {
+<<<<<<< HEAD
 		reply: {
 			type: Object,
 			required: false
@@ -129,6 +165,8 @@ export default defineComponent({
 			type: Object,
 			required: false
 		},
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		initialText: {
 			type: String,
 			required: false
@@ -161,6 +199,7 @@ export default defineComponent({
 			posting: false,
 			text: '',
 			files: [],
+<<<<<<< HEAD
 			poll: null,
 			useCw: false,
 			cw: null,
@@ -183,10 +222,22 @@ export default defineComponent({
 			confirmed: false,
 			requiredConfirmation: this.$store.state.confirmBeforePost,
 			faReply, faQuoteRight, faPaperPlane, faTimes, faUpload, faPollH, faGlobe, faHome, faUnlock, faEnvelope, faEyeSlash, faLaughSquint, faPlus, faPhotoVideo, faCloud, faLink, faAt, faHeart, faUsers, faFish, faHeartbeat, faQuestionCircle, faBullhorn, faPlug, faChevronDown, faEllipsisV, faClipboardList,
+=======
+			uploadings: [],
+			useCw: false,
+			cw: null,
+			isPrivate: false,
+			announcement: false,
+			autocomplete: null,
+			draghover: false,
+			recentHashtags: JSON.parse(localStorage.getItem('hashtags') || '[]'),
+			faPaperPlane, faUpload, faUnlock, faEyeSlash, faLaughSquint, faPhotoVideo, faCloud, faBullhorn, faLock
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		};
 	},
 
 	computed: {
+<<<<<<< HEAD
 		draftKey(): string {
 			let key = this.channel ? `channel:${this.channel.id}` : '';
 
@@ -231,20 +282,48 @@ export default defineComponent({
 
 		textLength(): number {
 			return length((this.text + this.imeText).trim());
+=======
+		draftId(): string {
+			return 'note';
+		},
+
+		placeholder() {
+			const xs = [
+				this.$t('_postForm._placeholders.a'),
+				this.$t('_postForm._placeholders.b'),
+				this.$t('_postForm._placeholders.c'),
+				this.$t('_postForm._placeholders.d'),
+				this.$t('_postForm._placeholders.e'),
+				this.$t('_postForm._placeholders.f')
+			];
+			const x = xs[Math.floor(Math.random() * xs.length)];
+
+			return x;
+		},
+
+		submitText() {
+			return this.$t('note');
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		canPost(): boolean {
 			return !this.posting &&
+<<<<<<< HEAD
 				(!this.requiredConfirmation || this.confirmed) &&
 				(1 <= this.textLength || 1 <= this.files.length || !!this.poll || !!this.quote) &&
 				(this.textLength <= this.max) &&
 				(!this.poll || this.poll.choices.length >= 2);
+=======
+				(1 <= this.text.length || 1 <= this.files.length) &&
+				(length(this.text.trim()) <= this.max);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		max(): number {
 			return this.$instance ? this.$instance.maxNoteTextLength : 1000;
 		},
 
+<<<<<<< HEAD
 		previewNote() {
 			return {
 				id: '',
@@ -266,6 +345,8 @@ export default defineComponent({
 		},
 	},
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	mounted() {
 		this.currentAccount = this.$i;
 		os.getAccounts().then(accts => {
@@ -279,6 +360,7 @@ export default defineComponent({
 			this.text = this.initialText;
 		}
 
+<<<<<<< HEAD
 		if (this.mention) {
 			this.text = this.mention.host ? `@${this.mention.username}@${toASCII(this.mention.host)}` : `@${this.mention.username}`;
 			this.text += ' ';
@@ -347,6 +429,13 @@ export default defineComponent({
 		}
 
 		if (this.autofocus) {
+=======
+		this.focus();
+
+		this.isPrivate = this.$store.state.deviceUser.visibility === 'followers';
+
+		this.$nextTick(() => {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			this.focus();
 
 			this.$nextTick(() => {
@@ -360,12 +449,18 @@ export default defineComponent({
 
 		this.$nextTick(() => {
 			// 書きかけの投稿を復元
+<<<<<<< HEAD
 			if (!this.instant && !this.mention && !this.specified) {
 				const draft = JSON.parse(localStorage.getItem('drafts') || '{}')[this.draftKey];
+=======
+			if (!this.instant) {
+				const draft = JSON.parse(localStorage.getItem('drafts') || '{}')[this.draftId];
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				if (draft) {
 					this.text = draft.data.text;
 					this.useCw = draft.data.useCw;
 					this.cw = draft.data.cw;
+<<<<<<< HEAD
 					this.useBroadcast = draft.data.useBroadcast;
 					this.broadcastText = draft.data.broadcastText;
 					this.visibility = draft.data.visibility;
@@ -377,6 +472,9 @@ export default defineComponent({
 					if (draft.data.poll) {
 						this.poll = draft.data.poll;
 					}
+=======
+					this.files = (draft.data.files || []).filter(e => e);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				}
 			}
 
@@ -386,7 +484,10 @@ export default defineComponent({
 				this.text = init.text ? init.text : '';
 				this.files = init.files;
 				this.cw = init.cw;
+				this.isPrivate = init.visibility === 'followers';
+				this.announcement = init.announcement;
 				this.useCw = init.cw != null;
+<<<<<<< HEAD
 				if (init.poll) {
 					this.poll = {
 						choices: init.poll.choices.map(x => x.text),
@@ -409,6 +510,8 @@ export default defineComponent({
 				} else {
 					this.saveDraft();
 				}
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			}
 
 			this.$nextTick(() => this.watch());
@@ -417,6 +520,7 @@ export default defineComponent({
 
 	methods: {
 		watch() {
+<<<<<<< HEAD
 			this.$watch('text', this.saveDraft);
 			this.$watch('quote', this.saveDraft);
 			this.$watch('useCw', this.saveDraft);
@@ -429,6 +533,18 @@ export default defineComponent({
 			this.$watch('visibleUsers', this.saveDraft);
 			this.$watch('localOnly', this.saveDraft);
 			this.$watch('remoteFollowersOnly', this.saveDraft);
+=======
+			this.$watch('text', () => this.saveDraft());
+			this.$watch('useCw', () => this.saveDraft());
+			this.$watch('cw', () => this.saveDraft());
+			this.$watch('files', () => this.saveDraft());
+		},
+		
+		setVisibility() {
+			this.isPrivate = !this.isPrivate;
+			this.$store.commit('deviceUser/setVisibility', this.isPrivate ? 'followers' : 'public');
+			this.$root.soundDirect(this.isPrivate ? 'lock' : 'unlock');
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		togglePoll() {
@@ -453,7 +569,33 @@ export default defineComponent({
 		},
 
 		chooseFileFrom(ev) {
+<<<<<<< HEAD
 			selectFile(ev.currentTarget || ev.target, this.$ts.attachFile, true).then(files => {
+=======
+			this.$root.menu({
+				items: [{
+					type: 'label',
+					text: this.$t('attachFile'),
+				}, {
+					text: this.$t('upload'),
+					icon: faUpload,
+					action: () => { this.chooseFileFromPc() }
+				}, {
+					text: this.$t('fromDrive'),
+					icon: faCloud,
+					action: () => { this.chooseFileFromDrive() }
+				}],
+				source: ev.currentTarget || ev.target
+			});
+		},
+
+		chooseFileFromPc() {
+			(this.$refs.file as any).click();
+		},
+
+		chooseFileFromDrive() {
+			selectDriveFile(this.$root, true).then(files => {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				for (const file of files) {
 					this.files.push(file);
 				}
@@ -482,6 +624,7 @@ export default defineComponent({
 			});
 		},
 
+<<<<<<< HEAD
 		onPollUpdate(poll) {
 			this.poll = poll;
 			this.saveDraft();
@@ -543,6 +686,11 @@ export default defineComponent({
 		help() {
 			this.cancel();
 			this.$router.push('/docs/post')
+=======
+		clear() {
+			this.text = '';
+			this.files = [];
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		onKeydown(e: KeyboardEvent) {
@@ -569,6 +717,7 @@ export default defineComponent({
 					this.upload(file, formatted);
 				}
 			}
+<<<<<<< HEAD
 
 			const paste = e.clipboardData.getData('text');
 
@@ -598,6 +747,8 @@ export default defineComponent({
 					});
 				});
 			}
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		onDragover(e) {
@@ -657,6 +808,7 @@ export default defineComponent({
 					text: this.text,
 					useCw: this.useCw,
 					cw: this.cw,
+<<<<<<< HEAD
 					useBroadcast: this.useBroadcast,
 					broadcastText: this.broadcastText,
 					visibility: this.visibility,
@@ -666,6 +818,9 @@ export default defineComponent({
 					files: this.files,
 					quote: this.quote,
 					poll: this.poll
+=======
+					files: this.files,
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				}
 			};
 
@@ -699,6 +854,7 @@ export default defineComponent({
 			let data = {
 				text: this.text == '' ? undefined : this.text + (this.useBroadcast ? ' ' + this.broadcastText : ''),
 				fileIds: this.files.length > 0 ? this.files.map(f => f.id) : undefined,
+<<<<<<< HEAD
 				replyId: this.reply ? this.reply.id : undefined,
 				renoteId: this.quote ? this.quote.id : this.renote ? this.renote.id : undefined,
 				channelId: this.channel ? this.channel.id : undefined,
@@ -724,6 +880,12 @@ export default defineComponent({
 			this.posting = true;
 			
 			os.api('notes/create', data, token).then(() => {
+=======
+				announcement: this.announcement,
+				visibility: this.isPrivate ? 'followers' : 'public',
+				cw: this.useCw ? this.cw || '' : undefined,
+			}).then(data => {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				this.clear();
 				this.$nextTick(() => {
 					this.deleteDraft();
@@ -737,10 +899,14 @@ export default defineComponent({
 				});
 			}).catch(err => {
 				this.posting = false;
+<<<<<<< HEAD
 				os.dialog({
 					type: 'error',
 					text: err.message + '\n' + (err as any).id,
 				});
+=======
+				this.announcement = false;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			});
 		},
 
@@ -748,6 +914,7 @@ export default defineComponent({
 			this.$emit('cancel');
 		},
 
+<<<<<<< HEAD
 		insertFace() {
 			const faces = this.$store.state.faces;
 			this.insert(faces.length > 0 ? faces[Math.floor(Math.random() * faces.length)] : '');
@@ -759,6 +926,8 @@ export default defineComponent({
 			});
 		},
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		async insertEmoji(ev) {
 			os.pickEmoji(ev.currentTarget || ev.target).then(emoji => {
 				this.insert(emoji);
@@ -857,6 +1026,7 @@ export default defineComponent({
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
 
+<<<<<<< HEAD
 	> header {
 		z-index: 1000;
 		height: 66px;
@@ -924,6 +1094,17 @@ export default defineComponent({
 	}
 
 	> .form {
+=======
+	> .form {
+		max-width: 500px;
+		margin: 0 auto;
+		padding-top: 16px;
+
+		&.fixed {
+			max-width: unset;
+		}
+
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		> .preview {
 			padding: 0 8px 8px 8px;
 
@@ -950,6 +1131,7 @@ export default defineComponent({
 			}
 		}
 
+<<<<<<< HEAD
 		> .to-specified {
 			padding: 6px 24px;
 			margin-bottom: 8px;
@@ -979,6 +1161,8 @@ export default defineComponent({
 			}
 		}
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		> .cw,
 		> .text,
 		> .broadcastText {
@@ -1006,7 +1190,6 @@ export default defineComponent({
 		> .cw {
 			z-index: 1;
 			padding-bottom: 8px;
-			border-bottom: solid 1px var(--divider);
 		}
 
 		> .broadcastText {
@@ -1031,6 +1214,7 @@ export default defineComponent({
 		}
 
 		> footer {
+<<<<<<< HEAD
 			display: flex;
 			padding: 0 16px;
 			align-items: center;
@@ -1040,6 +1224,13 @@ export default defineComponent({
 					width: 24px;
 					height: 24px;
 				}
+=======
+			padding: 0 16px 16px 16px;
+			position: relative;
+
+			@media (max-width: 500px) {
+				padding: 0 8px 8px 8px;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			}
 
 			> button {
@@ -1064,8 +1255,17 @@ export default defineComponent({
 				}
 			}
 
+<<<<<<< HEAD
 			> .text-count {
 				margin-left: auto;
+=======
+		> .right {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			> .text-count {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				opacity: 0.7;
 				line-height: 66px;
 
@@ -1075,6 +1275,7 @@ export default defineComponent({
 			}
 
 			> .submit {
+<<<<<<< HEAD
 				padding: 0 8px;
 				font-weight: bold;
 				border-radius: 4px;
@@ -1134,6 +1335,24 @@ export default defineComponent({
 			> footer {
 				padding: 0 8px 8px 8px;
 			}
+=======
+				margin: 16px;
+				padding: 0 12px;
+				line-height: 34px;
+				font-weight: bold;
+				vertical-align: bottom;
+				border-radius: 4px;
+
+				@media (max-width: 500px) {
+					margin: 8px;
+				}
+
+				&:disabled {
+					opacity: 0.7;
+				}
+			}
+		}
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		}
 	}
 }

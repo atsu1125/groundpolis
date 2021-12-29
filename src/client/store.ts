@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { markRaw, ref } from 'vue';
 import { Storage } from './pizzax';
 import defaultFaces from './scripts/default-faces';
@@ -26,6 +27,77 @@ export const defaultStore = markRaw(new Storage('base', {
 	keepCw: {
 		where: 'account',
 		default: false
+=======
+import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
+import * as nestedProperty from 'nested-property';
+import { apiUrl } from './config';
+
+export const defaultSettings = {
+	tutorial: 0,
+	keepCw: false,
+	showFullAcct: false,
+	rememberNoteVisibility: false,
+	defaultNoteVisibility: 'public',
+	defaultNoteLocalOnly: false,
+	uploadFolder: null,
+	pastedFileName: 'yyyy-MM-dd HH-mm-ss [{{number}}]',
+	memo: null,
+	reactions: ['👍', '❤️', '😆', '🤔', '😮', '🎉', '💢', '😥', '😇', '🍮'],
+};
+
+export const defaultDeviceUserSettings = {
+	visibility: 'public',
+	localOnly: false,
+	widgets: [],
+	tl: {
+		src: 'home'
+	},
+};
+
+export const defaultDeviceSettings = {
+	lang: null,
+	loadRawImages: false,
+	alwaysShowNsfw: false,
+	useOsNativeEmojis: false,
+	autoReload: false,
+	accounts: [],
+	recentEmojis: [],
+	themes: [],
+	darkTheme: '8c539dc1-0fab-4d47-9194-39c508e9bfe1',
+	lightTheme: '4eea646f-7afa-4645-83e9-83af0333cd37',
+	darkMode: false,
+	syncDeviceDarkMode: true,
+	animation: true,
+	animatedMfm: true,
+	imageNewTab: false,
+	postFormAppear: false,
+	disablePagesScript: true,
+	enableInfiniteScroll: true,
+	sfxVolume: 0.3,
+	sfxNote: 'syuilo/down',
+	sfxNoteMy: 'syuilo/up',
+	userData: {},
+};
+
+function copy<T>(data: T): T {
+	return JSON.parse(JSON.stringify(data));
+}
+
+export default () => new Vuex.Store({
+	plugins: [createPersistedState({
+		paths: ['i', 'device', 'deviceUser', 'settings', 'instance']
+	})],
+
+	state: {
+		i: null,
+		pendingApiRequestsCount: 0,
+		spinner: null
+	},
+
+	getters: {
+		isSignedIn: state => state.i != null,
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 	showFullAcct: {
 		where: 'account',

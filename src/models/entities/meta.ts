@@ -353,14 +353,22 @@ export class Meta {
 
 	@Column('varchar', {
 		length: 512,
+<<<<<<< HEAD
 		default: 'https://github.com/xeltica/groundpolis',
+=======
+		default: 'https://github.com/xeltica/hitorisskey',
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		nullable: false
 	})
 	public repositoryUrl: string;
 
 	@Column('varchar', {
 		length: 512,
+<<<<<<< HEAD
 		default: 'https://github.com/xeltica/groundpolispolis/issues/new',
+=======
+		default: 'https://github.com/xeltica/hitorisskey/issues/new',
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		nullable: true
 	})
 	public feedbackUrl: string | null;

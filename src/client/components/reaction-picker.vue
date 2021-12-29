@@ -1,9 +1,16 @@
 <template>
+<<<<<<< HEAD
 <MkModal ref="modal" :src="src" @click="$refs.modal.close()" @closed="$emit('closed')" transparent>
 	<div class="rdfaahpb _popup" v-hotkey="keymap">
+=======
+<x-popup :source="source" ref="popup" @closed="() => { $emit('closed'); destroyDom(); }" v-hotkey.global="keymap">
+	<div class="rdfaahpb">
+		<h1>{{ $t('enterEmoji') }}</h1>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		<div class="buttons" ref="buttons" :class="{ showFocus }">
 			<button class="_button" v-for="(reaction, i) in rs" :key="reaction" @click="react(reaction)" :tabindex="i + 1" :title="reaction" v-particle><XReactionIcon :reaction="reaction"/></button>
 		</div>
+<<<<<<< HEAD
 		<footer>
 			<button class="_button command" style="vertical-align: middle;" @click="openPicker" :tabindex="rs.length + 1"><fa :icon="faLaughSquint"/></button>
 			<input class="text" ref="text" v-model.trim="text" :class="{ showDislike }" :placeholder="$ts.input" @keyup.enter="reactText" @input="tryReactText">
@@ -14,6 +21,8 @@
 				<XReactionIcon :reaction="latest"/>
 			</button>
 		</footer>
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	</div>
 </MkModal>
 </template>
@@ -57,7 +66,11 @@ export default defineComponent({
 
 	data() {
 		return {
+<<<<<<< HEAD
 			rs: this.reactions || this.$store.state.reactions,
+=======
+			rs: [ '👍', '❤️', '😆', '😇', '😮', '🎉', '👏', '🍣', '🍮', '🙏', '🤯', '🥴' ],
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			text: null,
 			focus: null,
 			latest: this.$store.state.latestReaction,
@@ -75,16 +88,6 @@ export default defineComponent({
 				'left|h|shift+tab': this.focusLeft,
 				'right|l|tab': this.focusRight,
 				'down|j': this.focusDown,
-				'1': () => this.react(this.rs[0]),
-				'2': () => this.react(this.rs[1]),
-				'3': () => this.react(this.rs[2]),
-				'4': () => this.react(this.rs[3]),
-				'5': () => this.react(this.rs[4]),
-				'6': () => this.react(this.rs[5]),
-				'7': () => this.react(this.rs[6]),
-				'8': () => this.react(this.rs[7]),
-				'9': () => this.react(this.rs[8]),
-				'0': () => this.react(this.rs[9]),
 			};
 		},
 	},
@@ -158,20 +161,37 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .rdfaahpb {
+<<<<<<< HEAD
 	--XReactionPickerButtonSize: 40px;
 		@media (max-width: 1025px) {
 			--XReactionPickerButtonSize: 48px;
 		}
 	
+=======
+	> h1 {
+		width: 172px;
+		padding: 8px 8px 0 8px;
+		font-weight: bold;
+		margin: 0;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 16px;
+		background: transparent;
+		color: var(--fg);
+		cursor: none;
+		pointer-events: none;
+	}
+
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	> .buttons {
 		padding: 6px 6px 0 6px;
-		width: 212px;
+		width: 172px;
 		box-sizing: border-box;
 		text-align: center;
 
 		@media (max-width: 1025px) {
 			padding: 8px 8px 0 8px;
-			width: 256px;
+			width: 208px;
 		}
 
 		&.showFocus {
@@ -221,6 +241,7 @@ export default defineComponent({
 		}
 	}
 
+<<<<<<< HEAD
 	button {
 		padding: 0;
 		width: var(--XReactionPickerButtonSize);
@@ -267,6 +288,23 @@ export default defineComponent({
 			&.active {
 				color: var(--accent);
 			}
+=======
+	> .text {
+		width: 172px;
+		padding: 8px;
+		margin: 0 0 6px 0;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 16px;
+		outline: none;
+		border: none;
+		background: transparent;
+		color: var(--fg);
+
+		@media (max-width: 1025px) {
+			width: 208px;
+			margin: 4px 0 8px 0;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		}
 	}
 }

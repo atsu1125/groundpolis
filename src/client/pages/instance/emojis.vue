@@ -62,6 +62,7 @@
 				</template>
 			</MkPagination>
 		</div>
+<<<<<<< HEAD
 
 		<div class="remote" v-else-if="tab === 'remote'">
 			<MkInput v-model:value="queryRemote" :debounce="true" type="search"><template #icon><Fa :icon="faSearch"/></template><span>{{ $ts.search }}</span></MkInput>
@@ -82,6 +83,19 @@
 			</MkPagination>
 		</div>
 	</div>
+=======
+		<div class="_content" v-if="selected">
+			<mk-input v-model="name"><span>{{ $t('name') }}</span></mk-input>
+			<mk-input v-model="category" :datalist="categories"><span>{{ $t('category') }}</span></mk-input>
+			<mk-input v-model="aliases"><span>{{ $t('tags') }}</span></mk-input>
+			<mk-button inline primary @click="update"><fa :icon="faSave"/> {{ $t('save') }}</mk-button>
+			<mk-button inline :disabled="selected == null" @click="del()"><fa :icon="faTrashAlt"/> {{ $t('delete') }}</mk-button>
+		</div>
+		<div class="_footer">
+			<mk-button inline primary @click="add"><fa :icon="faPlus"/> {{ $t('addEmoji') }}</mk-button>
+		</div>
+	</section>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 </div>
 </template>
 

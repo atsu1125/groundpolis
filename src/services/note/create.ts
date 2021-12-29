@@ -1,5 +1,6 @@
 import * as mfm from 'mfm-js';
 import es from '../../db/elasticsearch';
+<<<<<<< HEAD
 import { publishMainStream, publishNotesStream } from '../stream';
 import DeliverManager from '../../remote/activitypub/deliver-manager';
 import renderNote from '../../remote/activitypub/renderer/note';
@@ -17,15 +18,26 @@ import { extractCustomEmojisFromMfm } from '../../misc/extract-custom-emojis-fro
 import extractHashtags from '../../misc/extract-hashtags';
 import { Note, IMentionedRemoteUsers } from '../../models/entities/note';
 import { Mutings, Users, NoteWatchings, Notes, Instances, UserProfiles, Antennas, Followings, MutedNotes, Channels, ChannelFollowings } from '../../models';
+=======
+import { publishNotesStream } from '../stream';
+import { parse } from '../../mfm/parse';
+import config from '../../config';
+import { updateHashtags } from '../update-hashtag';
+import { concat } from '../../prelude/array';
+import extractEmojis from '../../misc/extract-emojis';
+import extractHashtags from '../../misc/extract-hashtags';
+import { Note, IMentionedRemoteUsers } from '../../models/entities/note';
+import { Users, Notes, UserProfiles } from '../../models';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 import { DriveFile } from '../../models/entities/drive-file';
 import { App } from '../../models/entities/app';
-import { Not, getConnection, In } from 'typeorm';
-import { User, ILocalUser, IRemoteUser } from '../../models/entities/user';
+import { getConnection, In } from 'typeorm';
+import { User } from '../../models/entities/user';
 import { genId } from '../../misc/gen-id';
-import { notesChart, perUserNotesChart, activeUsersChart, instanceChart } from '../chart';
+import { notesChart, perUserNotesChart, activeUsersChart } from '../chart';
 import { Poll, IPoll } from '../../models/entities/poll';
-import { createNotification } from '../create-notification';
 import { isDuplicateKeyValueError } from '../../misc/is-duplicate-key-value-error';
+<<<<<<< HEAD
 import { ensure } from '../../prelude/ensure';
 import { checkHitAntenna } from '../../misc/check-hit-antenna';
 import { checkWordMute } from '../../misc/check-word-mute';
@@ -89,6 +101,8 @@ class NotificationManager {
 		}
 	}
 }
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 type Option = {
 	createdAt?: Date | null;
@@ -111,6 +125,7 @@ type Option = {
 	uri?: string | null;
 	url?: string | null;
 	app?: App | null;
+	isAnnouncement?: boolean | null;
 };
 
 export default async (user: User, data: Option, silent = false) => new Promise<Note>(async (res, rej) => {
@@ -134,10 +149,14 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 	if (data.visibility == null) data.visibility = 'public';
 	if (data.viaMobile == null) data.viaMobile = false;
 	if (data.localOnly == null) data.localOnly = false;
+<<<<<<< HEAD
 	if (data.remoteFollowersOnly == null) data.remoteFollowersOnly = false;
 	if (data.channel != null) data.visibility = 'public';
 	if (data.channel != null) data.visibleUsers = [];
 	if (data.channel != null) data.localOnly = true;
+=======
+	if (data.isAnnouncement == null) data.isAnnouncement = false;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	// サイレンス
 	if (user.isSilenced && data.visibility === 'public' && data.channel == null) {
@@ -210,12 +229,17 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 
 	let tags = data.apHashtags;
 	let emojis = data.apEmojis;
-	let mentionedUsers = data.apMentions;
 
 	// Parse MFM if needed
+<<<<<<< HEAD
 	if (!tags || !emojis || !mentionedUsers) {
 		const tokens = data.text ? mfm.parse(data.text)! : [];
 		const cwTokens = data.cw ? mfm.parse(data.cw)! : [];
+=======
+	if (!tags || !emojis) {
+		const tokens = data.text ? parse(data.text)! : [];
+		const cwTokens = data.cw ? parse(data.cw)! : [];
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		const choiceTokens = data.poll && data.poll.choices
 			? concat(data.poll.choices.map(choice => mfm.parse(choice)!))
 			: [];
@@ -224,32 +248,18 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 
 		tags = data.apHashtags || extractHashtags(combinedTokens);
 
+<<<<<<< HEAD
 		emojis = data.apEmojis || extractCustomEmojisFromMfm(combinedTokens);
 
 		mentionedUsers = data.apMentions || await extractMentionedUsers(user, combinedTokens);
+=======
+		emojis = data.apEmojis || extractEmojis(combinedTokens);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	}
 
 	tags = tags.filter(tag => Array.from(tag || '').length <= 128).splice(0, 32);
 
-	if (data.reply && (user.id !== data.reply.userId) && !mentionedUsers.some(u => u.id === data.reply!.userId)) {
-		mentionedUsers.push(await Users.findOne(data.reply.userId).then(ensure));
-	}
-
-	if (data.visibility == 'specified') {
-		if (data.visibleUsers == null) throw new Error('invalid param');
-
-		for (const u of data.visibleUsers) {
-			if (!mentionedUsers.some(x => x.id === u.id)) {
-				mentionedUsers.push(u);
-			}
-		}
-
-		if (data.reply && !data.visibleUsers.some(x => x.id === data.reply!.userId)) {
-			data.visibleUsers.push(await Users.findOne(data.reply.userId).then(ensure));
-		}
-	}
-
-	const note = await insertNote(user, data, tags, emojis, mentionedUsers);
+	const note = await insertNote(user, data, tags, emojis);
 
 	res(note);
 
@@ -257,22 +267,15 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 	notesChart.update(note, true);
 	perUserNotesChart.update(user, note, true);
 
-	// Register host
-	if (Users.isRemoteUser(user)) {
-		registerOrFetchInstanceDoc(user.host).then(i => {
-			Instances.increment({ id: i.id }, 'notesCount', 1);
-			instanceChart.updateNote(i.host, note, true);
-		});
-	}
-
 	// ハッシュタグ更新
-	if (data.visibility === 'public' || data.visibility === 'home') {
+	if (data.visibility === 'public') {
 		updateHashtags(user, tags);
 	}
 
 	// Increment notes count (user)
 	incNotesCountOfUser(user);
 
+<<<<<<< HEAD
 	// Word mute
 	UserProfiles.find({
 		enableWordMute: true
@@ -320,19 +323,17 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 		});
 	}
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	if (data.reply) {
 		saveReply(data.reply, note);
-	}
-
-	// この投稿を除く指定したユーザーによる指定したノートのリノートが存在しないとき
-	if (data.renote && (await countSameRenotes(user.id, data.renote.id, note.id) === 0)) {
-		incRenoteCount(data.renote);
 	}
 
 	if (!silent) {
 		// ローカルユーザーのチャートはタイムライン取得時に更新しているのでリモートユーザーの場合だけでよい
 		if (Users.isRemoteUser(user)) activeUsersChart.update(user);
 
+<<<<<<< HEAD
 		// 未読通知を作成
 		if (data.visibility == 'specified') {
 			if (data.visibleUsers == null) throw new Error('invalid param');
@@ -358,6 +359,8 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 			}
 		}
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		// Pack the note
 		const noteObj = await Notes.pack(note, user);
 
@@ -366,6 +369,7 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 		}
 
 		publishNotesStream(noteObj);
+<<<<<<< HEAD
 
 		const nm = new NotificationManager(user, note);
 		const nmRelatedPromises = [];
@@ -442,6 +446,8 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 			})();
 		}
 		//#endregion
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	}
 
 	if (data.channel) {
@@ -466,22 +472,7 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 	index(note);
 });
 
-async function renderNoteOrRenoteActivity(data: Option, note: Note) {
-	if (data.localOnly) return null;
-
-	const content = data.renote && data.text == null && data.poll == null && (data.files == null || data.files.length == 0)
-		? renderAnnounce(data.renote.uri ? data.renote.uri : `${config.url}/notes/${data.renote.id}`, note)
-		: renderCreate(await renderNote(note, false), note);
-
-	return renderActivity(content);
-}
-
-function incRenoteCount(renote: Note) {
-	Notes.increment({ id: renote.id }, 'renoteCount', 1);
-	Notes.increment({ id: renote.id }, 'score', 1);
-}
-
-async function insertNote(user: User, data: Option, tags: string[], emojis: string[], mentionedUsers: User[]) {
+async function insertNote(user: User, data: Option, tags: string[], emojis: string[]) {
 	const insert = new Note({
 		id: genId(data.createdAt!),
 		createdAt: data.createdAt!,
@@ -500,13 +491,10 @@ async function insertNote(user: User, data: Option, tags: string[], emojis: stri
 		localOnly: data.localOnly!,
 		remoteFollowersOnly: data.remoteFollowersOnly!,
 		visibility: data.visibility as any,
-		visibleUserIds: data.visibility == 'specified'
-			? data.visibleUsers
-				? data.visibleUsers.map(u => u.id)
-				: []
-			: [],
 
 		attachedFileTypes: data.files ? data.files.map(file => file.type) : [],
+
+		isAnnouncement: data.isAnnouncement!,
 
 		// 以下非正規化データ
 		replyUserId: data.reply ? data.reply.userId : null,
@@ -518,22 +506,6 @@ async function insertNote(user: User, data: Option, tags: string[], emojis: stri
 
 	if (data.uri != null) insert.uri = data.uri;
 	if (data.url != null) insert.url = data.url;
-
-	// Append mentions data
-	if (mentionedUsers.length > 0) {
-		insert.mentions = mentionedUsers.map(u => u.id);
-		const profiles = await UserProfiles.find({ userId: In(insert.mentions) });
-		insert.mentionedRemoteUsers = JSON.stringify(mentionedUsers.filter(u => Users.isRemoteUser(u)).map(u => {
-			const profile = profiles.find(p => p.userId == u.id);
-			const url = profile != null ? profile.url : null;
-			return {
-				uri: u.uri,
-				url: url == null ? undefined : url,
-				username: u.username,
-				host: u.host
-			} as IMentionedRemoteUsers[0];
-		}));
-	}
 
 	// 投稿を作成
 	try {
@@ -588,41 +560,6 @@ function index(note: Note) {
 	});
 }
 
-async function notifyToWatchersOfRenotee(renote: Note, user: User, nm: NotificationManager, type: NotificationType) {
-	const watchers = await NoteWatchings.find({
-		noteId: renote.id,
-		userId: Not(user.id)
-	});
-
-	for (const watcher of watchers) {
-		nm.push(watcher.userId, type);
-	}
-}
-
-async function notifyToWatchersOfReplyee(reply: Note, user: User, nm: NotificationManager) {
-	const watchers = await NoteWatchings.find({
-		noteId: reply.id,
-		userId: Not(user.id)
-	});
-
-	for (const watcher of watchers) {
-		nm.push(watcher.userId, 'reply');
-	}
-}
-
-async function createMentionedEvents(mentionedUsers: User[], note: Note, nm: NotificationManager) {
-	for (const u of mentionedUsers.filter(u => Users.isLocalUser(u))) {
-		const detailPackedNote = await Notes.pack(note, u, {
-			detail: true
-		});
-
-		publishMainStream(u.id, 'mention', detailPackedNote);
-
-		// Create notification
-		nm.push(u.id, 'mention');
-	}
-}
-
 function saveReply(reply: Note, note: Note) {
 	Notes.increment({ id: reply.id }, 'repliesCount', 1);
 }
@@ -633,6 +570,7 @@ function incNotesCountOfUser(user: User) {
 		updatedAt: new Date()
 	});
 }
+<<<<<<< HEAD
 
 async function extractMentionedUsers(user: { host: User['host']; }, tokens: mfm.MfmNode[]): Promise<User[]> {
 	if (tokens == null) return [];
@@ -650,3 +588,5 @@ async function extractMentionedUsers(user: { host: User['host']; }, tokens: mfm.
 
 	return mentionedUsers;
 }
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109

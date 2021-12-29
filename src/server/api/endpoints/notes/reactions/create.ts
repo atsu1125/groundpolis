@@ -60,7 +60,11 @@ export default define(meta, async (ps, user) => {
 		if (e.id === '9725d0ce-ba28-4dde-95a7-2cbb2c15de24') throw new ApiError(meta.errors.noSuchNote);
 		throw e;
 	});
+<<<<<<< HEAD
 	await createReaction(user, note, ps.reaction, !!ps.dislike).catch(e => {
+=======
+	await createReaction(user, note, ps.reaction).catch(e => {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		if (e.id === '51c42bb4-931a-456b-bff7-e5a8a70dd298') throw new ApiError(meta.errors.alreadyReacted);
 		throw e;
 	});

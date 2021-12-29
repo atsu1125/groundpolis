@@ -4,8 +4,13 @@ html
 
 	head
 		meta(charset='utf-8')
+<<<<<<< HEAD
 		meta(name='application-name' content='Groundpolis')
 		title Groundpolis
+=======
+		meta(name='application-name' content='Hitorisskey')
+		title Hitorisskey
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		style.
 			html {
 				font-family: Roboto, HelveticaNeue, Arial, sans-serif;
@@ -65,12 +70,20 @@ html
 	body
 		main
 			header
+<<<<<<< HEAD
 				h1 Groundpolis Version #{version}
 				img(src='/assets/misskey-php-like-logo.png' alt='')
 			table
 				tr
 					th Instance
 					td= meta.name || 'Groundpolis'
+=======
+				h1 Hitorisskey Version #{version}
+			table
+				tr
+					th Instance
+					td= meta.name || 'Hitorisskey'
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				tr
 					th Description
 					td= meta.description
@@ -116,6 +129,7 @@ html
 					th reCAPTCHA enabled
 					td= meta.enableRecaptcha ? 'enabled' : 'disabled'
 				tr
+<<<<<<< HEAD
 					th LTL(STL) enabled
 					td= !meta.disableLocalTimeline ? 'enabled' : 'disabled'
 				tr
@@ -129,10 +143,14 @@ html
 					td= meta.cacheRemoteFiles ? 'yes' : 'no'
 				tr
 					th Drive capacity per local user
+=======
+					th Drive capacity per user
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					td
 						= meta.localDriveCapacityMb
 						|  MB
 				tr
+<<<<<<< HEAD
 					th Drive capacity per premium user
 					td
 						= meta.premiumDriveCapacityMb
@@ -143,6 +161,8 @@ html
 						= meta.remoteDriveCapacityMb
 						|  MB
 				tr
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					th Max text length
 					td= meta.maxNoteTextLength
 				tr
@@ -152,4 +172,8 @@ html
 							| :#{emoji.name}:
 							= ' '
 			footer
+<<<<<<< HEAD
 				p Groundpolis is open-source software. <a href="https://github.com/xeltica/groundpolis">View source</a>
+=======
+				p Misskey is open-source software. <a href="https://github.com/xeltica/hitorisskey">View source</a>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109

@@ -96,19 +96,21 @@ export class Autocomplete {
 		const caretPos = this.textarea.selectionStart;
 		const text = this.text.substr(0, caretPos).split('\n').pop();
 
+<<<<<<< HEAD:src/client/scripts/autocomplete.ts
 		if (!text) {
 			this.close();
 			return;
 		}
 
 		const mentionIndex = text.lastIndexOf('@');
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109:src/client/directives/autocomplete.ts
 		const hashtagIndex = text.lastIndexOf('#');
 		const emojiIndex = text.lastIndexOf(':');
 		const fnIndex = text.lastIndexOf('$');
 		const templateIndex = text.lastIndexOf('.');
 
 		const max = Math.max(
-			mentionIndex,
 			hashtagIndex,
 			emojiIndex,
 			fnIndex,
@@ -120,24 +122,12 @@ export class Autocomplete {
 			return;
 		}
 
-		const isMention = mentionIndex != -1;
 		const isHashtag = hashtagIndex != -1;
 		const isEmoji = emojiIndex != -1;
 		const isFn = fnIndex != -1;
 		const isTemplate = templateIndex != -1;
 
 		let opened = false;
-
-		if (isMention) {
-			const username = text.substr(mentionIndex + 1);
-			if (username != '' && username.match(/^[a-zA-Z0-9_]+$/)) {
-				this.open('user', username);
-				opened = true;
-			} else if (username === '') {
-				this.open('user', null);
-				opened = true;
-			}
-		}
 
 		if (isHashtag && !opened) {
 			const hashtag = text.substr(hashtagIndex + 1);

@@ -57,6 +57,7 @@ import { AntennaNote } from '../models/entities/antenna-note';
 import { PromoNote } from '../models/entities/promo-note';
 import { PromoRead } from '../models/entities/promo-read';
 import { program } from '../argv';
+<<<<<<< HEAD
 import { Relay } from '../models/entities/relay';
 import { EmojiRequest } from '../models/entities/emoji-request';
 import { MutedNote } from '../models/entities/muted-note';
@@ -64,6 +65,9 @@ import { Channel } from '../models/entities/channel';
 import { ChannelFollowing } from '../models/entities/channel-following';
 import { ChannelNotePining } from '../models/entities/channel-note-pining';
 import { RegistryItem } from '../models/entities/registry-item';
+=======
+import { ReportedNote } from '../models/entities/reported-note';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 const sqlLogger = dbLogger.createSubLogger('sql', 'white', false);
 
@@ -154,6 +158,7 @@ export const entities = [
 	PromoRead,
 	ReversiGame,
 	ReversiMatching,
+<<<<<<< HEAD
 	Relay,
 	EmojiRequest,
 	MutedNote,
@@ -161,6 +166,9 @@ export const entities = [
 	ChannelFollowing,
 	ChannelNotePining,
 	RegistryItem,
+=======
+	ReportedNote,
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	...charts as any
 ];
 

@@ -2,16 +2,24 @@ import { EntityRepository, Repository, In } from 'typeorm';
 import * as mfm from 'mfm-js';
 import { Note } from '../entities/note';
 import { User } from '../entities/user';
+<<<<<<< HEAD
 import { Emojis, Users, PollVotes, DriveFiles, NoteReactions, Followings, Polls, Channels } from '..';
+=======
+import { Emojis, DriveFiles, NoteReactions, Users } from '..';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 import { ensure } from '../../prelude/ensure';
 import { SchemaType } from '../../misc/schema';
 import { nyaize } from '../../misc/nyaize';
 import { awaitAll } from '../../prelude/await-all';
+<<<<<<< HEAD
 import { convertLegacyReaction, convertLegacyReactions, decodeReaction } from '../../misc/reaction-lib';
 import { Emoji } from '../entities/emoji';
 import { concat } from '../../prelude/array';
 import parseAcct from '../../misc/acct/parse';
 import { resolveUser } from '../../remote/resolve-user';
+=======
+import { convertLegacyReaction, convertLegacyReactions } from '../../misc/reaction-lib';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export type PackedNote = SchemaType<typeof packedNoteSchema>;
 
@@ -24,6 +32,7 @@ export class NoteRepository extends Repository<Note> {
 	private async hideNote(packedNote: PackedNote, meId: User['id'] | null) {
 		let hide = false;
 
+<<<<<<< HEAD
 		// visibility が specified かつ自分が指定されていなかったら非表示
 		if (packedNote.visibility === 'specified') {
 			if (meId == null) {
@@ -74,12 +83,13 @@ export class NoteRepository extends Repository<Note> {
 			hide = true;
 		}
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		if (hide) {
 			packedNote.visibleUserIds = undefined;
 			packedNote.fileIds = [];
 			packedNote.files = [];
 			packedNote.text = null;
-			packedNote.poll = undefined;
 			packedNote.cw = null;
 			packedNote.isHidden = true;
 		}
@@ -91,85 +101,36 @@ export class NoteRepository extends Repository<Note> {
 		options?: {
 			detail?: boolean;
 			skipHide?: boolean;
+			showActualUser?: boolean;
 		}
 	): Promise<PackedNote> {
 		const opts = Object.assign({
 			detail: true,
-			skipHide: false
+			skipHide: false,
+			showActualUser: false,
 		}, options);
 
 		const meId = me ? typeof me === 'string' ? me : me.id : null;
 		const note = typeof src === 'object' ? src : await this.findOne(src).then(ensure);
 		const host = note.userHost;
 
-		async function populatePoll() {
-			const poll = await Polls.findOne(note.id).then(ensure);
-			const choices = poll.choices.map(c => ({
-				text: c,
-				votes: poll.votes[poll.choices.indexOf(c)],
-				isVoted: false
-			}));
-
-			if (poll.multiple) {
-				const votes = await PollVotes.find({
-					userId: meId!,
-					noteId: note.id
-				});
-
-				const myChoices = votes.map(v => v.choice);
-				for (const myChoice of myChoices) {
-					choices[myChoice].isVoted = true;
-				}
-			} else {
-				const vote = await PollVotes.findOne({
-					userId: meId!,
-					noteId: note.id
-				});
-
-				if (vote) {
-					choices[vote.choice].isVoted = true;
-				}
-			}
-
-			return {
-				multiple: poll.multiple,
-				expiresAt: poll.expiresAt,
-				choices
-			};
-		}
-
-		/**
-		 * 添付用emojisを解決する
-		 * @param emojiNames Note等に添付されたカスタム絵文字名 (:は含めない)
-		 * @param noteUserHost Noteのホスト
-		 * @param reactionNames Note等にリアクションされたカスタム絵文字名 (:は含めない)
-		 */
 		async function populateEmojis(emojiNames: string[], noteUserHost: string | null, reactionNames: string[]) {
-			let all = [] as {
-				name: string,
-				url: string
-			}[];
+			const where = [] as {}[];
 
+<<<<<<< HEAD
 			const accts = emojiNames.filter(n => n.startsWith('@'));
 
 			// カスタム絵文字
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			if (emojiNames?.length > 0) {
-				const tmp = await Emojis.find({
-					where: {
-						name: In(emojiNames),
-						host: noteUserHost
-					},
-					select: ['name', 'host', 'url']
-				}).then(emojis => emojis.map((emoji: Emoji) => {
-					return {
-						name: emoji.name,
-						url: emoji.url,
-					};
-				}));
-
-				all = concat([all, tmp]);
+				where.push({
+					name: In(emojiNames),
+					host: noteUserHost
+				});
 			}
 
+<<<<<<< HEAD
 			if (accts.length > 0) { 
 				const tmp = await Promise.all(
 					accts
@@ -193,27 +154,23 @@ export class NoteRepository extends Repository<Note> {
 
 			if (customReactions?.length > 0) {
 				const where = [] as {}[];
+=======
+			reactionNames = reactionNames?.filter(x => x.match(/^:[^:]+:$/)).map(x => x.replace(/:/g, ''));
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
-				for (const customReaction of customReactions) {
-					where.push({
-						name: customReaction.name,
-						host: customReaction.host
-					});
-				}
-
-				const tmp = await Emojis.find({
-					where,
-					select: ['name', 'host', 'url']
-				}).then(emojis => emojis.map((emoji: Emoji) => {
-					return {
-						name: `${emoji.name}@${emoji.host || '.'}`,	// @host付きでローカルは.
-						url: emoji.url,
-					};
-				}));
-				all = concat([all, tmp]);
+			if (reactionNames?.length > 0) {
+				where.push({
+					name: In(reactionNames),
+					host: null
+				});
 			}
 
-			return all;
+			if (where.length === 0) return [];
+
+			return Emojis.find({
+				where,
+				select: ['name', 'host', 'url', 'aliases']
+			});
 		}
 
 		async function populateMyReaction() {
@@ -229,36 +186,88 @@ export class NoteRepository extends Repository<Note> {
 			return undefined;
 		}
 
+		function populateVirtualUser() {
+			return {
+				id: 'VIRTUAL_ANONYMOUS_USER',
+				name: null,
+				username: 'anonymous',
+				host: null,
+				avatarUrl: null,
+				avatarColor: null,
+				isAdmin: false,
+				isModerator: false,
+				isBot: false,
+				isCat: false,
+				emojis: [],
+				url: null,
+				createdAt: '1970-01-01T00:00:00.000Z',
+				updatedAt: '1970-01-01T00:00:00.000Z',
+				bannerUrl: null,
+				bannerColor: null,
+				isLocked: false,
+				isSilenced: false,
+				isSuspended: false,
+				description: null,
+				location: null,
+				birthday: null,
+				fields: [],
+				followersCount: 0,
+				followingCount: 0,
+				notesCount: 0,
+				pinnedNoteIds: [],
+				pinnedNotes: [],
+				pinnedPageId: null,
+				pinnedPage: null,
+				twoFactorEnabled: false,
+				usePasswordLessLogin: false,
+				securityKeys: false,
+				isFollowing: false,
+				isFollowed: false,
+				hasPendingFollowRequestFromYou: false,
+				hasPendingFollowRequestToYou: false,
+				isBlocking: false,
+				isBlocked: false,
+				isMuted: false
+			};
+		}
+
 		let text = note.text;
 
 		if (note.name && (note.url || note.uri)) {
 			text = `【${note.name}】\n${(note.text || '').trim()}\n\n${note.url || note.uri}`;
 		}
 
+<<<<<<< HEAD
 		const channel = note.channelId
 			? note.channel
 				? note.channel
 				: await Channels.findOne(note.channelId)
 			: null;
+=======
+		const user = opts.showActualUser ? await Users.pack(note.user || note.userId, meId) : populateVirtualUser();
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 		const packed = await awaitAll({
 			id: note.id,
 			createdAt: note.createdAt.toISOString(),
-			userId: note.userId,
-			user: Users.pack(note.user || note.userId, meId),
+			userId: user.id,
+			user,
 			text: text,
 			cw: note.cw,
 			visibility: note.visibility,
+<<<<<<< HEAD
 			localOnly: note.localOnly || undefined,
 			remoteFollowersOnly: note.remoteFollowersOnly || undefined,
 			visibleUserIds: note.visibility === 'specified' ? note.visibleUserIds : undefined,
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			viaMobile: note.viaMobile || undefined,
-			renoteCount: note.renoteCount,
 			repliesCount: note.repliesCount,
 			reactions: convertLegacyReactions(note.reactions),
 			tags: note.tags.length > 0 ? note.tags : undefined,
 			emojis: populateEmojis(note.emojis, host, Object.keys(note.reactions)),
 			fileIds: note.fileIds,
+<<<<<<< HEAD
 			// groundpolis.appでぬるぽをやらかしているのでとりあえずなんとかする
 			files: DriveFiles.packMany(note.fileIds).catch(_ => []),
 			replyId: note.replyId,
@@ -269,28 +278,21 @@ export class NoteRepository extends Repository<Note> {
 				name: channel.name,
 			} : undefined,
 			mentions: note.mentions.length > 0 ? note.mentions : undefined,
+=======
+			files: DriveFiles.packMany(note.fileIds),
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			uri: note.uri || undefined,
-			url: note.url || undefined,
-			_featuredId_: (note as any)._featuredId_ || undefined,
-			_prId_: (note as any)._prId_ || undefined,
+			isMyNote: meId === note.userId,
+			isAnnouncement: note.isAnnouncement,
 
 			...(opts.detail ? {
-				reply: note.replyId ? this.pack(note.replyId, meId, {
-					detail: false
-				}) : undefined,
-
-				renote: note.renoteId ? this.pack(note.renoteId, meId, {
-					detail: true
-				}) : undefined,
-
-				poll: note.hasPoll ? populatePoll() : undefined,
-
 				...(meId ? {
-					myReaction: populateMyReaction()
+					myReaction: populateMyReaction(),
 				} : {})
 			} : {})
 		});
 
+<<<<<<< HEAD
 		if (packed.user.isCat && packed.text) {
 			const tokens = packed.text ? mfm.parse(packed.text) : [];
 			mfm.inspect(tokens, node => {
@@ -301,6 +303,8 @@ export class NoteRepository extends Repository<Note> {
 			packed.text = mfm.toString(tokens);
 		}
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		if (!opts.skipHide) {
 			await this.hideNote(packed, meId);
 		}
@@ -314,6 +318,7 @@ export class NoteRepository extends Repository<Note> {
 		options?: {
 			detail?: boolean;
 			skipHide?: boolean;
+			showActualuser?: boolean;
 		}
 	) {
 		return Promise.all(notes.map(n => this.pack(n, me, options)));
@@ -355,28 +360,6 @@ export const packedNoteSchema = {
 			ref: 'User',
 			optional: false as const, nullable: false as const,
 		},
-		replyId: {
-			type: 'string' as const,
-			optional: true as const, nullable: true as const,
-			format: 'id',
-			example: 'xxxxxxxxxx',
-		},
-		renoteId: {
-			type: 'string' as const,
-			optional: true as const, nullable: true as const,
-			format: 'id',
-			example: 'xxxxxxxxxx',
-		},
-		reply: {
-			type: 'object' as const,
-			optional: true as const, nullable: true as const,
-			ref: 'Note'
-		},
-		renote: {
-			type: 'object' as const,
-			optional: true as const, nullable: true as const,
-			ref: 'Note'
-		},
 		viaMobile: {
 			type: 'boolean' as const,
 			optional: true as const, nullable: false as const,
@@ -385,18 +368,17 @@ export const packedNoteSchema = {
 			type: 'boolean' as const,
 			optional: true as const, nullable: false as const,
 		},
+		isMyNote: {
+			type: 'boolean' as const,
+			optional: false as const, nullable: false as const,
+		},
+		isAnnouncement: {
+			type: 'boolean' as const,
+			optional: false as const, nullable: false as const,
+		},
 		visibility: {
 			type: 'string' as const,
 			optional: false as const, nullable: false as const,
-		},
-		mentions: {
-			type: 'array' as const,
-			optional: true as const, nullable: false as const,
-			items: {
-				type: 'string' as const,
-				optional: false as const, nullable: false as const,
-				format: 'id'
-			}
 		},
 		visibleUserIds: {
 			type: 'array' as const,
@@ -433,6 +415,7 @@ export const packedNoteSchema = {
 				optional: false as const, nullable: false as const,
 			}
 		},
+<<<<<<< HEAD
 		reactions: {
 			type: 'object' as const,
 			optional: false as const, nullable: false as const,
@@ -456,5 +439,8 @@ export const packedNoteSchema = {
 			optional: true as const, nullable: true as const,
 			ref: 'Channel'
 		},
+=======
+
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 };

@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <div class="fcuexfpr">
 	<div v-if="note" class="note" v-anim>
 		<div class="_section" v-if="showNext">
@@ -33,11 +34,27 @@
 
 	<div v-if="error">
 		<MkError @retry="fetch()"/>
+=======
+<div class="mk-note-page">
+	<portal to="title" v-if="note">
+		<mfm 
+			:text="$t('noteOf')"
+			:plain="true" :nowrap="true" :custom-emojis="note.user.emojis" :is-note="false"
+		/>
+	</portal>
+
+	<div v-if="note">
+		<x-note :note="note" :key="note.id" :detail="true"/>
+		<div v-if="error">
+			<mk-error @retry="fetch()"/>
+		</div>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	</div>
 </div>
 </template>
 
 <script lang="ts">
+<<<<<<< HEAD
 import { computed, defineComponent } from 'vue';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import XNote from '@/components/note.vue';
@@ -46,10 +63,16 @@ import XNotes from '@/components/notes.vue';
 import MkRemoteCaution from '@/components/remote-caution.vue';
 import MkButton from '@/components/ui/button.vue';
 import * as os from '@/os';
+=======
+import Vue from 'vue';
+import Progress from '../scripts/loading';
+import XNote from '../components/note.vue';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default defineComponent({
 	components: {
 		XNote,
+<<<<<<< HEAD
 		XNoteDetailed,
 		XNotes,
 		MkRemoteCaution,
@@ -60,6 +83,8 @@ export default defineComponent({
 			type: String,
 			required: true
 		}
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 	data() {
 		return {
@@ -68,6 +93,7 @@ export default defineComponent({
 				avatar: this.note.user,
 			} : null),
 			note: null,
+<<<<<<< HEAD
 			clips: null,
 			hasPrev: false,
 			hasNext: false,
@@ -75,25 +101,9 @@ export default defineComponent({
 			showNext: false,
 			checkingHasPrev: true,
 			checkingHasNext: true,
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			error: null,
-			prev: {
-				endpoint: 'users/notes',
-				limit: 10,
-				params: init => ({
-					userId: this.note.userId,
-					untilId: this.note.id,
-				})
-			},
-			next: {
-				reversed: true,
-				endpoint: 'users/notes',
-				limit: 10,
-				params: init => ({
-					userId: this.note.userId,
-					sinceId: this.note.id,
-				})
-			},
-			faChevronUp, faChevronDown
 		};
 	},
 	watch: {
@@ -110,6 +120,7 @@ export default defineComponent({
 			os.api('notes/show', {
 				noteId: this.noteId
 			}).then(note => {
+<<<<<<< HEAD
 				this.note = note;					
 				Promise.all([
 					os.api('notes/clips', {
@@ -132,6 +143,9 @@ export default defineComponent({
 					this.checkingHasPrev = false;
 					this.checkingHasNext = false;
 				});
+=======
+				this.note = note;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			}).catch(e => {
 				this.error = e;
 			});

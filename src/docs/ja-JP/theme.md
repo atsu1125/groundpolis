@@ -1,6 +1,10 @@
 # テーマ
 
+<<<<<<< HEAD:src/docs/ja-JP/theme.md
 テーマを設定して、Groundpolisクライアントの見た目を変更できます。
+=======
+テーマを設定して、クライアントの見た目を変更できます。
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109:src/docs/theme.ja-JP.md
 
 [テーマ設定を行う](/settings/theme)
 

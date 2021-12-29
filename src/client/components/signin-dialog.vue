@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <XModalWindow ref="dialog"
 	:width="370"
 	:height="400"
@@ -9,6 +10,12 @@
 
 	<MkSignin :auto-set="autoSet" @login="onLogin"/>
 </XModalWindow>
+=======
+<x-window ref="window" :height="270" @closed="() => { $emit('closed'); destroyDom(); }">
+	<template #header>{{ $t('login') }}</template>
+	<mk-signin :auto-set="autoSet" @login="onLogin"/>
+</x-window>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 </template>
 
 <script lang="ts">

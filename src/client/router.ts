@@ -16,6 +16,7 @@ let indexScrollPos = 0;
 export const router = createRouter({
 	history: createWebHistory(),
 	routes: [
+<<<<<<< HEAD
 		// NOTE: MkTimelineをdynamic importするとAsyncComponentWrapperが間に入るせいでkeep-aliveのコンポーネント指定が効かなくなる
 		{ path: '/', name: 'index', component: $i ? MkTimeline : page('welcome') },
 		{ path: '/@:acct/:page?', name: 'user', component: page('user/index'), props: route => ({ acct: route.params.acct, page: route.params.page || 'index' }) },
@@ -63,6 +64,20 @@ export const router = createRouter({
 		{ path: '/scratchpad', component: page('scratchpad') },
 		{ path: '/paint', component: page('paint') },
 		{ path: '/emoji-suggestion', component: page('emoji-suggestion') },
+=======
+		{ path: '/', name: 'index', component: MkIndex, props: { src: 'myself' } },
+		{ path: '/everyone', name: 'everyone', component: MkIndex, props: { src: 'everyone' } },
+		{ path: '/announcements', component: page('announcements') },
+		{ path: '/about', component: page('about') },
+		{ path: '/about-misskey', component: page('about-misskey') },
+		{ path: '/docs', component: page('docs') },
+		{ path: '/docs/:doc', component: page('doc'), props: true },
+		{ path: '/my/drive', name: 'drive', component: page('drive') },
+		{ path: '/my/drive/folder/:folder', component: page('drive') },
+		{ path: '/my/settings', component: page('my-settings/index') },
+		{ path: '/my/apps', component: page('apps') },
+		{ path: '/preferences', component: page('preferences/index') },
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		{ path: '/instance', component: page('instance/index') },
 		{ path: '/instance/emojis', component: page('instance/emojis') },
 		{ path: '/instance/users', component: page('instance/users') },
@@ -70,9 +85,8 @@ export const router = createRouter({
 		{ path: '/instance/files', component: page('instance/files') },
 		{ path: '/instance/queue', component: page('instance/queue') },
 		{ path: '/instance/settings', component: page('instance/settings') },
-		{ path: '/instance/federation', component: page('instance/federation') },
-		{ path: '/instance/relays', component: page('instance/relays') },
 		{ path: '/instance/announcements', component: page('instance/announcements') },
+<<<<<<< HEAD
 		{ path: '/instance/abuses', component: page('instance/abuses') },
 		{ path: '/notes/:note', name: 'note', component: page('note'), props: route => ({ noteId: route.params.note }) },
 		{ path: '/notes/:note/renotes', name: 'renotes', component: page('renotes'), props: route => ({ noteId: route.params.note }) },
@@ -84,9 +98,13 @@ export const router = createRouter({
 		{ path: '/api-console', component: page('api-console') },
 		{ path: '/preview', component: page('preview') },
 		{ path: '/test', component: page('test') },
+=======
+		{ path: '/instance/reported-notes', component: page('instance/reported-notes') },
+		{ path: '/notes/:note', name: 'note', component: page('note') },
+		{ path: '/tags/:tag', component: page('tag') },
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		{ path: '/auth/:token', component: page('auth') },
 		{ path: '/miauth/:session', component: page('miauth') },
-		{ path: '/authorize-follow', component: page('follow') },
 		{ path: '/share', component: page('share') },
 		{ path: '/labs', component: page('labs') },
 		{ path: '/test', component: page('test') },

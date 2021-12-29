@@ -6,10 +6,13 @@ import define from '../../define';
 import { fetchMeta } from '../../../../misc/fetch-meta';
 import { ApiError } from '../../error';
 import { ID } from '../../../../misc/cafy-id';
+<<<<<<< HEAD
 import { User } from '../../../../models/entities/user';
 import { Users, DriveFiles, Notes, Channels } from '../../../../models';
+=======
+import { DriveFiles, Notes } from '../../../../models';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 import { DriveFile } from '../../../../models/entities/drive-file';
-import { Note } from '../../../../models/entities/note';
 import { DB_MAX_NOTE_TEXT_LENGTH } from '../../../../misc/hard-limits';
 import { noteVisibilities } from '../../../../types';
 import { Channel } from '../../../../models/entities/channel';
@@ -47,13 +50,6 @@ export const meta = {
 			}
 		},
 
-		visibleUserIds: {
-			validator: $.optional.arr($.type(ID)).unique().min(0),
-			desc: {
-				'ja-JP': '(投稿の公開範囲が specified の場合)投稿を閲覧できるユーザー'
-			}
-		},
-
 		text: {
 			validator: $.optional.nullable.str.pipe(text =>
 				text.trim() != ''
@@ -73,19 +69,15 @@ export const meta = {
 			}
 		},
 
+		announcement: {
+			validator: $.optional.nullable.boolean,
+		},
+
 		viaMobile: {
 			validator: $.optional.bool,
 			default: false,
 			desc: {
 				'ja-JP': 'モバイルデバイスからの投稿か否か。'
-			}
-		},
-
-		localOnly: {
-			validator: $.optional.bool,
-			default: false,
-			desc: {
-				'ja-JP': 'ローカルのみに投稿か否か。'
 			}
 		},
 
@@ -135,6 +127,7 @@ export const meta = {
 				'ja-JP': '添付するファイル (このパラメータは廃止予定です。代わりに fileIds を使ってください。)'
 			}
 		},
+<<<<<<< HEAD
 
 		replyId: {
 			validator: $.optional.nullable.type(ID),
@@ -172,6 +165,8 @@ export const meta = {
 			},
 			ref: 'poll'
 		}
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 
 	res: {
@@ -188,36 +183,13 @@ export const meta = {
 	},
 
 	errors: {
-		noSuchRenoteTarget: {
-			message: 'No such renote target.',
-			code: 'NO_SUCH_RENOTE_TARGET',
-			id: 'b5c90186-4ab0-49c8-9bba-a1f76c282ba4'
-		},
-
-		cannotReRenote: {
-			message: 'You can not Renote a pure Renote.',
-			code: 'CANNOT_RENOTE_TO_A_PURE_RENOTE',
-			id: 'fd4cc33e-2a37-48dd-99cc-9b806eb2031a'
-		},
-
-		noSuchReplyTarget: {
-			message: 'No such reply target.',
-			code: 'NO_SUCH_REPLY_TARGET',
-			id: '749ee0f6-d3da-459a-bf02-282e2da4292c'
-		},
-
-		cannotReplyToPureRenote: {
-			message: 'You can not reply to a pure Renote.',
-			code: 'CANNOT_REPLY_TO_A_PURE_RENOTE',
-			id: '3ac74a84-8fd5-4bb0-870f-01804f82ce15'
-		},
-
 		contentRequired: {
-			message: 'Content required. You need to set text, fileIds, renoteId or poll.',
+			message: 'Content required. You need to set text or fileIds.',
 			code: 'CONTENT_REQUIRED',
 			id: '6f57e42b-c348-439b-bc45-993995cc515a'
 		},
 
+<<<<<<< HEAD
 		cannotCreateAlreadyExpiredPoll: {
 			message: 'Poll is already expired.',
 			code: 'CANNOT_CREATE_ALREADY_EXPIRED_POLL',
@@ -228,17 +200,18 @@ export const meta = {
 			message: 'No such channel.',
 			code: 'NO_SUCH_CHANNEL',
 			id: 'b1653923-5453-4edc-b786-7c4f39bb0bbb'
+=======
+		notModerator: {
+			message: 'Access denied.',
+			code: 'ACCESS_DENIED',
+			id: '56f35758-7dd5-468b-8439-5d6fb8ec9b8e',
+			reason: 'You are not a moderator.'
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 	}
 };
 
 export default define(meta, async (ps, user) => {
-	let visibleUsers: User[] = [];
-	if (ps.visibleUserIds) {
-		visibleUsers = (await Promise.all(ps.visibleUserIds.map(id => Users.findOne(id))))
-			.filter(x => x != null) as User[];
-	}
-
 	let files: DriveFile[] = [];
 	const fileIds = ps.fileIds != null ? ps.fileIds : ps.mediaIds != null ? ps.mediaIds : null;
 	if (fileIds != null) {
@@ -250,45 +223,13 @@ export default define(meta, async (ps, user) => {
 		))).filter(file => file != null) as DriveFile[];
 	}
 
-	let renote: Note | undefined;
-	if (ps.renoteId != null) {
-		// Fetch renote to note
-		renote = await Notes.findOne(ps.renoteId);
-
-		if (renote == null) {
-			throw new ApiError(meta.errors.noSuchRenoteTarget);
-		} else if (renote.renoteId && !renote.text && !renote.fileIds) {
-			throw new ApiError(meta.errors.cannotReRenote);
-		}
-	}
-
-	let reply: Note | undefined;
-	if (ps.replyId != null) {
-		// Fetch reply
-		reply = await Notes.findOne(ps.replyId);
-
-		if (reply == null) {
-			throw new ApiError(meta.errors.noSuchReplyTarget);
-		}
-
-		// 返信対象が引用でないRenoteだったらエラー
-		if (reply.renoteId && !reply.text && !reply.fileIds) {
-			throw new ApiError(meta.errors.cannotReplyToPureRenote);
-		}
-	}
-
-	if (ps.poll) {
-		if (typeof ps.poll.expiresAt === 'number') {
-			if (ps.poll.expiresAt < Date.now())
-				throw new ApiError(meta.errors.cannotCreateAlreadyExpiredPoll);
-		} else if (typeof ps.poll.expiredAfter === 'number') {
-			ps.poll.expiresAt = Date.now() + ps.poll.expiredAfter;
-		}
-	}
-
-	// テキストが無いかつ添付ファイルが無いかつRenoteも無いかつ投票も無かったらエラー
-	if (!(ps.text || files.length || renote || ps.poll)) {
+	// テキストが無いかつ添付ファイルが無かったらエラー
+	if (!(ps.text || files.length)) {
 		throw new ApiError(meta.errors.contentRequired);
+	}
+
+	if (ps.announcement && !user.isAdmin && !user.isModerator) {
+		throw new ApiError(meta.errors.notModerator);
 	}
 
 	let channel: Channel | undefined;
@@ -304,15 +245,9 @@ export default define(meta, async (ps, user) => {
 	const note = await create(user, {
 		createdAt: new Date(),
 		files: files,
-		poll: ps.poll ? {
-			choices: ps.poll.choices,
-			multiple: ps.poll.multiple || false,
-			expiresAt: ps.poll.expiresAt ? new Date(ps.poll.expiresAt) : null
-		} : undefined,
 		text: ps.text || undefined,
-		reply,
-		renote,
 		cw: ps.cw,
+<<<<<<< HEAD
 		viaMobile: ps.viaMobile,
 		localOnly: ps.localOnly,
 		remoteFollowersOnly: ps.remoteFollowersOnly,
@@ -322,6 +257,11 @@ export default define(meta, async (ps, user) => {
 		apMentions: ps.noExtractMentions ? [] : undefined,
 		apHashtags: ps.noExtractHashtags ? [] : undefined,
 		apEmojis: ps.noExtractEmojis ? [] : undefined,
+=======
+		visibility: ps.visibility,
+		viaMobile: ps.viaMobile,
+		isAnnouncement: ps.announcement,
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	});
 
 	return {

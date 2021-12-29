@@ -51,6 +51,7 @@ import { AntennaNote } from './entities/antenna-note';
 import { PromoNote } from './entities/promo-note';
 import { PromoRead } from './entities/promo-read';
 import { EmojiRepository } from './repositories/emoji';
+<<<<<<< HEAD
 import { RelayRepository } from './repositories/relay';
 import { EmojiRequestRepository } from './repositories/emoji-request';
 import { ChannelRepository } from './repositories/channel';
@@ -58,6 +59,9 @@ import { MutedNote } from './entities/muted-note';
 import { ChannelFollowing } from './entities/channel-following';
 import { ChannelNotePining } from './entities/channel-note-pining';
 import { RegistryItem } from './entities/registry-item';
+=======
+import { ReportedNoteRepository } from './repositories/reported-note';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export const Announcements = getRepository(Announcement);
 export const AnnouncementReads = getRepository(AnnouncementRead);
@@ -111,6 +115,7 @@ export const Antennas = getCustomRepository(AntennaRepository);
 export const AntennaNotes = getRepository(AntennaNote);
 export const PromoNotes = getRepository(PromoNote);
 export const PromoReads = getRepository(PromoRead);
+<<<<<<< HEAD
 export const Relays = getCustomRepository(RelayRepository);
 export const EmojiRequests = getCustomRepository(EmojiRequestRepository);
 export const MutedNotes = getRepository(MutedNote);
@@ -118,3 +123,6 @@ export const Channels = getCustomRepository(ChannelRepository);
 export const ChannelFollowings = getRepository(ChannelFollowing);
 export const ChannelNotePinings = getRepository(ChannelNotePining);
 export const RegistryItems = getRepository(RegistryItem);
+=======
+export const ReportedNotes = getCustomRepository(ReportedNoteRepository);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109

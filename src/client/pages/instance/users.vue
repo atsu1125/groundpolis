@@ -4,6 +4,7 @@
 		<div class="_content">
 			<MkButton inline primary @click="addUser()"><Fa :icon="faPlus"/> {{ $ts.addUser }}</MkButton>
 		</div>
+<<<<<<< HEAD
 	</div>
 
 	<div class="_section lookup">
@@ -15,11 +16,15 @@
 			<MkButton @click="showUser()" primary><Fa :icon="faSearch"/> {{ $ts.lookup }}</MkButton>
 		</div>
 	</div>
+=======
+	</section>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	<div class="_section users">
 		<div class="_title"><Fa :icon="faUsers"/> {{ $ts.users }}</div>
 		<div class="_content">
 			<div class="inputs" style="display: flex;">
+<<<<<<< HEAD
 				<MkSelect v-model:value="sort" style="margin: 0; flex: 1;">
 					<template #label>{{ $ts.sort }}</template>
 					<option value="-createdAt">{{ $ts.registeredDate }} ({{ $ts.ascendingOrder }})</option>
@@ -50,6 +55,29 @@
 				<MkInput v-model:value="searchHost" style="margin: 0; flex: 1;" type="text" spellcheck="false" @update:value="$refs.users.reload()" :disabled="pagination.params().origin === 'local'">
 					<span>{{ $ts.host }}</span>
 				</MkInput>
+=======
+				<mk-select v-model="sort" style="margin: 0; flex: 1;">
+					<template #label>{{ $t('sort') }}</template>
+					<option value="-createdAt">{{ $t('registeredDate') }} ({{ $t('ascendingOrder') }})</option>
+					<option value="+createdAt">{{ $t('registeredDate') }} ({{ $t('descendingOrder') }})</option>
+					<option value="-updatedAt">{{ $t('lastUsed') }} ({{ $t('ascendingOrder') }})</option>
+					<option value="+updatedAt">{{ $t('lastUsed') }} ({{ $t('descendingOrder') }})</option>
+				</mk-select>
+				<mk-select v-model="state" style="margin: 0; flex: 1;">
+					<template #label>{{ $t('state') }}</template>
+					<option value="all">{{ $t('all') }}</option>
+					<option value="available">{{ $t('normal') }}</option>
+					<option value="admin">{{ $t('administrator') }}</option>
+					<option value="moderator">{{ $t('moderator') }}</option>
+					<option value="silenced">{{ $t('silence') }}</option>
+					<option value="suspended">{{ $t('suspend') }}</option>
+				</mk-select>
+			</div>
+			<div class="inputs" style="display: flex; padding-top: 1.2em;">
+				<mk-input v-model="searchUsername" style="margin: 0; flex: 1;" type="text" spellcheck="false" @input="$refs.users.reload()">
+					<span>{{ $t('username') }}</span>
+				</mk-input>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			</div>
 
 			<MkPagination :pagination="pagination" #default="{items}" class="users" ref="users">
@@ -79,6 +107,7 @@
 </template>
 
 <script lang="ts">
+<<<<<<< HEAD
 import { defineComponent } from 'vue';
 import { faPlus, faUsers, faSearch, faBookmark, faMicrophoneSlash } from '@fortawesome/free-solid-svg-icons';
 import { faSnowflake, faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
@@ -89,6 +118,23 @@ import MkSelect from '@/components/ui/select.vue';
 import MkPagination from '@/components/ui/pagination.vue';
 import { acct } from '../../filters/user';
 import * as os from '@/os';
+=======
+import Vue from 'vue';
+import { faPlus, faUsers, faSearch, faBookmark, faMicrophoneSlash, faTint } from '@fortawesome/free-solid-svg-icons';
+import { faSnowflake, faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
+import parseAcct from '../../../misc/acct/parse';
+import MkButton from '../../components/ui/button.vue';
+import MkInput from '../../components/ui/input.vue';
+import MkSelect from '../../components/ui/select.vue';
+import MkPagination from '../../components/ui/pagination.vue';
+
+export default Vue.extend({
+	metaInfo() {
+		return {
+			title: `${this.$t('users')} | ${this.$t('instance')}`
+		};
+	},
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default defineComponent({
 	components: {
@@ -111,18 +157,16 @@ export default defineComponent({
 			target: '',
 			sort: '+createdAt',
 			state: 'all',
-			origin: 'local',
 			searchUsername: '',
-			searchHost: '',
 			pagination: {
 				endpoint: 'admin/show-users',
 				limit: 10,
 				params: () => ({
 					sort: this.sort,
 					state: this.state,
-					origin: this.origin,
+					origin: 'combined',
 					username: this.searchUsername,
-					hostname: this.searchHost,
+					hostname: '',
 				}),
 				offsetMode: true
 			},
@@ -177,12 +221,15 @@ export default defineComponent({
 			this.target = '';
 		},
 
+<<<<<<< HEAD
 		searchUser() {
 			os.selectUser().then(user => {
 				this.show(user);
 			});
 		},
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		async addUser() {
 			const { canceled: canceled1, result: username } = await os.dialog({
 				title: this.$ts.username,

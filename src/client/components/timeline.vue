@@ -50,11 +50,14 @@ export default defineComponent({
 			connection: null,
 			connection2: null,
 			pagination: null,
+<<<<<<< HEAD
 			baseQuery: {
 				includeMyRenotes: this.$store.state.showMyRenotes,
 				includeRenotedMyNotes: this.$store.state.showRenotedMyNotes,
 				includeLocalRenotes: this.$store.state.showLocalRenotes
 			},
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			query: {},
 		};
 	},
@@ -70,14 +73,6 @@ export default defineComponent({
 			}
 		};
 
-		const onUserAdded = () => {
-			(this.$refs.tl as any).reload();
-		};
-
-		const onUserRemoved = () => {
-			(this.$refs.tl as any).reload();
-		};
-
 		const onChangeFollowing = () => {
 			if (!this.$refs.tl.backed) {
 				this.$refs.tl.reload();
@@ -86,6 +81,7 @@ export default defineComponent({
 
 		let endpoint;
 
+<<<<<<< HEAD
 		if (this.src == 'antenna') {
 			endpoint = 'antennas/notes';
 			this.query = {
@@ -96,6 +92,9 @@ export default defineComponent({
 			});
 			this.connection.on('note', prepend);
 		} else if (this.src == 'home') {
+=======
+		if (this.src == 'myself') {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			endpoint = 'notes/timeline';
 			this.connection = os.stream.useSharedConnection('homeTimeline');
 			this.connection.on('note', prepend);
@@ -103,6 +102,7 @@ export default defineComponent({
 			this.connection2 = os.stream.useSharedConnection('main');
 			this.connection2.on('follow', onChangeFollowing);
 			this.connection2.on('unfollow', onChangeFollowing);
+<<<<<<< HEAD
 		} else if (this.src == 'local') {
 			const [ ep, con ] = this.$store.state.injectUnlistedNoteInLTL
 				? [ 'notes/local-hybrid-timeline', 'localHybridTimeline' ]
@@ -167,6 +167,12 @@ export default defineComponent({
 				channelId: this.channel
 			});
 			this.connection.on('note', prepend);
+=======
+		} else if (this.src == 'everyone') {
+			endpoint = 'notes/local-timeline';
+			this.connection = this.$root.stream.useSharedConnection('localTimeline');
+			this.connection.on('note', prepend);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		}
 
 		this.pagination = {
@@ -174,7 +180,11 @@ export default defineComponent({
 			limit: 10,
 			params: init => ({
 				untilDate: init ? undefined : (this.date ? this.date.getTime() : undefined),
+<<<<<<< HEAD
 				...this.baseQuery, ...this.query,
+=======
+				...this.query
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			})
 		};
 	},

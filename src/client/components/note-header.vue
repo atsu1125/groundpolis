@@ -1,5 +1,6 @@
 <template>
 <header class="kkwtjztg">
+<<<<<<< HEAD
 	<MkA class="name-set" :to="userPage(note.user)" v-user-preview="note.user.id">
 		<template v-if="$store.reactiveState.noteNameDisplayMode.value === 0">
 			<MkUserName class="name" :user="note.user"/>
@@ -24,11 +25,23 @@
 			:localOnly="note.localOnly"
 			:remoteFollowersOnly="note.remoteFollowersOnly"
 			/>
+=======
+	<span class="username">{{ $t('note') }} ID: {{ note.id }}</span>
+	<span class="is-myself" v-if="note.isMyNote">{{ $t('you') }}</span>
+	<span class="announcement" v-tooltip="$t('thisIsAnnouncement')" v-if="note.isAnnouncement"><fa :icon="faBullhorn" /></span>
+	<div class="info">
+		<router-link :to="note | notePage" class="username"><mk-time :time="note.createdAt"/></router-link>
+
+		<span class="visibility" v-if="note.visibility !== 'public'">
+			<fa v-if="note.visibility === 'followers'" :icon="faLock"/>
+		</span>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	</div>
 </header>
 </template>
 
 <script lang="ts">
+<<<<<<< HEAD
 import { defineComponent } from 'vue';
 import { faHome, faUnlock, faEnvelope, faMobileAlt, faBookmark, faUsers, faHeart, faHeartbeat, faCrown } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
@@ -36,6 +49,10 @@ import notePage from '../filters/note';
 import { userPage } from '../filters/user';
 import GpVerified from './verified.vue';
 import VisibilityIcon from './visibility-icon.vue';
+=======
+import Vue from 'vue';
+import { faLock, faBullhorn } from '@fortawesome/free-solid-svg-icons';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default defineComponent({
 	components: {
@@ -55,7 +72,11 @@ export default defineComponent({
 
 	data() {
 		return {
+<<<<<<< HEAD
 			faHome, faUnlock, faEnvelope, faMobileAlt, faBookmark, farBookmark, faUsers, faHeart, faHeartbeat, faCrown
+=======
+			faLock, faBullhorn
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		};
 	},
 
@@ -71,6 +92,7 @@ export default defineComponent({
 	display: flex;
 	align-items: baseline;
 	white-space: nowrap;
+	margin-bottom: 12px;
 
 	.name-set {
 		overflow: hidden;
@@ -100,7 +122,7 @@ export default defineComponent({
 		}
 	}
 
-	> .is-bot {
+	> .is-myself {
 		flex-shrink: 0;
 		align-self: center;
 		margin: 0 .5em 0 0;
@@ -111,11 +133,13 @@ export default defineComponent({
 	}
 
 	> .admin,
-	> .moderator {
+	> .moderator,
+	> .announcement {
 		margin-right: 0.5em;
 		color: var(--badge);
 	}
 
+<<<<<<< HEAD
 	> .premium {
 		margin-right: 0.5em;
 		color: var(--premium);
@@ -123,6 +147,13 @@ export default defineComponent({
 
 	> .verified {
 		margin-right: 0.5em;
+=======
+	> .username {
+		margin: 0 .5em 0 0;
+		font-weight: bold;
+		overflow: hidden;
+		text-overflow: ellipsis;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	}
 
 	> .info {

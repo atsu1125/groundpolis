@@ -44,8 +44,19 @@
 	<MkFolder>
 		<template #header><Fa :icon="faStream"/> {{ $ts.logs }}</template>
 
+<<<<<<< HEAD
 		<div class="_keyValue" v-for="log in modLogs">
 			<b>{{ log.type }}</b><span>by {{ log.user.username }}</span><MkTime :time="log.createdAt" style="opacity: 0.7;"/>
+=======
+	<section class="_card info">
+		<div class="_content table">
+			<div><b>Hitorisskey</b><span>v{{ version }}</span></div>
+		</div>
+		<div class="_content table" v-if="serverInfo">
+			<div><b>Node.js</b><span>{{ serverInfo.node }}</span></div>
+			<div><b>PostgreSQL</b><span>v{{ serverInfo.psql }}</span></div>
+			<div><b>Redis</b><span>v{{ serverInfo.redis }}</span></div>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		</div>
 	</MkFolder>
 </div>

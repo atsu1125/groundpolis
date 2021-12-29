@@ -29,6 +29,7 @@
 			<MkInfo>{{ $ts.disablingTimelinesInfo }}</MkInfo>
 		</div>
 		<div class="_content">
+<<<<<<< HEAD
 			<MkSwitch v-model:value="enableFeatured" @update:value="save()">{{ $ts.enableFeatured }}</MkSwitch>
 			<MkSwitch v-model:value="useStarForReactionFallback" @update:value="save()">{{ $ts.useStarForReactionFallback }}</MkSwitch>
 		</div>
@@ -63,6 +64,11 @@
 				</template>
 				<MkButton v-else @click="invite">{{ $ts.invite }}</MkButton>
 			</template>
+=======
+			<mk-input v-model="maxNoteTextLength" type="number" :save="() => save()" style="margin:0;"><template #icon><fa :icon="faPencilAlt"/></template>{{ $t('maxNoteTextLength') }}</mk-input>
+			<mk-switch v-model="enableRegistration" @change="save()">{{ $t('enableRegistration') }}</mk-switch>
+			<mk-button v-if="!enableRegistration" @click="invite">{{ $t('invite') }}</mk-button>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		</div>
 	</section>
 
@@ -102,6 +108,7 @@
 		</div>
 	</section>
 
+<<<<<<< HEAD
 	<section class="_card _vMargin">
 		<div class="_title"><Fa :icon="faEnvelope" /> {{ $ts.emailConfig }}</div>
 		<div class="_content">
@@ -163,6 +170,12 @@
 			<MkInput v-model:value="localDriveCapacityMb" type="number">{{ $ts.driveCapacityPerLocalAccount }}<template #suffix>MB</template><template #desc>{{ $ts.inMb }}</template></MkInput>
 			<MkInput v-model:value="remoteDriveCapacityMb" type="number" :disabled="!cacheRemoteFiles">{{ $ts.driveCapacityPerRemoteAccount }}<template #suffix>MB</template><template #desc>{{ $ts.inMb }}</template></MkInput>
 			<MkInput v-model:value="premiumDriveCapacityMb" type="number">{{ $ts.driveCapacityPerPremiumAccount }}<template #suffix>MB</template><template #desc>{{ $ts.inMb }}</template></MkInput>
+=======
+	<section class="_card">
+		<div class="_title"><fa :icon="faCloud"/> {{ $t('files') }}</div>
+		<div class="_content">
+			<mk-input v-model="localDriveCapacityMb" type="number">{{ $t('driveCapacityPerLocalAccount') }}<template #suffix>MB</template><template #desc>{{ $t('inMb') }}</template></mk-input>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		</div>
 		<div class="_footer">
 			<MkButton primary @click="save(true)"><Fa :icon="faSave"/> {{ $ts.save }}</MkButton>
@@ -198,6 +211,7 @@
 		</div>
 	</section>
 
+<<<<<<< HEAD
 	<section class="_card _vMargin">
 		<div class="_title"><Fa :icon="faGhost"/> {{ $ts.proxyAccount }}</div>
 		<div class="_content">
@@ -220,6 +234,10 @@
 
 	<section class="_card _vMargin">
 		<div class="_title"><Fa :icon="faShareAlt"/> {{ $ts.integration }}</div>
+=======
+	<section class="_card">
+		<div class="_title"><fa :icon="faShareAlt"/> {{ $t('integration') }}</div>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		<div class="_content">
 			<header><Fa :icon="faTwitter"/> Twitter</header>
 			<MkSwitch v-model:value="enableTwitterIntegration">{{ $ts.enable }}</MkSwitch>
@@ -267,6 +285,7 @@ import { defineComponent, defineAsyncComponent } from 'vue';
 import { faPencilAlt, faShareAlt, faGhost, faCog, faPlus, faCloud, faBan, faSave, faServer, faLink, faThumbtack, faUser, faShieldAlt, faKey, faBolt, faArchway } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
+<<<<<<< HEAD
 import MkButton from '@/components/ui/button.vue';
 import MkInput from '@/components/ui/input.vue';
 import MkTextarea from '@/components/ui/textarea.vue';
@@ -276,6 +295,14 @@ import { url } from '@/config';
 import getAcct from '../../../misc/acct/render';
 import * as os from '@/os';
 import { fetchInstance } from '@/instance';
+=======
+import MkButton from '../../components/ui/button.vue';
+import MkInput from '../../components/ui/input.vue';
+import MkTextarea from '../../components/ui/textarea.vue';
+import MkSwitch from '../../components/ui/switch.vue';
+import MkInfo from '../../components/ui/info.vue';
+import { url } from '../../config';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default defineComponent({
 	components: {
@@ -295,15 +322,16 @@ export default defineComponent({
 			},
 			meta: null,
 			url,
-			proxyAccount: null,
-			proxyAccountId: null,
 			cacheRemoteFiles: false,
 			proxyRemoteFiles: false,
 			localDriveCapacityMb: 0,
+<<<<<<< HEAD
 			remoteDriveCapacityMb: 0,
 			premiumDriveCapacityMb: 0,
 			blockedHosts: '',
 			pinnedUsers: '',
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			maintainerName: null,
 			maintainerEmail: null,
 			name: null,
@@ -319,21 +347,21 @@ export default defineComponent({
 			backgroundImageUrl: null,
 			maxNoteTextLength: 0,
 			enableRegistration: false,
+<<<<<<< HEAD
 			enableInvitation: false,
 			disableInvitationReason: '',
 			enableLocalTimeline: false,
 			enableGlobalTimeline: false,
 			enableCatTimeline: false,
 			enableFeatured: false,
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			enableHcaptcha: false,
 			hcaptchaSiteKey: null,
 			hcaptchaSecretKey: null,
 			enableRecaptcha: false,
 			recaptchaSiteKey: null,
 			recaptchaSecretKey: null,
-			enableServiceWorker: false,
-			swPublicKey: null,
-			swPrivateKey: null,
 			useObjectStorage: false,
 			objectStorageBaseUrl: null,
 			objectStorageBucket: null,
@@ -389,22 +417,25 @@ export default defineComponent({
 		this.maintainerEmail = this.meta.maintainerEmail;
 		this.maxNoteTextLength = this.meta.maxNoteTextLength;
 		this.enableRegistration = !this.meta.disableRegistration;
+<<<<<<< HEAD
 		this.enableInvitation = !this.meta.disableInvitation;
 		this.disableInvitationReason = this.meta.disableInvitationReason;
 		this.enableLocalTimeline = !this.meta.disableLocalTimeline;
 		this.enableGlobalTimeline = !this.meta.disableGlobalTimeline;
 		this.enableCatTimeline = !this.meta.disableCatTimeline;
 		this.enableFeatured = !this.meta.disableFeatured;
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		this.enableHcaptcha = this.meta.enableHcaptcha;
 		this.hcaptchaSiteKey = this.meta.hcaptchaSiteKey;
 		this.hcaptchaSecretKey = this.meta.hcaptchaSecretKey;
 		this.enableRecaptcha = this.meta.enableRecaptcha;
 		this.recaptchaSiteKey = this.meta.recaptchaSiteKey;
 		this.recaptchaSecretKey = this.meta.recaptchaSecretKey;
-		this.proxyAccountId = this.meta.proxyAccountId;
 		this.cacheRemoteFiles = this.meta.cacheRemoteFiles;
 		this.proxyRemoteFiles = this.meta.proxyRemoteFiles;
 		this.localDriveCapacityMb = this.meta.driveCapacityPerLocalUserMb;
+<<<<<<< HEAD
 		this.remoteDriveCapacityMb = this.meta.driveCapacityPerRemoteUserMb;
 		this.premiumDriveCapacityMb = this.meta.driveCapacityPerPremiumUserMb;
 		this.blockedHosts = this.meta.blockedHosts.join('\n');
@@ -412,6 +443,8 @@ export default defineComponent({
 		this.enableServiceWorker = this.meta.enableServiceWorker;
 		this.swPublicKey = this.meta.swPublickey;
 		this.swPrivateKey = this.meta.swPrivateKey;
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		this.useObjectStorage = this.meta.useObjectStorage;
 		this.objectStorageBaseUrl = this.meta.objectStorageBaseUrl;
 		this.objectStorageBucket = this.meta.objectStorageBucket;
@@ -434,6 +467,7 @@ export default defineComponent({
 		this.enableDiscordIntegration = this.meta.enableDiscordIntegration;
 		this.discordClientId = this.meta.discordClientId;
 		this.discordClientSecret = this.meta.discordClientSecret;
+<<<<<<< HEAD
 		this.useStarForReactionFallback = this.meta.useStarForReactionFallback;
 		this.smtpSecure = this.meta.smtpSecure;
 		this.smtpHost = this.meta.smtpHost;
@@ -451,6 +485,8 @@ export default defineComponent({
 				this.proxyAccount = proxyAccount;
 			});
 		}
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 
 	mounted() {
@@ -504,6 +540,7 @@ export default defineComponent({
 			});
 		},
 
+<<<<<<< HEAD
 		addPinUser() {
 			os.selectUser().then(user => {
 				this.pinnedUsers = this.pinnedUsers.trim();
@@ -538,6 +575,8 @@ export default defineComponent({
 			});
 		},
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		save(withDialog = false) {
 			os.api('admin/update-meta', {
 				name: this.name,
@@ -553,22 +592,25 @@ export default defineComponent({
 				maintainerEmail: this.maintainerEmail,
 				maxNoteTextLength: this.maxNoteTextLength,
 				disableRegistration: !this.enableRegistration,
+<<<<<<< HEAD
 				disableInvitation: !this.enableInvitation,
 				disableInvitationReason: this.disableInvitationReason,
 				disableLocalTimeline: !this.enableLocalTimeline,
 				disableGlobalTimeline: !this.enableGlobalTimeline,
 				disableFeatured: !this.enableFeatured,
 				disableCatTimeline: !this.enableCatTimeline,
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				enableHcaptcha: this.enableHcaptcha,
 				hcaptchaSiteKey: this.hcaptchaSiteKey,
 				hcaptchaSecretKey: this.hcaptchaSecretKey,
 				enableRecaptcha: this.enableRecaptcha,
 				recaptchaSiteKey: this.recaptchaSiteKey,
 				recaptchaSecretKey: this.recaptchaSecretKey,
-				proxyAccountId: this.proxyAccountId,
 				cacheRemoteFiles: this.cacheRemoteFiles,
 				proxyRemoteFiles: this.proxyRemoteFiles,
 				localDriveCapacityMb: parseInt(this.localDriveCapacityMb, 10),
+<<<<<<< HEAD
 				remoteDriveCapacityMb: parseInt(this.remoteDriveCapacityMb, 10),
 				premiumDriveCapacityMb: parseInt(this.premiumDriveCapacityMb, 10),
 				blockedHosts: this.blockedHosts.split('\n') || [],
@@ -576,6 +618,8 @@ export default defineComponent({
 				enableServiceWorker: this.enableServiceWorker,
 				swPublicKey: this.swPublicKey,
 				swPrivateKey: this.swPrivateKey,
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				useObjectStorage: this.useObjectStorage,
 				objectStorageBaseUrl: this.objectStorageBaseUrl ? this.objectStorageBaseUrl : null,
 				objectStorageBucket: this.objectStorageBucket ? this.objectStorageBucket : null,

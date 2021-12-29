@@ -3,8 +3,12 @@
 	<div class="stats" v-if="info">
 		<div class="_panel">
 			<div>
+<<<<<<< HEAD
 				<b><Fa :icon="faUser"/>{{ $ts.users }}</b>
 				<small>{{ $ts.local }}</small>
+=======
+				<b><fa :icon="faUser"/>{{ $t('users') }}</b>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			</div>
 			<div>
 				<dl class="total">
@@ -23,6 +27,7 @@
 		</div>
 		<div class="_panel">
 			<div>
+<<<<<<< HEAD
 				<b><Fa :icon="faUser"/>{{ $ts.users }}</b>
 				<small>{{ $ts.remote }}</small>
 			</div>
@@ -45,6 +50,9 @@
 			<div>
 				<b><Fa :icon="faPencilAlt"/>{{ $ts.notes }}</b>
 				<small>{{ $ts.local }}</small>
+=======
+				<b><fa :icon="faPencilAlt"/>{{ $t('notes') }}</b>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			</div>
 			<div>
 				<dl class="total">
@@ -61,6 +69,7 @@
 				</dl>
 			</div>
 		</div>
+<<<<<<< HEAD
 		<div class="_panel">
 			<div>
 				<b><Fa :icon="faPencilAlt"/>{{ $ts.notes }}</b>
@@ -81,12 +90,15 @@
 				</dl>
 			</div>
 		</div>
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	</div>
 
 	<section class="_card">
 		<div class="_title" style="position: relative;"><Fa :icon="faChartBar"/> {{ $ts.statistics }}<button @click="fetchChart" class="_button" style="position: absolute; right: 0; bottom: 0; top: 0; padding: inherit;"><Fa :icon="faSync"/></button></div>
 		<div class="_content" style="margin-top: -8px;">
 			<div class="selects" style="display: flex;">
+<<<<<<< HEAD
 				<MkSelect v-model:value="chartSrc" style="margin: 0; flex: 1;">
 					<optgroup :label="$ts.federation">
 						<option value="federation-instances">{{ $ts._charts.federationInstancesIncDec }}</option>
@@ -102,6 +114,17 @@
 						<option value="local-notes">{{ $ts._charts.localNotesIncDec }}</option>
 						<option value="remote-notes">{{ $ts._charts.remoteNotesIncDec }}</option>
 						<option value="notes-total">{{ $ts._charts.notesTotal }}</option>
+=======
+				<mk-select v-model="chartSrc" style="margin: 0; flex: 1;">
+					<optgroup :label="$t('users')">
+						<option value="users">{{ $t('_charts.usersIncDec') }}</option>
+						<option value="users-total">{{ $t('_charts.usersTotal') }}</option>
+						<option value="active-users">{{ $t('_charts.activeUsers') }}</option>
+					</optgroup>
+					<optgroup :label="$t('notes')">
+						<option value="notes">{{ $t('_charts.notesIncDec') }}</option>
+						<option value="notes-total">{{ $t('_charts.notesTotal') }}</option>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					</optgroup>
 					<optgroup :label="$ts.drive">
 						<option value="drive-files">{{ $ts._charts.filesIncDec }}</option>
@@ -181,14 +204,10 @@ export default defineComponent({
 		data(): any {
 			if (this.chart == null) return null;
 			switch (this.chartSrc) {
-				case 'federation-instances': return this.federationInstancesChart(false);
-				case 'federation-instances-total': return this.federationInstancesChart(true);
 				case 'users': return this.usersChart(false);
 				case 'users-total': return this.usersChart(true);
 				case 'active-users': return this.activeUsersChart();
 				case 'notes': return this.notesChart('combined');
-				case 'local-notes': return this.notesChart('local');
-				case 'remote-notes': return this.notesChart('remote');
 				case 'notes-total': return this.notesTotalChart();
 				case 'drive': return this.driveChart();
 				case 'drive-total': return this.driveTotalChart();
@@ -391,30 +410,6 @@ export default defineComponent({
 						? sum(this.stats.notes.local.inc, negate(this.stats.notes.local.dec), this.stats.notes.remote.inc, negate(this.stats.notes.remote.dec))
 						: sum(this.stats.notes[type].inc, negate(this.stats.notes[type].dec))
 					)
-				}, {
-					name: 'Renotes',
-					type: 'area',
-					color: '#00E396',
-					data: this.format(type == 'combined'
-						? sum(this.stats.notes.local.diffs.renote, this.stats.notes.remote.diffs.renote)
-						: this.stats.notes[type].diffs.renote
-					)
-				}, {
-					name: 'Replies',
-					type: 'area',
-					color: '#FEB019',
-					data: this.format(type == 'combined'
-						? sum(this.stats.notes.local.diffs.reply, this.stats.notes.remote.diffs.reply)
-						: this.stats.notes[type].diffs.reply
-					)
-				}, {
-					name: 'Normal',
-					type: 'area',
-					color: '#FF4560',
-					data: this.format(type == 'combined'
-						? sum(this.stats.notes.local.diffs.normal, this.stats.notes.remote.diffs.normal)
-						: this.stats.notes[type].diffs.normal
-					)
 				}]
 			};
 		},
@@ -426,18 +421,6 @@ export default defineComponent({
 					type: 'line',
 					color: '#008FFB',
 					data: this.format(sum(this.stats.notes.local.total, this.stats.notes.remote.total))
-				}, {
-					name: 'Local',
-					type: 'area',
-					color: '#008FFB',
-					hidden: true,
-					data: this.format(this.stats.notes.local.total)
-				}, {
-					name: 'Remote',
-					type: 'area',
-					color: '#008FFB',
-					hidden: true,
-					data: this.format(this.stats.notes.remote.total)
 				}]
 			};
 		},
@@ -452,24 +435,6 @@ export default defineComponent({
 						? sum(this.stats.users.local.total, this.stats.users.remote.total)
 						: sum(this.stats.users.local.inc, negate(this.stats.users.local.dec), this.stats.users.remote.inc, negate(this.stats.users.remote.dec))
 					)
-				}, {
-					name: 'Local',
-					type: 'area',
-					color: '#008FFB',
-					hidden: true,
-					data: this.format(total
-						? this.stats.users.local.total
-						: sum(this.stats.users.local.inc, negate(this.stats.users.local.dec))
-					)
-				}, {
-					name: 'Remote',
-					type: 'area',
-					color: '#008FFB',
-					hidden: true,
-					data: this.format(total
-						? this.stats.users.remote.total
-						: sum(this.stats.users.remote.inc, negate(this.stats.users.remote.dec))
-					)
 				}]
 			};
 		},
@@ -481,18 +446,6 @@ export default defineComponent({
 					type: 'line',
 					color: '#008FFB',
 					data: this.format(sum(this.stats.activeUsers.local.count, this.stats.activeUsers.remote.count))
-				}, {
-					name: 'Local',
-					type: 'area',
-					color: '#008FFB',
-					hidden: true,
-					data: this.format(this.stats.activeUsers.local.count)
-				}, {
-					name: 'Remote',
-					type: 'area',
-					color: '#008FFB',
-					hidden: true,
-					data: this.format(this.stats.activeUsers.remote.count)
 				}]
 			};
 		},
@@ -524,6 +477,7 @@ export default defineComponent({
 					type: 'area',
 					color: '#FF4560',
 					data: this.format(negate(this.stats.drive.local.decSize))
+<<<<<<< HEAD
 				}, {
 					name: 'Remote +',
 					type: 'area',
@@ -534,6 +488,8 @@ export default defineComponent({
 					type: 'area',
 					color: '#FEB019',
 					data: this.format(negate(this.stats.drive.remote.decSize))
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				}]
 			};
 		},

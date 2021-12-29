@@ -40,9 +40,13 @@
 import { defineAsyncComponent, defineComponent } from 'vue';
 import { faUser, faUsers, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
 import getAcct from '../../../misc/acct/render';
+<<<<<<< HEAD
 import MkButton from '@/components/ui/button.vue';
 import { acct } from '../../filters/user';
 import * as os from '@/os';
+=======
+import MkButton from '../../components/ui/button.vue';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default defineComponent({
 	components: {
@@ -132,12 +136,15 @@ export default defineComponent({
 			}], ev.currentTarget || ev.target);
 		},
 
+<<<<<<< HEAD
 		async startUser() {
 			os.selectUser().then(user => {
 				this.$router.push(`/my/messaging/${getAcct(user)}`);
 			});
 		},
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		async startGroup() {
 			const groups1 = await os.api('users/groups/owned');
 			const groups2 = await os.api('users/groups/joined');

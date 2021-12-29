@@ -37,7 +37,10 @@ const postcss = {
 module.exports = {
 	entry: {
 		app: './src/client/init.ts',
+<<<<<<< HEAD
 		sw: './src/client/sw/sw.ts'
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 	module: {
 		rules: [{
@@ -142,6 +145,10 @@ module.exports = {
 			__VUE_OPTIONS_API__: true,
 			__VUE_PROD_DEVTOOLS__: false,
 		}),
+    new webpack.IgnorePlugin({
+			resourceRegExp: /^\.\/locale$/,
+			contextRegExp: /moment$/,
+		}),
 		new VueLoaderPlugin(),
 		new WebpackOnBuildPlugin((stats: any) => {
 			fs.writeFileSync('./built/meta.json', JSON.stringify({ version: meta.version }), 'utf-8');
@@ -165,6 +172,7 @@ module.exports = {
 	resolveLoader: {
 		modules: ['node_modules']
 	},
+<<<<<<< HEAD
 	cache: !isProduction,
 	experiments: {
 		topLevelAwait: true
@@ -174,6 +182,9 @@ module.exports = {
 			parallel: 1
 		})]
 	},
+=======
+	cache: true,
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	devtool: false, //'source-map',
 	mode: isProduction ? 'production' : 'development'
 };

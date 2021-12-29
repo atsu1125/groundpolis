@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <div class="swhvrteh _popup _shadow" @contextmenu.prevent="() => {}">
 	<ol class="users" ref="suggests" v-if="type === 'user'">
 		<li v-for="user in users" @click="complete(type, user)" @keydown="onKeydown" tabindex="-1" class="user">
@@ -10,15 +11,24 @@
 		</li>
 		<li @click="chooseUser()" @keydown="onKeydown" tabindex="-1" class="choose">{{ $ts.selectUser }}</li>
 	</ol>
+=======
+<div class="swhvrteh" @contextmenu.prevent="() => {}">
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	<ol class="hashtags" ref="suggests" v-if="hashtags.length > 0">
-		<li v-for="hashtag in hashtags" @click="complete(type, hashtag)" @keydown="onKeydown" tabindex="-1">
+		<li v-for="hashtag in hashtags" :key="hashtag" @click="complete(type, hashtag)" @keydown="onKeydown" tabindex="-1">
 			<span class="name">{{ hashtag }}</span>
 		</li>
 	</ol>
 	<ol class="emojis" ref="suggests" v-if="emojis.length > 0">
+<<<<<<< HEAD
 		<li v-for="emoji in emojis" @click="complete(type, emoji.emoji)" @keydown="onKeydown" tabindex="-1">
 			<span class="emoji" v-if="emoji.isCustomEmoji"><img :src="$store.state.disableShowingAnimatedImages ? getStaticImageUrl(emoji.url) : emoji.url" :alt="emoji.emoji"/></span>
 			<span class="emoji" v-else-if="!$store.state.useOsNativeEmojis"><img :src="emoji.url" :alt="emoji.emoji"/></span>
+=======
+		<li v-for="(emoji, i) in emojis" :key="i" @click="complete(type, emoji.emoji)" @keydown="onKeydown" tabindex="-1">
+			<span class="emoji" v-if="emoji.isCustomEmoji"><img :src="$store.state.device.disableShowingAnimatedImages ? getStaticImageUrl(emoji.url) : emoji.url" :alt="emoji.emoji"/></span>
+			<span class="emoji" v-else-if="!useOsNativeEmojis"><img :src="emoji.url" :alt="emoji.emoji"/></span>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			<span class="emoji" v-else>{{ emoji.emoji }}</span>
 			<span class="name" v-html="emoji.name.replace(q, `<b>${q}</b>`)"></span>
 			<span class="alias" v-if="emoji.aliasOf">({{ emoji.aliasOf }})</span>
@@ -44,11 +54,15 @@ import { defineComponent, markRaw } from 'vue';
 import { emojilist } from '../../misc/emojilist';
 import contains from '@/scripts/contains';
 import { twemojiSvgBase } from '../../misc/twemoji-base';
+<<<<<<< HEAD
 import { getStaticImageUrl } from '@/scripts/get-static-image-url';
 import { acct } from '@/filters/user';
 import * as os from '@/os';
 import { mfmFunctions } from './mfm.functions';
 import { Template } from '@/store';
+=======
+import { getStaticImageUrl } from '../scripts/get-static-image-url';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 type EmojiDef = {
 	emoji: string;
@@ -133,7 +147,6 @@ export default defineComponent({
 		return {
 			getStaticImageUrl,
 			fetching: true,
-			users: [],
 			hashtags: [],
 			emojis: [],
 			items: [],
@@ -245,6 +258,7 @@ export default defineComponent({
 				}
 			}
 
+<<<<<<< HEAD
 			if (this.type == 'user') {
 				if (this.q == null) {
 					this.users = [];
@@ -272,6 +286,9 @@ export default defineComponent({
 					});
 				}
 			} else if (this.type == 'hashtag') {
+=======
+			if (this.type == 'hashtag') {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				if (this.q == null || this.q == '') {
 					this.hashtags = JSON.parse(localStorage.getItem('hashtags') || '[]');
 					this.fetching = false;
@@ -401,6 +418,7 @@ export default defineComponent({
 				(this.items[this.select] as any).focus();
 			}
 		},
+<<<<<<< HEAD
 
 		chooseUser() {
 			this.close();
@@ -411,6 +429,8 @@ export default defineComponent({
 		},
 
 		acct
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	}
 });
 </script>
@@ -470,22 +490,6 @@ export default defineComponent({
 					color: #fff !important;
 				}
 			}
-		}
-	}
-
-	> .users > li {
-
-		.avatar {
-			min-width: 28px;
-			min-height: 28px;
-			max-width: 28px;
-			max-height: 28px;
-			margin: 0 8px 0 0;
-			border-radius: 100%;
-		}
-
-		.name {
-			margin: 0 8px 0 0;
 		}
 	}
 

@@ -76,17 +76,10 @@ export const meta = {
 			ref: 'Note',
 		}
 	},
-
-	errors: {
-		ltlDisabled: {
-			message: 'Local timeline has been disabled.',
-			code: 'LTL_DISABLED',
-			id: '45a6eb02-7695-4393-b023-dd3be9aaaefd'
-		},
-	}
 };
 
 export default define(meta, async (ps, user) => {
+<<<<<<< HEAD
 	const m = await fetchMeta();
 	if (m.disableLocalTimeline) {
 		if (user == null || (!user.isAdmin && !user.isModerator)) {
@@ -96,6 +89,8 @@ export default define(meta, async (ps, user) => {
 
 	const cond = user != null ? 'note.visibility = \'public\' OR note.visibility = \'users\'' : 'note.visibility = \'public\'';
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	//#region Construct query
 	const query = makePaginationQuery(Notes.createQueryBuilder('note'),
 			ps.sinceId, ps.untilId, ps.sinceDate, ps.untilDate)
@@ -129,9 +124,6 @@ export default define(meta, async (ps, user) => {
 	//#endregion
 
 	const timeline = await query.take(ps.limit!).getMany();
-
-	await injectPromo(timeline, user);
-	await injectFeatured(timeline, user);
 
 	process.nextTick(() => {
 		if (user) {

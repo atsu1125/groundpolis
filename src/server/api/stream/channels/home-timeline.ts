@@ -1,9 +1,15 @@
 import autobind from 'autobind-decorator';
+<<<<<<< HEAD
 import { isMutedUserRelated } from '../../../../misc/is-muted-user-related';
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 import Channel from '../channel';
-import { Notes } from '../../../../models';
 import { PackedNote } from '../../../../models/repositories/note';
+<<<<<<< HEAD
 import { checkWordMute } from '../../../../misc/check-word-mute';
+=======
+import { Notes } from '../../../../models';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 export default class extends Channel {
 	public readonly chName = 'homeTimeline';
@@ -18,6 +24,7 @@ export default class extends Channel {
 
 	@autobind
 	private async onNote(note: PackedNote) {
+<<<<<<< HEAD
 		if (note.channelId) {
 			if (!this.followingChannels.has(note.channelId)) return;
 		} else {
@@ -64,8 +71,14 @@ export default class extends Channel {
 		// レコードが追加されるNoteでも追加されるより先にここのストリーミングの処理に到達することが起こる。
 		// そのためレコードが存在するかのチェックでは不十分なので、改めてcheckWordMuteを呼んでいる
 		if (this.userProfile && await checkWordMute(note, this.user, this.userProfile.mutedWords)) return;
+=======
+		// 流れるノートは投稿主に向けてpackしたものなので、packし直す
+		const repacked = await Notes.pack(note.id, this.user!);
+		// 自分のノートでなければ弾く
+		if (!repacked.isMyNote) return;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
-		this.send('note', note);
+		this.send('note', repacked);
 	}
 
 	@autobind

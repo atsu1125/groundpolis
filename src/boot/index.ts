@@ -18,7 +18,11 @@ const ev = new Xev();
  * Init process
  */
 export default async function() {
+<<<<<<< HEAD
 	process.title = `Groundpolis (${cluster.isMaster ? 'master' : 'worker'})`;
+=======
+	process.title = `Hitorisskey (${cluster.isMaster ? 'master' : 'worker'})`;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	if (cluster.isMaster || program.disableClustering) {
 		await masterMain();

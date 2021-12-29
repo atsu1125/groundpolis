@@ -1,6 +1,10 @@
 <template>
 <form class="mk-setup" @submit.prevent="submit()">
+<<<<<<< HEAD:src/client/pages/welcome.setup.vue
 	<h1>Welcome to Groundpolis!</h1>
+=======
+	<h1>Welcome to Hitorisskey!</h1>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109:src/client/pages/index.welcome.setup.vue
 	<div>
 		<p>{{ $ts.intro }}</p>
 		<MkInput v-model:value="username" pattern="^[a-zA-Z0-9_]{1,20}$" spellcheck="false" required>

@@ -4,10 +4,14 @@
 	v-if="!muted"
 	v-show="!isDeleted"
 	:tabindex="!isDeleted ? '-1' : null"
+<<<<<<< HEAD
 	:class="{ renote: isRenote, compact: isCompactMode }"
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	v-hotkey="keymap"
 	v-size="{ max: [500, 450, 350, 300] }"
 >
+<<<<<<< HEAD
 	<XSub :note="appearNote.reply" class="reply-to" v-if="appearNote.reply"/>
 	<div class="info" v-if="pinned"><Fa :icon="faThumbtack"/> {{ $ts.pinnedNote }}</div>
 	<div class="info" v-if="appearNote._prId_"><Fa :icon="faBullhorn"/> {{ $ts.promotion }}<button class="_textButton hide" @click="readPromo()">{{ $ts.hideThisNote }} <Fa :icon="faTimes"/></button></div>
@@ -36,6 +40,9 @@
 	</div>
 	<article class="article" @contextmenu.stop="onContextmenu">
 		<MkAvatar class="avatar" :user="appearNote.user"/>
+=======
+	<article class="article">
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		<div class="main">
 			<XNoteHeader class="header" :note="appearNote" :mini="true" :detail="detail"/>
 			<div v-if="showTicker && !appearNote.user.host" class="instance-ticker groundpolis">
@@ -48,6 +55,7 @@
 			</div>
 			<div class="body">
 				<p v-if="appearNote.cw != null" class="cw">
+<<<<<<< HEAD
 					<Mfm v-if="appearNote.cw != '' && !isPlainMode" class="text" :text="appearNote.cw" :author="appearNote.user" :i="$i" :custom-emojis="appearNote.emojis" :no-sticker="true"/>
 					<MkPlainText v-else-if="appearNote.cw != ''" class="text" :text="appearNote.cw"/>
 					<XCwButton v-model:value="showContent" :note="appearNote"/>
@@ -58,17 +66,30 @@
 						<MkA class="reply" v-if="appearNote.replyId" :to="`/notes/${appearNote.replyId}`"><Fa :icon="faReply"/></MkA>
 						<Mfm v-if="appearNote.text && !isPlainMode" :text="appearNote.text" :author="appearNote.user" :i="$i" :custom-emojis="appearNote.emojis"/>
 						<MkPlainText v-else-if="appearNote.text" :text="appearNote.text"/>
+=======
+					<mfm v-if="appearNote.cw != ''" class="text" :text="appearNote.cw" :author="appearNote.user" :i="$store.state.i" :custom-emojis="appearNote.emojis" />
+					<x-cw-button v-model="showContent" :note="appearNote"/>
+				</p>
+				<div class="content" v-show="appearNote.cw == null || showContent">
+					<div class="text">
+						<mfm v-if="appearNote.text" :text="appearNote.text" :author="appearNote.user" :i="$store.state.i" :custom-emojis="appearNote.emojis"/>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					</div>
 					<button v-if="readMore !== null" class="read-more-button _button _link" @click="readMore = !readMore" v-text="readMore ? $ts.hide : $ts.readMore"/>
 					<div class="files" v-if="appearNote.files.length > 0 && (!legacyWebkitCompatibleMode || appearNote.cw == null || showContent)">
 						<XMediaList :media-list="appearNote.files"/>
 					</div>
+<<<<<<< HEAD
 					<XPoll v-if="appearNote.poll" :note="appearNote" ref="pollViewer" class="poll"/>
 					<MkUrlPreview v-for="url in urls" :url="url" :key="url" :compact="true" :detail="false" class="url-preview"/>
 					<div class="renote" v-if="appearNote.renote"><XNotePreview :note="appearNote.renote"/></div>
+=======
+					<mk-url-preview v-for="url in urls" :url="url" :key="url" :compact="true" class="url-preview"/>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				</div>
 				<MkA v-if="appearNote.channel && !inChannel" class="channel" :to="`/channels/${appearNote.channel.id}`"><Fa :icon="faSatelliteDish"/> {{ appearNote.channel.name }}</MkA>
 			</div>
+<<<<<<< HEAD
 			<footer class="footer">
 				<XReactionsViewer v-if="!disableReactions" :note="appearNote" ref="reactionsViewer"/>
 				<template v-if="$i">
@@ -110,9 +131,29 @@
 						<Fa :icon="faLink" fixed-width/>
 					</button>
 				</template>
+=======
+			<footer v-if="appearNote.deletedAt == null" class="footer">
+				<x-reactions-viewer :note="appearNote" ref="reactionsViewer"/>
+				<button v-if="appearNote.myReaction == null" class="button _button" @click="react()" ref="reactButton">
+					<fa :icon="faPlus" fixed-width/>
+				</button>
+				<button v-if="appearNote.myReaction != null" class="button _button reacted" @click="undoReact(appearNote)">
+					<fa :icon="faMinus" fixed-width/>
+				</button>
+				<button v-if="appearNote.isMyNote" v-tooltip="$t('deleteAndEdit')" class="button _button" @click="delEdit()">
+					<fa :icon="faEdit"/>						
+				</button>
+				<button v-if="appearNote.isMyNote || ($store.state.i && ($store.state.i.isModerator || $store.state.i.isAdmin))" v-tooltip="$t('delete')" class="button _button" @click="del()">
+					<fa :icon="faTrashAlt"/>						
+				</button>
+				<button class="button _button" @click="menu()" ref="menuButton">
+					<fa :icon="faEllipsisH" fixed-width/>
+				</button>
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			</footer>
 		</div>
 	</article>
+<<<<<<< HEAD
 </div>
 <div v-else class="_panel muted" @click="muted = false">
 	<I18n :src="$ts.userSaysSomething" tag="small">
@@ -122,21 +163,31 @@
 			</MkA>
 		</template>
 	</I18n>
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 </div>
 </template>
 
 <script lang="ts">
+<<<<<<< HEAD
 import { defineAsyncComponent, defineComponent, markRaw } from 'vue';
 import { faSatelliteDish, faFireAlt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faHome, faLock, faEnvelope, faThumbtack, faBan, faQuoteLeft, faQuoteRight, faHeart as faHeartS, faEllipsisV, faUsers, faHeartbeat, faPlug, faExclamationCircle, faAlignLeft, faPaperclip, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import { faCopy, faTrashAlt, faEdit, faEye, faEyeSlash, faMehRollingEyes, faClock, faHeart as faHeartR } from '@fortawesome/free-regular-svg-icons';
 import * as mfm from 'mfm-js';
 import { sum } from '../../prelude/array';
 import XSub from './note.sub.vue';
+=======
+import Vue from 'vue';
+import { faPlus, faMinus, faReply, faEllipsisH, faExclamationCircle, faInfoCircle, faCopy, faLink } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faEdit} from '@fortawesome/free-regular-svg-icons';
+import { parse } from '../../mfm/parse';
+import { sum, unique } from '../../prelude/array';
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 import XNoteHeader from './note-header.vue';
-import XNotePreview from './note-preview.vue';
 import XReactionsViewer from './reactions-viewer.vue';
 import XMediaList from './media-list.vue';
 import XCwButton from './cw-button.vue';
+<<<<<<< HEAD
 import XPoll from './poll.vue';
 import { pleaseLogin } from '@/scripts/please-login';
 import { focusPrev, focusNext } from '@/scripts/focus';
@@ -161,13 +212,23 @@ markRawAll(
 );
 
 export default defineComponent({
+=======
+import MkUrlPreview from './url-preview.vue';
+import MkReactionPicker from './reaction-picker.vue';
+import pleaseLogin from '../scripts/please-login';
+import { focusPrev, focusNext } from '../scripts/focus';
+import { url } from '../config';
+import copyToClipboard from '../scripts/copy-to-clipboard';
+
+export default Vue.extend({
+	
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	components: {
-		XSub,
 		XNoteHeader,
-		XNotePreview,
 		XReactionsViewer,
 		XMediaList,
 		XCwButton,
+<<<<<<< HEAD
 		XPoll,
 		MkUrlPreview: defineAsyncComponent(() => import('@/components/url-preview.vue')),
 		VisibilityIcon,
@@ -181,6 +242,9 @@ export default defineComponent({
 	model: {
 		prop: 'note',
 		event: 'updated'
+=======
+		MkUrlPreview,
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 
 	props: {
@@ -188,6 +252,7 @@ export default defineComponent({
 			type: Object,
 			required: true
 		},
+<<<<<<< HEAD
 		pinned: {
 			type: Boolean,
 			required: false,
@@ -198,6 +263,8 @@ export default defineComponent({
 			required: false,
 			default: false
 		},
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 
 	emits: ['update:note'],
@@ -205,6 +272,7 @@ export default defineComponent({
 	data() {
 		return {
 			connection: null,
+<<<<<<< HEAD
 			replies: [],
 			showContent: false,
 			isDeleted: false,
@@ -216,6 +284,14 @@ export default defineComponent({
 			faEdit, faFireAlt, faTimes, faBullhorn, faPlus, faMinus, faRetweet, faReply, faReplyAll, faEllipsisV, faHome, faLock, faEnvelope, faThumbtack, faBan, faCopy, faLink, faUsers, faHeartS, faHeartR, faQuoteLeft, faQuoteRight, faHeartbeat, faPlug, faSatelliteDish, faClock, faAlignLeft,
 			host,
 			legacyWebkitCompatibleMode,
+=======
+			conversation: [],
+			noteBody: null,
+			replies: [],
+			showContent: false,
+			hideThisNote: false,
+			faEdit, faPlus, faMinus, faReply, faEllipsisH, faTrashAlt, faExclamationCircle
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		};
 	},
 
@@ -227,18 +303,22 @@ export default defineComponent({
 			return this.$store.state.reactions;
 		},
 		keymap(): any {
+<<<<<<< HEAD
 			return this.preview ? {} : {
 				'r': () => this.reply(true),
 				'e|a|plus': () => this.disableReactions ? this.toggleLike() : this.react(true),
 				'q': () => this.renote(true),
 				'f|b': this.favorite,
+=======
+			return {
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				'delete|ctrl+d': this.del,
-				'ctrl+q': this.renoteDirectly,
 				'up|k|shift+tab': this.focusBefore,
 				'down|j|tab': this.focusAfter,
 				'esc': this.blur,
 				'm|o': () => this.menu(true),
 				's': this.toggleShowContent,
+<<<<<<< HEAD
 				'1': () => this.reactDirectly(this.rs[0]),
 				'2': () => this.reactDirectly(this.rs[1]),
 				'3': () => this.reactDirectly(this.rs[2]),
@@ -272,14 +352,20 @@ export default defineComponent({
 			return r.length === 0 ? 0 : r.reduce((p, c) => p + c);
 		},
 
+=======
+			};
+		},
+
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		appearNote(): any {
-			return this.isRenote ? this.note.renote : this.note;
+			return this.note;
 		},
 
 		isMyNote(): boolean {
 			return this.$i && (this.$i.id === this.appearNote.userId);
 		},
 
+<<<<<<< HEAD
 		isPreviewOrDeleted(): boolean {
 			return this.preview || this.isDeleted;
 		},
@@ -292,6 +378,8 @@ export default defineComponent({
 			return ['public', 'home'].includes(this.appearNote.visibility) || this.isMyNote;
 		},
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		reactionsCount(): number {
 			return this.appearNote.reactions
 				? sum(Object.values(this.appearNote.reactions))
@@ -320,6 +408,7 @@ export default defineComponent({
 		if (this.$i) {
 			this.connection = os.stream;
 		}
+<<<<<<< HEAD
 
 		this.muted = await checkWordMute(this.appearNote, this.$i, this.$store.state.mutedWords);
 
@@ -339,6 +428,8 @@ export default defineComponent({
 				this.readMore = false;
 			}
 		}
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	},
 
 	async mounted() {
@@ -362,6 +453,7 @@ export default defineComponent({
 	},
 
 	methods: {
+<<<<<<< HEAD
 		updateAppearNote(v) {
 			this.$emit('update:note', Object.freeze(this.isRenote ? {
 				...this.note,
@@ -381,6 +473,8 @@ export default defineComponent({
 			});
 			this.isDeleted = true;
 		},
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 		capture(withHandler = false) {
 			if (this.$i) {
@@ -411,6 +505,7 @@ export default defineComponent({
 				case 'reacted': {
 					const reaction = body.reaction;
 
+<<<<<<< HEAD
 					// DeepではなくShallowコピーであることに注意。n.reactions[reaction] = hogeとかしないように(親からもらったデータをミューテートすることになるので)
 					let n = {
 						...this.appearNote,
@@ -425,6 +520,15 @@ export default defineComponent({
 
 					// TODO: reactionsプロパティがない場合ってあったっけ？ なければ || {} は消せる
 					const currentCount = (this.appearNote.reactions || {})[reaction] || 0;
+=======
+					if (this.appearNote.reactions == null) {
+						Vue.set(this.appearNote, 'reactions', {});
+					}
+
+					if (this.appearNote.reactions[reaction] == null) {
+						Vue.set(this.appearNote.reactions, reaction, 0);
+					}
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 					// Increment the count
 					n.reactions = {
@@ -432,8 +536,13 @@ export default defineComponent({
 						[reaction]: currentCount + 1
 					};
 
+<<<<<<< HEAD
 					if (body.userId === this.$i.id) {
 						n.myReaction = reaction;
+=======
+					if (body.userIdIsMine) {
+						Vue.set(this.appearNote, 'myReaction', reaction);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					}
 
 					this.updateAppearNote(n);
@@ -457,14 +566,20 @@ export default defineComponent({
 						[reaction]: Math.max(0, currentCount - 1)
 					};
 
+<<<<<<< HEAD
 					if (body.userId === this.$i.id) {
 						n.myReaction = null;
+=======
+					if (body.userIdIsMine) {
+						Vue.set(this.appearNote, 'myReaction', null);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					}
 
 					this.updateAppearNote(n);
 					break;
 				}
 
+<<<<<<< HEAD
 				case 'pollVoted': {
 					const choice = body.choice;
 
@@ -493,11 +608,19 @@ export default defineComponent({
 
 				case 'deleted': {
 					this.isDeleted = true;
+=======
+				case 'deleted': {
+					Vue.set(this.appearNote, 'deletedAt', body.deletedAt);
+					this.appearNote.text = null;
+					this.appearNote.fileIds = [];
+					this.appearNote.cw = null;
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					break;
 				}
 			}
 		},
 
+<<<<<<< HEAD
 		reply(viaKeyboard = false) {
 			if (this.preview) return;
 			pleaseLogin();
@@ -598,6 +721,10 @@ export default defineComponent({
 		async react(viaKeyboard = false) {
 			if (this.preview) return;
 			pleaseLogin();
+=======
+		react(viaKeyboard = false) {
+			pleaseLogin(this.$root);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			this.blur();
 			const { reaction } = await os.reactionPicker({
 				reactions: this.splited,
@@ -640,6 +767,7 @@ export default defineComponent({
 			});
 		},
 
+<<<<<<< HEAD
 		favorite() {
 			pleaseLogin();
 			os.apiWithDialog('notes/favorites/create', {
@@ -662,6 +790,42 @@ export default defineComponent({
 					});
 				}
 			});
+=======
+		async report(note) {
+			pleaseLogin(this.$root);
+			const { canceled, result: comment } = await this.$root.dialog({
+				title: this.$t('enterTheReasonToReportThisNote'),
+				input: {
+					placeholder: this.$t('reason'),
+					allowEmpty: false
+				}
+			});
+
+			if (canceled) return;
+
+			if (!comment) {
+				this.$root.dialog({
+					type: 'error',
+					iconOnly: true,
+					autoClose: true
+				});
+				return;
+			}
+
+			try {
+				await this.$root.api('notes/report', { noteId: note.id, comment });
+				this.$root.dialog({
+					type: 'success',
+					iconOnly: true,
+					autoClose: true
+				});
+			} catch (e) {
+				this.$root.dialog({
+					type: 'error',
+					text: e.message,
+				});
+			}
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		async del() {
@@ -683,6 +847,7 @@ export default defineComponent({
 				showCancelButton: true
 			})).canceled;
 
+<<<<<<< HEAD
 			if (canceled) return;
 			os.api('notes/delete', {
 				noteId: this.appearNote.id
@@ -890,6 +1055,13 @@ export default defineComponent({
 				}
 			}], this.$refs.renoteTime, {
 				viaKeyboard: viaKeyboard
+=======
+				this.$root.api('notes/delete', {
+					noteId: this.appearNote.id
+				});
+
+				this.$root.post({ initialNote: this.appearNote });
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 			});
 		},
 
@@ -907,6 +1079,7 @@ export default defineComponent({
 			os.success();
 		},
 
+<<<<<<< HEAD
 		togglePin(pin: boolean) {
 			os.apiWithDialog(pin ? 'i/pin' : 'i/unpin', {
 				noteId: this.appearNote.id
@@ -918,6 +1091,42 @@ export default defineComponent({
 					});
 				}
 			});
+=======
+		async menu(viaKeyboard = false) {
+			const items = [{
+				type: 'link',
+				icon: faInfoCircle,
+				text: this.$t('details'),
+				to: '/notes/' + this.appearNote.id
+			}, null, {
+				icon: faCopy,
+				text: this.$t('copyContent'),
+				action: this.copyContent
+			}, {
+				icon: faLink,
+				text: this.$t('copyLink'),
+				action: this.copyLink
+			}, null, {
+				icon: faReply,
+				text: this.$t('makeResponse'),
+				action: this.response
+			}, {
+				icon: faExclamationCircle,
+				text: this.$t('report'),
+				action: this.report
+			}];
+
+			this.$root.menu({
+				items,
+				source: this.$refs.menuButton,
+				viaKeyboard
+			}).then(this.focus);
+		},
+
+		response() {
+			pleaseLogin(this.$root);
+			this.$root.post({ instant: true, initialText: `@${this.appearNote.id} ` });
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 		},
 
 		async clip() {
@@ -1056,6 +1265,7 @@ export default defineComponent({
 	overflow: hidden;
 	contain: content;
 
+<<<<<<< HEAD
 	// これらの指定はパフォーマンス向上には有効だが、ノートの高さは一定でないため、
 	// 下の方までスクロールすると上のノートの高さがここで決め打ちされたものに変化し、表示しているノートの位置が変わってしまう
 	// ノートがマウントされたときに自身の高さを取得し contain-intrinsic-size を設定しなおせばほぼ解決できそうだが、
@@ -1063,6 +1273,48 @@ export default defineComponent({
 	// 一度レンダリングされた要素はブラウザがよしなにサイズを覚えておいてくれるような実装になるまで待った方が良さそう(なるのか？)
 	//content-visibility: auto;
   //contain-intrinsic-size: 0 128px;
+=======
+	&.max-width_500px {
+		font-size: 0.9em;
+	}
+
+	&.max-width_450px {
+		> .article {
+			padding: 14px 16px 9px;
+		}
+	}
+
+	&.max-width_350px {
+		> .article {
+			> .main {
+				> .footer {
+					> .button {
+						&:not(:last-child) {
+							margin-right: 18px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.max-width_300px {
+		font-size: 0.825em;
+
+		> .article {
+
+			> .main {
+				> .footer {
+					> .button {
+						&:not(:last-child) {
+							margin-right: 12px;
+						}
+					}
+				}
+			}
+		}
+	}
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	&:focus {
 		outline: none;
@@ -1113,6 +1365,7 @@ export default defineComponent({
 		padding-top: 8px;
 	}
 
+<<<<<<< HEAD
 	> .reply-to {
 		opacity: 0.7;
 		padding-bottom: 0;
@@ -1179,19 +1432,11 @@ export default defineComponent({
 		padding-top: 8px;
 	}
 
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 	> .article {
 		display: flex;
 		padding: 28px 32px 18px;
-
-		> .avatar {
-			flex-shrink: 0;
-			display: block;
-			//position: sticky;
-			//top: 72px;
-			margin: 0 14px 8px 0;
-			width: 58px;
-			height: 58px;
-		}
 
 		> .main {
 			flex: 1;
@@ -1232,6 +1477,7 @@ export default defineComponent({
 			}
 
 			> .body {
+				margin-left: 0.5em;
 				> .cw {
 					cursor: default;
 					display: block;
@@ -1278,6 +1524,7 @@ export default defineComponent({
 
 					> .text {
 						overflow-wrap: break-word;
+<<<<<<< HEAD
 
 						&.collapse {
 							display: block;
@@ -1303,6 +1550,8 @@ export default defineComponent({
 							margin-left: 4px;
 							color: var(--renote);
 						}
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 					}
 
 					> .read-more-button {
@@ -1313,6 +1562,7 @@ export default defineComponent({
 					> .url-preview {
 						margin-top: 8px;
 					}
+<<<<<<< HEAD
 
 					> .poll {
 						font-size: 80%;
@@ -1352,10 +1602,13 @@ export default defineComponent({
 							text-decoration: underline;
 						}
 					}
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 				}
 			}
 
 			> .footer {
+				margin-top: 8px;
 				> .button {
 					margin: 0;
 					padding: 8px;
@@ -1382,6 +1635,7 @@ export default defineComponent({
 			}
 		}
 	}
+<<<<<<< HEAD
 
 	> .reply {
 		border-top: solid 1px var(--divider);
@@ -1444,5 +1698,7 @@ export default defineComponent({
 	padding: 8px;
 	text-align: center;
 	opacity: 0.7;
+=======
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 }
 </style>

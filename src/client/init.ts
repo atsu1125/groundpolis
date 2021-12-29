@@ -30,10 +30,14 @@ if (localStorage['vuex'] !== undefined) {
 		}
 	}
 
+<<<<<<< HEAD
 	localStorage.setItem('vuex-old', JSON.stringify(vuex));
 	localStorage.removeItem('vuex');
 	localStorage.removeItem('i');
 	localStorage.removeItem('locale');
+=======
+console.info(`Hitorisskey v${version}`);
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	location.reload();
 }
@@ -325,6 +329,7 @@ for (const plugin of ColdDeviceStorage.get('plugins').filter(p => p.active)) {
 	});
 }
 
+<<<<<<< HEAD
 if ($i) {
 	if ($i.isDeleted) {
 		dialog({
@@ -341,12 +346,78 @@ if ($i) {
 	}
 
 	const main = stream.useSharedConnection('main', 'System');
+=======
+	const app = new Vue({
+		store: store,
+		i18n,
+		metaInfo: {
+			title: null,
+			titleTemplate: title => title ? `${title} | ${(instanceName || 'Hitorisskey')}` : (instanceName || 'Hitorisskey')
+		},
+		data() {
+			return {
+				stream: os.stream,
+				isMobile: isMobile,
+				i18n // TODO: 消せないか考える SEE: https://github.com/syuilo/misskey/pull/6396#discussion_r429511030
+			};
+		},
+		methods: {
+			api: (endpoint: string, data: { [x: string]: any } = {}, token?) => store.dispatch('api', { endpoint, data, token }),
+			signout: os.signout,
+			new(vm, props) {
+				const x = new vm({
+					parent: this,
+					propsData: props
+				}).$mount();
+				document.body.appendChild(x.$el);
+				return x;
+			},
+			dialog(opts) {
+				const vm = this.new(Dialog, opts);
+				const p: any = new Promise((res) => {
+					vm.$once('ok', result => res({ canceled: false, result }));
+					vm.$once('cancel', () => res({ canceled: true }));
+				});
+				p.close = () => {
+					vm.close();
+				};
+				return p;
+			},
+			menu(opts) {
+				const vm = this.new(Menu, opts);
+				const p: any = new Promise((res) => {
+					vm.$once('closed', () => res());
+				});
+				return p;
+			},
+			post(opts, cb) {
+				const vm = this.new(PostFormDialog, opts);
+				if (cb) vm.$once('closed', cb);
+				(vm as any).focus();
+			},
+			sound(type: string) {
+				if (this.$store.state.device.sfxVolume === 0) return;
+				const sound = this.$store.state.device['sfx' + type.substr(0, 1).toUpperCase() + type.substr(1)];
+				if (sound == null) return;
+				this.soundDirect(sound);
+			},
+			soundDirect(sound: string) {
+				const audio = new Audio(`/assets/sounds/${sound}.mp3`);
+				audio.volume = this.$store.state.device.sfxVolume;
+				audio.play();
+			},
+		},
+		router: router,
+		render: createEl => createEl(App)
+	});
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	// 自分の情報が更新されたとき
 	main.on('meUpdated', i => {
 		updateAccount(i);
 	});
 
+<<<<<<< HEAD
 	main.on('readAllNotifications', () => {
 		updateAccount({ hasUnreadNotification: false });
 	});
@@ -401,6 +472,16 @@ if ($i) {
 		updateAccount({ hasUnreadChannel: true });
 		sound.play('channel');
 	});
+=======
+	if (store.getters.isSignedIn) {
+		const main = os.stream.useSharedConnection('main');
+
+		main.on('readAllAnnouncements', () => {
+			store.dispatch('mergeMe', {
+				hasUnreadAnnouncement: false
+			});
+		});
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 
 	main.on('readAllAnnouncements', () => {
 		updateAccount({ hasUnreadAnnouncement: false });

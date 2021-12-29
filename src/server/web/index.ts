@@ -13,7 +13,6 @@ import * as views from 'koa-views';
 import * as glob from 'glob';
 import * as MarkdownIt from 'markdown-it';
 
-import packFeed from './feed';
 import { fetchMeta } from '../../misc/fetch-meta';
 import { genOpenapiSpec } from '../api/openapi/gen-spec';
 import config from '../../config';
@@ -150,6 +149,7 @@ router.get('/docs.json', async ctx => {
 	ctx.body = docs;
 });
 
+<<<<<<< HEAD
 const getFeed = async (acct: string) => {
 	const { username, host } = parseAcct(acct);
 	const user = await Users.findOne({
@@ -201,6 +201,9 @@ router.get('/@:user.json', async ctx => {
 });
 
 //#region SSR (for crawlers)
+=======
+//#region for crawlers
+>>>>>>> 5819cf375277c06540c217ca14e69d9cf55e5109
 // User
 router.get(['/@:user', '/@:user/:sub'], async (ctx, next) => {
 	const { username, host } = parseAcct(ctx.params.user);
@@ -235,21 +238,6 @@ router.get(['/@:user', '/@:user/:sub'], async (ctx, next) => {
 		// モデレータがAPI経由で参照可能にするために404にはしない
 		await next();
 	}
-});
-
-router.get('/users/:user', async ctx => {
-	const user = await Users.findOne({
-		id: ctx.params.user,
-		host: null,
-		isSuspended: false
-	});
-
-	if (user == null) {
-		ctx.status = 404;
-		return;
-	}
-
-	ctx.redirect(`/@${user.username}${ user.host == null ? '' : '@' + user.host}`);
 });
 
 // Note
