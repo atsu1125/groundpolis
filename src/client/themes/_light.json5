@@ -12,7 +12,7 @@
 		accent: '#ed6c8e',
 		accentDarken: ':darken<10<@accent',
 		accentLighten: ':lighten<10<@accent',
-		accentPrimary: '" linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%)',
+		accentPrimary: '@accent',
 		focus: ':alpha<0.3<@accent',
 		bg: '#f0f0f0',
 		acrylicBg: ':alpha<0.5<@bg',
