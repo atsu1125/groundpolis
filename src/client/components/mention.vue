@@ -69,7 +69,7 @@ export default defineComponent({
 	padding: 4px 6px;
 	display: inline-flex;
 	align-items: baseline;
-	box-shadow: 10px 10px 32px rgb(0 0 0 / 10%), -10px -10px 16px rgb(255 255 255 / 75%);
+	box-shadow: 4px 4px 16px rgb(0 0 0 / 5%), -4px -4px 8px rgb(255 255 255 / 75%);
 
 	&.isMe {
 		background-color: var(--mentionMe);
