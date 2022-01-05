@@ -64,11 +64,12 @@ export default defineComponent({
 <style lang="scss" scoped>
 .ldlomzub {
 	background-color: var(--mention);
-	color: white;
+	color: var(--fg);
 	border-radius: 999px;
-	padding: 2px 4px;
+	padding: 4px 6px;
 	display: inline-flex;
 	align-items: baseline;
+	box-shadow: var(--mentionShadow);
 
 	&.isMe {
 		background-color: var(--mentionMe);
