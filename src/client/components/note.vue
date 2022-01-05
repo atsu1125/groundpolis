@@ -1228,7 +1228,7 @@ export default defineComponent({
 				> .favicon {
 					display: inline-block;
 					height: 1.5em;
-					margin-right: 0px;
+					margin-right: px;
 				}
 			}
 
