@@ -1146,6 +1146,7 @@ _theme:
     hashtag: "Hashtag"
     mention: "Mention"
     mentionMe: "Mentions (Me)"
+    mentionShadow: "Mention shadow"
     renote: "Renote"
     modalBg: "Modal background"
     divider: "Divider"

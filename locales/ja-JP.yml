@@ -1222,6 +1222,7 @@ _theme:
     hashtag: "ハッシュタグ"
     mention: "メンション"
     mentionMe: "あなた宛てメンション"
+    mentionShadow: "メンションの影"
     renote: "リノート"
     modalBg: "モーダルの背景"
     divider: "分割線"

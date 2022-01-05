@@ -372,7 +372,7 @@ export default defineComponent({
 		width: 64px;
 		height: 64px;
 		border-radius: 100%;
-		box-shadow: 20px 20px 64px rgb(0 0 0 / 10%), -20px -20px 32px rgb(255 255 255 / 75%);
+		box-shadow: var(--panelShadow);
 		font-size: 22px;
 		background: var(--bg);
 		color: var(--accent);
