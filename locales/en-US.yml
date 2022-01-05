@@ -1130,6 +1130,7 @@ _theme:
   deleteConstantConfirm: "Do you really want to delete the constant {const}?"
   keys:
     accent: "Accent"
+    accent: "Primary accent"
     bg: "Background"
     fg: "Text"
     focus: "Focus"

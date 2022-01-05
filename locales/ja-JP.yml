@@ -1206,6 +1206,7 @@ _theme:
 
   keys:
     accent: "アクセント"
+    accentPrimary: "アクセント(重要)"
     bg: "背景"
     fg: "文字"
     focus: "フォーカス"

@@ -374,8 +374,8 @@ export default defineComponent({
 		border-radius: 100%;
 		box-shadow: var(--panelShadow);
 		font-size: 22px;
-		background: var(--bg);
-		color: var(--accent);
+		background: var(--accentPrimary);
+		color: white;
 
 		&.navHidden {
 			bottom: 64px;
