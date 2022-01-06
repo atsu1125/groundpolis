@@ -155,6 +155,8 @@ export default defineComponent({
 	margin: 2px;
 	padding: 0 6px;
 	border-radius: 4px;
+	box-shadow:  3px 3px 6px #bebebe,
+             -3px -3px 6px #ffffff;
 
 	&.canToggle {
 		background: rgba(0, 0, 0, 0.05);
