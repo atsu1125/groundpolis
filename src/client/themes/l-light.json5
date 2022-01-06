@@ -1,8 +1,8 @@
 {
 	id: '4eea646f-7afa-4645-83e9-83af0333cd37',
 
-	name: 'Xeltica Light',
-	author: 'xeltica',
+	name: 'Milkey Light',
+	author: 'sakura-tel',
 	desc: 'Default light theme',
 
 	base: 'light',
