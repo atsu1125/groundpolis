@@ -1325,8 +1325,7 @@ export default defineComponent({
 
 						> * {
 							padding: 16px;
-							border: solid 1px var(--renote);
-							border-radius: 3px;
+							border-radius: 10px;
 						}
 					}
 				}
