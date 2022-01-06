@@ -856,6 +856,7 @@ useDefaultNoteVisibilityOnRenote: "Apply default visibility for Renote"
 defaultRenoteVisibility: "Default visibility (Renote)"
 defaultRenoteLocalOnly: "Local Only (Renote)"
 defaultRenoteRemoteFollowersOnly: "Remote Followers and Local (Renote)"
+welcomeBack: "Welome back, {x}."
 
 _template:
   edit: "Edit Template..."
@@ -1130,6 +1131,7 @@ _theme:
   deleteConstantConfirm: "Do you really want to delete the constant {const}?"
   keys:
     accent: "Accent"
+    accentPrimary: "Primary accent"
     bg: "Background"
     fg: "Text"
     focus: "Focus"
@@ -1146,6 +1148,7 @@ _theme:
     hashtag: "Hashtag"
     mention: "Mention"
     mentionMe: "Mentions (Me)"
+    mentionShadow: "Mention shadow"
     renote: "Renote"
     modalBg: "Modal background"
     divider: "Divider"

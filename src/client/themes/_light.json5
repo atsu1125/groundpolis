@@ -9,9 +9,10 @@
 	kind: 'light',
 
 	props: {
-		accent: '#3eb370',
+		accent: '#ed6c8e',
 		accentDarken: ':darken<10<@accent',
 		accentLighten: ':lighten<10<@accent',
+		accentPrimary: '@accent',
 		focus: ':alpha<0.3<@accent',
 		bg: '#f0f0f0',
 		acrylicBg: ':alpha<0.5<@bg',
@@ -36,8 +37,9 @@
 		navIndicator: '@accent',
 		link: '#44a4c1',
 		hashtag: '#ff9156',
-		mention: '@accent',
+		mention: '@bg',
 		mentionMe: '@mention',
+		mentionShadow: '" inset 4px 4px 8px rgb(0 0 0 / 15%), inset -4px -4px 4px rgb(255 255 255)',
 		renote: '#229e82',
 		modalBg: 'rgba(0, 0, 0, 0.8)',
 		scrollbarHandle: 'rgba(0, 0, 0, 0.2)',

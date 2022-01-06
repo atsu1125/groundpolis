@@ -23,9 +23,13 @@
 	<FormLink to="labs/custom-css">
 		{{ $ts._labs.customCss }}
 	</FormLink>
+	<div class="_formItem" style="margin-top: 96px">
+		<div class="_formLabel" style="font-size: 100%">以下は完全に開発者向けのため非推奨</div>
+	</div>
 	<FormLink to="experimental-features">
 		{{ $ts.experimentalFeatures }} (Misskey)
 	</FormLink>
+	<FormButton @click="sendSystemNotification">通知テスト</FormButton>
 </FormBase>
 </template>
 
@@ -35,14 +39,17 @@ import { defineComponent } from 'vue';
 import FormBase from '@/components/form/base.vue';
 import FormLink from '@/components/form/link.vue';
 import FormSwitch from '@/components/form/switch.vue';
+import FormButton from '@/components/form/button.vue';
 import MkLink from '@/components/link.vue';
 import { defaultStore } from '@/store';
+import { notify } from '@/os';
 
 export default defineComponent({
 	components: {
 		FormBase,
 		FormLink,
 		FormSwitch,
+		FormButton,
 		MkLink,
 	},
 
@@ -55,6 +62,11 @@ export default defineComponent({
 	},
 
 	methods: {
+		sendSystemNotification() {
+			notify({
+				body: '$[x2 **悪行を検知しました**]\n**罪状**: $[rainbow ボタンがあったらとりあえず押す人取締法違反]',
+			});
+		},
 	},
 });
 </script>

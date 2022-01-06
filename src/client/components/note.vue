@@ -1008,8 +1008,8 @@ export default defineComponent({
 			}).then(({ canceled, result }) => {
 				if (canceled) return;
 				if (!result) return;
-				this.$store.set('templates', [
-					...this.$store.state.templates,
+				this.$store.set('templateList', [
+					...this.$store.state.templateList,
 					{
 						label: result,
 						body: this.appearNote.text,
@@ -1203,10 +1203,11 @@ export default defineComponent({
 				width: 100%;
 				margin-bottom: 8px;
 				align-items: center;
-				padding: 1px 8px;
+				padding: 0px 0px;
 				font-size: 0.8em;
 				font-weight: bold;
 				border-radius: 4px 0 0 4px;
+				overflow: hidden;
 
 				&.misskey {
 					@include ticker(rgb(134, 179, 0), rgb(242, 242, 242));
@@ -1226,7 +1227,7 @@ export default defineComponent({
 
 				> .favicon {
 					display: inline-block;
-					height: 1em;
+					height: 1.5em;
 					margin-right: 4px;
 				}
 			}

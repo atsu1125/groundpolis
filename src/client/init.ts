@@ -50,7 +50,7 @@ import { router } from '@/router';
 import { applyTheme } from '@/scripts/theme';
 import { isDeviceDarkmode } from '@/scripts/is-device-darkmode';
 import { i18n } from '@/i18n';
-import { stream, isMobile, dialog, post, getAccounts } from '@/os';
+import { stream, isMobile, dialog, post, getAccounts, notify } from '@/os';
 import * as sound from '@/scripts/sound';
 import { $i, refreshAccount, login, updateAccount, signout } from '@/account';
 import { defaultStore, ColdDeviceStorage } from '@/store';
@@ -94,14 +94,21 @@ if (_DEV_) {
 	});
 }
 
+// マイグレーション（templates→templateList）
+// templatesを間違えてdeviceAccountでもってしまったので
+const { templates: oldList, templateList: newList } = defaultStore.state;
+if (oldList.length > 0) { 
+	const newListLabels = new Set(newList.map(t => t.label));
+	const toAdd = oldList.filter(t => !newListLabels.has(t.label));
+	defaultStore.set('templateList', [...newList, ...toAdd]);
+	defaultStore.set('templates', []);
+}
+
 const pattern = /iPhone OS (\d+)/;
 
 const matched = navigator.userAgent.match(pattern);
 
 const iOSVersion = !matched ? null : parseInt(matched[1]);
-
-console.log(`UA: ${navigator.userAgent}`);
-console.log(`iOS Version ${iOSVersion}`);
 
 if (iOSVersion && iOSVersion < 15 && !legacyWebkitCompatibleMode) {
 	dialog({
@@ -412,3 +419,7 @@ if ($i) {
 		signout();
 	});
 }
+
+notify({
+	body: `**${i18n.t('welcomeBack', { x: `:@${$i.username}:  ${$i.name || $i.username}`})}**`,
+});
