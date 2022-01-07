@@ -52,8 +52,7 @@ export default defineComponent({
 	padding: 0;
 	overflow: hidden;
 	font-size: 0.95em;
-	box-shadow: inset 6px 6px 12px #bebebe,
-            inset -6px -6px 12px #ffffff;
+	box-shadow: var(--renoteShadow);
 
 	> .avatar {
 
