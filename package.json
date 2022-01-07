@@ -1,6 +1,10 @@
 {
 	"name": "milkey",
+<<<<<<< HEAD
 	"version": "2022.1.6",
+=======
+	"version": "2021.1.6",
+>>>>>>> b0fe720a79067229e3ece107f1c73a348c07d321
 	"private": true,
 	"author": "Xeltica <xeltica@gmail.com>",
 	"contributors": [
