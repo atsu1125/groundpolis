@@ -374,8 +374,8 @@ export default defineComponent({
 		border-radius: 100%;
 		box-shadow: var(--panelShadow);
 		font-size: 22px;
-		background-color: var(--accentPrimary);
 		color: white;
+		background: linear-gradient(45deg, var(--buttonGradateA), var(--buttonGradateB));
 
 		&.navHidden {
 			bottom: 64px;

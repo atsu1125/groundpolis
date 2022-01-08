@@ -15,5 +15,10 @@
 		panelShadow: '" 20px 20px 64px rgb(0 0 0 / 10%), -20px -20px 32px rgb(255 255 255 / 75%)',
 		panelHeaderDivider: '@divider',
 		messageBg: '#dedede',
+		renoteShadow: '" inset 6px 6px 12px #d8d8d8,inset -6px -6px 12px #ffffff' ,
+		reaction: '" linear-gradient(145deg, #ffffff, #d8d8d8)' ,
+		reactionShadow: '"  3px 3px 6px #cccccc,-3px -3px 6px #ffffff' ,
+		reacted: '#F0F0F0' ,
+		reactedShadow: '" inset 3px 3px 6px #cccccc,inset -3px -3px 6px #ffffff' ,
 	},
 }
