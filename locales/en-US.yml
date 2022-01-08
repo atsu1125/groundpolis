@@ -1131,7 +1131,6 @@ _theme:
   deleteConstantConfirm: "Do you really want to delete the constant {const}?"
   keys:
     accent: "Accent"
-    accentPrimary: "Primary accent"
     bg: "Background"
     fg: "Text"
     focus: "Focus"
@@ -1166,6 +1165,8 @@ _theme:
     toastFg: "Notification text"
     buttonBg: "Button background"
     buttonHoverBg: "Button background (Hover)"
+    buttonGradateA: "Button gradient (Start)"
+    buttonGradateB: "Button gradient (End)"
     inputBorder: "Input field border"
     listItemHoverBg: "List item background (Hover)"
     driveFolderBg: "Drive folder background"

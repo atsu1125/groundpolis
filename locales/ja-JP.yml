@@ -1207,7 +1207,6 @@ _theme:
 
   keys:
     accent: "アクセント"
-    accentPrimary: "アクセント(重要)"
     bg: "背景"
     fg: "文字"
     focus: "フォーカス"
@@ -1242,6 +1241,8 @@ _theme:
     toastFg: "通知トーストの文字"
     buttonBg: "ボタンの背景"
     buttonHoverBg: "ボタンの背景 (ホバー)"
+    buttonGradateA: "ボタンのグラデーション (初め)"
+    buttonGradateB: "ボタンのグラデーション (終わり)"
     inputBorder: "入力ボックスの縁取り"
     listItemHoverBg: "リスト項目の背景 (ホバー)"
     driveFolderBg: "ドライブフォルダーの背景"
