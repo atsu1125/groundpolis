@@ -1,12 +1,12 @@
 {
-		"name": "groundpolis",
-		"version": "2022.12.2-milkey-1",
+		"name": "groundpolis-milkey",
+		"version": "2021.12.2-milkey-1",
 		"private": true,
 		"author": "Xeltica <xeltica@gmail.com>",
 		"contributors": [
 			"syuilo <syuilotan@yahoo.co.jp>"
 		],
-		"codename": "sonic",
+		"codename": "ENOLA",
 		"repository": {
 			"type": "git",
 			"url": "https://github.com/sakura-tel/groundpolis.git"
