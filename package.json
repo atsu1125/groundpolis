@@ -2,7 +2,12 @@
 		"name": "groundpolis-milkey",
 		"version": "2021.12.2-milkey-1",
 		"private": true,
-		"author": "Xeltica <xeltica@gmail.com>",
+		"author": [
+			"Xeltica <xeltica@gmail.com>"
+			"Minemu <minemu398@outlook.jp>"
+			"Azuki⪥ <cluikeit_31701@outlook.com>"
+			"Remito <remitocat@gmail.com>"
+		],
 		"contributors": [
 			"syuilo <syuilotan@yahoo.co.jp>"
 		],
