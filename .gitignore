@@ -42,3 +42,4 @@ ormconfig.json
 built.zip
 update.env
 dump.rdb
+docker-compose.yml
