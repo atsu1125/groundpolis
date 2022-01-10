@@ -1,24 +1,30 @@
-<img src="assets/icon_transparent.svg" width="160" />
+<img src="assets/milkey_transparent.svg" width="160" />
 
-Groundpolis
+Groundpolis-Milkey
 ======================================================
 
 - 日本語
+- 日本語（岡山弁）
 - English (README.md)
 
 **進化し続ける、洗練された、ミニブログプラットフォーム。**
 
 Groundpolis (通称グランポリス)は、 [Misskey](https://github.com/misskey-dev/misskey)12.69.0 をベースに多くの改善や機能拡張を施したミニブログソフトウェアです。
 
+そんなGroundpolisのNightly版がMilkeyです。試験的な新機能をいち早く体験できます。
+
 最新情報
 --------
-最新情報を Groundpolis 公式アカウントで呟いています。
+最新情報を Milkey 公式アカウントで呟いています。
+- [@Milkey221B@milkey.homes](https://milkey.homes/@Milkey221B)
+
+Groundpolis の最新情報はこちら
 - [@dev@groundpolis.app](https://groundpolis.app/@dev)
 
 ライセンス
 --------
 
-Groundpolis は [GNU AGPLv3](LICENSE) ライセンスのオープンソースソフトウェアです。
+Groundpolis と Milkey は [GNU AGPLv3](LICENSE) ライセンスのオープンソースソフトウェアです。
 
 [![AGPL 3.0][agpl-3.0-badge]][AGPL-3.0]
 
