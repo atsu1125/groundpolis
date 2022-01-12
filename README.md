@@ -1,6 +1,6 @@
-<img src="assets/icon_transparent.svg" width="160" />
+<img src="assets/milkey_transparent.svg" width="160" />
 
-Groundpolis
+Groundpolis-Milkey
 ======================================================
 
 - [日本語](README-ja.md)
@@ -10,15 +10,18 @@ Groundpolis
 
 Groundpolis is a [Misskey](https://github.com/syuilo/misskey) 12.69.0 based microblogging platform.
 
+Milkey is a beta of Groundpolis
+
 News
 --------
 Check the latest information on the official account.
+- [@Milkey221B@milkey.homes](https://milkey.homes/@Milkey221B)
 - [@dev@groundpolis.app](https://groundpolis.app/@dev)
 
 License
 --------
 
-Groundpolis is open-source software licensed under the [GNU AGPLv3](LICENSE).
+Groundpolis and Milkey is open-source software licensed under the [GNU AGPLv3](LICENSE).
 
 [![AGPL 3.0][agpl-3.0-badge]][AGPL-3.0]
 
