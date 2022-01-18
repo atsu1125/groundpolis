@@ -162,7 +162,6 @@ export default defineComponent({
 	display: inline-block;
 	font-weight: bold;
 	color: var(--accent);
-	background: transparent;
 	border: solid 1px var(--accent);
 	padding: 0;
 	height: 31px;
@@ -209,7 +208,7 @@ export default defineComponent({
 
 	&.active {
 		color: #fff;
-		background: var(--accent);
+		background: linear-gradient(45deg, var(--buttonGradateA), var(--buttonGradateB));
 
 		&:hover {
 			background: var(--accentLighten);
