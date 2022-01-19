@@ -208,7 +208,7 @@ hr {
 ._buttonPrimary {
 	@extend ._button;
 	color: #fff;
-	background: var(--accent);
+	background: linear-gradient(45deg, var(--buttonGradateA), var(--buttonGradateB));
 
 	&:not(:disabled):hover {
 		background: var(--X8);

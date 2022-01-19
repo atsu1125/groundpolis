@@ -162,7 +162,6 @@ export default defineComponent({
 	display: inline-block;
 	font-weight: bold;
 	color: var(--accent);
-	border: solid 1px var(--accent);
 	padding: 0;
 	height: 31px;
 	font-size: 16px;
