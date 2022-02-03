@@ -1,25 +1,13 @@
-FROM node:14.15.1-alpine AS base
+FROM node:15.14.0-buster AS builder
 
 ENV NODE_ENV=production
 
 WORKDIR /misskey
 
-FROM base AS builder
-
-RUN apk add --no-cache \
-    autoconf \
-    automake \
-    file \
-		git \
-    g++ \
-    gcc \
-    libc-dev \
-    libtool \
-    make \
-    nasm \
-    pkgconfig \
-    python \
-    zlib-dev
+RUN apt-get update
+RUN apt-get install -y build-essential
+RUN wget https://github.com/jcupitt/libvips/archive/refs/tags/v8.11.2.tar.gz
+RUN tar xf v8.11.2.tar.gz && cd libvips-8.11.2 && sh autogen.sh &&make && make install && ldconfig
 
 RUN git init
 RUN git submodule update --init
@@ -29,9 +17,10 @@ RUN yarn add npm-run-all --dev
 COPY . ./
 RUN yarn build
 
-FROM base AS runner
+FROM node:15.14.0-buster-slim AS runner
 
-RUN apk add --no-cache \
+RUN apt-get update
+RUN apt-get install -y \
     ffmpeg \
     tini
 RUN npm i -g web-push
