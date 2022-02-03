@@ -1,9 +1,10 @@
-FROM node:15.14.0-buster AS builder
+FROM node:15.14.0-buster AS base
 
 ENV NODE_ENV=production
 
 WORKDIR /misskey
 
+FROM node:15.14.0-buster AS builder
 RUN apt-get update
 RUN apt-get install -y build-essential
 RUN wget https://github.com/jcupitt/libvips/archive/refs/tags/v8.11.2.tar.gz
