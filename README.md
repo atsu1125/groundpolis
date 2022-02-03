@@ -10,7 +10,7 @@ Groundpolis-Milkey
 
 Groundpolis is a [Misskey](https://github.com/syuilo/misskey) 12.69.0 based microblogging platform.
 
-Milkey is a beta of Groundpolis
+Milkey is the beta edition of Groundpolis.
 
 News
 --------
@@ -21,7 +21,7 @@ Check the latest information on the official account.
 License
 --------
 
-Groundpolis and Milkey is open-source software licensed under the [GNU AGPLv3](LICENSE).
+Groundpolis is open-source software licensed under the [GNU AGPLv3](LICENSE), and so is Milkey.
 
 [![AGPL 3.0][agpl-3.0-badge]][AGPL-3.0]
 
