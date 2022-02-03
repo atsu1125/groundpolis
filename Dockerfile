@@ -1,4 +1,4 @@
-FROM node:14.15.1-alpine AS base
+FROM node:15.14.0-buster AS base
 
 ENV NODE_ENV=production
 
@@ -6,7 +6,7 @@ WORKDIR /misskey
 
 FROM base AS builder
 
-RUN apk add --no-cache \
+RUN apt add --no-cache \
     autoconf \
     automake \
     file \
@@ -31,7 +31,7 @@ RUN yarn build
 
 FROM base AS runner
 
-RUN apk add --no-cache \
+RUN apt add --no-cache \
     ffmpeg \
     tini
 RUN npm i -g web-push
