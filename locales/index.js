@@ -17,6 +17,7 @@ const languages = [
 	'en-US',
 	'ja-JP',
 	'ja-OK',
+	'ja-NCAT',
 ];
 
 const primaries = {
@@ -32,6 +33,7 @@ module.exports = Object.entries(locales)
 		switch (k) {
 			case 'ja-JP': return v;
 			case 'ja-OK': 
+			case 'ja-NCAT':
 			case 'en-US': return merge(locales['ja-JP'], v);
 			default: return merge(
 				locales['ja-JP'],
