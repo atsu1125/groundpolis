@@ -33,7 +33,7 @@ RUN yarn build
 FROM base AS runner
 
 RUN apt-get install \
-    ffmpeg \
+    libav-tools \
     tini
 RUN rm -rf /var/cache/apt
 RUN npm i -g web-push
