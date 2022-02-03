@@ -1,25 +1,11 @@
-FROM node:14.15.1-alpine AS base
+FROM node:14.15.1-buster AS builder
 
 ENV NODE_ENV=production
 
 WORKDIR /misskey
 
-FROM base AS builder
-
-RUN apk add --no-cache \
-    autoconf \
-    automake \
-    file \
-		git \
-    g++ \
-    gcc \
-    libc-dev \
-    libtool \
-    make \
-    nasm \
-    pkgconfig \
-    python \
-    zlib-dev
+RUN apt-get update
+RUN apt-get install -y build-essential autoconf automake file g++ gcc libtool nasm pkg-config python zlib1g-dev
 
 RUN git init
 RUN git submodule update --init
@@ -29,13 +15,15 @@ RUN yarn add npm-run-all --dev
 COPY . ./
 RUN yarn build
 
-FROM base AS runner
+FROM node:14.15.1-buster-slim AS runner
 
-RUN apk add --no-cache \
-    ffmpeg \
-    tini
+ENV NODE_ENV=production
+WORKDIR /misskey
+
 RUN npm i -g web-push
-ENTRYPOINT ["/sbin/tini", "--"]
+
+RUN apt-get update
+RUN apt-get install -y ffmpeg
 
 COPY --from=builder /misskey/node_modules ./node_modules
 COPY --from=builder /misskey/built ./built
