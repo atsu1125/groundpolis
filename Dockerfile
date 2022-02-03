@@ -32,6 +32,7 @@ RUN yarn build
 
 FROM base AS runner
 
+RUN apt-get update
 RUN apt-get install \
     libav-tools \
     tini
