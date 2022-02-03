@@ -6,7 +6,8 @@ WORKDIR /misskey
 
 FROM base AS builder
 
-RUN apt add --no-cache \
+RUN apt-get update
+RUN apt-get install \
     autoconf \
     automake \
     file \
@@ -31,9 +32,10 @@ RUN yarn build
 
 FROM base AS runner
 
-RUN apt add --no-cache \
+RUN apt-get install \
     ffmpeg \
     tini
+RUN rm -rf /var/cache/apt
 RUN npm i -g web-push
 ENTRYPOINT ["/sbin/tini", "--"]
 
