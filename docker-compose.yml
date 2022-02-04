@@ -18,6 +18,7 @@ services:
       test: ["CMD-SHELL", "wget -q --spider --proxy=off localhost:3000/info || exit 0"]
     volumes:
       - ./.config/dockerdefault.yml:/misskey/.config/default.yml
+
       - ./files:/misskey/files
 
   redis:

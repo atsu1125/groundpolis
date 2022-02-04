@@ -1081,6 +1081,7 @@ export default defineComponent({
 				margin: auto 0 auto 8px;
 				width: 48px;
 				padding: auto;
+				background: linear-gradient(45deg, var(--buttonGradateA), var(--buttonGradateB));
 
 				&:disabled {
 					opacity: 0.7;
