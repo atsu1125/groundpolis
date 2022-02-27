@@ -7,13 +7,13 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 15.x]
+        node-version: [12.x, 14.x, 15.x]
 
     services:
       postgres:
         image: postgres:12.2-alpine
         ports:
-          - 54312:5432
+          - 54355:5432
         env:
           POSTGRES_DB: test-misskey
           POSTGRES_HOST_AUTH_METHOD: trust
@@ -32,10 +32,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: yarn install
-    - run: git diff --exit-code yarn.lock
+    - name: Check yarn.lock
+      run: git diff --exit-code yarn.lock
     - name: Copy Configure
-      run: cp .github/misskey/test.yml .config
+      run: cp test/test.yml .config
     - name: Build
       run: yarn build
     - name: Check webpack process
       run: ls built/meta.json
+    - name: Test
+      run: yarn test
