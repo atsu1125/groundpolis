@@ -1,11 +1,21 @@
-FROM node:14.15.1-buster AS builder
+FROM node:16.13.2-bullseye AS builder
 
 ENV NODE_ENV=production
 
 WORKDIR /misskey
 
 RUN apt-get update
-RUN apt-get install -y build-essential autoconf automake file g++ gcc libtool nasm pkg-config python zlib1g-dev
+RUN apt-get install -y build-essential \
+                       autoconf \
+                       automake \
+                       file \
+                       g++ \
+                       gcc \
+                       libtool \
+                       nasm \
+                       pkg-config \
+                       python \
+                       zlib1g-dev
 
 RUN git init
 RUN git submodule update --init
@@ -15,7 +25,7 @@ RUN yarn add npm-run-all --dev
 COPY . ./
 RUN yarn build
 
-FROM node:14.15.1-buster-slim AS runner
+FROM node:16.13.2-bullseye-slim AS runner
 
 ENV NODE_ENV=production
 WORKDIR /misskey
