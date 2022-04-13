@@ -27,5 +27,3 @@ jobs:
       run: yarn build
     - name: Check webpack process
       run: ls built/meta.json
-    - name: Test
-      run: yarn test
