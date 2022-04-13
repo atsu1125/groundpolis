@@ -7623,9 +7623,9 @@ pgpass@1.x:
   dependencies:
     split "^1.0.0"
 
-"photoswipe@git://github.com/dimsemenov/photoswipe#v5-beta":
-  version "5.1.7"
-  resolved "git://github.com/dimsemenov/photoswipe#60040164333bd257409669e715e4327afdb3aec7"
+"photoswipe@https://github.com/dimsemenov/photoswipe#v5.1.8-beta.0":
+  version "5.1.8-beta.0"
+  resolved "https://github.com/dimsemenov/photoswipe#414d1e3c1727b814be22f6e36d95895956ae36ce"
 
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.0.7, picomatch@^2.2.1:
   version "2.2.2"
