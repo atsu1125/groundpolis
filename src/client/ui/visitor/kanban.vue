@@ -33,7 +33,7 @@
 				</div>
 				<div class="powered-by" v-if="poweredBy">
 					<b><MkA to="/">{{ host }}</MkA></b>
-					<small>Powered by <a href="https://github.com/groundpolis/groundpolis" target="_blank">Groundpolis</a></small>
+					<small>Powered by <a href="https://github.com/sakura-tel/groundpolis" target="_blank">Milkey</a></small>
 				</div>
 			</template>
 		</div>
@@ -189,7 +189,7 @@ export default defineComponent({
 				box-sizing: border-box;
 				text-shadow: 0 0 8px black;
 				color: #fff;
-				
+
 				> .signup-disabled {
 					color: var(--infoWarnFg);
 					border: 2px dashed var(--infoWarnBg);
