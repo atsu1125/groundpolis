@@ -14,9 +14,13 @@ Milkey is the beta edition of Groundpolis.
 
 News
 --------
-Check the latest information on the official account.
+Check the latest information on the official accounts.
 - [@Milkey221B@milkey.homes](https://milkey.homes/@Milkey221B)
 - [@dev@groundpolis.app](https://groundpolis.app/@dev)
+
+Documentation
+---------
+Documents for developers and server owners are at the [Wiki](https://github.com/Groundpolis/Groundpolis/wiki).
 
 License
 --------
