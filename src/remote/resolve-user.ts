@@ -23,6 +23,9 @@ export async function resolveUser(username: string, host: string | null, option?
 		});
 	}
 
+	// disableFederationならリモート解決しない
+	if (config.disableFederation) return null;
+
 	host = toPuny(host);
 
 	if (config.host == host) {
