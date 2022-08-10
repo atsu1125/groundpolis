@@ -21,6 +21,10 @@ Groundpolis (通称グランポリス)は、 [Misskey](https://github.com/misske
 Groundpolis の最新情報はこちら。
 - [@dev@groundpolis.app](https://groundpolis.app/@dev)
 
+文書
+--------
+開発者、サーバー運用者向けドキュメントは[Wiki](https://github.com/sakura-tel/milkey/wiki)にあります。
+
 ライセンス
 --------
 

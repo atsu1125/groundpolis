@@ -112,6 +112,8 @@ id: 'aid'
 
 #   ┌─────────────────────┐
 #───┘ Other configuration └─────────────────────────────────────
+# Whether disable Federation
+#disableFederation: true
 
 # Whether disable HSTS
 #disableHsts: true
