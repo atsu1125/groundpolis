@@ -41,6 +41,8 @@ export type Source = {
 
 	accesslog?: string;
 
+	disableFederation?: boolean;
+
 	clusterLimit?: number;
 
 	id: string;
