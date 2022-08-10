@@ -20,7 +20,7 @@ Check the latest information on the official account.
 
 Documentation
 ---------
-Documents for developers and server owners are at the [Wiki](https://github.com/Groundpolis/Groundpolis/wiki).
+Documents for developers and server owners are at the [Wiki](https://github.com/sakura-tel/milkey/wiki).
 
 License
 --------

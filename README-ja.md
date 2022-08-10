@@ -23,7 +23,7 @@ Groundpolis の最新情報はこちら。
 
 文書
 --------
-開発者、サーバー運用者向けドキュメントは[Wiki](https://github.com/Groundpolis/Groundpolis/wiki)にあります。
+開発者、サーバー運用者向けドキュメントは[Wiki](https://github.com/sakura-tel/milkey/wiki)にあります。
 
 ライセンス
 --------
