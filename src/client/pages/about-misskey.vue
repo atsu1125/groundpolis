@@ -54,6 +54,10 @@
 			<FormLink to="https://github.com/Xeltica" external>@Xeltica</FormLink>
 			<FormLink to="https://github.com/m-hayabusa" external>@m-hayabusa</FormLink>
 			<FormLink to="https://github.com/remitocat" external>@remitocat</FormLink>
+			<FormLink to="https://github.com/atsu1125" external>@atsu1125</FormLink>
+			<FormLink to="https://github.com/melt-adzuki" external>@melt-adzuki</FormLink>
+			<FormLink to="https://github.com/Minemu398" external>@Minemu398</FormLink>
+			<FormLink to="https://github.com/mei23" external>@mei23</FormLink>
 			<template #caption><MkLink :url="`https://github.com/${repositoryName}/graphs/contributors`">{{ $ts._aboutMisskey.allContributors }}</MkLink></template>
 		</FormGroup>
 	</FormBase>
