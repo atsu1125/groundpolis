@@ -10,7 +10,7 @@
 	"codename": "ENOLA",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/sakura-tel/groundpolis.git"
+		"url": "https://github.com/atsu1125/groundpolis.git"
 	},
 	"scripts": {
 		"bs": "npm run build && npm run start",
