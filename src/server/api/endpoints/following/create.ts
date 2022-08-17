@@ -83,7 +83,7 @@ export default define(meta, async (ps, user) => {
 	});
 
 	// disableFederation
-	if (config.disableFederation && isRemoteUser(followee)) {
+	if (config.disableFederation && Users.isRemoteUser(followee)) {
 		throw new ApiError(meta.errors.noFederation);
 	}
 
