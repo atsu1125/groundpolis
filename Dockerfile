@@ -20,7 +20,7 @@ RUN apt-get install -y build-essential \
 RUN git init
 RUN git submodule update --init
 COPY package.json yarn.lock ./
-RUN yarn install
+RUN yarn install --network-timeout 100000
 RUN yarn add npm-run-all --dev
 COPY . ./
 RUN yarn build
