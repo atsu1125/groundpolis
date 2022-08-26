@@ -1,3 +1,12 @@
+### Dockerイメージはここにある  
+https://github.com/atsu1125/groundpolis/pkgs/container/groundpolis  
+コミット時にdevelopタグ、リリース時にlatestタグで自動作成されます
+
+### オブジェクトストレージの設定方法はこちら  
+https://github.com/atsu1125/atsuchanpage/blob/main/misskeyobjectstorage.md  
+
+--------
+
 <img src="assets/milkey_transparent.svg" width="160" />
 
 Groundpolis-Milkey
