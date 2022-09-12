@@ -226,7 +226,7 @@ router.get(['/@:user', '/@:user/:sub'], async (ctx, next) => {
 			icon: meta.iconUrl
 		});
 		setCache(ctx, 'public, max-age=30');
-	} else if (!host) { 
+	} else if (!host) {
 		const isExisted = await UsedUsernames.count({ username: username.toLowerCase() });
 		ctx.status = isExisted > 0 ? 410 : 404;
 		return;
@@ -376,14 +376,14 @@ router.get('/info', async ctx => {
 
 	await ctx.render('info', {
 		version: config.version,
-		machine: os.hostname(),
-		os: os.platform(),
-		node: process.version,
-		psql: await getConnection().query('SHOW server_version').then(x => x[0].server_version),
-		redis: redis.server_info.redis_version,
+		machine: config.hideServerInfo ? 'Unknown' : os.hostname(),
+		os: config.hideServerInfo ? 'Unknown' : os.platform(),
+		node: config.hideServerInfo ? 'Unknown' : process.version,
+		psql: config.hideServerInfo ? 'Unknown' : await getConnection().query('SHOW server_version').then(x => x[0].server_version),
+		redis: config.hideServerInfo ? 'Unknown' : redis.server_info.redis_version,
 		cpu: {
-			model: os.cpus()[0].model,
-			cores: os.cpus().length
+			model: config.hideServerInfo ? 'Unknown' : os.cpus()[0].model,
+			cores: config.hideServerInfo ? 'Unknown' : os.cpus().length
 		},
 		emojis: emojis,
 		meta: meta,

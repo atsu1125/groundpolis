@@ -1,6 +1,7 @@
 import * as si from 'systeminformation';
 import Xev from 'xev';
 import * as osUtils from 'os-utils';
+import config from '../config';
 
 const ev = new Xev();
 
@@ -26,18 +27,18 @@ export default function() {
 		const fsStats = await fs();
 
 		const stats = {
-			cpu: roundCpu(cpu),
+			cpu: config.hideServerInfo ? -1 : roundCpu(cpu),
 			mem: {
-				used: round(memStats.used),
-				active: round(memStats.active),
+				used: config.hideServerInfo ? -1 : round(memStats.used),
+				active: config.hideServerInfo ? -1 : round(memStats.active),
 			},
 			net: {
-				rx: round(Math.max(0, netStats.rx_sec)),
-				tx: round(Math.max(0, netStats.tx_sec)),
+				rx: config.hideServerInfo ? -1 : round(Math.max(0, netStats.rx_sec)),
+				tx: config.hideServerInfo ? -1 : round(Math.max(0, netStats.tx_sec)),
 			},
 			fs: {
-				r: round(Math.max(0, fsStats.rIO_sec)),
-				w: round(Math.max(0, fsStats.wIO_sec)),
+				r: config.hideServerInfo ? -1 : round(Math.max(0, fsStats.rIO_sec)),
+				w: config.hideServerInfo ? -1 : round(Math.max(0, fsStats.wIO_sec)),
 			}
 		};
 		ev.emit('serverStats', stats);
