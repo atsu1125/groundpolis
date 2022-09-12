@@ -1,6 +1,7 @@
 import * as os from 'os';
 import * as si from 'systeminformation';
 import define from '../define';
+import config from '../../../config';
 
 export const meta = {
 	requireCredential: false as const,
@@ -19,17 +20,17 @@ export default define(meta, async () => {
 	const fsStats = await si.fsSize();
 
 	return {
-		machine: os.hostname(),
+		machine: config.hideServerInfo ? 'Unknown' : os.hostname(),
 		cpu: {
-			model: os.cpus()[0].model,
-			cores: os.cpus().length
+			model: config.hideServerInfo ? 'Unknown' : os.cpus()[0].model,
+			cores: config.hideServerInfo ? 'Unknown' : os.cpus().length
 		},
 		mem: {
-			total: memStats.total
+			total: config.hideServerInfo ? 'Unknown' : memStats.total
 		},
 		fs: {
-			total: fsStats[0].size,
-			used: fsStats[0].used,
+			total: config.hideServerInfo ? 'Unknown' : fsStats[0].size,
+			used: config.hideServerInfo ? 'Unknown' : fsStats[0].used,
 		},
 	};
 });
