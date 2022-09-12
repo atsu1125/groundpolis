@@ -6,7 +6,7 @@ import config from '../../../config';
 import * as ms from 'ms';
 import { Users, UserProfiles, PasswordResetRequests } from '../../../models';
 import { sendEmail } from '../../../services/send-email';
-import { ApiError } from '../error';
+import { apiLogger } from '../logger';
 import { genId } from '../../../misc/gen-id';
 import { IsNull } from 'typeorm';
 
@@ -39,21 +39,46 @@ export default define(meta, async (ps) => {
 		host: IsNull()
 	});
 
-	// 合致するユーザーが登録されていなかったら無視
+	// そのユーザーは存在しない
 	if (user == null) {
-		return;
+		apiLogger.warn(`Reset password requested for ${ps.username}, but not found.`);
+		return;	// エラー内容を返してもいい
+	}
+
+	// ローカルユーザーではない
+	if (user.host !== null) {
+		apiLogger.warn(`Reset password requested for ${ps.username}, but not local user.`);
+		return;	// 何も返さない
+	}
+
+	// 削除済み
+	if (user.isDeleted) {
+		apiLogger.warn(`Reset password requested for ${ps.username}, but deleted.`);
+		return;	// エラー内容を返してもいい
+	}
+
+	// 凍結されている
+	if (user.isSuspended) {
+		apiLogger.warn(`Reset password requested for ${ps.username}, but suspended.`);
+		return;	// エラー内容を返してもいい
 	}
 
 	const profile = await UserProfiles.findOneOrFail(user.id);
 
 	// 合致するメアドが登録されていなかったら無視
 	if (profile.email !== ps.email) {
-		return;
+		try {
+			apiLogger.warn(`Reset password requested for ${ps.username}, but email missmatch.`);
+		} catch {}
+		return;	// エラー内容はあえて返さない
 	}
 
 	// メアドが認証されていなかったら無視
 	if (!profile.emailVerified) {
-		return;
+		try {
+			apiLogger.warn(`Reset password requested for ${ps.username}, but email not verified.`);
+		} catch {}
+		return;	// エラー内容はあえて返さない
 	}
 
 	const token = rndstr('a-z0-9', 64);
