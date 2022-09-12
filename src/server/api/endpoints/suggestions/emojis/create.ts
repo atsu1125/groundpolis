@@ -1,10 +1,12 @@
 import $ from 'cafy';
+import * as sanitizeHtml from 'sanitize-html';
 import define from '../../../define';
 import { ID } from '../../../../../misc/cafy-id';
 import { DriveFiles, Emojis, EmojiRequests } from '../../../../../models';
 import { ApiError } from '../../../error';
 import { genId } from '../../../../../misc/gen-id';
 import { fetchMeta } from '../../../../../misc/fetch-meta';
+import { sendEmail } from '../../../../../services/send-email';
 
 export const meta = {
 	desc: {
@@ -79,4 +81,14 @@ export default define(meta, async (ps, user) => {
 		description: ps.description,
 		proposerId: user.id,
 	});
+
+	// Mail
+	setTimeout(async () => {
+		const meta = await fetchMeta();
+		if (meta.email) {
+			sendEmail(meta.maintainerEmail, 'New emoji suggestion',
+			sanitizeHtml(ps.description),
+			sanitizeHtml(ps.description));
+		}
+	}, 1);
 });
