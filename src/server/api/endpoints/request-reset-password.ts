@@ -11,6 +11,8 @@ import { genId } from '../../../misc/gen-id';
 import { IsNull } from 'typeorm';
 
 export const meta = {
+	tags: ['reset password'],
+
 	requireCredential: false as const,
 
 	limit: {

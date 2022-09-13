@@ -6,6 +6,8 @@ import { Users, UserProfiles, PasswordResetRequests } from '../../../models';
 import { ApiError } from '../error';
 
 export const meta = {
+	tags: ['reset password'],
+
 	requireCredential: false as const,
 
 	params: {
