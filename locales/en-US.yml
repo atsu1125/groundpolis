@@ -858,6 +858,7 @@ defaultRenoteVisibility: "Default visibility (Renote)"
 defaultRenoteLocalOnly: "Local Only (Renote)"
 defaultRenoteRemoteFollowersOnly: "Remote Followers and Local (Renote)"
 welcomeBack: "Welcome back, {x}."
+onFlush: "Clear cache"
 
 _template:
   edit: "Edit Template..."
