@@ -358,7 +358,7 @@ export default async function(
 		// If usage limit exceeded
 		if (usage + info.size > driveCapacity) {
 			if (Users.isLocalUser(user)) {
-				throw new IdentifiableError('c6244ed2-a39a-4e1c-bf93-f0fbd7764fa6', 'No free space.');
+				// throw new IdentifiableError('c6244ed2-a39a-4e1c-bf93-f0fbd7764fa6', 'No free space.');
 			} else {
 				// (アバターまたはバナーを含まず)最も古いファイルを削除する
 				deleteOldFile(user as IRemoteUser);
