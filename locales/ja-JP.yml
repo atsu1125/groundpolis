@@ -896,6 +896,8 @@ defaultRenoteLocalOnly: "ローカルのみ (リノート)"
 defaultRenoteRemoteFollowersOnly: "リモートフォロワーとローカル (リノート)"
 welcomeBack: "おかえりなさい、{x}さん。"
 onFlush: "キャッシュをクリア"
+sunRise: "日の出"
+sunSet: "日の入"
 
 _template:
   edit: "定型文を編集…"
@@ -1421,6 +1423,7 @@ _widgets:
   serverMetric: "サーバーメトリクス"
   aiscript: "AiScriptコンソール"
   aichan: "藍"
+  sunmoon: "月齢と日の出入り"
 
 _cw:
   hide: "隠す"

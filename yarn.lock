@@ -1012,6 +1012,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/suncalc@1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@types/suncalc/-/suncalc-1.8.1.tgz#64fd7e779c03e5df16e6140b8e00d4521fa4185e"
+  integrity sha512-PNtzFQhdAIw3x5HEjVMxbyBwciX42C/Cg6J1foq2z/t9rucLGGu9nqQxOl005wGZR/fOxw49exwZUCmbnT/vGw==
+
 "@types/tapable@^1":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.8.tgz#b94a4391c85666c7b73299fd3ad79d4faa435310"
@@ -9565,6 +9570,11 @@ summaly@2.6.0:
     private-ip "2.3.3"
     require-all "3.0.0"
     trace-redirect "1.0.6"
+
+suncalc@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/suncalc/-/suncalc-1.8.0.tgz#1d9898109563078750f4994a959e654d876acbf5"
+  integrity sha512-fyyqA8Az3HnYkNtiiniU0g4xZZXnZYWjuRSS0RegfbmYTbe7idmv4L2Lho/Ez+/HsrmNjuop/bL/FutjtrTT3w==
 
 supports-color@8.1.1, supports-color@^8.0.0:
   version "8.1.1"

@@ -859,6 +859,8 @@ defaultRenoteLocalOnly: "Local Only (Renote)"
 defaultRenoteRemoteFollowersOnly: "Remote Followers and Local (Renote)"
 welcomeBack: "Welcome back, {x}."
 onFlush: "Clear cache"
+sunRise: "Sunrise"
+sunSet: "Sunset"
 
 _template:
   edit: "Edit Template..."
@@ -1333,6 +1335,7 @@ _widgets:
   serverMetric: "Server metrics"
   aiscript: "AiScript console"
   aichan: "Ai-chan"
+  sunmoon: "Moon age and sunrise/sunset"
 _cw:
   hide: "Hide"
   show: "Load more"
