@@ -37,6 +37,10 @@ const widget = define({
 			type: 'number',
 			default: 135,
 		},
+		altitude: {
+			type: 'number',
+			default: 0,
+		},
 	})
 });
 export default defineComponent({
@@ -75,8 +79,8 @@ export default defineComponent({
 			hour12.setHours(12);
 			hour12.setMinutes(0);
 			hour12.setSeconds(0);
-			const sunTimes = SunCalc.getTimes(hour12, this.props.latitude, this.props.longitude);
-			// const moonPosition = SunCalc.getMoonPosition(now, this.props.latitude, this.props.longitude);
+			const sunTimes = SunCalc.getTimes(hour12, this.props.latitude, this.props.longitude, this.props.altitude);
+			// const moonPosition = SunCalc.getMoonPosition(now, this.props.latitude, this.props.longitude, this.props.altitude);
 			const moonTimes = SunCalc.getMoonIllumination(now);
 			const sunRiseTime0 = sunTimes["sunrise"];
 			const sunSetTime0 = sunTimes["sunset"];
