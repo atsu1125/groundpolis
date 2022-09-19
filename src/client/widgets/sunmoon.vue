@@ -6,12 +6,10 @@
 		<p class="moonage">{{ moonAge }}</p>
 	</div>
 	<div class="suntime">
-		<div>
-			<p><i class="fas fa-arrow-up"></i>{{ $ts.sunRise }}: <b>{{ sunRiseTime }}</b></p>
-		</div>
-		<div>
-			<p><i class="fas fa-arrow-down"></i>{{ $ts.sunSet }}: <b>{{ sunSetTime }}</b></p>
-		</div>
+	<div><p>{{ $ts.ctStart }}: <b>{{ civTwiStartTime }}</b></p></div>
+	<div><p><i class="fas fa-arrow-up"></i>{{ $ts.sunrise }}: <b>{{ sunRiseTime }}</b></p></div>
+	<div><p><i class="fas fa-arrow-down"></i>{{ $ts.sunset }}: <b>{{ sunSetTime }}</b></p></div>
+	<div><p>{{ $ts.ctEnd }}: <b>{{ civTwiEndTime }}</b></p></div>
 	</div>
 </div>
 </template>
@@ -84,8 +82,10 @@ export default defineComponent({
 			const moonTimes = SunCalc.getMoonIllumination(now);
 			const sunRiseTime0 = sunTimes["sunrise"];
 			const sunSetTime0 = sunTimes["sunset"];
+			this.civTwiStartTime = moment(sunTimes.dawn).format('HH:mm');	// 市民薄明開始
 			this.sunRiseTime = moment(sunRiseTime0).format("HH:mm");
 			this.sunSetTime = moment(sunSetTime0).format("HH:mm");
+			this.civTwiEndTime = moment(sunTimes.dusk).format('HH:mm');	// 市民薄明終了
 			const moonPhase = moonTimes["phase"];
 			this.moonAge = (29.5 * moonPhase).toFixed(1);
 			const moonFaceImg = ["a", "2", "3", "4", "d", "6", "7", "8"][Math.floor(8 * moonPhase)];
