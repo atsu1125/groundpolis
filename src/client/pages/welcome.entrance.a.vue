@@ -30,6 +30,7 @@
 				<div class="action">
 					<MkButton @click="signup()" inline primary>{{ $ts.signup }}</MkButton>
 					<MkButton @click="signin()" inline>{{ $ts.login }}</MkButton>
+					<MkButton inline style="margin-left: 12px;" onclick="window.location.href='/explore'">{{ $ts.explore }}</MkButton>
 				</div>
 				<div class="status" v-if="onlineUsersCount && stats">
 					<div>
