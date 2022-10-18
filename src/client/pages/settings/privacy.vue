@@ -1,7 +1,7 @@
 <template>
 <FormBase>
 	<FormGroup>
-		<FormSwitch v-model:value="isLocked" :disabled="carefulBot && carefulRemote" @update:value="save()">{{ $ts.makeFollowManuallyApprove }}</FormSwitch>
+		<FormSwitch v-model:value="isLocked" :disabled="carefulBot || carefulRemote" @update:value="save()">{{ $ts.makeFollowManuallyApprove }}</FormSwitch>
 		<FormSwitch v-model:value="carefulBot" :disabled="isLocked" @update:value="save()">{{ $ts.makeBotFollowManuallyApprove }}</FormSwitch>
 		<FormSwitch v-model:value="carefulRemote" :disabled="isLocked" @update:value="save()">{{ $ts.makeRemoteFollowManuallyApprove }}</FormSwitch>
 		<FormSwitch v-model:value="autoAcceptFollowed" :disabled="!isLocked && !carefulBot && !carefulRemote" @update:value="save()">{{ $ts.autoAcceptFollowed }}</FormSwitch>
