@@ -857,6 +857,7 @@ defaultRenoteVisibility: "Default visibility (Renote)"
 defaultRenoteLocalOnly: "Local Only (Renote)"
 defaultRenoteRemoteFollowersOnly: "Remote Followers and Local (Renote)"
 welcomeBack: "Welcome back, {x}."
+breakFollow: "Remove Follower"
 
 _template:
   edit: "Edit Template..."
