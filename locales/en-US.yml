@@ -867,6 +867,7 @@ sunrise: "Sunrise"
 sunset: "Sunset"
 ctEnd: " Civil twilight"
 breakFollow: "Remove Follower"
+breakFollowConfirm: "Are you sure that you want to remove follower?"
 
 _template:
   edit: "Edit Template..."

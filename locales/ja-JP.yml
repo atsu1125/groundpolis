@@ -904,6 +904,7 @@ sunrise: "日の出"
 sunset: "日の入"
 ctEnd: "市民薄明"
 breakFollow: "フォロワーを解除"
+breakFollowConfirm: "フォロワーを解除しますか?"
 
 _template:
   edit: "定型文を編集…"
