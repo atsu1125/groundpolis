@@ -858,6 +858,7 @@ defaultRenoteLocalOnly: "Local Only (Renote)"
 defaultRenoteRemoteFollowersOnly: "Remote Followers and Local (Renote)"
 welcomeBack: "Welcome back, {x}."
 breakFollow: "Remove Follower"
+breakFollowConfirm: "Are you sure that you want to remove follower?"
 
 _template:
   edit: "Edit Template..."

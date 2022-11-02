@@ -123,6 +123,8 @@ export function getUserMenu(user) {
 	}
 
 	async function invalidateFollow() {
+		if (!await getConfirmed(i18n.locale.breakFollowConfirm)) return;
+
 		os.apiWithDialog('following/invalidate', {
 			userId: user.id
 		}).then(() => {

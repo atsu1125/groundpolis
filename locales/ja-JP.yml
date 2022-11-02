@@ -895,6 +895,7 @@ defaultRenoteLocalOnly: "ローカルのみ (リノート)"
 defaultRenoteRemoteFollowersOnly: "リモートフォロワーとローカル (リノート)"
 welcomeBack: "おかえりなさい、{x}さん。"
 breakFollow: "フォロワーを解除"
+breakFollowConfirm: "フォロワーを解除しますか?"
 
 _template:
   edit: "定型文を編集…"
