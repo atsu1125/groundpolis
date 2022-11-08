@@ -36,14 +36,6 @@
 				<p v-if="passwordRetypeState == 'not-match'" style="color:#FF1161"><Fa :icon="faExclamationTriangle" fixed-width/> {{ $ts.passwordNotMatched }}</p>
 			</template>
 		</MkInput>
-		<label class="tou">
-			<input type="checkbox" v-model="thirteen">
-			<I18n :src="$ts.thirteen" />
-		</label>
-		<label class="tou">
-			<input type="checkbox" v-model="nakayoku">
-			<I18n :src="$ts.nakayoku" />
-		</label>
 		<label v-if="meta.tosUrl" class="tou">
 			<input type="checkbox" v-model="ToSAgreement">
 			<I18n :src="$ts.agreeTo">
@@ -101,8 +93,6 @@ export default defineComponent({
 			passwordStrength: '',
 			passwordRetypeState: null,
 			submitting: false,
-			thirteen: false,
-			nakayoku: false,
 			ToSAgreement: false,
 			hCaptchaResponse: null,
 			reCaptchaResponse: null,
@@ -117,7 +107,6 @@ export default defineComponent({
 
 		shouldDisableSubmitting(): boolean {
 			return this.submitting ||
-			  !this.thirteen || !this.nakayoku ||
 				this.meta.tosUrl && !this.ToSAgreement ||
 				this.meta.enableHcaptcha && !this.hCaptchaResponse ||
 				this.meta.enableRecaptcha && !this.reCaptchaResponse ||
