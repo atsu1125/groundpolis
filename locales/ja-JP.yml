@@ -894,6 +894,13 @@ defaultRenoteVisibility: "デフォルトの公開範囲 (リノート)"
 defaultRenoteLocalOnly: "ローカルのみ (リノート)"
 defaultRenoteRemoteFollowersOnly: "リモートフォロワーとローカル (リノート)"
 welcomeBack: "おかえりなさい、{x}さん。"
+showNoteDeleteConfirm: "投稿を削除する前に確認ダイアログを表示する"
+showFollowConfirm: "フォローする前に確認ダイアログを表示する"
+showUnfollowConfirm: "フォローを解除する前に確認ダイアログを表示する"
+showRenoteConfirm: "リノートする前に確認ダイアログを表示する"
+showUnrenoteConfirm: "リノート解除する前に確認ダイアログを表示する"
+showVoteConfirm: "投票する前に確認ダイアログを表示する"
+voteConfirm: "投票しますか？"
 
 _template:
   edit: "定型文を編集…"
