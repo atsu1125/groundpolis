@@ -23,12 +23,9 @@
 						</div>
 					</div>
 					<span class="followed" v-if="$i && $i.id != user.id && user.isFollowed">{{ $ts.followsYou }}</span>
-					<span class="blocked" v-if="$i && $i.id != user.id && user.isBlocking || user.isBlocked">
-						{{ $t(user.isBlocking && user.isBlocked ? 'blocksEach' : user.isBlocked ? 'blocksYou' : 'blockedByYou') }}
-					</span>
 					<div class="actions" v-if="$i">
 						<button @click="menu" class="menu _button"><Fa :icon="faEllipsisH"/></button>
-						<MkFollowButton v-if="$i && $i.id != user.id && !user.isBlocking && !user.isBlocked" :user="user" :inline="true" :transparent="false" :full="true" class="koudoku"/>
+						<MkFollowButton v-if="$i && $i.id != user.id && !user.isBlocking" :user="user" :inline="true" :transparent="false" :full="true" class="koudoku"/>
 						<MkA v-else-if="$i && $i.id == user.id" to="/settings/profile" class="edit-profile _button">{{ $ts.editProfile }}</MkA>
 					</div>
 				</div>
