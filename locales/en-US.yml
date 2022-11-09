@@ -866,6 +866,13 @@ sunset: "Sunset"
 ctEnd: " Civil twilight"
 breakFollow: "Remove Follower"
 breakFollowConfirm: "Are you sure that you want to remove follower?"
+showNoteDeleteConfirm: "Show confirmation dialog before deleting a post"
+showFollowConfirm: "Show confirmation dialog before following someone"
+showUnfollowConfirm: "Show confirmation dialog before unfollowing someone"
+showRenoteConfirm: "Show confirmation dialog before renoting"
+showUnrenoteConfirm: "Show confirmation dialog before unrenoting"
+showVoteConfirm: "Show confirmation dialog before voting"
+voteConfirm: "Are you sure that you want to vote?"
 
 _template:
   edit: "Edit Template..."

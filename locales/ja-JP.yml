@@ -903,6 +903,13 @@ sunset: "日の入"
 ctEnd: "市民薄明"
 breakFollow: "フォロワーを解除"
 breakFollowConfirm: "フォロワーを解除しますか?"
+showNoteDeleteConfirm: "投稿を削除する前に確認ダイアログを表示する"
+showFollowConfirm: "フォローする前に確認ダイアログを表示する"
+showUnfollowConfirm: "フォローを解除する前に確認ダイアログを表示する"
+showRenoteConfirm: "リノートする前に確認ダイアログを表示する"
+showUnrenoteConfirm: "リノート解除する前に確認ダイアログを表示する"
+showVoteConfirm: "投票する前に確認ダイアログを表示する"
+voteConfirm: "投票しますか？"
 
 _template:
   edit: "定型文を編集…"
@@ -1005,7 +1012,7 @@ _labs:
   customCssDesc: "直接CSSを編集し、思い通りの見た目を作り上げましょう。"
   customCssWarn: "CSSに詳しくない場合は、むやみに触らないでください。"
   tryNewPostForm: "新たな投稿フォームを試す"
-  tryNewPostFormDesc: "機能の関連性を論理的に整理し、より柔軟に再配置するよう設計した、次世代の新たな投稿フォームをお試しください。" 
+  tryNewPostFormDesc: "機能の関連性を論理的に整理し、より柔軟に再配置するよう設計した、次世代の新たな投稿フォームをお試しください。"
 
 _mfm:
   cheatSheet: "GPFMチートシート"
