@@ -25,10 +25,10 @@ export default async function(blocker: User, blockee: User) {
 		blockeeId: blockee.id,
 	});
 
-	if (Users.isLocalUser(blocker) && Users.isRemoteUser(blockee)) {
-		const content = renderActivity(renderBlock(blocker, blockee));
-		deliver(blocker, content, blockee.inbox);
-	}
+	//if (Users.isLocalUser(blocker) && Users.isRemoteUser(blockee)) {
+	//	const content = renderActivity(renderBlock(blocker, blockee));
+	//	deliver(blocker, content, blockee.inbox);
+	//}
 }
 
 async function cancelRequest(follower: User, followee: User) {
