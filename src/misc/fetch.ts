@@ -1,6 +1,6 @@
 import * as http from 'http';
 import * as https from 'https';
-import * as cache from 'lookup-dns-cache';
+import { lookup } from './dns';
 import fetch, { HeadersInit } from 'node-fetch';
 import { HttpProxyAgent } from 'http-proxy-agent';
 import { HttpsProxyAgent } from 'https-proxy-agent';
@@ -63,7 +63,7 @@ const _http = new http.Agent({
 const _https = new https.Agent({
 	keepAlive: true,
 	keepAliveMsecs: 30 * 1000,
-	lookup: cache.lookup,
+	lookup: lookup,
 });
 
 /**
