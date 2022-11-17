@@ -323,6 +323,36 @@ export const defaultStore = markRaw(new Storage('base', {
 		default: false
 	},
 
+	showNoteDeleteConfirm: {
+		where: 'account',
+		default: true
+	},
+
+	showFollowConfirm: {
+		where: 'account',
+		default: false
+	},
+
+	showUnfollowConfirm: {
+		where: 'account',
+		default: true
+	},
+
+	showRenoteConfirm: {
+		where: 'account',
+		default: false
+	},
+
+	showUnrenoteConfirm: {
+		where: 'account',
+		default: false
+	},
+
+	showVoteConfirm: {
+		where: 'account',
+		default: true
+	},
+
 	tryNewPostForm: {
 		where: 'device',
 		default: false

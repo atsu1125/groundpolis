@@ -84,14 +84,20 @@ export default defineComponent({
 		toggleShowResult() {
 			this.showResult = !this.showResult;
 		},
-		vote(id) {
+		async vote(id) {
 			if (this.closed || !this.poll.multiple && this.poll.choices.some(c => c.isVoted)) return;
-			os.api('notes/polls/vote', {
+			const canceled = this.$store.state.showVoteConfirm && (await os.dialog({
+				type: 'question',
+				text: this.$ts.voteConfirm,
+				showCancelButton: true,
+			})).canceled;
+			if (canceled) return;
+
+			await os.api('notes/polls/vote', {
 				noteId: this.note.id,
 				choice: id
-			}).then(() => {
-				if (!this.showResult) this.showResult = !this.poll.multiple;
 			});
+			if (!this.showResult) this.showResult = !this.poll.multiple;
 		}
 	}
 });
