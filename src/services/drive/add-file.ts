@@ -21,6 +21,7 @@ import { isDuplicateKeyValueError } from '../../misc/is-duplicate-key-value-erro
 import * as S3 from 'aws-sdk/clients/s3';
 import { getS3 } from './s3';
 import * as sharp from 'sharp';
+import { IdentifiableError } from '../../misc/identifiable-error';
 
 const logger = driveLogger.createSubLogger('register', 'yellow');
 
@@ -357,7 +358,7 @@ export default async function(
 		// If usage limit exceeded
 		if (usage + info.size > driveCapacity) {
 			if (Users.isLocalUser(user)) {
-				throw new Error('no-free-space');
+				throw new IdentifiableError('c6244ed2-a39a-4e1c-bf93-f0fbd7764fa6', 'No free space.');
 			} else {
 				// (アバターまたはバナーを含まず)最も古いファイルを削除する
 				deleteOldFile(user as IRemoteUser);

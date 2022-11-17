@@ -6,6 +6,7 @@ import define from '../../../define';
 import { apiLogger } from '../../../logger';
 import { ApiError } from '../../../error';
 import { DriveFiles } from '../../../../../models';
+import { IdentifiableError } from '../../../../../misc/identifiable-error';
 
 export const meta = {
 	desc: {
@@ -74,7 +75,13 @@ export const meta = {
 			message: 'Invalid file name.',
 			code: 'INVALID_FILE_NAME',
 			id: 'f449b209-0c60-4e51-84d5-29486263bfd4'
-		}
+		},
+
+		noFreeSpace: {
+			message: 'Cannot upload the file because you have no free space of drive.',
+			code: 'NO_FREE_SPACE',
+			id: 'd08dbc37-a6a9-463a-8c47-96c32ab5f064',
+		},
 	}
 };
 
@@ -99,7 +106,12 @@ export default define(meta, async (ps, user, _, file, cleanup) => {
 		const driveFile = await create(user, file.path, name, null, ps.folderId, ps.force, false, null, null, ps.isSensitive);
 		return await DriveFiles.pack(driveFile, { self: true });
 	} catch (e) {
-		apiLogger.error(e);
+		if (e instanceof Error || typeof e === 'string') {
+			apiLogger.error(e);
+		}
+		if (e instanceof IdentifiableError) {
+			if (e.id === 'c6244ed2-a39a-4e1c-bf93-f0fbd7764fa6') throw new ApiError(meta.errors.noFreeSpace);
+		}
 		throw new ApiError();
 	} finally {
 		cleanup!();
