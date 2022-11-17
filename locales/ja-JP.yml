@@ -7,6 +7,7 @@ search: "検索"
 notifications: "通知"
 username: "ユーザー名"
 password: "パスワード"
+forgotPassword: "パスワードを忘れた"
 fetchingAsApObject: "連合に照会中"
 ok: "OK"
 gotIt: "OK"
@@ -895,6 +896,7 @@ defaultRenoteVisibility: "デフォルトの公開範囲 (リノート)"
 defaultRenoteLocalOnly: "ローカルのみ (リノート)"
 defaultRenoteRemoteFollowersOnly: "リモートフォロワーとローカル (リノート)"
 welcomeBack: "おかえりなさい、{x}さん。"
+onFlush: "キャッシュをクリア"
 showNoteDeleteConfirm: "投稿を削除する前に確認ダイアログを表示する"
 showFollowConfirm: "フォローする前に確認ダイアログを表示する"
 showUnfollowConfirm: "フォローを解除する前に確認ダイアログを表示する"
@@ -918,6 +920,11 @@ _template:
   overwriteMode: "上書きモード"
   overwriteModeDesc: "オンにすると、既存の定型文を全て削除した上で読み込みます。"
   exportDesc: "このデータをインポート時に貼り付けます。"
+
+_forgotPassword:
+  enterEmail: "アカウントに登録したメールアドレスを入力してください。そのアドレス宛てに、パスワードリセット用のリンクが送信されます。"
+  ifNoEmail: "メールアドレスを登録していない場合は、管理者までお問い合わせください。"
+  contactAdmin: "このインスタンスではメールがサポートされていないため、パスワードリセットを行う場合は管理者までお問い合わせください。"
 
 _plugin:
   install: "プラグインのインストール"
