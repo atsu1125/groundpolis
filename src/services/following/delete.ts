@@ -2,6 +2,7 @@ import { publishMainStream } from '../stream';
 import { renderActivity } from '../../remote/activitypub/renderer';
 import renderFollow from '../../remote/activitypub/renderer/follow';
 import renderUndo from '../../remote/activitypub/renderer/undo';
+import renderReject from '../../remote/activitypub/renderer/reject';
 import { deliver } from '../../queue';
 import Logger from '../logger';
 import { registerOrFetchInstanceDoc } from '../register-or-fetch-instance-doc';
@@ -36,6 +37,11 @@ export default async function(follower: User, followee: User, silent = false) {
 	if (Users.isLocalUser(follower) && Users.isRemoteUser(followee)) {
 		const content = renderActivity(renderUndo(renderFollow(follower, followee), follower));
 		deliver(follower, content, followee.inbox);
+	}
+
+	if (Users.isLocalUser(followee) && Users.isRemoteUser(follower)) {
+		const content = renderActivity(renderReject(renderFollow(follower, followee), followee));
+		deliver(followee, content, follower.inbox);
 	}
 }
 

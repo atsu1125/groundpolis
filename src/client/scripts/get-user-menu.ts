@@ -1,4 +1,4 @@
-import { faAt, faListUl, faEye, faEyeSlash, faBan, faPencilAlt, faComments, faUsers, faMicrophoneSlash, faPlug, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { faAt, faListUl, faEye, faEyeSlash, faBan, faPencilAlt, faComments, faUsers, faMicrophoneSlash, faPlug, faExclamationCircle, faUnlink } from '@fortawesome/free-solid-svg-icons';
 import { faSnowflake, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { i18n } from '@/i18n';
 import copyToClipboard from '@/scripts/copy-to-clipboard';
@@ -122,6 +122,16 @@ export function getUserMenu(user) {
 		}, {}, 'closed');
 	}
 
+	async function invalidateFollow() {
+		if (!await getConfirmed(i18n.locale.breakFollowConfirm)) return;
+
+		os.apiWithDialog('following/invalidate', {
+			userId: user.id
+		}).then(() => {
+			user.isFollowed = !user.isFollowed;
+		})
+	}
+
 	async function getConfirmed(text: string): Promise<boolean> {
 		const confirm = await os.dialog({
 			type: 'warning',
@@ -174,6 +184,14 @@ export function getUserMenu(user) {
 			text: user.isBlocking ? i18n.locale.unblock : i18n.locale.block,
 			action: toggleBlock
 		}]);
+
+		if (user.isFollowed) {
+			menu = menu.concat([{
+				icon: faUnlink,
+				text: i18n.locale.breakFollow,
+				action: invalidateFollow
+			}]);
+		}
 
 		menu = menu.concat([null, {
 			icon: faExclamationCircle,
