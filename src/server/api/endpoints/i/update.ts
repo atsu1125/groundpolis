@@ -115,6 +115,13 @@ export const meta = {
 			}
 		},
 
+		carefulRemote: {
+			validator: $.optional.bool,
+			desc: {
+				'ja-JP': 'リモートからのフォローを承認制にするか'
+			}
+		},
+
 		autoAcceptFollowed: {
 			validator: $.optional.bool,
 			desc: {
@@ -241,6 +248,7 @@ export default define(meta, async (ps, user, token) => {
 	if (typeof ps.publicReactions === 'boolean') profileUpdates.publicReactions = ps.publicReactions;
 	if (typeof ps.isBot === 'boolean') updates.isBot = ps.isBot;
 	if (typeof ps.carefulBot === 'boolean') profileUpdates.carefulBot = ps.carefulBot;
+	if (typeof ps.carefulRemote === 'boolean') profileUpdates.carefulRemote = ps.carefulRemote;
 	if (typeof ps.autoAcceptFollowed === 'boolean') profileUpdates.autoAcceptFollowed = ps.autoAcceptFollowed;
 	if (typeof ps.noCrawle === 'boolean') profileUpdates.noCrawle = ps.noCrawle;
 	if (typeof ps.isCat === 'boolean') updates.isCat = ps.isCat;

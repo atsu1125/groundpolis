@@ -568,7 +568,7 @@ export default defineComponent({
 				case 'quote': quote(); break;
 				case 'renoteQuote': renote(); quote(); break;
 			}
-			
+
 		},
 
 		renoteDirectly() {
@@ -677,7 +677,7 @@ export default defineComponent({
 		},
 
 		async delEdit() {
-			const canceled = this.$store.state.showDeleteAndEditConfirm && (await os.dialog({
+			const canceled = this.$store.state.showNoteDeleteConfirm && (await os.dialog({
 				type: 'warning',
 				text: this.$ts.deleteAndEditConfirm,
 				showCancelButton: true
@@ -767,7 +767,7 @@ export default defineComponent({
 					}]
 					: []
 				),
-				// 自分でない、パブリック, ホーム なノート 
+				// 自分でない、パブリック, ホーム なノート
 				...(!this.isMyNote && ['public', 'home'].includes(this.appearNote.visibility) ? [
 					null,
 					{
