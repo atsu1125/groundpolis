@@ -1,9 +1,10 @@
 <template>
 <FormBase>
 	<FormGroup>
-		<FormSwitch v-model:value="isLocked" :disabled="carefulBot" @update:value="save()">{{ $ts.makeFollowManuallyApprove }}</FormSwitch>
+		<FormSwitch v-model:value="isLocked" :disabled="carefulBot || carefulRemote" @update:value="save()">{{ $ts.makeFollowManuallyApprove }}</FormSwitch>
 		<FormSwitch v-model:value="carefulBot" :disabled="isLocked" @update:value="save()">{{ $ts.makeBotFollowManuallyApprove }}</FormSwitch>
-		<FormSwitch v-model:value="autoAcceptFollowed" :disabled="!isLocked && !carefulBot" @update:value="save()">{{ $ts.autoAcceptFollowed }}</FormSwitch>
+		<FormSwitch v-model:value="carefulRemote" :disabled="isLocked" @update:value="save()">{{ $ts.makeRemoteFollowManuallyApprove }}</FormSwitch>
+		<FormSwitch v-model:value="autoAcceptFollowed" :disabled="!isLocked && !carefulBot && !carefulRemote" @update:value="save()">{{ $ts.autoAcceptFollowed }}</FormSwitch>
 		<template #caption>{{ $ts.lockedAccountInfo }}</template>
 	</FormGroup>
 	<FormSwitch v-model:value="publicReactions" @update:value="save()">
@@ -74,6 +75,7 @@ export default defineComponent({
 		return {
 			isLocked: false,
 			carefulBot: false,
+			carefulRemote: false,
 			autoAcceptFollowed: false,
 			hideFF: false,
 			noCrawle: false,
@@ -112,6 +114,7 @@ export default defineComponent({
 		this.isLocked = this.$i.isLocked;
 		this.hideFF = this.$i.hideFF;
 		this.carefulBot = this.$i.carefulBot;
+		this.carefulRemote = this.$i.carefulRemote;
 		this.autoAcceptFollowed = this.$i.autoAcceptFollowed;
 		this.noCrawle = this.$i.noCrawle;
 		this.isExplorable = this.$i.isExplorable;
@@ -128,6 +131,7 @@ export default defineComponent({
 				isLocked: !!this.isLocked,
 				hideFF: !!this.hideFF,
 				carefulBot: !!this.carefulBot,
+				carefulRemote: !!this.carefulRemote,
 				autoAcceptFollowed: !!this.autoAcceptFollowed,
 				noCrawle: !!this.noCrawle,
 				isExplorable: !!this.isExplorable,

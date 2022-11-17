@@ -677,7 +677,7 @@ export default defineComponent({
 		},
 
 		async delEdit() {
-			const canceled = (await os.dialog({
+			const canceled = this.$store.state.showNoteDeleteConfirm && (await os.dialog({
 				type: 'warning',
 				text: this.$ts.deleteAndEditConfirm,
 				showCancelButton: true

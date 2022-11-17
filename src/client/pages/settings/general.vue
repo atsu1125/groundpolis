@@ -21,6 +21,12 @@
 			{{ $ts.confirmBeforePost }}
 			<template #desc>{{$ts.confirmBeforePostDesc}}</template>
 		</FormSwitch>
+		<FormSwitch v-model:value="showNoteDeleteConfirm">{{ $ts.showNoteDeleteConfirm }}</FormSwitch>
+		<FormSwitch v-model:value="showFollowConfirm">{{ $ts.showFollowConfirm }}</FormSwitch>
+		<FormSwitch v-model:value="showUnfollowConfirm">{{ $ts.showUnfollowConfirm }}</FormSwitch>
+		<FormSwitch v-model:value="showRenoteConfirm">{{ $ts.showRenoteConfirm }}</FormSwitch>
+		<FormSwitch v-model:value="showUnrenoteConfirm">{{ $ts.showUnrenoteConfirm }}</FormSwitch>
+		<FormSwitch v-model:value="showVoteConfirm">{{ $ts.showVoteConfirm }}</FormSwitch>
 	</FormGroup>
 
 	<FormSelect v-model:value="serverDisconnectedBehavior">
@@ -214,6 +220,12 @@ export default defineComponent({
 		iconShape: defaultStore.makeGetterSetter('iconShape'),
 		noteCollapseThreshold: defaultStore.makeGetterSetter('noteCollapseThreshold'),
 		confirmBeforePost: defaultStore.makeGetterSetter('confirmBeforePost'),
+		showNoteDeleteConfirm: defaultStore.makeGetterSetter('showNoteDeleteConfirm'),
+		showFollowConfirm: defaultStore.makeGetterSetter('showFollowConfirm'),
+		showUnfollowConfirm: defaultStore.makeGetterSetter('showUnfollowConfirm'),
+		showRenoteConfirm: defaultStore.makeGetterSetter('showRenoteConfirm'),
+		showUnrenoteConfirm: defaultStore.makeGetterSetter('showUnrenoteConfirm'),
+		showVoteConfirm: defaultStore.makeGetterSetter('showVoteConfirm'),
 		aiChanMode: defaultStore.makeGetterSetter('aiChanMode'),
 		renoteButtonMode: defaultStore.makeGetterSetter('renoteButtonMode'),
 	},
