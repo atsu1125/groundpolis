@@ -1,5 +1,5 @@
 <template>
-<XModalWindow ref="window" 
+<XModalWindow ref="window"
 	:width="400"
 	:height="450"
 	:with-ok-button="false"
@@ -13,6 +13,7 @@
 			<mfm :text="currentAnnouncement.text" :once="false"/>
 			<img v-if="currentAnnouncement.imageUrl" :src="currentAnnouncement.imageUrl"/>
 		</div>
+		<div class="time"><MkTime :time="currentAnnouncement.createdAt" mode="detail"/></div>
 	</div>
 	<template #footer>
 		<div class="navigation">
@@ -64,7 +65,7 @@ export default defineComponent({
 					this.currentAnnouncementIndex = 0;
 				if (this.currentAnnouncementIndex >= this.announcements.length)
 					this.currentAnnouncementIndex = this.announcements.length - 1;
-				
+
 				return this.announcements[this.currentAnnouncementIndex];
 			}
 			return null;
@@ -84,7 +85,7 @@ export default defineComponent({
 	},
 
 	methods: {
-		
+
 	}
 });
 </script>
@@ -109,6 +110,11 @@ export default defineComponent({
 				display: block;
 				border-radius: var(--radius);
 			}
+		}
+		> .time {
+			font-weight: bold;
+			margin-bottom: 1em;
+			font-size: 1em;
 		}
 }
 .navigation {
