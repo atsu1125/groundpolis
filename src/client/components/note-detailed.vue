@@ -43,8 +43,6 @@
 						<MkUserName :user="appearNote.user"/>
 					</MkA>
 					<span class="is-bot" v-if="appearNote.user.isBot">bot</span>
-					<span class="admin" v-if="appearNote.user.isAdmin"><Fa :icon="faBookmark"/></span>
-					<span class="moderator" v-if="!appearNote.user.isAdmin && note.user.isModerator"><Fa :icon="farBookmark"/></span>
 					<!-- <span class="localOnly" v-if="note.localOnly"><Fa :icon="faBiohazard"/></span> -->
 				</div>
 				<div class="username"><MkAcct :user="appearNote.user"/></div>
@@ -1178,11 +1176,6 @@ export default defineComponent({
 						border-radius: 4px;
 					}
 
-					> .admin,
-					> .moderator {
-						margin-right: 0.5em;
-						color: var(--badge);
-					}
 				}
 
 				> .instance-ticker {
