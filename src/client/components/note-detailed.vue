@@ -43,8 +43,6 @@
 						<MkUserName :user="appearNote.user"/>
 					</MkA>
 					<span class="is-bot" v-if="appearNote.user.isBot">bot</span>
-					<span class="admin" v-if="appearNote.user.isAdmin"><Fa :icon="faBookmark"/></span>
-					<span class="moderator" v-if="!appearNote.user.isAdmin && note.user.isModerator"><Fa :icon="farBookmark"/></span>
 					<!-- <span class="localOnly" v-if="note.localOnly"><Fa :icon="faBiohazard"/></span> -->
 				</div>
 				<div class="username"><MkAcct :user="appearNote.user"/></div>
@@ -227,7 +225,7 @@ export default defineComponent({
 			} | null,
 			isPlainMode: false,
 			host,
-			faEdit, faBolt, faTimes, faBullhorn, faPlus, faMinus, faRetweet, faReply, faReplyAll, faEllipsisH, faHome, faUnlock, faEnvelope, faThumbtack, faBan, faPlug, faSatelliteDish, faUsers, faGlobe, faHeartS, faHeartR, faBookmark, farBookmark,			
+			faEdit, faBolt, faTimes, faBullhorn, faPlus, faMinus, faRetweet, faReply, faReplyAll, faEllipsisH, faHome, faUnlock, faEnvelope, faThumbtack, faBan, faPlug, faSatelliteDish, faUsers, faGlobe, faHeartS, faHeartR, faBookmark, farBookmark,
 		};
 	},
 
@@ -563,7 +561,7 @@ export default defineComponent({
 				case 'quote': quote(); break;
 				case 'renoteQuote': renote(); quote(); break;
 			}
-			
+
 		},
 
 		renoteDirectly() {
@@ -658,7 +656,7 @@ export default defineComponent({
 		del() {
 			os.dialog({
 				type: 'warning',
-				text: this.$ts.noteDeleteConfirm,
+				text: (this.appearNote.userId == this.$i.id) ? this.$ts.noteDeleteConfirm : this.$ts.noteDeleteAsAdminConfirm,
 				showCancelButton: true
 			}).then(({ canceled }) => {
 				if (canceled) return;
@@ -761,7 +759,7 @@ export default defineComponent({
 					}]
 					: []
 				),
-				// 自分でない、パブリック, ホーム なノート 
+				// 自分でない、パブリック, ホーム なノート
 				...(!this.isMyNote && ['public', 'home'].includes(this.appearNote.visibility) ? [
 					null,
 					{
@@ -1178,11 +1176,6 @@ export default defineComponent({
 						border-radius: 4px;
 					}
 
-					> .admin,
-					> .moderator {
-						margin-right: 0.5em;
-						color: var(--badge);
-					}
 				}
 
 				> .instance-ticker {

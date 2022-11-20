@@ -21,6 +21,7 @@ import { isDuplicateKeyValueError } from '../../misc/is-duplicate-key-value-erro
 import * as S3 from 'aws-sdk/clients/s3';
 import { getS3 } from './s3';
 import * as sharp from 'sharp';
+import { IdentifiableError } from '../../misc/identifiable-error';
 
 const logger = driveLogger.createSubLogger('register', 'yellow');
 
@@ -107,18 +108,18 @@ async function save(file: DriveFile, path: string, name: string, type: string, h
 		const thumbnailAccessKey = 'thumbnail-' + uuid();
 		const webpublicAccessKey = 'webpublic-' + uuid();
 
-		const url = InternalStorage.saveFromPath(accessKey, path);
+		const url = await InternalStorage.saveFromPathAsync(accessKey, path);
 
 		let thumbnailUrl: string | null = null;
 		let webpublicUrl: string | null = null;
 
 		if (alts.thumbnail) {
-			thumbnailUrl = InternalStorage.saveFromBuffer(thumbnailAccessKey, alts.thumbnail.data);
+			thumbnailUrl = await InternalStorage.saveFromBufferAsync(thumbnailAccessKey, alts.thumbnail.data);
 			logger.info(`thumbnail stored: ${thumbnailAccessKey}`);
 		}
 
 		if (alts.webpublic) {
-			webpublicUrl = InternalStorage.saveFromBuffer(webpublicAccessKey, alts.webpublic.data);
+			webpublicUrl = await InternalStorage.saveFromBufferAsync(webpublicAccessKey, alts.webpublic.data);
 			logger.info(`web stored: ${webpublicAccessKey}`);
 		}
 
@@ -357,7 +358,7 @@ export default async function(
 		// If usage limit exceeded
 		if (usage + info.size > driveCapacity) {
 			if (Users.isLocalUser(user)) {
-				throw new Error('no-free-space');
+				throw new IdentifiableError('c6244ed2-a39a-4e1c-bf93-f0fbd7764fa6', 'No free space.');
 			} else {
 				// (アバターまたはバナーを含まず)最も古いファイルを削除する
 				deleteOldFile(user as IRemoteUser);

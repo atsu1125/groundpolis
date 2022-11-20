@@ -11,6 +11,11 @@
 			<MkInput v-model:value="password" type="password" :with-password-toggle="true" v-if="!user || user && !user.usePasswordLessLogin" required>
 				<span>{{ $ts.password }}</span>
 				<template #prefix><Fa :icon="faLock"/></template>
+				<template #desc>
+				<button class="_textButton" @click="resetPassword">{{ $ts.forgotPassword }}</button>
+				|
+				<button class="_textButton" @click="onFlush">{{ $ts.onFlush }}</button>
+				</template>
 			</MkInput>
 			<MkButton type="submit" primary :disabled="signing" style="margin: 0 auto;">{{ signing ? $ts.loggingIn : $ts.login }}</MkButton>
 		</div>
@@ -200,7 +205,17 @@ export default defineComponent({
 					this.signing = false;
 				});
 			}
-		}
+		},
+
+		resetPassword() {
+			os.popup(import('./forgot-password.vue'), {}, {
+			}, 'closed');
+		},
+
+		onFlush() {
+			const r = confirm('ブラウザに保存されたキャッシュをクリアしますか？');
+			if (r) location.href = '/flush';
+		},
 	}
 });
 </script>

@@ -11,7 +11,6 @@
 		</template>
 	</MkA>
 	<span class="is-bot" v-if="note.user.isBot">bot</span>
-	<span class="admin" v-if="note.user.isAdmin"><Fa :icon="faBookmark"/></span>
 	<GpVerified class="verified" v-if="note.user.isVerified" />
 	<span class="premium" v-if="note.user.isPremium"><Fa :icon="faCrown"/></span>
 	<div class="info">
@@ -108,12 +107,6 @@ export default defineComponent({
 		font-size: 80%;
 		border: solid 1px var(--divider);
 		border-radius: 3px;
-	}
-
-	> .admin,
-	> .moderator {
-		margin-right: 0.5em;
-		color: var(--badge);
 	}
 
 	> .premium {

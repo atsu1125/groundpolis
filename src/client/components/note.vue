@@ -568,7 +568,7 @@ export default defineComponent({
 				case 'quote': quote(); break;
 				case 'renoteQuote': renote(); quote(); break;
 			}
-			
+
 		},
 
 		renoteDirectly() {
@@ -667,7 +667,7 @@ export default defineComponent({
 		async del() {
 			const canceled = this.$store.state.showNoteDeleteConfirm && (await os.dialog({
 				type: 'warning',
-				text: this.$ts.noteDeleteConfirm,
+				text: (this.appearNote.userId == this.$i.id) ? this.$ts.noteDeleteConfirm : this.$ts.noteDeleteAsAdminConfirm,
 				showCancelButton: true
 			})).canceled;
 			if (canceled) return;
@@ -677,7 +677,7 @@ export default defineComponent({
 		},
 
 		async delEdit() {
-			const canceled = this.$store.state.showDeleteAndEditConfirm && (await os.dialog({
+			const canceled = this.$store.state.showNoteDeleteConfirm && (await os.dialog({
 				type: 'warning',
 				text: this.$ts.deleteAndEditConfirm,
 				showCancelButton: true
@@ -767,7 +767,7 @@ export default defineComponent({
 					}]
 					: []
 				),
-				// 自分でない、パブリック, ホーム なノート 
+				// 自分でない、パブリック, ホーム なノート
 				...(!this.isMyNote && ['public', 'home'].includes(this.appearNote.visibility) ? [
 					null,
 					{
@@ -812,7 +812,7 @@ export default defineComponent({
 					} : undefined,
 					{
 						icon: faTrashAlt,
-						text: this.$ts.delete,
+						text: this.appearNote.userId == this.$i.id ? this.$ts.delete : this.$ts.deleteAsAdmin,
 						danger: true,
 						action: this.del
 					}]

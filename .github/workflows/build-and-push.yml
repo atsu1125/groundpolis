@@ -1,9 +1,8 @@
 name: Build and Push to Container Registry
 
 on:
-  push:
-    branches:
-      - sakura-tel/main
+  release:
+    types: [published]
 
 jobs:
   build-and-push:
