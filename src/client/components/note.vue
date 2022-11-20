@@ -665,7 +665,7 @@ export default defineComponent({
 		},
 
 		async del() {
-			const canceled = (await os.dialog({
+			const canceled = this.$store.state.showNoteDeleteConfirm && (await os.dialog({
 				type: 'warning',
 				text: (this.appearNote.userId == this.$i.id) ? this.$ts.noteDeleteConfirm : this.$ts.noteDeleteAsAdminConfirm,
 				showCancelButton: true
