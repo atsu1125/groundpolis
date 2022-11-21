@@ -1,0 +1,23 @@
+FROM node:16.17.1-bullseye
+
+ENV NODE_ENV=development
+
+WORKDIR /misskey
+
+RUN apt-get update
+RUN apt-get install -y build-essential \
+                       autoconf \
+                       automake \
+                       file \
+                       g++ \
+                       gcc \
+                       libtool \
+                       nasm \
+                       pkg-config \
+                       python \
+                       zlib1g-dev \
+                       ffmpeg \
+                       wget \
+                       postgresql-client
+
+CMD ["/misskey/docker-entrypoint.sh"]
