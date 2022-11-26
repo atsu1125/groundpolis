@@ -103,7 +103,7 @@ export default define(meta, async (ps, me) => {
 		}
 
 		const meta = await fetchMeta();
-		if (meta.email) {
+		if (meta.email && meta.maintainerEmail) {
 			sendEmail(meta.maintainerEmail, 'New abuse report',
 				sanitizeHtml(ps.comment),
 				sanitizeHtml(ps.comment));

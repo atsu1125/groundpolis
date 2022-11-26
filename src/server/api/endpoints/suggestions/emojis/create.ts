@@ -85,7 +85,7 @@ export default define(meta, async (ps, user) => {
 	// Mail
 	setTimeout(async () => {
 		const meta = await fetchMeta();
-		if (meta.email) {
+		if (meta.email && meta.maintainerEmail) {
 			sendEmail(meta.maintainerEmail, 'New emoji suggestion',
 			sanitizeHtml(ps.description),
 			sanitizeHtml(ps.description));
