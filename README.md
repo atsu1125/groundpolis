@@ -1,8 +1,11 @@
-### Dockerイメージはここにある  
-https://github.com/atsu1125/groundpolis/pkgs/container/groundpolis  
-コミット時にdevelopタグ、リリース時にlatestタグで自動作成されます
+This is **develop** edition of Milkey.
+---------
 
-### オブジェクトストレージの設定方法はこちら  
+Docker image is available here  
+https://github.com/atsu1125/groundpolis/pkgs/container/groundpolis  
+Docker image is automatically built when we publish the release.
+
+Guide for setting up Object Storage  
 https://github.com/atsu1125/atsuchanpage/blob/main/misskeyobjectstorage.md  
 
 --------
