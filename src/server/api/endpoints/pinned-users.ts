@@ -24,6 +24,10 @@ export const meta = {
 };
 
 export default define(meta, async (ps, me) => {
+	const m = await fetchMeta();
+	if (me == null && m.disableProfileDirectory) {
+		return [];
+	}
 	const meta = await fetchMeta();
 
 	const users = await Promise.all(meta.pinnedUsers.map(acct => Users.findOne(parseAcct(acct))));
