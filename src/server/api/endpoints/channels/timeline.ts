@@ -5,6 +5,7 @@ import { ApiError } from '../../error';
 import { Notes, Channels } from '../../../../models';
 import { makePaginationQuery } from '../../common/make-pagination-query';
 import { activeUsersChart } from '../../../../services/chart';
+import { fetchMeta } from '../../../../misc/fetch-meta';
 
 export const meta = {
 	tags: ['notes', 'channels'],
@@ -76,6 +77,10 @@ export const meta = {
 };
 
 export default define(meta, async (ps, user) => {
+	const m = await fetchMeta();
+	if (!user && m.disableTimelinePreview) {
+		return [];
+	}
 	const channel = await Channels.findOne({
 		id: ps.channelId,
 	});

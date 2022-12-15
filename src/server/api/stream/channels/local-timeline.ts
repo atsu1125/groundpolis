@@ -18,6 +18,9 @@ export default class extends Channel {
 		if (meta.disableLocalTimeline) {
 			if (!this.user || (!this.user.isAdmin && !this.user.isModerator)) return;
 		}
+		if (!this.user && meta.disableTimelinePreview) {
+			return;
+		}
 
 		// Subscribe events
 		this.subscriber.on('notesStream', this.onNote);

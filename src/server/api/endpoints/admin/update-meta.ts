@@ -59,6 +59,13 @@ export const meta = {
 			}
 		},
 
+		disableTimelinePreview: {
+			validator: $.optional.nullable.bool,
+			desc: {
+				'ja-JP': 'タイムラインプレビューを無効にするか否か'
+			}
+		},
+
 		disableFeatured: {
 			validator: $.optional.nullable.bool,
 			desc: {
@@ -532,6 +539,10 @@ export default define(meta, async (ps, me) => {
 
 	if (typeof ps.disableCatTimeline === 'boolean') {
 		set.disableCatTimeline = ps.disableCatTimeline;
+	}
+
+	if (typeof ps.disableTimelinePreview === 'boolean') {
+		set.disableTimelinePreview = ps.disableTimelinePreview;
 	}
 
 	if (typeof ps.useStarForReactionFallback === 'boolean') {

@@ -3,6 +3,7 @@ import Channel from '../channel';
 import { Notes } from '../../../../models';
 import { isMutedUserRelated } from '../../../../misc/is-muted-user-related';
 import { PackedNote } from '../../../../models/repositories/note';
+import { fetchMeta } from '../../../../misc/fetch-meta';
 
 export default class extends Channel {
 	public readonly chName = 'channel';
@@ -12,6 +13,10 @@ export default class extends Channel {
 
 	@autobind
 	public async init(params: any) {
+		const meta = await fetchMeta();
+		if (!this.user && meta.disableTimelinePreview) {
+			return;
+		}
 		this.channelId = params.channelId as string;
 
 		// Subscribe stream

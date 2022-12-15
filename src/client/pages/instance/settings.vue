@@ -27,6 +27,7 @@
 			<MkSwitch v-model:value="enableGlobalTimeline" @update:value="save()">{{ $ts.enableGlobalTimeline }}</MkSwitch>
 			<MkSwitch v-model:value="enableCatTimeline" @update:value="save()">{{ $ts.enableCatTimeline }}</MkSwitch>
 			<MkInfo>{{ $ts.disablingTimelinesInfo }}</MkInfo>
+			<MkSwitch v-model:value="enableTimelinePreview" @update:value="save()">{{ $ts.enableTimelinePreview }}</MkSwitch>
 		</div>
 		<div class="_content">
 			<MkSwitch v-model:value="enableFeatured" @update:value="save()">{{ $ts.enableFeatured }}</MkSwitch>
@@ -324,6 +325,7 @@ export default defineComponent({
 			enableLocalTimeline: false,
 			enableGlobalTimeline: false,
 			enableCatTimeline: false,
+			enableTimelinePreview: false,
 			enableFeatured: false,
 			enableHcaptcha: false,
 			hcaptchaSiteKey: null,
@@ -394,6 +396,7 @@ export default defineComponent({
 		this.enableLocalTimeline = !this.meta.disableLocalTimeline;
 		this.enableGlobalTimeline = !this.meta.disableGlobalTimeline;
 		this.enableCatTimeline = !this.meta.disableCatTimeline;
+		this.enableTimelinePreview = !this.meta.disableTimelinePreview;
 		this.enableFeatured = !this.meta.disableFeatured;
 		this.enableHcaptcha = this.meta.enableHcaptcha;
 		this.hcaptchaSiteKey = this.meta.hcaptchaSiteKey;
@@ -559,6 +562,7 @@ export default defineComponent({
 				disableGlobalTimeline: !this.enableGlobalTimeline,
 				disableFeatured: !this.enableFeatured,
 				disableCatTimeline: !this.enableCatTimeline,
+				disableTimelinePreview: !this.enableTimelinePreview,
 				enableHcaptcha: this.enableHcaptcha,
 				hcaptchaSiteKey: this.hcaptchaSiteKey,
 				hcaptchaSecretKey: this.hcaptchaSecretKey,

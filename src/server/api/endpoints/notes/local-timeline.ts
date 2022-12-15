@@ -93,6 +93,9 @@ export default define(meta, async (ps, user) => {
 			throw new ApiError(meta.errors.ltlDisabled);
 		}
 	}
+	if (!user && m.disableTimelinePreview) {
+		throw new ApiError(meta.errors.ltlDisabled);
+	}
 
 	const cond = user != null ? 'note.visibility = \'public\' OR note.visibility = \'users\'' : 'note.visibility = \'public\'';
 

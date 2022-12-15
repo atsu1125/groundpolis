@@ -1,7 +1,7 @@
 <template>
 <div class="civpbkhh">
 	<div ref="scroll" class="scrollbox" v-bind:class="{ scroll: isScrolling }">
-		<div v-for="note in notes" :key="note.id" class="note">
+		<div v-if="meta && !meta.disableTimelinePreview" v-for="note in notes" :key="note.id" class="note">
 			<div class="content _panel">
 				<div class="body">
 					<MkA v-if="note.replyId" class="reply" :to="`/notes/${note.replyId}`"><i class="fas fa-reply"></i></MkA>
@@ -39,9 +39,14 @@ export default defineComponent({
 			isScrolling: false,
 		}
 	},
+	computed: {
+		meta() {
+			return this.$instance;
+		},
+	},
 	created() {
-		const ep = 
-			!this.$instance.disableFeatured 
+		const ep =
+			!this.$instance.disableFeatured
 				? 'notes/featured' :
 			!this.$instance.disableLocalTimeline
 				? 'notes/local-timeline' : 'notes/global-timeline';

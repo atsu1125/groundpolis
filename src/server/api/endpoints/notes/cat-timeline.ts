@@ -75,6 +75,9 @@ export default define(meta, async (ps, user) => {
 			throw new ApiError(meta.errors.ctlDisabled);
 		}
 	}
+	if (!user && m.disableTimelinePreview) {
+		throw new ApiError(meta.errors.ctlDisabled);
+	}
 
 	//#region Construct query
 	const query = makePaginationQuery(Notes.createQueryBuilder('note'),

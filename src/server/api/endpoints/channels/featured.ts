@@ -1,5 +1,6 @@
 import define from '../../define';
 import { Channels } from '../../../../models';
+import { fetchMeta } from '../../../../misc/fetch-meta';
 
 export const meta = {
 	tags: ['channels'],
@@ -18,6 +19,10 @@ export const meta = {
 };
 
 export default define(meta, async (ps, me) => {
+	const m = await fetchMeta();
+	if (!me && m.disableTimelinePreview) {
+		return [];
+	}
 	const query = Channels.createQueryBuilder('channel')
 		.where('channel.lastNotedAt IS NOT NULL')
 		.orderBy('channel.lastNotedAt', 'DESC');

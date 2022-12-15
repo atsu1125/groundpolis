@@ -56,6 +56,10 @@ export default define(meta, async (ps, user) => {
 		throw new ApiError(meta.errors.featuredDisabled);
 	}
 
+	if (!user && m.disableTimelinePreview) {
+		throw new ApiError(meta.errors.featuredDisabled);
+	}
+
 	const max = 30;
 	const day = 1000 * 60 * 60 * 24 * 3; // 3日前まで
 
