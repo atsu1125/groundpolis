@@ -80,6 +80,13 @@ export const meta = {
 			}
 		},
 
+		disableTrends: {
+			validator: $.optional.nullable.bool,
+			desc: {
+				'ja-JP': 'トレンドを無効にするか否か'
+			}
+		},
+
 		useStarForReactionFallback: {
 			validator: $.optional.nullable.bool,
 			desc: {
@@ -554,6 +561,10 @@ export default define(meta, async (ps, me) => {
 
 	if (typeof ps.disableProfileDirectory === 'boolean') {
 		set.disableProfileDirectory = ps.disableProfileDirectory;
+	}
+
+	if (typeof ps.disableTrends === 'boolean') {
+		set.disableTrends = ps.disableTrends;
 	}
 
 	if (typeof ps.useStarForReactionFallback === 'boolean') {

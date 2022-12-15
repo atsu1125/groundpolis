@@ -33,6 +33,7 @@
 		<div class="_content">
 			<MkSwitch v-model:value="enableFeatured" @update:value="save()">{{ $ts.enableFeatured }}</MkSwitch>
 			<MkSwitch v-model:value="useStarForReactionFallback" @update:value="save()">{{ $ts.useStarForReactionFallback }}</MkSwitch>
+			<MkSwitch v-model:value="enableTrends" @update:value="save()">{{ $ts.enableTrends }}</MkSwitch>
 		</div>
 	</section>
 
@@ -329,6 +330,7 @@ export default defineComponent({
 			enableTimelinePreview: false,
 			enableProfileDirectory: false,
 			enableFeatured: false,
+			enableTrends: false,
 			enableHcaptcha: false,
 			hcaptchaSiteKey: null,
 			hcaptchaSecretKey: null,
@@ -401,6 +403,7 @@ export default defineComponent({
 		this.enableTimelinePreview = !this.meta.disableTimelinePreview;
 		this.enableProfileDirectory = !this.meta.disableProfileDirectory;
 		this.enableFeatured = !this.meta.disableFeatured;
+		this.enableTrends = !this.meta.disableTrends;
 		this.enableHcaptcha = this.meta.enableHcaptcha;
 		this.hcaptchaSiteKey = this.meta.hcaptchaSiteKey;
 		this.hcaptchaSecretKey = this.meta.hcaptchaSecretKey;
@@ -567,6 +570,7 @@ export default defineComponent({
 				disableCatTimeline: !this.enableCatTimeline,
 				disableTimelinePreview: !this.enableTimelinePreview,
 				disableProfileDirectory: !this.enableProfileDirectory,
+				disableTrends: !this.enableTrends,
 				enableHcaptcha: this.enableHcaptcha,
 				hcaptchaSiteKey: this.hcaptchaSiteKey,
 				hcaptchaSecretKey: this.hcaptchaSecretKey,

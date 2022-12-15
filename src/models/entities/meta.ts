@@ -52,6 +52,11 @@ export class Meta {
 	})
 	public disableFeatured: boolean;
 
+	@Column('boolean', {
+		default: false,
+	})
+	public disableTrends: boolean;
+
 	@Column('varchar', {
 		length: 64,
 		default: ''

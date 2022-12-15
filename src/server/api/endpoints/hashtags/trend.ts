@@ -54,6 +54,10 @@ export const meta = {
 };
 
 export default define(meta, async () => {
+	const m = await fetchMeta();
+	if (m.disableTrends) {
+		return [];
+	}
 	const instance = await fetchMeta(true);
 	const hiddenTags = instance.hiddenTags.map(t => normalizeForSearch(t));
 
