@@ -1416,6 +1416,9 @@ _profile:
   metadataContent: "Content"
   changeAvatar: "Change avatar"
   changeBanner: "Change banner"
+  locationCaution: "It will be published on the Internet. Please do not include detailed addresses except for business use"
+  birthdayCaution: "It will be published on the Internet. Please handle your personal information with care"
+  genderCaution: "It will be published on the Internet. Please handle your personal information with care"
 _exportOrImport:
   allNotes: "All notes"
   followingList: "Following"
