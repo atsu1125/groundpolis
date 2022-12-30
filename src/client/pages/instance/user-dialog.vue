@@ -39,7 +39,7 @@
 				<MkButton full v-if="user.host != null" @click="updateRemoteUser"><Fa :icon="faSync"/> {{ $ts.updateRemoteUser }}</MkButton>
 				<MkButton full @click="resetPassword"><Fa :icon="faKey"/> {{ $ts.resetPassword }}</MkButton>
 				<MkButton full @click="deleteAllFiles" danger><Fa :icon="faTrashAlt"/> {{ $ts.deleteAllFiles }}</MkButton>
-				<MkButton full @click="deleteAccount" danger><Fa :icon="faTrashAlt"/> {{ $ts.deleteAccount }}</MkButton>
+				<MkButton v-if="!user.isModerator && !user.isAdmin" full @click="deleteAccount" danger><Fa :icon="faTrashAlt"/> {{ $ts.deleteAccount }}</MkButton>
 			</div>
 		</div>
 		<div class="_section">
