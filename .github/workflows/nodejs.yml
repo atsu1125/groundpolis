@@ -23,22 +23,23 @@ jobs:
           - 56312:6379
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2.2.4
       with:
-        submodules: true
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+        version: 7
+    - uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - name: Enable corepack
+      run: corepack enable
     - name: Install dependencies
-      run: yarn install
-    - name: Check yarn.lock
-      run: git diff --exit-code yarn.lock
+      run: pnpm install --frozen-lockfile
     - name: Copy Configure
       run: cp test/test.yml .config
     - name: Build
-      run: yarn build
+      run: pnpm build
     - name: Check webpack process
       run: ls built/meta.json
     - name: Test
-      run: yarn test
+      run: pnpm test

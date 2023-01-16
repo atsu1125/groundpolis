@@ -36,11 +36,6 @@ Vue I18n の文書は http://kazupon.github.io/vue-i18n/introduction.html にあ
 3D モデル制作の経験をお持ちでなければ、我々はフリーの 3DCG ソフトウェア [Blender](https://www.blender.org/) をお勧めします。
 glTF 2.0 に関する資料は [glTF 2.0 — Blender Manual]( https://docs.blender.org/manual/en/dev/addons/io_scene_gltf2.html) にあります。
 
-## よくある質問
-### yarn.lock で発生したコンフリクトはどうすれば良いですか？
-
-単純に `yarn` コマンドを実行してください。
-
 ## Glossary
 ### AP
 _**A**ctivity**P**ub_ の略。

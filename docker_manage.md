@@ -37,8 +37,8 @@ cp .config/dockerdefault.yml .config/default.yml
 ## Misskeyのビルド
 
 ```bash
-./dockermanage.sh yarn install
-./dockermanage.sh yarn build
+./dockermanage.sh pnpm install
+./dockermanage.sh pnpm build
 ```
 
 Misskey本体をビルドします。変更を加えるたびに必要です。
@@ -46,7 +46,7 @@ Misskey本体をビルドします。変更を加えるたびに必要です。
 ## データベースのマイグレーション
 
 ```bash
-./dockermanage.sh yarn run migrate
+./dockermanage.sh pnpm run migrate
 ```
 
 データベースのマイグレーションをします。マイグレーションファイルを追加した場合に必要です。

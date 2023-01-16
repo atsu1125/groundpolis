@@ -16,7 +16,7 @@
 		"node": ">=14.15.0"
 	},
 	"scripts": {
-		"bs": "npm run build && npm run start",
+		"bs": "pnpm run build && pnpm run start",
 		"build": "run-s webpack gulp",
 		"build-product": "cross-env NODE_ENV=production run-s webpack gulp",
 		"clean": "gulp clean",
@@ -25,12 +25,12 @@
 		"format": "gulp format",
 		"gulp": "gulp build",
 		"gulpstart": "run-s gulp start",
-		"init": "npm run migrate",
+		"init": "pnpm run migrate",
 		"lint": "eslint src/**/*.ts",
 		"migrate": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:run",
 		"migrate:revert": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:revert",
 		"migrate:gen": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
-		"migrateandstart": "npm run migrate && npm run start",
+		"migrateandstart": "pnpm run migrate && pnpm run start",
 		"ormconfig": "node ./built/ormconfig.js",
 		"start": "node ./index.js",
 		"start-product": "cross-env NODE_ENV=production node ./index.js",
@@ -102,8 +102,8 @@
 		"@types/redis": "2.8.32",
 		"@types/rename": "1.0.4",
 		"@types/request-stats": "3.0.0",
-		"@types/sanitize-html": "2.5.0",
 		"@types/rimraf": "3.0.2",
+		"@types/sanitize-html": "2.5.0",
 		"@types/seedrandom": "3.0.2",
 		"@types/sharp": "0.29.5",
 		"@types/sinonjs__fake-timers": "8.1.1",
@@ -188,12 +188,14 @@
 		"matter-js": "0.18.0",
 		"memoji": "mei23/memoji#15.0.0",
 		"mfm-js": "groundpolis/gpfm.js",
+		"moment": "2.29.4",
 		"ms": "2.1.3",
 		"multer": "1.4.5-lts.1",
 		"nested-property": "4.0.0",
 		"node-fetch": "2.6.7",
 		"nodemailer": "6.8.0",
 		"npm-run-all": "4.1.5",
+		"oauth": "0.10.0",
 		"object-assign-deep": "0.4.0",
 		"os-utils": "0.0.14",
 		"p-cancelable": "4.0.0",
@@ -211,6 +213,7 @@
 		"punycode": "2.1.1",
 		"pureimage": "0.3.8",
 		"qrcode": "1.5.1",
+		"querystring": "0.2.1",
 		"random-seed": "0.3.0",
 		"ratelimiter": "3.4.1",
 		"re2": "1.17.4",
@@ -278,5 +281,15 @@
 		"eslint-plugin-node": "11.1.0",
 		"eslint-plugin-vue": "9.6.0",
 		"mocha": "10.1.0"
+	},
+	"packageManager": "pnpm@7.24.3",
+	"pnpm": {
+		"packageExtensions": {
+			"diskusage": {
+				"optionalDependencies": {
+					"node-gyp": "*"
+				}
+			}
+		}
 	}
 }

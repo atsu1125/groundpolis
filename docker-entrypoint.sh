@@ -8,7 +8,7 @@ while ! pg_isready -U ${DB_USER:-example-misskey-user} -d postgres://${DB_HOST:-
 done
 
 echo "-- Running migrations..."
-yarn run migrate
+pnpm run migrate
 
 echo "-- Starting!"
-yarn start
+pnpm start

@@ -41,11 +41,6 @@ Documentation of Vue I18n is available at http://kazupon.github.io/vue-i18n/intr
 If you have no experience on 3D modeling, we suggest to use the free 3DCG software [Blender](https://www.blender.org/).
 You can find information on glTF 2.0 at [glTF 2.0 — Blender Manual]( https://docs.blender.org/manual/en/dev/addons/io_scene_gltf2.html).
 
-## FAQ
-### How to resolve conflictions occurred at yarn.lock?
-
-Just execute `yarn` to fix it.
-
 ## Glossary
 ### AP
 Stands for _**A**ctivity**P**ub_.
