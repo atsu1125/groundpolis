@@ -29,7 +29,7 @@ specifiers:
   '@types/escape-regexp': 0.0.1
   '@types/fluent-ffmpeg': 2.1.20
   '@types/glob': 7.1.3
-  '@types/gulp': 4.0.9
+  '@types/gulp': 4.0.10
   '@types/gulp-rename': 2.0.1
   '@types/gulp-replace': 1.1.0
   '@types/is-url': 1.2.30
@@ -265,7 +265,7 @@ dependencies:
   '@types/escape-regexp': 0.0.1
   '@types/fluent-ffmpeg': 2.1.20
   '@types/glob': 7.1.3
-  '@types/gulp': 4.0.9
+  '@types/gulp': 4.0.10
   '@types/gulp-rename': 2.0.1
   '@types/gulp-replace': 1.1.0
   '@types/is-url': 1.2.30
@@ -1327,10 +1327,10 @@ packages:
       gulp-replace: 1.1.3
     dev: false
 
-  /@types/gulp/4.0.9:
-    resolution: {integrity: sha512-zzT+wfQ8uwoXjDhRK9Zkmmk09/fbLLmN/yDHFizJiEKIve85qutOnXcP/TM2sKPBTU+Jc16vfPbOMkORMUBN7Q==}
+  /@types/gulp/4.0.10:
+    resolution: {integrity: sha512-spgZHJFqiEJGwqGlf7T/k4nkBpBcLgP7T0EfN6G2vvnhUfvd4uO1h8RwpXOE8x/54DVYUs1XCAtBHkX/R3axAQ==}
     dependencies:
-      '@types/undertaker': 1.2.2
+      '@types/undertaker': 1.2.8
       '@types/vinyl-fs': 2.4.11
       chokidar: 3.3.1
     dev: false
@@ -1741,10 +1741,12 @@ packages:
     resolution: {integrity: sha512-Z4TYuEKn9+RbNVk1Ll2SS4x1JeLHecolIbM/a8gveaHsW0Hr+RQMraZACwTO2VD7JvepgA6UO1A1VrbktQrIbQ==}
     dev: false
 
-  /@types/undertaker/1.2.2:
-    resolution: {integrity: sha512-j4iepCSuY2JGW/hShVtUBagic0klYNFIXP7VweavnYnNC2EjiKxJFeaS9uaJmAT0ty9sQSqTS1aagWMZMV0HyA==}
+  /@types/undertaker/1.2.8:
+    resolution: {integrity: sha512-gW3PRqCHYpo45XFQHJBhch7L6hytPsIe0QeLujlnFsjHPnXLhJcPdN6a9368d7aIQgH2I/dUTPFBlGeSNA3qOg==}
     dependencies:
+      '@types/node': 18.11.9
       '@types/undertaker-registry': 1.0.1
+      async-done: 1.3.2
     dev: false
 
   /@types/uuid/8.3.4:
