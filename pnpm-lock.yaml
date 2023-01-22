@@ -37,7 +37,7 @@ specifiers:
   '@types/jsdom': 16.2.15
   '@types/jsonld': 1.5.8
   '@types/katex': 0.11.1
-  '@types/koa': 2.13.4
+  '@types/koa': 2.13.5
   '@types/koa-bodyparser': 4.3.8
   '@types/koa-cors': 0.0.2
   '@types/koa-favicon': 2.0.21
@@ -273,14 +273,14 @@ dependencies:
   '@types/jsdom': 16.2.15
   '@types/jsonld': 1.5.8
   '@types/katex': 0.11.1
-  '@types/koa': 2.13.4
+  '@types/koa': 2.13.5
   '@types/koa-bodyparser': 4.3.8
   '@types/koa-cors': 0.0.2
   '@types/koa-favicon': 2.0.21
   '@types/koa-logger': 3.1.2
   '@types/koa-mount': 4.0.1
   '@types/koa-send': 4.1.3
-  '@types/koa-views': 7.0.0_febimmfgqux6lo2sldilmyfgiq
+  '@types/koa-views': 7.0.0_6tybghmia4wsnt33xeid7y4rby
   '@types/koa__cors': 3.3.0
   '@types/koa__multer': 2.0.4
   '@types/koa__router': 8.0.11
@@ -380,7 +380,7 @@ dependencies:
   koa-mount: 4.0.0
   koa-send: 5.0.1
   koa-slow: 2.1.0
-  koa-views: 8.0.0_febimmfgqux6lo2sldilmyfgiq
+  koa-views: 8.0.0_6tybghmia4wsnt33xeid7y4rby
   langmap: 0.0.16
   lookup-dns-cache: 2.1.0
   markdown-it: 12.3.2
@@ -1387,50 +1387,50 @@ packages:
   /@types/koa-bodyparser/4.3.8:
     resolution: {integrity: sha512-/Tk3xdaj/3y9VZ6K8z9fQ8myZOR2EEfwrlkbO4SjzLizRZaDFARSA8OGAC3B9lhC1R4wG0nCrTdd6o0NL2jrEQ==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/koa-compose/3.2.5:
     resolution: {integrity: sha512-B8nG/OoE1ORZqCkBVsup/AKcvjdgoHnfi4pZMn5UwAPCbhk/96xyv284eBYW8JlQbQ7zDmnpFr68I/40mFoIBQ==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/koa-cors/0.0.2:
     resolution: {integrity: sha512-uNaDY26HUVO+2C6arK8ZFODs9mBjYprD8mlvkVe2bYdX9wzEeKtycVXPafXpUkePhMh4sffIMkhRDyedokG/QA==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/koa-favicon/2.0.21:
     resolution: {integrity: sha512-paH1nheVhijx/VduoR/RCD/qTCiX+OI/6fHLi3mZae053Ts+gUBOrKtzl3pMTDbdEBqdLolfLje3PZbb6jW0jQ==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/koa-logger/3.1.2:
     resolution: {integrity: sha512-sioTA1xlKYiIgryANWPRHBkG3XGbWftw9slWADUPC+qvPIY/yRLSrhvX7zkJwMrntub5dPO0GuAoyGGf0yitfQ==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/koa-mount/4.0.1:
     resolution: {integrity: sha512-HNeg80CVS9Dfq8dGYqCZZCAUm7g6jPCNJ1ydqVLEJxLrjmeburpvq+lOZkE4rxBZ6O38dr3tj9IA3IfbdoI05w==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/koa-send/4.1.3:
     resolution: {integrity: sha512-daaTqPZlgjIJycSTNjKpHYuKhXYP30atFc1pBcy6HHqB9+vcymDgYTguPdx9tO4HMOqNyz6bz/zqpxt5eLR+VA==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
-  /@types/koa-views/7.0.0_febimmfgqux6lo2sldilmyfgiq:
+  /@types/koa-views/7.0.0_6tybghmia4wsnt33xeid7y4rby:
     resolution: {integrity: sha512-AB/NB+oFHcLOZJYFv3bG5Af8YbwYCD9/zK0WcKALsbjI/FRKrcXTUTC64RebDrkyOkBm3bpCgpGndhAH/3YQ2Q==}
     deprecated: This is a stub types definition. koa-views provides its own type definitions, so you do not need this installed.
     dependencies:
-      koa-views: 8.0.0_febimmfgqux6lo2sldilmyfgiq
+      koa-views: 8.0.0_6tybghmia4wsnt33xeid7y4rby
     transitivePeerDependencies:
       - '@types/koa'
       - arc-templates
@@ -1489,8 +1489,8 @@ packages:
       - whiskers
     dev: false
 
-  /@types/koa/2.13.4:
-    resolution: {integrity: sha512-dfHYMfU+z/vKtQB7NUrthdAEiSvnLebvBjwHtfFmpZmB7em2N3WVQdHgnFq+xvyVgxW5jKDmjWfLD3lw4g4uTw==}
+  /@types/koa/2.13.5:
+    resolution: {integrity: sha512-HSUOdzKz3by4fnqagwthW/1w/yJspTgppyyalPVbgZf8jQWvdIXcVW5h2DGtw4zYntOaeRGx49r1hxoPWrD4aA==}
     dependencies:
       '@types/accepts': 1.3.5
       '@types/content-disposition': 0.5.3
@@ -1505,19 +1505,19 @@ packages:
   /@types/koa__cors/3.3.0:
     resolution: {integrity: sha512-FUN8YxcBakIs+walVe3+HcNP+Bxd0SB8BJHBWkglZ5C1XQWljlKcEFDG/dPiCIqwVCUbc5X0nYDlH62uEhdHMA==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/koa__multer/2.0.4:
     resolution: {integrity: sha512-WRkshXhE5rpYFUbbtAjyMhdOOSdbu1XX+2AQlRNM6AZtgxd0/WXMU4lrP7e9tk5HWVTWbx8DOOsVBmfHjSGJ4w==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/koa__router/8.0.11:
     resolution: {integrity: sha512-WXgKWpBsbS14kzmzD9LeFapOIa678h7zvUHxDwXwSx4ETKXhXLVUAToX6jZ/U7EihM7qwyD9W/BZvB0MRu7MTQ==}
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
     dev: false
 
   /@types/linkify-it/2.1.0:
@@ -6756,7 +6756,7 @@ packages:
       q: 1.4.1
     dev: false
 
-  /koa-views/8.0.0_febimmfgqux6lo2sldilmyfgiq:
+  /koa-views/8.0.0_6tybghmia4wsnt33xeid7y4rby:
     resolution: {integrity: sha512-nvGKdG8yVyomhouwN060SWd7Q9kGYRr322dwN6jvI04hgiDEW9vsPXEje9OEtBgGXxHURe7xOzo3bxQ3DBc1Nw==}
     peerDependencies:
       '@types/koa': ^2.13.1
@@ -6764,7 +6764,7 @@ packages:
       '@types/koa':
         optional: true
     dependencies:
-      '@types/koa': 2.13.4
+      '@types/koa': 2.13.5
       consolidate: 0.16.0_pug@3.0.2
       debug: 4.3.4
       get-paths: 0.0.7
