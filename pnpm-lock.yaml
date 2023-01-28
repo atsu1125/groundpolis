@@ -57,7 +57,7 @@ specifiers:
   '@types/nprogress': 0.2.0
   '@types/oauth': 0.9.1
   '@types/object-assign-deep': 0.4.0
-  '@types/parse5': 6.0.0
+  '@types/parse5': 6.0.3
   '@types/parsimmon': 1.10.6
   '@types/pug': 2.0.6
   '@types/qrcode': 1.5.0
@@ -293,7 +293,7 @@ dependencies:
   '@types/nprogress': 0.2.0
   '@types/oauth': 0.9.1
   '@types/object-assign-deep': 0.4.0
-  '@types/parse5': 6.0.0
+  '@types/parse5': 6.0.3
   '@types/parsimmon': 1.10.6
   '@types/pug': 2.0.6
   '@types/qrcode': 1.5.0
@@ -1588,10 +1588,6 @@ packages:
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
-    dev: false
-
-  /@types/parse5/6.0.0:
-    resolution: {integrity: sha512-oPwPSj4a1wu9rsXTEGIJz91ISU725t0BmSnUhb57sI+M8XEmvUop84lzuiYdq0Y5M6xLY8DBPg0C2xEQKLyvBA==}
     dev: false
 
   /@types/parse5/6.0.3:
