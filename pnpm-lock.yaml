@@ -70,7 +70,7 @@ specifiers:
   '@types/sanitize-html': 2.5.0
   '@types/seedrandom': 3.0.4
   '@types/sharp': 0.29.5
-  '@types/sinonjs__fake-timers': 8.1.1
+  '@types/sinonjs__fake-timers': 8.1.2
   '@types/speakeasy': 2.0.7
   '@types/suncalc': 1.8.1
   '@types/throttle-debounce': 2.1.0
@@ -306,7 +306,7 @@ dependencies:
   '@types/sanitize-html': 2.5.0
   '@types/seedrandom': 3.0.4
   '@types/sharp': 0.29.5
-  '@types/sinonjs__fake-timers': 8.1.1
+  '@types/sinonjs__fake-timers': 8.1.2
   '@types/speakeasy': 2.0.7
   '@types/suncalc': 1.8.1
   '@types/throttle-debounce': 2.1.0
@@ -1687,8 +1687,8 @@ packages:
       '@types/node': 18.11.18
     dev: false
 
-  /@types/sinonjs__fake-timers/8.1.1:
-    resolution: {integrity: sha512-0kSuKjAS0TrGLJ0M/+8MaFkGsQhZpB6pxOmvS3K8FYI72K//YmdfoW9X2qPsAKh1mkwxGD5zib9s1FIFed6E8g==}
+  /@types/sinonjs__fake-timers/8.1.2:
+    resolution: {integrity: sha512-9GcLXF0/v3t80caGs5p2rRfkB+a8VBGLJZVih6CNFkx8IZ994wiKKLSRs9nuFwk1HevWs/1mnUmkApGrSGsShA==}
     dev: false
 
   /@types/source-list-map/0.1.2:
