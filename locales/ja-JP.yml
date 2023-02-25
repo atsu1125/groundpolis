@@ -917,6 +917,7 @@ deleteAccount: "アカウント削除"
 deleteAccountConfirm: "本当にこのアカウントを削除しますか？"
 inviteRevoke: "全ての招待コードを失効する"
 inviteRevokeConfirm: "本当に全ての招待コードを失効させますか？"
+createdAt: "作成日時"
 
 _template:
   edit: "定型文を編集…"
