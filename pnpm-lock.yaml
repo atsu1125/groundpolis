@@ -169,7 +169,7 @@ specifiers:
   oauth: 0.10.0
   object-assign-deep: 0.4.0
   os-utils: 0.0.14
-  p-cancelable: 4.0.0
+  p-cancelable: 4.0.1
   parse5: 6.0.1
   pg: 8.8.0
   photoswipe: 5.2.4
@@ -398,7 +398,7 @@ dependencies:
   oauth: 0.10.0
   object-assign-deep: 0.4.0
   os-utils: 0.0.14
-  p-cancelable: 4.0.0
+  p-cancelable: 4.0.1
   parse5: 6.0.1
   pg: 8.8.0
   photoswipe: 5.2.4
@@ -8023,8 +8023,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /p-cancelable/4.0.0:
-    resolution: {integrity: sha512-Zdd8zN5qpMjMuKIHdiMTXWAyCtR5TQ3CrdHDqj2gm+u5OP1WxwFAqiYDgnaeBX8PgQlLxECYPjRFvnKFJHk5KA==}
+  /p-cancelable/4.0.1:
+    resolution: {integrity: sha512-wBowNApzd45EIKdO1LaU+LrMBwAcjfPaYtVzV3lmfM3gf8Z4CHZsiIqlM8TZZ8okYvh5A1cP6gTfCRQtwUpaUg==}
     engines: {node: '>=14.16'}
     dev: false
 
