@@ -156,7 +156,7 @@ specifiers:
   markdown-it: 12.3.2
   markdown-it-anchor: 8.4.1
   matter-js: 0.18.0
-  memoji: mei23/memoji#15.0.0
+  memoji: mei23/memoji#15.0.1
   mfm-js: groundpolis/gpfm.js
   mocha: 10.1.0
   moment: 2.29.4
@@ -386,7 +386,7 @@ dependencies:
   markdown-it: 12.3.2
   markdown-it-anchor: 8.4.1_2zb4u3vubltivolgu556vv4aom
   matter-js: 0.18.0
-  memoji: github.com/mei23/memoji/213bbd48b326d79a48c6696024be9e656434a862
+  memoji: github.com/mei23/memoji/2ac2e9ba5b82b017373dda6ccf745dc315aa1592
   mfm-js: github.com/groundpolis/gpfm.js/c9feabf35841b0dc33161653e12f9494f71979d6
   moment: 2.29.4
   ms: 2.1.3
@@ -11884,10 +11884,10 @@ packages:
       twemoji-parser: 14.0.0
     dev: false
 
-  github.com/mei23/memoji/213bbd48b326d79a48c6696024be9e656434a862:
-    resolution: {tarball: https://codeload.github.com/mei23/memoji/tar.gz/213bbd48b326d79a48c6696024be9e656434a862}
+  github.com/mei23/memoji/2ac2e9ba5b82b017373dda6ccf745dc315aa1592:
+    resolution: {tarball: https://codeload.github.com/mei23/memoji/tar.gz/2ac2e9ba5b82b017373dda6ccf745dc315aa1592}
     name: memoji
-    version: 15.0.0
+    version: 15.0.1
     dev: false
 
   github.com/mei23/twemoji-parser/75831bfddb415cefc1e89ac5232e883daf91a624:
