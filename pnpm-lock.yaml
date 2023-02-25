@@ -182,7 +182,7 @@ specifiers:
   promise-sequential: 1.1.1
   pug: 3.0.2
   punycode: 2.1.1
-  pureimage: 0.3.8
+  pureimage: 0.3.17
   qrcode: 1.5.1
   querystring: 0.2.1
   random-seed: 0.3.0
@@ -411,7 +411,7 @@ dependencies:
   promise-sequential: 1.1.1
   pug: 3.0.2
   punycode: 2.1.1
-  pureimage: 0.3.8
+  pureimage: 0.3.17
   qrcode: 1.5.1
   querystring: 0.2.1
   random-seed: 0.3.0
@@ -9212,8 +9212,8 @@ packages:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
 
-  /pureimage/0.3.8:
-    resolution: {integrity: sha512-+CuR0HM0VmBfKKQTM56myBonDZAhZkS6ymJ8W5oYYDXG7y7X34B/dEH3UesbJI497Vc2OkA+g8T1/Xj/FTyQ8A==}
+  /pureimage/0.3.17:
+    resolution: {integrity: sha512-JV4hfYF1BXxDwbSR8hjhVEhVTxwmAXos8uIXQ7Bw2eWrUEpLDJnQoQ8WLlWAO4TMGJ7mp9n6gvLKJ6MSaGUkXQ==}
     engines: {node: '>=0.8'}
     dependencies:
       jpeg-js: 0.4.4
