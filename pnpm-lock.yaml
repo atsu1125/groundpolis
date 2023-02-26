@@ -192,7 +192,7 @@ specifiers:
   redis: 3.1.2
   redis-lock: 0.1.4
   reflect-metadata: 0.1.13
-  regenerator-runtime: 0.13.7
+  regenerator-runtime: 0.13.11
   rename: 1.0.4
   request-stats: 3.0.0
   require-all: 3.0.0
@@ -421,7 +421,7 @@ dependencies:
   redis: 3.1.2
   redis-lock: 0.1.4
   reflect-metadata: 0.1.13
-  regenerator-runtime: 0.13.7
+  regenerator-runtime: 0.13.11
   rename: 1.0.4
   request-stats: 3.0.0
   require-all: 3.0.0
@@ -9463,8 +9463,8 @@ packages:
     resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
     dev: false
 
-  /regenerator-runtime/0.13.7:
-    resolution: {integrity: sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==}
+  /regenerator-runtime/0.13.11:
+    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
     dev: false
 
   /regex-not/1.0.2:
