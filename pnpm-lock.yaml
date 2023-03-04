@@ -203,7 +203,7 @@ specifiers:
   sass: 1.49.9
   sass-loader: 13.2.0
   seedrandom: 3.0.5
-  sharp: 0.31.1
+  sharp: 0.31.3
   speakeasy: 2.0.0
   stringz: 2.1.0
   style-loader: 3.3.1
@@ -432,7 +432,7 @@ dependencies:
   sass: 1.49.9
   sass-loader: 13.2.0_sass@1.49.9+webpack@5.72.1
   seedrandom: 3.0.5
-  sharp: 0.31.1
+  sharp: 0.31.3
   speakeasy: 2.0.0
   stringz: 2.1.0
   style-loader: 3.3.1_webpack@5.72.1
@@ -9873,8 +9873,8 @@ packages:
       kind-of: 6.0.3
     dev: false
 
-  /sharp/0.31.1:
-    resolution: {integrity: sha512-GR8M1wBwOiFKLkm9JPun27OQnNRZdHfSf9VwcdZX6UrRmM1/XnOrLFTF0GAil+y/YK4E6qcM/ugxs80QirsHxg==}
+  /sharp/0.31.3:
+    resolution: {integrity: sha512-XcR4+FCLBFKw1bdB+GEhnUNXNXvnt0tDo4WsBsraKymuo/IAuPuCBVAL2wIkUw2r/dwFW5Q5+g66Kwl2dgDFVg==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
