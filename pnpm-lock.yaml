@@ -218,7 +218,7 @@ specifiers:
   throttle-debounce: 3.0.1
   tinycolor2: 1.4.2
   tmp: 0.2.1
-  ts-loader: 9.4.1
+  ts-loader: 9.4.2
   ts-node: 10.9.1
   twemoji-parser: git+https://github.com/mei23/twemoji-parser.git#15.0.1
   typeorm: 0.2.30
@@ -447,7 +447,7 @@ dependencies:
   throttle-debounce: 3.0.1
   tinycolor2: 1.4.2
   tmp: 0.2.1
-  ts-loader: 9.4.1_ofcovicxptyw3tjat2rxzptzve
+  ts-loader: 9.4.2_ofcovicxptyw3tjat2rxzptzve
   ts-node: 10.9.1_76bvzwqatfihmnr5dx42jk5azq
   twemoji-parser: github.com/mei23/twemoji-parser/75831bfddb415cefc1e89ac5232e883daf91a624
   typeorm: 0.2.30
@@ -10778,8 +10778,8 @@ packages:
     resolution: {integrity: sha512-UUfa1DjjU5flcjMdaFIiIEGDTyu2y/IiMjOX4uGXa7meKBS4vD4f2Uy/tken9Qkd4Jsm4sRsfZcIIPqrRVF3Mg==}
     dev: false
 
-  /ts-loader/9.4.1_ofcovicxptyw3tjat2rxzptzve:
-    resolution: {integrity: sha512-384TYAqGs70rn9F0VBnh6BPTfhga7yFNdC5gXbQpDrBj9/KsT4iRkGqKXhziofHOlE2j6YEaiTYVGKKvPhGWvw==}
+  /ts-loader/9.4.2_ofcovicxptyw3tjat2rxzptzve:
+    resolution: {integrity: sha512-OmlC4WVmFv5I0PpaxYb+qGeGOdm5giHU7HwDDUjw59emP2UYMHy9fFSDcYgSNoH8sXcj4hGCSEhlDZ9ULeDraA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
