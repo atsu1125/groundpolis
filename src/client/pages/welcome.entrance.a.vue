@@ -30,7 +30,7 @@
 				<div class="action">
 					<MkButton @click="signup()" inline primary v-if="meta && !(meta.disableRegistration && meta.disableInvitation)">{{ $ts.signup }}</MkButton>
 					<MkButton @click="signin()" inline>{{ $ts.login }}</MkButton>
-					<MkButton inline style="margin-left: 12px;" onclick="window.location.href='/explore'">{{ $ts.explore }}</MkButton>
+					<MkButton inline style="margin-left: 12px;" @click="explore()">{{ $ts.explore }}</MkButton>
 				</div>
 				<div class="status" v-if="onlineUsersCount && stats">
 					<div>
@@ -118,6 +118,10 @@ export default defineComponent({
 			os.popup(XSignupDialog, {
 				autoSet: true
 			}, {}, 'closed');
+		},
+
+		explore() {
+			this.$router.push('/explore')
 		},
 
 		showMenu(ev) {
