@@ -886,6 +886,7 @@ bot: "Bot"
 cat: "Cat"
 verified: "Verified"
 enableAbsoluteTime: "Enable Absolute Time"
+invitationRequiredToRegister: "This server is currently invitation only. Only those with an invitation code can register."
 
 _template:
   edit: "Edit Template..."
