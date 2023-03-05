@@ -52,6 +52,7 @@
 			<template #desc>{{$ts.useStickerDesc}}</template>
 		</FormSwitch>
 		<FormSwitch v-model:value="enableAbsoluteTime">{{ $ts.enableAbsoluteTime }}</FormSwitch>
+		<FormSwitch v-if="$i.isBot" v-model:value="enableBotLoggedinWarning">{{ $ts.enableBotLoggedinWarning }}</FormSwitch>
 	</FormGroup>
 
 	<FormSwitch v-model:value="showFullAcct">{{ $ts.showFullAcct }}
@@ -230,6 +231,7 @@ export default defineComponent({
 		aiChanMode: defaultStore.makeGetterSetter('aiChanMode'),
 		renoteButtonMode: defaultStore.makeGetterSetter('renoteButtonMode'),
 		enableAbsoluteTime: defaultStore.makeGetterSetter('enableAbsoluteTime'),
+		enableBotLoggedinWarning: defaultStore.makeGetterSetter('enableBotLoggedinWarning'),
 	},
 
 	watch: {

@@ -887,6 +887,8 @@ cat: "Cat"
 verified: "Verified"
 enableAbsoluteTime: "Enable Absolute Time"
 invitationRequiredToRegister: "This server is currently invitation only. Only those with an invitation code can register."
+loggedInAsBot: "Logging in As Bot Account"
+enableBotLoggedinWarning: "Show warning of logging in as bot account"
 
 _template:
   edit: "Edit Template..."
