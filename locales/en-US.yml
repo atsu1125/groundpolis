@@ -885,6 +885,7 @@ createdAt: "Created at"
 bot: "Bot"
 cat: "Cat"
 verified: "Verified"
+enableAbsoluteTime: "Enable Absolute Time"
 
 _template:
   edit: "Edit Template..."

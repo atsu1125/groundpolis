@@ -922,6 +922,7 @@ createdAt: "作成日時"
 bot: "ボット"
 cat: "ねこ"
 verified: "公式"
+enableAbsoluteTime: "絶対時刻表記を使用する"
 
 _template:
   edit: "定型文を編集…"
