@@ -24,7 +24,7 @@
 		</I18n>
 		<div class="info">
 			<button class="_button time" @click="showRenoteMenu()" ref="renoteTime">
-				<Fa class="dropdownIcon" v-if="isMyRenote || (this.$i.isModerator || this.$i.isAdmin)" :icon="faEllipsisV"/>
+				<Fa class="dropdownIcon" v-if="isMyRenote || (this.$i && (this.$i.isModerator || this.$i.isAdmin))" :icon="faEllipsisV"/>
 				<MkTime v-if="enableAbsoluteTime" :time="note.createdAt" mode="absolute"/>
 				<MkTime v-else-if="!enableAbsoluteTime" :time="note.createdAt" mode="relative"/>
 			</button>
@@ -875,7 +875,7 @@ export default defineComponent({
 		},
 
 		showRenoteMenu(viaKeyboard = false) {
-			if (!this.isMyRenote && !(this.$i.isModerator || this.$i.isAdmin)) return;
+			if (!this.isMyRenote && !(this.$i && (this.$i.isModerator || this.$i.isAdmin))) return;
 			os.modalMenu([{
 				text: (this.isMyRenote) ? this.$ts.unrenote : this.$ts.unrenoteAsAdmin,
 				icon: faTrashAlt,
