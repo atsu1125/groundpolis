@@ -201,7 +201,7 @@ specifiers:
   s-age: 1.1.2
   sanitize-html: 2.5.3
   sass: 1.49.9
-  sass-loader: 13.2.0
+  sass-loader: 13.2.2
   seedrandom: 3.0.5
   sharp: 0.31.3
   speakeasy: 2.0.0
@@ -430,7 +430,7 @@ dependencies:
   s-age: 1.1.2
   sanitize-html: 2.5.3
   sass: 1.49.9
-  sass-loader: 13.2.0_sass@1.49.9+webpack@5.72.1
+  sass-loader: 13.2.2_sass@1.49.9+webpack@5.72.1
   seedrandom: 3.0.5
   sharp: 0.31.3
   speakeasy: 2.0.0
@@ -6623,6 +6623,11 @@ packages:
     engines: {node: '>= 8'}
     dev: false
 
+  /klona/2.0.6:
+    resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
+    engines: {node: '>= 8'}
+    dev: false
+
   /koa-bodyparser/4.3.0:
     resolution: {integrity: sha512-uyV8G29KAGwZc4q/0WUAjH+Tsmuv9ImfBUF2oZVyZtaeo0husInagyn/JH85xMSxM0hEk/mbCII5ubLDuqW/Rw==}
     engines: {node: '>=8.0.0'}
@@ -9654,8 +9659,8 @@ packages:
       postcss: 8.4.21
     dev: false
 
-  /sass-loader/13.2.0_sass@1.49.9+webpack@5.72.1:
-    resolution: {integrity: sha512-JWEp48djQA4nbZxmgC02/Wh0eroSUutulROUusYJO9P9zltRbNN80JCBHqRGzjd4cmZCa/r88xgfkjGD0TXsHg==}
+  /sass-loader/13.2.2_sass@1.49.9+webpack@5.72.1:
+    resolution: {integrity: sha512-nrIdVAAte3B9icfBiGWvmMhT/D+eCDwnk+yA7VE/76dp/WkHX+i44Q/pfo71NYbwj0Ap+PGsn0ekOuU1WFJ2AA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       fibers: '>= 3.1.0'
@@ -9673,7 +9678,7 @@ packages:
       sass-embedded:
         optional: true
     dependencies:
-      klona: 2.0.5
+      klona: 2.0.6
       neo-async: 2.6.2
       sass: 1.49.9
       webpack: 5.72.1_webpack-cli@4.9.2
