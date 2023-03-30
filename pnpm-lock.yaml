@@ -206,7 +206,7 @@ specifiers:
   sharp: 0.31.3
   speakeasy: 2.0.0
   stringz: 2.1.0
-  style-loader: 3.3.1
+  style-loader: 3.3.2
   summaly: 2.7.0
   suncalc: 1.9.0
   syslog-pro: 1.0.0
@@ -435,7 +435,7 @@ dependencies:
   sharp: 0.31.3
   speakeasy: 2.0.0
   stringz: 2.1.0
-  style-loader: 3.3.1_webpack@5.72.1
+  style-loader: 3.3.2_webpack@5.72.1
   summaly: 2.7.0
   suncalc: 1.9.0
   syslog-pro: 1.0.0
@@ -10245,8 +10245,8 @@ packages:
       peek-readable: 4.1.0
     dev: false
 
-  /style-loader/3.3.1_webpack@5.72.1:
-    resolution: {integrity: sha512-GPcQ+LDJbrcxHORTRes6Jy2sfvK2kS6hpSfI/fXhPt+spVzxF6LJ1dHLN9zIGmVaaP044YKaIatFaufENRiDoQ==}
+  /style-loader/3.3.2_webpack@5.72.1:
+    resolution: {integrity: sha512-RHs/vcrKdQK8wZliteNK4NKzxvLBzpuHMqYmUVWeKa6MkaIQ97ZTOS0b+zapZhy6GcrgWnvWYCMHRirC3FsUmw==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0
