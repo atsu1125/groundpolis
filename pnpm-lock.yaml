@@ -30,7 +30,7 @@ specifiers:
   '@types/fluent-ffmpeg': 2.1.21
   '@types/glob': 7.1.3
   '@types/gulp': 4.0.9
-  '@types/gulp-rename': 2.0.1
+  '@types/gulp-rename': 2.0.2
   '@types/gulp-replace': 1.1.0
   '@types/is-url': 1.2.30
   '@types/js-yaml': 4.0.5
@@ -266,7 +266,7 @@ dependencies:
   '@types/fluent-ffmpeg': 2.1.21
   '@types/glob': 7.1.3
   '@types/gulp': 4.0.9
-  '@types/gulp-rename': 2.0.1
+  '@types/gulp-rename': 2.0.2
   '@types/gulp-replace': 1.1.0
   '@types/is-url': 1.2.30
   '@types/js-yaml': 4.0.5
@@ -1281,8 +1281,8 @@ packages:
       '@types/node': 18.11.18
     dev: false
 
-  /@types/gulp-rename/2.0.1:
-    resolution: {integrity: sha512-9ZjeS2RHEnmBmTcyi2+oeye3BgCsWhvi4uv3qCnAg8i6plOuRdaeNxjOves0ELysEXYLBl7bCl5fbVs7AZtgTA==}
+  /@types/gulp-rename/2.0.2:
+    resolution: {integrity: sha512-CQsXqTVtAXqrPd4IbrrlJEEzRkUR3RXsyZbrVoOVqjlchDDmnyRDatAUisjpQjjCg/wjJrSiNg8T1uAbJ/7Qqg==}
     dependencies:
       '@types/node': 18.11.18
       '@types/vinyl': 2.0.6
