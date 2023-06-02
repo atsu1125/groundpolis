@@ -49,7 +49,7 @@ specifiers:
   '@types/koa__multer': 2.0.4
   '@types/koa__router': 8.0.11
   '@types/markdown-it': 12.2.3
-  '@types/matter-js': 0.18.2
+  '@types/matter-js': 0.18.5
   '@types/mocha': 10.0.1
   '@types/node': 18.11.18
   '@types/node-fetch': 2.6.3
@@ -285,7 +285,7 @@ dependencies:
   '@types/koa__multer': 2.0.4
   '@types/koa__router': 8.0.11
   '@types/markdown-it': 12.2.3
-  '@types/matter-js': 0.18.2
+  '@types/matter-js': 0.18.5
   '@types/mocha': 10.0.1
   '@types/node': 18.11.18
   '@types/node-fetch': 2.6.3
@@ -1499,8 +1499,8 @@ packages:
       '@types/mdurl': 1.0.2
     dev: false
 
-  /@types/matter-js/0.18.2:
-    resolution: {integrity: sha512-W9UC9DOPNBRTUocqqPZmzX3cbHmlZBI9jLn6SuxZz0n5QrPk382Ig3hbBWHqYU8TRUmTCJJhuanXeyMTavF7Mg==}
+  /@types/matter-js/0.18.5:
+    resolution: {integrity: sha512-CV8m/FUmjmFNFcI7fUnsKcCLeqbf0kzWdKOTLGrpfKwWwrF6ggLaQlHNsg8267TkkiUAPoXY/7q6H9qwmR5TZg==}
     dev: false
 
   /@types/mdurl/1.0.2:
