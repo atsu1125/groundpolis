@@ -114,7 +114,7 @@
 		"@types/tmp": "0.2.3",
 		"@types/uuid": "8.3.4",
 		"@types/web-push": "3.3.2",
-		"@types/webpack": "5.28.1",
+		"@types/webpack": "4.41.33",
 		"@types/webpack-stream": "3.2.12",
 		"@types/websocket": "1.0.5",
 		"@types/ws": "8.5.4",
