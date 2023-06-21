@@ -338,9 +338,9 @@ export default define(meta, async (ps, user, token) => {
 	publishMainStream(user.id, 'meUpdated', iObj);
 
 	// 鍵垢を解除したとき、溜まっていたフォローリクエストがあるならすべて承認
-	if (user.isLocked && ps.isLocked === false) {
-		acceptAllFollowRequests(user);
-	}
+	//if (user.isLocked && ps.isLocked === false) {
+	//	acceptAllFollowRequests(user);
+	//}
 
 	// フォロワーにUpdateを配信
 	publishToFollowers(user.id);
