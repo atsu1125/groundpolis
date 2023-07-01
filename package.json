@@ -96,7 +96,7 @@
 		"@types/parse5": "6.0.3",
 		"@types/parsimmon": "1.10.6",
 		"@types/pug": "2.0.6",
-		"@types/qrcode": "1.5.0",
+		"@types/qrcode": "1.5.1",
 		"@types/random-seed": "0.3.3",
 		"@types/ratelimiter": "3.4.4",
 		"@types/redis": "2.8.32",
