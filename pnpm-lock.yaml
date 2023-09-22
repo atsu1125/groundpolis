@@ -52,7 +52,7 @@ specifiers:
   '@types/matter-js': 0.18.5
   '@types/mocha': 10.0.1
   '@types/node': 18.11.18
-  '@types/node-fetch': 2.6.4
+  '@types/node-fetch': 2.6.5
   '@types/nodemailer': 6.4.9
   '@types/nprogress': 0.2.0
   '@types/oauth': 0.9.2
@@ -288,7 +288,7 @@ dependencies:
   '@types/matter-js': 0.18.5
   '@types/mocha': 10.0.1
   '@types/node': 18.11.18
-  '@types/node-fetch': 2.6.4
+  '@types/node-fetch': 2.6.5
   '@types/nodemailer': 6.4.9
   '@types/nprogress': 0.2.0
   '@types/oauth': 0.9.2
@@ -1519,11 +1519,11 @@ packages:
     resolution: {integrity: sha512-/fvYntiO1GeICvqbQ3doGDIP97vWmvFt83GKguJ6prmQM2iXZfFcq6YE8KteFyRtX2/h5Hf91BYvPodJKFYv5Q==}
     dev: false
 
-  /@types/node-fetch/2.6.4:
-    resolution: {integrity: sha512-1ZX9fcN4Rvkvgv4E6PAY5WXUFWFcRWxZa3EW83UjycOB9ljJCedb2CupIP4RZMEwF/M3eTcCihbBRgwtGbg5Rg==}
+  /@types/node-fetch/2.6.5:
+    resolution: {integrity: sha512-OZsUlr2nxvkqUFLSaY2ZbA+P1q22q+KrlxWOn/38RX+u5kTkYL2mTujEpzUhGkS+K/QCYp9oagfXG39XOzyySg==}
     dependencies:
       '@types/node': 18.11.18
-      form-data: 3.0.0
+      form-data: 4.0.0
     dev: false
 
   /@types/node/18.11.18:
@@ -5044,15 +5044,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       for-in: 1.0.2
-    dev: false
-
-  /form-data/3.0.0:
-    resolution: {integrity: sha512-CKMFDglpbMi6PyN+brwB9Q/GOw0eAnsrEZDgcsH5Krhz5Od/haKHAX0NmQfha2zPPz0JpWzA7GJHGSnvCRLWsg==}
-    engines: {node: '>= 6'}
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      mime-types: 2.1.27
     dev: false
 
   /form-data/4.0.0:
