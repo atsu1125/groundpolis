@@ -46,7 +46,7 @@ specifiers:
   '@types/koa-send': 4.1.4
   '@types/koa-views': 7.0.0
   '@types/koa__cors': 3.3.1
-  '@types/koa__multer': 2.0.4
+  '@types/koa__multer': 2.0.5
   '@types/koa__router': 8.0.11
   '@types/markdown-it': 12.2.3
   '@types/matter-js': 0.18.5
@@ -282,7 +282,7 @@ dependencies:
   '@types/koa-send': 4.1.4
   '@types/koa-views': 7.0.0_fx6cwbhug36fwvtko6kzirbiwm
   '@types/koa__cors': 3.3.1
-  '@types/koa__multer': 2.0.4
+  '@types/koa__multer': 2.0.5
   '@types/koa__router': 8.0.11
   '@types/markdown-it': 12.2.3
   '@types/matter-js': 0.18.5
@@ -1476,8 +1476,8 @@ packages:
       '@types/koa': 2.13.9
     dev: false
 
-  /@types/koa__multer/2.0.4:
-    resolution: {integrity: sha512-WRkshXhE5rpYFUbbtAjyMhdOOSdbu1XX+2AQlRNM6AZtgxd0/WXMU4lrP7e9tk5HWVTWbx8DOOsVBmfHjSGJ4w==}
+  /@types/koa__multer/2.0.5:
+    resolution: {integrity: sha512-qdgaC8XfjjBbgH1t3BY+CGsPSm4em+2XuH1uFuFbJwNmt6XVDWjeVoZ6iO113eVfz3ZBuTtRQ2wS+Snroos1XQ==}
     dependencies:
       '@types/koa': 2.13.9
     dev: false
