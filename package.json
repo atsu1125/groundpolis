@@ -61,7 +61,7 @@
 		"@types/bcryptjs": "2.4.4",
 		"@types/bull": "4.10.0",
 		"@types/cbor": "6.0.0",
-		"@types/double-ended-queue": "2.1.3",
+		"@types/double-ended-queue": "2.1.4",
 		"@types/escape-regexp": "0.0.1",
 		"@types/fluent-ffmpeg": "2.1.22",
 		"@types/glob": "7.1.3",
