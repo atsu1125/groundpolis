@@ -52,7 +52,7 @@ specifiers:
   '@types/matter-js': 0.18.5
   '@types/mocha': 10.0.2
   '@types/node': 18.11.18
-  '@types/node-fetch': 2.6.5
+  '@types/node-fetch': 2.6.6
   '@types/nodemailer': 6.4.10
   '@types/nprogress': 0.2.0
   '@types/oauth': 0.9.2
@@ -288,7 +288,7 @@ dependencies:
   '@types/matter-js': 0.18.5
   '@types/mocha': 10.0.2
   '@types/node': 18.11.18
-  '@types/node-fetch': 2.6.5
+  '@types/node-fetch': 2.6.6
   '@types/nodemailer': 6.4.10
   '@types/nprogress': 0.2.0
   '@types/oauth': 0.9.2
@@ -1519,8 +1519,8 @@ packages:
     resolution: {integrity: sha512-NaHL0+0lLNhX6d9rs+NSt97WH/gIlRHmszXbQ/8/MV/eVcFNdeJ/GYhrFuUc8K7WuPhRhTSdMkCp8VMzhUq85w==}
     dev: false
 
-  /@types/node-fetch/2.6.5:
-    resolution: {integrity: sha512-OZsUlr2nxvkqUFLSaY2ZbA+P1q22q+KrlxWOn/38RX+u5kTkYL2mTujEpzUhGkS+K/QCYp9oagfXG39XOzyySg==}
+  /@types/node-fetch/2.6.6:
+    resolution: {integrity: sha512-95X8guJYhfqiuVVhRFxVQcf4hW/2bCuoPwDasMf/531STFoNoWTT7YDnWdXHEZKqAGUigmpG31r2FE70LwnzJw==}
     dependencies:
       '@types/node': 18.11.18
       form-data: 4.0.0
