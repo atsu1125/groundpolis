@@ -65,7 +65,7 @@ specifiers:
   '@types/ratelimiter': 3.4.4
   '@types/redis': 2.8.32
   '@types/rename': 1.0.5
-  '@types/request-stats': 3.0.0
+  '@types/request-stats': 3.0.1
   '@types/rimraf': 3.0.2
   '@types/sanitize-html': 2.5.0
   '@types/seedrandom': 3.0.5
@@ -301,7 +301,7 @@ dependencies:
   '@types/ratelimiter': 3.4.4
   '@types/redis': 2.8.32
   '@types/rename': 1.0.5
-  '@types/request-stats': 3.0.0
+  '@types/request-stats': 3.0.1
   '@types/rimraf': 3.0.2
   '@types/sanitize-html': 2.5.0
   '@types/seedrandom': 3.0.5
@@ -1605,8 +1605,8 @@ packages:
     resolution: {integrity: sha512-8/ynozXfy9NZ8JhQRSTb0HMuu5Isl547Mih1fMEpNLi9coPcI16UdvIdSqssMgQEdbWsgQIPkLpkpAcK4DEZ3Q==}
     dev: false
 
-  /@types/request-stats/3.0.0:
-    resolution: {integrity: sha512-POsDF7nETH8up49iBNvbZuO0pEk9F+TG0rXCkvjxCClcOS99xfF+mKmJteYlwKYpuRKkixzysKlL8rwN1hU2lw==}
+  /@types/request-stats/3.0.1:
+    resolution: {integrity: sha512-HflMYoNKLevMPWXwJpEUzSiWKb8svKy7fwV+ZwRMPLiHFEr1zFhqYtHd0UlnZ4TCXZoCl9akbR1vNHMVWxvjKg==}
     dependencies:
       '@types/node': 18.11.18
     dev: false
