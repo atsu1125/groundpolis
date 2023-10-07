@@ -78,7 +78,7 @@ specifiers:
   '@types/tmp': 0.2.4
   '@types/uuid': 8.3.4
   '@types/web-push': 3.3.2
-  '@types/webpack': 4.41.33
+  '@types/webpack': 4.41.34
   '@types/webpack-stream': 3.2.12
   '@types/websocket': 1.0.6
   '@types/ws': 8.5.5
@@ -314,7 +314,7 @@ dependencies:
   '@types/tmp': 0.2.4
   '@types/uuid': 8.3.4
   '@types/web-push': 3.3.2
-  '@types/webpack': 4.41.33
+  '@types/webpack': 4.41.34
   '@types/webpack-stream': 3.2.12
   '@types/websocket': 1.0.6
   '@types/ws': 8.5.5
@@ -1742,11 +1742,11 @@ packages:
     resolution: {integrity: sha512-znMUl4kKT0V0SwkUgRgwUNSAO7J5I/jdTCBNy3utkCsgMJ3IHp4FBTDwsQC+tfQ73TWeKIH05QNmbUYmeGThGw==}
     dependencies:
       '@types/node': 18.11.18
-      '@types/webpack': 4.41.33
+      '@types/webpack': 4.41.34
     dev: false
 
-  /@types/webpack/4.41.33:
-    resolution: {integrity: sha512-PPajH64Ft2vWevkerISMtnZ8rTs4YmRbs+23c402J0INmxDKCrhZNvwZYtzx96gY2wAtXdrK1BS2fiC8MlLr3g==}
+  /@types/webpack/4.41.34:
+    resolution: {integrity: sha512-CN2aOGrR3zbMc2v+cKqzaClYP1ldkpPOgtdNvgX+RmlWCSWxHxpzz6WSCVQZRkF8D60ROlkRzAoEpgjWQ+bd2g==}
     dependencies:
       '@types/node': 18.11.18
       '@types/tapable': 1.0.8
