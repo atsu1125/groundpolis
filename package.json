@@ -117,7 +117,7 @@
 		"@types/webpack": "4.41.34",
 		"@types/webpack-stream": "3.2.13",
 		"@types/websocket": "1.0.7",
-		"@types/ws": "8.5.5",
+		"@types/ws": "8.5.6",
 		"@vue/compiler-sfc": "3.2.47",
 		"abort-controller": "3.0.0",
 		"apexcharts": "3.35.3",
