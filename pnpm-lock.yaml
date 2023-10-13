@@ -225,7 +225,7 @@ specifiers:
   typescript: 4.9.5
   ulid: 2.3.0
   url-loader: 4.1.1
-  uuid: 9.0.0
+  uuid: 9.0.1
   v-debounce: 0.1.2
   vanilla-tilt: 1.7.2
   vue: 3.2.47
@@ -454,7 +454,7 @@ dependencies:
   typescript: 4.9.5
   ulid: 2.3.0
   url-loader: 4.1.1_webpack@5.72.1
-  uuid: 9.0.0
+  uuid: 9.0.1
   v-debounce: 0.1.2
   vanilla-tilt: 1.7.2
   vue: 3.2.47
@@ -11053,8 +11053,8 @@ packages:
     hasBin: true
     dev: false
 
-  /uuid/9.0.0:
-    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+  /uuid/9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
     dev: false
 
