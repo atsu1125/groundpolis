@@ -22,7 +22,7 @@ specifiers:
   '@sentry/tracing': 5.29.2
   '@sinonjs/fake-timers': 10.0.2
   '@syuilo/aiscript': 0.11.1
-  '@types/bcryptjs': 2.4.4
+  '@types/bcryptjs': 2.4.5
   '@types/bull': 4.10.0
   '@types/cbor': 6.0.0
   '@types/double-ended-queue': 2.1.4
@@ -258,7 +258,7 @@ dependencies:
   '@sentry/tracing': 5.29.2
   '@sinonjs/fake-timers': 10.0.2
   '@syuilo/aiscript': 0.11.1
-  '@types/bcryptjs': 2.4.4
+  '@types/bcryptjs': 2.4.5
   '@types/bull': 4.10.0
   '@types/cbor': 6.0.0
   '@types/double-ended-queue': 2.1.4
@@ -1157,8 +1157,8 @@ packages:
       '@types/node': 18.11.18
     dev: false
 
-  /@types/bcryptjs/2.4.4:
-    resolution: {integrity: sha512-9wlJI7k5gRyJEC4yrV7DubzNQFTPiykYxUA6lBtsk5NlOfW9oWLJ1HdIA4YtE+6C3i3mTpDQQEosJ2rVZfBWnw==}
+  /@types/bcryptjs/2.4.5:
+    resolution: {integrity: sha512-tOF6TivOIvq+TWQm78335CMdyVJhpBG3NUdWQDAp95ax4E2rSKbws/ELHLk5EBoucwx/tHt3/hhLOHwWJgVrSw==}
     dev: false
 
   /@types/body-parser/1.19.0:
