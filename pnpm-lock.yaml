@@ -39,7 +39,7 @@ specifiers:
   '@types/katex': 0.11.1
   '@types/koa': 2.13.10
   '@types/koa-bodyparser': 4.3.11
-  '@types/koa-cors': 0.0.3
+  '@types/koa-cors': 0.0.4
   '@types/koa-favicon': 2.0.22
   '@types/koa-logger': 3.1.3
   '@types/koa-mount': 4.0.3
@@ -275,7 +275,7 @@ dependencies:
   '@types/katex': 0.11.1
   '@types/koa': 2.13.10
   '@types/koa-bodyparser': 4.3.11
-  '@types/koa-cors': 0.0.3
+  '@types/koa-cors': 0.0.4
   '@types/koa-favicon': 2.0.22
   '@types/koa-logger': 3.1.3
   '@types/koa-mount': 4.0.3
@@ -1364,8 +1364,8 @@ packages:
       '@types/koa': 2.13.10
     dev: false
 
-  /@types/koa-cors/0.0.3:
-    resolution: {integrity: sha512-hn/IlwjvstuAzeTIp79lWA2nbdoc/1qRonvv46r9j8uiB5a3BF4xFljzqOLbPTWLCBFWnC15vE89IJVbEQgi5g==}
+  /@types/koa-cors/0.0.4:
+    resolution: {integrity: sha512-2NMaknk0NXYP7h4kJiw0gAbG5Kw9W3kQFrV1+M6Mn3s6Zb875rqS38kpE0wCB51JaTtsJh5UQPsvdslSF4OVkg==}
     dependencies:
       '@types/koa': 2.13.10
     dev: false
