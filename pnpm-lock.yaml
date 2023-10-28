@@ -42,7 +42,7 @@ specifiers:
   '@types/koa-cors': 0.0.4
   '@types/koa-favicon': 2.0.22
   '@types/koa-logger': 3.1.4
-  '@types/koa-mount': 4.0.3
+  '@types/koa-mount': 4.0.4
   '@types/koa-send': 4.1.4
   '@types/koa-views': 7.0.0
   '@types/koa__cors': 3.3.1
@@ -278,7 +278,7 @@ dependencies:
   '@types/koa-cors': 0.0.4
   '@types/koa-favicon': 2.0.22
   '@types/koa-logger': 3.1.4
-  '@types/koa-mount': 4.0.3
+  '@types/koa-mount': 4.0.4
   '@types/koa-send': 4.1.4
   '@types/koa-views': 7.0.0_eobvzxestg3dgga4weboh7yvza
   '@types/koa__cors': 3.3.1
@@ -1382,8 +1382,8 @@ packages:
       '@types/koa': 2.13.10
     dev: false
 
-  /@types/koa-mount/4.0.3:
-    resolution: {integrity: sha512-WXhyitlW5B6zW31cKZO+RBl38afLmO9847M8PaKmcnO5tqGJy/+XcH5N/69Nsp+vKvFXhDOY9GM5uF34HrWgrw==}
+  /@types/koa-mount/4.0.4:
+    resolution: {integrity: sha512-n9P/yyZHcm+C9mcHoQAX9ovNyAeK4o2x/+JCdrSBWlpCDoI7KNTr9zzgQoSEPvuHcT7FEcsc07LKvH9eicsZOw==}
     dependencies:
       '@types/koa': 2.13.10
     dev: false
