@@ -88,7 +88,7 @@
 		"@types/matter-js": "0.18.5",
 		"@types/mocha": "10.0.3",
 		"@types/node": "18.11.18",
-		"@types/node-fetch": "2.6.7",
+		"@types/node-fetch": "2.6.8",
 		"@types/nodemailer": "6.4.13",
 		"@types/nprogress": "0.2.2",
 		"@types/oauth": "0.9.3",
