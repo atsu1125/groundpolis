@@ -56,7 +56,7 @@ specifiers:
   '@types/nodemailer': 6.4.13
   '@types/nprogress': 0.2.2
   '@types/oauth': 0.9.3
-  '@types/object-assign-deep': 0.4.1
+  '@types/object-assign-deep': 0.4.2
   '@types/parse5': 6.0.3
   '@types/parsimmon': 1.10.7
   '@types/pug': 2.0.7
@@ -292,7 +292,7 @@ dependencies:
   '@types/nodemailer': 6.4.13
   '@types/nprogress': 0.2.2
   '@types/oauth': 0.9.3
-  '@types/object-assign-deep': 0.4.1
+  '@types/object-assign-deep': 0.4.2
   '@types/parse5': 6.0.3
   '@types/parsimmon': 1.10.7
   '@types/pug': 2.0.7
@@ -1546,8 +1546,8 @@ packages:
       '@types/node': 18.11.18
     dev: false
 
-  /@types/object-assign-deep/0.4.1:
-    resolution: {integrity: sha512-uWJatOM1JKDdF6Fwa16124b76BtxvTz5Lv+ORGuI7dwqU4iqExXpeHrHOi1c8BU4FgSJ6PdH0skR9Zmz8+MUqQ==}
+  /@types/object-assign-deep/0.4.2:
+    resolution: {integrity: sha512-iF6qYKjYdg/kFg3AEM/msyh1+U4zZW043d2TnCS9fwib00nc8Asj+38LgIpkO/UpfUMRgJ0m/tHATwU2F8Bfow==}
     dev: false
 
   /@types/parse-json/4.0.0:
