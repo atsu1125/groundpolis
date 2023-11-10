@@ -25,7 +25,7 @@ specifiers:
   '@types/bcryptjs': 2.4.6
   '@types/bull': 4.10.0
   '@types/cbor': 6.0.0
-  '@types/double-ended-queue': 2.1.5
+  '@types/double-ended-queue': 2.1.6
   '@types/escape-regexp': 0.0.2
   '@types/fluent-ffmpeg': 2.1.23
   '@types/glob': 7.1.3
@@ -261,7 +261,7 @@ dependencies:
   '@types/bcryptjs': 2.4.6
   '@types/bull': 4.10.0
   '@types/cbor': 6.0.0
-  '@types/double-ended-queue': 2.1.5
+  '@types/double-ended-queue': 2.1.6
   '@types/escape-regexp': 0.0.2
   '@types/fluent-ffmpeg': 2.1.23
   '@types/glob': 7.1.3
@@ -1215,8 +1215,8 @@ packages:
       '@types/node': 18.11.18
     dev: false
 
-  /@types/double-ended-queue/2.1.5:
-    resolution: {integrity: sha512-Iyp30YLmx/PFvtmomdZq4i81N6uR/7Le+UFrUbnNVbHboRCcCuOKu64tPXlr2yFOb8Zh4t0SppDxRQ5DM/Hlhg==}
+  /@types/double-ended-queue/2.1.6:
+    resolution: {integrity: sha512-y8BMSZCr8vP861n9I5gCXoj8j7Lmk1MFip/ZCxArEqDXc8l0Ep4czaAluZOVSDLlQ9ZqAMCAaN/8SxjXso2OmQ==}
     dev: false
 
   /@types/escape-regexp/0.0.2:
