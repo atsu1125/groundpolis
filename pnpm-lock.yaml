@@ -32,7 +32,7 @@ specifiers:
   '@types/gulp': 4.0.9
   '@types/gulp-rename': 2.0.5
   '@types/gulp-replace': 1.1.0
-  '@types/is-url': 1.2.31
+  '@types/is-url': 1.2.32
   '@types/js-yaml': 4.0.8
   '@types/jsdom': 16.2.15
   '@types/jsonld': 1.5.11
@@ -268,7 +268,7 @@ dependencies:
   '@types/gulp': 4.0.9
   '@types/gulp-rename': 2.0.5
   '@types/gulp-replace': 1.1.0
-  '@types/is-url': 1.2.31
+  '@types/is-url': 1.2.32
   '@types/js-yaml': 4.0.8
   '@types/jsdom': 16.2.15
   '@types/jsonld': 1.5.11
@@ -1315,8 +1315,8 @@ packages:
     resolution: {integrity: sha512-2aoSC4UUbHDj2uCsCxcG/vRMXey/m17bC7UwitVm5hn22nI8O8Y9iDpA76Orc+DWkQ4zZrOKEshCqR/jSuXAHA==}
     dev: false
 
-  /@types/is-url/1.2.31:
-    resolution: {integrity: sha512-ZkuJ+NIr+/V6Xz+S14kYT3g0wYmUa9+bOXXL6Z3nDsy38GqHIu4QF1q2Z0f8y8Pfd8zivikE9fTFa5cfkOROSg==}
+  /@types/is-url/1.2.32:
+    resolution: {integrity: sha512-46VLdbWI8Sc+hPexQ6NLNR2YpoDyDZIpASHkJQ2Yr+Kf9Giw6LdCTkwOdsnHKPQeh7xTjTmSnxbE8qpxYuCiHA==}
     dev: false
 
   /@types/js-yaml/4.0.8:
