@@ -54,7 +54,7 @@ specifiers:
   '@types/node': 18.11.18
   '@types/node-fetch': 2.6.9
   '@types/nodemailer': 6.4.14
-  '@types/nprogress': 0.2.2
+  '@types/nprogress': 0.2.3
   '@types/oauth': 0.9.3
   '@types/object-assign-deep': 0.4.2
   '@types/parse5': 6.0.3
@@ -290,7 +290,7 @@ dependencies:
   '@types/node': 18.11.18
   '@types/node-fetch': 2.6.9
   '@types/nodemailer': 6.4.14
-  '@types/nprogress': 0.2.2
+  '@types/nprogress': 0.2.3
   '@types/oauth': 0.9.3
   '@types/object-assign-deep': 0.4.2
   '@types/parse5': 6.0.3
@@ -1536,8 +1536,8 @@ packages:
       '@types/node': 18.11.18
     dev: false
 
-  /@types/nprogress/0.2.2:
-    resolution: {integrity: sha512-2wLrSJXLztGmr7wXwM0hA/wuIOY9DznVdd+ZFofHOiXcj9JnVt+2ZeLRJ7v5ZVlmheSkUOSg3Q3O4Ce7yji79A==}
+  /@types/nprogress/0.2.3:
+    resolution: {integrity: sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==}
     dev: false
 
   /@types/oauth/0.9.3:
