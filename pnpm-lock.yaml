@@ -18,6 +18,7 @@ specifiers:
   '@koa/cors': 3.1.0
   '@koa/multer': 3.0.2
   '@koa/router': 9.0.1
+  '@peertube/http-signature': 1.7.0
   '@sentry/browser': 7.5.1
   '@sentry/tracing': 5.29.2
   '@sinonjs/fake-timers': 10.0.2
@@ -254,6 +255,7 @@ dependencies:
   '@koa/cors': 3.1.0
   '@koa/multer': 3.0.2_multer@1.4.5-lts.1
   '@koa/router': 9.0.1
+  '@peertube/http-signature': 1.7.0
   '@sentry/browser': 7.5.1
   '@sentry/tracing': 5.29.2
   '@sinonjs/fake-timers': 10.0.2
@@ -992,6 +994,15 @@ packages:
     deprecated: This functionality has been moved to @npmcli/fs
     dependencies:
       mkdirp: 1.0.4
+    dev: false
+
+  /@peertube/http-signature/1.7.0:
+    resolution: {integrity: sha512-aGQIwo6/sWtyyqhVK4e1MtxYz4N1X8CNt6SOtCc+Wnczs5S5ONaLHDDR8LYaGn0MgOwvGgXyuZ5sJIfd7iyoUw==}
+    engines: {node: '>=0.10'}
+    dependencies:
+      assert-plus: 1.0.0
+      jsprim: 1.4.2
+      sshpk: 1.16.1
     dev: false
 
   /@sentry/browser/7.5.1:
@@ -6510,6 +6521,16 @@ packages:
     transitivePeerDependencies:
       - domexception
       - web-streams-polyfill
+    dev: false
+
+  /jsprim/1.4.2:
+    resolution: {integrity: sha512-P2bSOMAc/ciLz6DzgjVlGJP9+BrJWu5UDGK70C2iweC5QBIeFf0ZXRvGjEj2uYgrY2MkAAhsSWHDWlFtEroZWw==}
+    engines: {node: '>=0.6.0'}
+    dependencies:
+      assert-plus: 1.0.0
+      extsprintf: 1.3.0
+      json-schema: 0.4.0
+      verror: 1.10.0
     dev: false
 
   /jsprim/2.0.2:
