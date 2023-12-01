@@ -92,7 +92,7 @@
 		"@types/nodemailer": "6.4.14",
 		"@types/nprogress": "0.2.3",
 		"@types/oauth": "0.9.4",
-		"@types/object-assign-deep": "0.4.2",
+		"@types/object-assign-deep": "0.4.3",
 		"@types/parse5": "6.0.3",
 		"@types/parsimmon": "1.10.8",
 		"@types/pug": "2.0.8",
