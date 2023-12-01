@@ -59,7 +59,7 @@ specifiers:
   '@types/object-assign-deep': 0.4.3
   '@types/parse5': 6.0.3
   '@types/parsimmon': 1.10.9
-  '@types/pug': 2.0.8
+  '@types/pug': 2.0.10
   '@types/qrcode': 1.5.4
   '@types/random-seed': 0.3.4
   '@types/ratelimiter': 3.4.5
@@ -295,7 +295,7 @@ dependencies:
   '@types/object-assign-deep': 0.4.3
   '@types/parse5': 6.0.3
   '@types/parsimmon': 1.10.9
-  '@types/pug': 2.0.8
+  '@types/pug': 2.0.10
   '@types/qrcode': 1.5.4
   '@types/random-seed': 0.3.4
   '@types/ratelimiter': 3.4.5
@@ -1562,8 +1562,8 @@ packages:
     resolution: {integrity: sha512-O2M2x1w+m7gWLen8i5DOy6tWRnbRcsW6Pke3j3HAsJUrPb4g0MgjksIUm2aqUtCYxy7Qjr3CzjjwQBzhiGn46A==}
     dev: false
 
-  /@types/pug/2.0.8:
-    resolution: {integrity: sha512-QzhsZ1dMGyJbn/D9V80zp4GIA4J4rfAjCCxc3MP+new0E8dyVdSkR735Lx+n3LIaHNFcjHL5+TbziccuT+fdoQ==}
+  /@types/pug/2.0.10:
+    resolution: {integrity: sha512-Sk/uYFOBAB7mb74XcpizmH0KOR2Pv3D2Hmrh1Dmy5BmK3MpdSa5kqZcg6EKBdklU0bFXX9gCfzvpnyUehrPIuA==}
     dev: false
 
   /@types/qrcode/1.5.4:
