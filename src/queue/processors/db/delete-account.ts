@@ -20,6 +20,10 @@ export async function deleteAccount(job: Bull.Job<DbUserJobData>): Promise<strin
 	{ // Delete notes
 		let cursor: Note['id'] | null = null;
 
+		const notesCount = await Notes.createQueryBuilder('note')
+    .where('note.userId = :userId', { userId: job.data.user.id })
+    .getCount();
+
 		while (true) {
 			const notes = await Notes.find({
 				where: {
@@ -39,6 +43,14 @@ export async function deleteAccount(job: Bull.Job<DbUserJobData>): Promise<strin
 			cursor = notes[notes.length - 1].id;
 
 			await Notes.delete(notes.map(note => note.id));
+
+			let currentNotesCount = await Notes.createQueryBuilder('note')
+			.where('note.userId = :userId', { userId: job.data.user.id })
+			.getCount();
+
+			let deleteprogress = currentNotesCount === 0 ? 99 : Math.floor(100 - (currentNotesCount / notesCount) * 100);
+
+			job.progress(deleteprogress);
 		}
 
 		logger.succ(`All of notes deleted`);
