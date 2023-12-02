@@ -21,7 +21,7 @@ import { renderLike } from '../remote/activitypub/renderer/like';
 import config from '../config';
 import bodyParser from 'koa-bodyparser';
 import { verifyDigest } from '../remote/activitypub/check-fetch.js';
-import Koa from 'koa';
+import * as Koa from 'koa';
 
 // Init router
 const router = new Router();
