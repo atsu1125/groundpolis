@@ -496,6 +496,10 @@ export default defineComponent({
 				remoteFollowersOnly.value = false;
 			}
 
+			if ($i && $i.isSilenced && visibility.value === 'public') {
+				visibility.value = 'home';
+			}
+
 			// public以外へのリプライ時は元の公開範囲を引き継ぐ
 			if (props.reply && ['home', 'followers', 'specified'].includes(props.reply.visibility)) {
 				visibility.value = props.reply.visibility;
@@ -647,6 +651,7 @@ export default defineComponent({
 				popup(import('./visibility-picker.vue'), {
 					currentVisibility: visibility.value,
 					currentLocalOnly: localOnly.value,
+					isSilenced: $i?.isSilenced,
 					currentRemoteFollowersOnly: remoteFollowersOnly.value,
 					src: ev.currentTarget || ev.target,
 				}, {
@@ -654,6 +659,9 @@ export default defineComponent({
 						visibility.value = v;
 						if (defaultStore.state.rememberNoteVisibility) {
 							defaultStore.set('visibility', v);
+						}
+						if ($i && $i.isSilenced && visibility.value === 'public') {
+							visibility.value = 'home';
 						}
 					},
 					changeLocalOnly: lo => {

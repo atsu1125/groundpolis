@@ -109,6 +109,7 @@ export default defineComponent({
 			os.popup(import('../visibility-picker.vue'), {
 				currentVisibility: this.visibility,
 				currentLocalOnly: this.localOnly,
+				isSilenced: $i?.isSilenced,
 				currentRemoteFollowersOnly: this.remoteFollowersOnly,
 				src: ev.currentTarget || ev.target,
 			}, {

@@ -1,7 +1,7 @@
 <template>
 <MkModal ref="modal" :src="src" @click="$refs.modal.close()" @closed="$emit('closed')" transparent>
 	<div class="gqyayizv _popup">
-		<button class="_button" @click="choose('public')" :class="{ active: v == 'public' }" data-index="1" key="public">
+		<button :disabled="isSilenced" class="_button" @click="choose('public')" :class="{ active: v == 'public' }" data-index="1" key="public">
 			<div><VisibilityIcon visibility="public" :localOnly="localOnly" :remoteFollowersOnly="remoteFollowersOnly" /></div>
 			<div>
 				<span>{{ $ts._visibility.public }}</span>
@@ -86,6 +86,10 @@ export default defineComponent({
 			required: true
 		},
 		currentLocalOnly: {
+			type: Boolean,
+			required: true
+		},
+		isSilenced: {
 			type: Boolean,
 			required: true
 		},
