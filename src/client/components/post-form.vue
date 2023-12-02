@@ -317,7 +317,7 @@ export default defineComponent({
 			this.remoteFollowersOnly = false;
 		}
 
-		if ($i && $i.isSilenced && this.visibility === 'public') {
+		if (this.$i && this.$i.isSilenced && this.visibility === 'public') {
 			this.visibility = 'home';
 		}
 
@@ -500,7 +500,7 @@ export default defineComponent({
 			os.popup(import('./visibility-picker.vue'), {
 				currentVisibility: this.visibility,
 				currentLocalOnly: this.localOnly,
-				isSilenced: $i?.isSilenced,
+				isSilenced: this.$i.isSilenced,
 				currentRemoteFollowersOnly: this.remoteFollowersOnly,
 				src: this.$refs.visibilityButton
 			}, {
@@ -509,7 +509,7 @@ export default defineComponent({
 					if (this.$store.state.rememberNoteVisibility) {
 						this.$store.set('visibility', visibility);
 					}
-					if ($i && $i.isSilenced && this.visibility === 'public') {
+					if (this.$i && this.$i.isSilenced && this.visibility === 'public') {
 						this.visibility = 'home';
 					}
 				},
@@ -730,7 +730,7 @@ export default defineComponent({
 			const token = this.currentAccountIsMyself ? undefined : this.currentAccount.token;
 
 			this.posting = true;
-			
+
 			os.api('notes/create', data, token).then(() => {
 				this.clear();
 				this.$nextTick(() => {

@@ -33,6 +33,7 @@ import { PostBlock } from '@/scripts/hpml/block';
 import { Hpml } from '@/scripts/hpml/evaluator';
 import { i18n } from '@/i18n';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { $i } from '@/account';
 
 export default defineComponent({
 	components: {
@@ -109,7 +110,7 @@ export default defineComponent({
 			os.popup(import('../visibility-picker.vue'), {
 				currentVisibility: this.visibility,
 				currentLocalOnly: this.localOnly,
-				isSilenced: $i?.isSilenced,
+				isSilenced: this.$i.isSilenced,
 				currentRemoteFollowersOnly: this.remoteFollowersOnly,
 				src: ev.currentTarget || ev.target,
 			}, {
