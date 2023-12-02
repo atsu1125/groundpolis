@@ -78,7 +78,13 @@ export const meta = {
 			message: 'No such user group.',
 			code: 'NO_SUCH_USER_GROUP',
 			id: '109ed789-b6eb-456e-b8a9-6059d567d385'
-		}
+		},
+
+		noKeywords: {
+			message: "No keywords",
+			code: "NO_KEYWORDS",
+			id: "aa975b74-1ddb-11ee-be56-0242ac120002",
+		},
 	}
 };
 
@@ -95,6 +101,8 @@ export default define(meta, async (ps, user) => {
 
 	let userList;
 	let userGroupJoining;
+
+	if ((ps.keywords.length === 0) || ps.keywords[0].every(x => x === '')) throw new ApiError(meta.errors.noKeywords);
 
 	if (ps.src === 'list') {
 		userList = await UserLists.findOne({
