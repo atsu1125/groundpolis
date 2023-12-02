@@ -1,5 +1,5 @@
 import * as Queue from 'bull';
-import httpSignature from '@peertube/http-signature';
+import * as httpSignature from '@peertube/http-signature';
 
 import config from '../config';
 import { ILocalUser } from '../models/entities/user';
