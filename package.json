@@ -98,7 +98,7 @@
 		"@types/parsimmon": "1.10.9",
 		"@types/pug": "2.0.10",
 		"@types/qrcode": "1.5.5",
-		"@types/random-seed": "0.3.4",
+		"@types/random-seed": "0.3.5",
 		"@types/ratelimiter": "3.4.5",
 		"@types/redis": "2.8.32",
 		"@types/rename": "1.0.6",

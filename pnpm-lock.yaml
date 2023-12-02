@@ -62,7 +62,7 @@ specifiers:
   '@types/parsimmon': 1.10.9
   '@types/pug': 2.0.10
   '@types/qrcode': 1.5.5
-  '@types/random-seed': 0.3.4
+  '@types/random-seed': 0.3.5
   '@types/ratelimiter': 3.4.5
   '@types/redis': 2.8.32
   '@types/rename': 1.0.6
@@ -299,7 +299,7 @@ dependencies:
   '@types/parsimmon': 1.10.9
   '@types/pug': 2.0.10
   '@types/qrcode': 1.5.5
-  '@types/random-seed': 0.3.4
+  '@types/random-seed': 0.3.5
   '@types/ratelimiter': 3.4.5
   '@types/redis': 2.8.32
   '@types/rename': 1.0.6
@@ -1587,8 +1587,8 @@ packages:
     resolution: {integrity: sha512-lhbQXx9HKZAPgBkISrBcmAcMpZsmpe/Cd/hY7LGZS5OfkySUBItnPZHgQPssWYUET8elF+yCFBbP1Q0RZPTdaw==}
     dev: false
 
-  /@types/random-seed/0.3.4:
-    resolution: {integrity: sha512-9YOd099WU/gzKG5zOZKfE31fDt/6rYAOxh7OA1jgLhFMqF0uwDZNnsb+1vuCwycZZ71BlmPieeQiTW6BWkS+KQ==}
+  /@types/random-seed/0.3.5:
+    resolution: {integrity: sha512-CftxcDPAHgs0SLHU2dt+ZlDPJfGqLW3sZlC/ATr5vJDSe5tRLeOne7HMvCOJnFyF8e1U41wqzs3h6AMC613xtA==}
     dev: false
 
   /@types/range-parser/1.2.3:
