@@ -95,6 +95,10 @@ export const validPost = ['Note', 'Question', 'Article', 'Audio', 'Document', 'I
 export interface IPost extends IObject {
 	type: 'Note' | 'Question' | 'Article' | 'Audio' | 'Document' | 'Image' | 'Page' | 'Video' | 'Event';
 	_misskey_content?: string;
+	source?: {
+		content: string;
+		mediaType: string;
+	};
 	_misskey_quote?: string;
 	quoteUrl?: string;
 	_misskey_talk: boolean;
@@ -103,6 +107,10 @@ export interface IPost extends IObject {
 export interface IQuestion extends IObject {
 	type: 'Note' | 'Question';
 	_misskey_content?: string;
+	source?: {
+		content: string;
+		mediaType: string;
+	};
 	_misskey_quote?: string;
 	quoteUrl?: string;
 	oneOf?: IQuestionChoice[];
