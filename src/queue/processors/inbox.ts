@@ -128,7 +128,8 @@ export default async (job: Bull.Job<InboxJobData>): Promise<string> => {
 		Instances.update(i.id, {
 			latestRequestReceivedAt: new Date(),
 			lastCommunicatedAt: new Date(),
-			isNotResponding: false
+			isNotResponding: false,
+			isSuspended: false,
 		});
 
 		fetchInstanceMetadata(i);
