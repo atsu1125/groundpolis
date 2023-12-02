@@ -1,5 +1,6 @@
 import * as Router from '@koa/router';
 import * as json from 'koa-json-body';
+import bodyParser from 'koa-bodyparser';
 import httpSignature from '@peertube/http-signature';
 
 import { renderActivity } from '../remote/activitypub/renderer';
@@ -19,7 +20,6 @@ import { In } from 'typeorm';
 import { ensure } from '../prelude/ensure';
 import { renderLike } from '../remote/activitypub/renderer/like';
 import config from '../config';
-import bodyParser from 'koa-bodyparser';
 import { verifyDigest } from '../remote/activitypub/check-fetch.js';
 import * as Koa from 'koa';
 
