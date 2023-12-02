@@ -71,6 +71,9 @@ export default define(meta, async (ps, me) => {
 	}
 	const query = Users.createQueryBuilder('user');
 	query.where('user.isExplorable = TRUE');
+	query.andWhere('user.isSilenced = FALSE');
+	query.andWhere('user.isSuspended = FALSE');
+	query.andWhere('user.isDeleted = FALSE');
 
 	switch (ps.state) {
 		case 'admin': query.andWhere('user.isAdmin = TRUE'); break;
