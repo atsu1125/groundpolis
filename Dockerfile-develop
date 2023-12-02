@@ -1,21 +1,11 @@
-FROM node:16.15.1-bullseye AS builder
+FROM node:16.20.2-bookworm AS builder
 
 ENV NODE_ENV=development
 
 WORKDIR /misskey
 
 RUN apt-get update
-RUN apt-get install -y build-essential \
-                       autoconf \
-                       automake \
-                       file \
-                       g++ \
-                       gcc \
-                       libtool \
-                       nasm \
-                       pkg-config \
-                       python \
-                       zlib1g-dev
+RUN apt-get install -y build-essential
 
 RUN git init
 RUN git submodule update --init
@@ -25,7 +15,7 @@ RUN pnpm install --frozen-lockfile
 COPY . ./
 RUN pnpm build
 
-FROM node:16.15.1-bullseye-slim AS runner
+FROM node:16.20.2-bookworm-slim AS runner
 
 ENV NODE_ENV=development
 WORKDIR /misskey
