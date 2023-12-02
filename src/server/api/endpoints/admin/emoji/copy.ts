@@ -7,6 +7,7 @@ import { ApiError } from '../../../error';
 import { DriveFile } from '../../../../../models/entities/drive-file';
 import { ID } from '../../../../../misc/cafy-id';
 import uploadFromUrl from '../../../../../services/drive/upload-from-url';
+import { IsNull } from 'typeorm';
 
 export const meta = {
 	tags: ['admin'],
@@ -25,7 +26,12 @@ export const meta = {
 			message: 'No such emoji.',
 			code: 'NO_SUCH_EMOJI',
 			id: 'e2785b66-dca3-4087-9cac-b93c541cc425'
-		}
+		},
+		duplicateName: {
+			message: 'Duplicate name.',
+			code: 'DUPLICATE_NAME',
+			id: 'f7a3462c-4e6e-4069-8421-b9bd4f4c3975',
+		},
 	}
 };
 
@@ -34,6 +40,15 @@ export default define(meta, async (ps, me) => {
 
 	if (emoji == null) {
 		throw new ApiError(meta.errors.noSuchEmoji);
+	}
+
+	let existemojis = await Emojis.findOne({
+		host: IsNull(),
+		name: emoji.name,
+	});
+
+	if (existemojis != null) {
+		throw new ApiError(meta.errors.duplicateName);
 	}
 
 	let driveFile: DriveFile;
