@@ -63,7 +63,7 @@ specifiers:
   '@types/pug': 2.0.10
   '@types/qrcode': 1.5.5
   '@types/random-seed': 0.3.5
-  '@types/ratelimiter': 3.4.5
+  '@types/ratelimiter': 3.4.6
   '@types/redis': 2.8.32
   '@types/rename': 1.0.6
   '@types/request-stats': 3.0.1
@@ -300,7 +300,7 @@ dependencies:
   '@types/pug': 2.0.10
   '@types/qrcode': 1.5.5
   '@types/random-seed': 0.3.5
-  '@types/ratelimiter': 3.4.5
+  '@types/ratelimiter': 3.4.6
   '@types/redis': 2.8.32
   '@types/rename': 1.0.6
   '@types/request-stats': 3.0.1
@@ -1595,8 +1595,8 @@ packages:
     resolution: {integrity: sha512-ewFXqrQHlFsgc09MK5jP5iR7vumV/BYayNC6PgJO2LPe8vrnNFyjQjSppfEngITi0qvfKtzFvgKymGheFM9UOA==}
     dev: false
 
-  /@types/ratelimiter/3.4.5:
-    resolution: {integrity: sha512-lAB/Va9OCFSi5jQHLz7x7MKPjRVHnyvOYzXSQorN30qWIJpudPbDkMHBWUoo38MFG3dr+/jsWhjcUkJwunoVUA==}
+  /@types/ratelimiter/3.4.6:
+    resolution: {integrity: sha512-Bv6WLSXPGLVsBjkizXtn+ef78R92e36/DFQo2wXPTHtp1cYXF6rCULMqf9WcZPAtyMZMvQAtIPeYMA1xAyxghw==}
     dev: false
 
   /@types/readable-stream/2.3.9:
