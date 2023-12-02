@@ -61,7 +61,7 @@ specifiers:
   '@types/parse5': 6.0.3
   '@types/parsimmon': 1.10.9
   '@types/pug': 2.0.10
-  '@types/qrcode': 1.5.4
+  '@types/qrcode': 1.5.5
   '@types/random-seed': 0.3.4
   '@types/ratelimiter': 3.4.5
   '@types/redis': 2.8.32
@@ -298,7 +298,7 @@ dependencies:
   '@types/parse5': 6.0.3
   '@types/parsimmon': 1.10.9
   '@types/pug': 2.0.10
-  '@types/qrcode': 1.5.4
+  '@types/qrcode': 1.5.5
   '@types/random-seed': 0.3.4
   '@types/ratelimiter': 3.4.5
   '@types/redis': 2.8.32
@@ -1577,8 +1577,8 @@ packages:
     resolution: {integrity: sha512-Sk/uYFOBAB7mb74XcpizmH0KOR2Pv3D2Hmrh1Dmy5BmK3MpdSa5kqZcg6EKBdklU0bFXX9gCfzvpnyUehrPIuA==}
     dev: false
 
-  /@types/qrcode/1.5.4:
-    resolution: {integrity: sha512-ufYqUO7wUBq49hugJry+oIYKscvxIQerJSmXeny215aJKfrepN04DDZP8FCgxvV82kOqKPULCE4PIW3qUmZrRA==}
+  /@types/qrcode/1.5.5:
+    resolution: {integrity: sha512-CdfBi/e3Qk+3Z/fXYShipBT13OJ2fDO2Q2w5CIP5anLTLIndQG9z6P1cnm+8zCWSpm5dnxMFd/uREtb0EXuQzg==}
     dependencies:
       '@types/node': 18.11.18
     dev: false
