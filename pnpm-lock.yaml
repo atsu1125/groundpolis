@@ -69,7 +69,7 @@ specifiers:
   '@types/request-stats': 3.0.3
   '@types/rimraf': 3.0.2
   '@types/sanitize-html': 2.5.0
-  '@types/seedrandom': 3.0.6
+  '@types/seedrandom': 3.0.8
   '@types/sharp': 0.29.5
   '@types/sinonjs__fake-timers': 8.1.3
   '@types/speakeasy': 2.0.8
@@ -306,7 +306,7 @@ dependencies:
   '@types/request-stats': 3.0.3
   '@types/rimraf': 3.0.2
   '@types/sanitize-html': 2.5.0
-  '@types/seedrandom': 3.0.6
+  '@types/seedrandom': 3.0.8
   '@types/sharp': 0.29.5
   '@types/sinonjs__fake-timers': 8.1.3
   '@types/speakeasy': 2.0.8
@@ -1641,8 +1641,8 @@ packages:
       htmlparser2: 6.1.0
     dev: false
 
-  /@types/seedrandom/3.0.6:
-    resolution: {integrity: sha512-3+JLzzsdbTrEDXSKaudKajj3w8x4ZWDk7CunwHnSWxtfMoetnKtIbFXMru7RXw6Hq1dU0td+soPX8vVjdgCPBA==}
+  /@types/seedrandom/3.0.8:
+    resolution: {integrity: sha512-TY1eezMU2zH2ozQoAFAQFOPpvP15g+ZgSfTZt31AUUH/Rxtnz3H+A/Sv1Snw2/amp//omibc+AEkTaA8KUeOLQ==}
     dev: false
 
   /@types/semver/7.3.13:
