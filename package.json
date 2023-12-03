@@ -102,7 +102,7 @@
 		"@types/ratelimiter": "3.4.6",
 		"@types/redis": "2.8.32",
 		"@types/rename": "1.0.7",
-		"@types/request-stats": "3.0.1",
+		"@types/request-stats": "3.0.3",
 		"@types/rimraf": "3.0.2",
 		"@types/sanitize-html": "2.5.0",
 		"@types/seedrandom": "3.0.6",
