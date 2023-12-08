@@ -75,7 +75,7 @@ specifiers:
   '@types/speakeasy': 2.0.10
   '@types/suncalc': 1.8.1
   '@types/throttle-debounce': 2.1.0
-  '@types/tinycolor2': 1.4.4
+  '@types/tinycolor2': 1.4.6
   '@types/tmp': 0.2.4
   '@types/uuid': 8.3.4
   '@types/web-push': 3.3.2
@@ -312,7 +312,7 @@ dependencies:
   '@types/speakeasy': 2.0.10
   '@types/suncalc': 1.8.1
   '@types/throttle-debounce': 2.1.0
-  '@types/tinycolor2': 1.4.4
+  '@types/tinycolor2': 1.4.6
   '@types/tmp': 0.2.4
   '@types/uuid': 8.3.4
   '@types/web-push': 3.3.2
@@ -1688,8 +1688,8 @@ packages:
     resolution: {integrity: sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==}
     dev: false
 
-  /@types/tinycolor2/1.4.4:
-    resolution: {integrity: sha512-FYK4mlLxUUajo/mblv7EUDHku20qT6ThYNsGZsTHilcHRvIkF8WXqtZO+DVTYkpHWCaAT97LueV59H/5Ve3bGA==}
+  /@types/tinycolor2/1.4.6:
+    resolution: {integrity: sha512-iEN8J0BoMnsWBqjVbWH/c0G0Hh7O21lpR2/+PrvAVgWdzL7eexIFm4JN/Wn10PTcmNdtS6U67r499mlWMXOxNw==}
     dev: false
 
   /@types/tmp/0.2.4:
