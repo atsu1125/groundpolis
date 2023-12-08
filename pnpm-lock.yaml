@@ -72,7 +72,7 @@ specifiers:
   '@types/seedrandom': 3.0.8
   '@types/sharp': 0.29.5
   '@types/sinonjs__fake-timers': 8.1.5
-  '@types/speakeasy': 2.0.8
+  '@types/speakeasy': 2.0.10
   '@types/suncalc': 1.8.1
   '@types/throttle-debounce': 2.1.0
   '@types/tinycolor2': 1.4.4
@@ -309,7 +309,7 @@ dependencies:
   '@types/seedrandom': 3.0.8
   '@types/sharp': 0.29.5
   '@types/sinonjs__fake-timers': 8.1.5
-  '@types/speakeasy': 2.0.8
+  '@types/speakeasy': 2.0.10
   '@types/suncalc': 1.8.1
   '@types/throttle-debounce': 2.1.0
   '@types/tinycolor2': 1.4.4
@@ -1670,8 +1670,8 @@ packages:
     resolution: {integrity: sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==}
     dev: false
 
-  /@types/speakeasy/2.0.8:
-    resolution: {integrity: sha512-mxHBJdSd2Vwk0TSd/fbeShAxZOsiydjzkbw6dlpwfACKtCzb89ccXl2XFrasVI9EblisWYaJm4urKZekiuhhGg==}
+  /@types/speakeasy/2.0.10:
+    resolution: {integrity: sha512-QVRlDW5r4yl7p7xkNIbAIC/JtyOcClDIIdKfuG7PWdDT1MmyhtXSANsildohy0K+Lmvf/9RUtLbNLMacvrVwxA==}
     dependencies:
       '@types/node': 18.11.18
     dev: false

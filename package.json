@@ -108,7 +108,7 @@
 		"@types/seedrandom": "3.0.8",
 		"@types/sharp": "0.29.5",
 		"@types/sinonjs__fake-timers": "8.1.5",
-		"@types/speakeasy": "2.0.8",
+		"@types/speakeasy": "2.0.10",
 		"@types/suncalc": "1.8.1",
 		"@types/throttle-debounce": "2.1.0",
 		"@types/tinycolor2": "1.4.4",
