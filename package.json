@@ -111,7 +111,7 @@
 		"@types/speakeasy": "2.0.10",
 		"@types/suncalc": "1.8.1",
 		"@types/throttle-debounce": "2.1.0",
-		"@types/tinycolor2": "1.4.4",
+		"@types/tinycolor2": "1.4.6",
 		"@types/tmp": "0.2.4",
 		"@types/uuid": "8.3.4",
 		"@types/web-push": "3.3.2",
