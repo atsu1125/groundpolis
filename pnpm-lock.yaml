@@ -76,7 +76,7 @@ specifiers:
   '@types/suncalc': 1.8.1
   '@types/throttle-debounce': 2.1.0
   '@types/tinycolor2': 1.4.6
-  '@types/tmp': 0.2.4
+  '@types/tmp': 0.2.6
   '@types/uuid': 8.3.4
   '@types/web-push': 3.3.2
   '@types/webpack': 4.41.34
@@ -313,7 +313,7 @@ dependencies:
   '@types/suncalc': 1.8.1
   '@types/throttle-debounce': 2.1.0
   '@types/tinycolor2': 1.4.6
-  '@types/tmp': 0.2.4
+  '@types/tmp': 0.2.6
   '@types/uuid': 8.3.4
   '@types/web-push': 3.3.2
   '@types/webpack': 4.41.34
@@ -1692,8 +1692,8 @@ packages:
     resolution: {integrity: sha512-iEN8J0BoMnsWBqjVbWH/c0G0Hh7O21lpR2/+PrvAVgWdzL7eexIFm4JN/Wn10PTcmNdtS6U67r499mlWMXOxNw==}
     dev: false
 
-  /@types/tmp/0.2.4:
-    resolution: {integrity: sha512-Vq3rwM+2KgiLacq68EjTJD9cuJ/ne5pXntWn8B8Rxj25SLkGAhCgooCZ1lhcIcV5OFveJ+s5Cqpi+XKfFM/xZA==}
+  /@types/tmp/0.2.6:
+    resolution: {integrity: sha512-chhaNf2oKHlRkDGt+tiKE2Z5aJ6qalm7Z9rlLdBwmOiAAf09YQvvoLXjWK4HWPF1xU/fqvMgfNfpVoBscA/tKA==}
     dev: false
 
   /@types/tough-cookie/4.0.0:
