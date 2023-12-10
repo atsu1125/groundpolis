@@ -211,7 +211,7 @@ specifiers:
   summaly: 2.7.0
   suncalc: 1.9.0
   syslog-pro: 1.0.0
-  systeminformation: 5.21.7
+  systeminformation: 5.21.20
   syuilo-password-strength: 0.0.1
   terser-webpack-plugin: 4.2.3
   textarea-caret: 3.1.0
@@ -441,7 +441,7 @@ dependencies:
   summaly: 2.7.0
   suncalc: 1.9.0
   syslog-pro: 1.0.0
-  systeminformation: 5.21.7
+  systeminformation: 5.21.20
   syuilo-password-strength: 0.0.1
   terser-webpack-plugin: 4.2.3_webpack@5.72.1
   textarea-caret: 3.1.0
@@ -10448,8 +10448,8 @@ packages:
       moment: 2.29.4
     dev: false
 
-  /systeminformation/5.21.7:
-    resolution: {integrity: sha512-K3LjnajrazTLTD61+87DFg8IXFk5ljx6nSBqB8pQLtC1UPivAjDtTYGPZ8jaBFxcesPaCOkvLRtBq+RFscrsLw==}
+  /systeminformation/5.21.20:
+    resolution: {integrity: sha512-AyS1fNc+MDoAJtFknFbbo587H8h6yejJwM+H9rVusnOToIEkiMehMyD5JM7o3j55Cto20MawIZrcgNMgd4BfOQ==}
     engines: {node: '>=8.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
