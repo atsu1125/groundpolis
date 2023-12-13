@@ -8,12 +8,13 @@ import config from '../../config';
 import { registerOrFetchInstanceDoc } from '../register-or-fetch-instance-doc';
 import { User, ILocalUser, IRemoteUser } from '../../models/entities/user';
 import { Note, IMentionedRemoteUsers } from '../../models/entities/note';
-import { Notes, Users, Instances } from '../../models';
+import { Notes, Users, Instances, DriveFiles } from '../../models';
 import { notesChart, perUserNotesChart, instanceChart } from '../chart';
 import { deliverToFollowers, deliverToUser } from '../../remote/activitypub/deliver-manager';
 import { countSameRenotes } from '../../misc/count-same-renotes';
 import { deliverToRelays } from '../relay';
 import { Brackets, In } from 'typeorm';
+import { deleteFile } from '../../services/drive/delete-file.js';
 
 /**
  * 投稿を削除します。
@@ -86,6 +87,22 @@ export default async function(user: User, note: Note, quiet = false) {
 		id: note.id,
 		userId: user.id
 	});
+
+	// delete Remote Orphan drive files
+	if (note.userHost !== null) {
+		const attachedFiles = note.fileIds;
+		for (const attachedFile of attachedFiles) {
+			if ((attachedFile !== user.avatarId) && (attachedFile !== user.bannerId))	{
+				const file = await DriveFiles.findOne(attachedFile);
+				const notes = await Notes.createQueryBuilder('note')
+					.where(':file = ANY(note.fileIds)', { file: file.id })
+					.getMany();
+				if (notes.length === 0) {
+					deleteFile(file);
+				}
+			}
+		}
+	}
 }
 
 async function findCascadingNotes(note: Note) {
