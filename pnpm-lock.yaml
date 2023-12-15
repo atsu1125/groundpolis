@@ -220,7 +220,7 @@ specifiers:
   tinycolor2: 1.4.2
   tmp: 0.2.1
   ts-loader: 9.4.4
-  ts-node: 10.9.1
+  ts-node: 10.9.2
   twemoji-parser: git+https://github.com/mei23/twemoji-parser.git#15.0.1
   typeorm: 0.2.30
   typescript: 4.9.5
@@ -450,7 +450,7 @@ dependencies:
   tinycolor2: 1.4.2
   tmp: 0.2.1
   ts-loader: 9.4.4_qxmop7qm3p2gztclsm6u7lnpfu
-  ts-node: 10.9.1_bdgp3l2zgaopogaavxusmetvge
+  ts-node: 10.9.2_bdgp3l2zgaopogaavxusmetvge
   twemoji-parser: github.com/mei23/twemoji-parser/75831bfddb415cefc1e89ac5232e883daf91a624
   typeorm: 0.2.30
   typescript: 4.9.5
@@ -10766,8 +10766,8 @@ packages:
       webpack: 5.72.1_webpack-cli@4.9.2
     dev: false
 
-  /ts-node/10.9.1_bdgp3l2zgaopogaavxusmetvge:
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+  /ts-node/10.9.2_bdgp3l2zgaopogaavxusmetvge:
+    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'
