@@ -221,7 +221,7 @@ specifiers:
   tmp: 0.2.1
   ts-loader: 9.4.4
   ts-node: 10.9.2
-  twemoji-parser: git+https://github.com/mei23/twemoji-parser.git#15.0.1
+  twemoji-parser: git+https://github.com/mei23/twemoji-parser.git#15.0.2
   typeorm: 0.2.30
   typescript: 4.9.5
   ulid: 2.3.0
@@ -451,7 +451,7 @@ dependencies:
   tmp: 0.2.1
   ts-loader: 9.4.4_qxmop7qm3p2gztclsm6u7lnpfu
   ts-node: 10.9.2_bdgp3l2zgaopogaavxusmetvge
-  twemoji-parser: github.com/mei23/twemoji-parser/75831bfddb415cefc1e89ac5232e883daf91a624
+  twemoji-parser: github.com/mei23/twemoji-parser/b92e0023f9f325d642f93c2ecbcd29e1c2267d4d
   typeorm: 0.2.30
   typescript: 4.9.5
   ulid: 2.3.0
@@ -11857,8 +11857,8 @@ packages:
     version: 15.0.2
     dev: false
 
-  github.com/mei23/twemoji-parser/75831bfddb415cefc1e89ac5232e883daf91a624:
-    resolution: {tarball: https://codeload.github.com/mei23/twemoji-parser/tar.gz/75831bfddb415cefc1e89ac5232e883daf91a624}
+  github.com/mei23/twemoji-parser/b92e0023f9f325d642f93c2ecbcd29e1c2267d4d:
+    resolution: {tarball: https://codeload.github.com/mei23/twemoji-parser/tar.gz/b92e0023f9f325d642f93c2ecbcd29e1c2267d4d}
     name: twemoji-parser
-    version: 15.0.1
+    version: 15.0.2
     dev: false
