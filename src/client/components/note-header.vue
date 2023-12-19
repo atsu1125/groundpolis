@@ -19,6 +19,20 @@
 		<MkA class="created-at" :to="notePage(note)">
 			<MkTime v-if="enableAbsoluteTime" :time="note.createdAt" mode="absolute"/>
 			<MkTime v-else-if="!enableAbsoluteTime" :time="note.createdAt" mode="relative"/>
+			{{ }}
+			<Fa v-if="note.updatedAt" :icon="faPencilAlt"/>
+			<MkTime
+							v-if="note.updatedAt && enableAbsoluteTime"
+							:time="note.updatedAt"
+							mode="detail"
+							></MkTime
+			>
+			<MkTime
+							v-if="note.updatedAt && !enableAbsoluteTime"
+							:time="note.updatedAt"
+							mode="relative"
+							></MkTime
+			>
 		</MkA>
 		<VisibilityIcon class="visibility" v-if="note.visibility !== 'public' || note.localOnly || note.remoteFollowersOnly"
 			:visibility="note.visibility"
@@ -31,7 +45,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { faHome, faUnlock, faEnvelope, faMobileAlt, faBookmark, faUsers, faHeart, faHeartbeat, faCrown, faRobot, faPaw } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUnlock, faEnvelope, faMobileAlt, faBookmark, faUsers, faHeart, faHeartbeat, faCrown, faRobot, faPaw, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
 import notePage from '../filters/note';
 import { userPage } from '../filters/user';
@@ -57,7 +71,7 @@ export default defineComponent({
 
 	data() {
 		return {
-			faHome, faUnlock, faEnvelope, faMobileAlt, faBookmark, farBookmark, faUsers, faHeart, faHeartbeat, faCrown, faRobot, faPaw
+			faHome, faUnlock, faEnvelope, faMobileAlt, faBookmark, farBookmark, faUsers, faHeart, faHeartbeat, faCrown, faRobot, faPaw, faPencilAlt
 		};
 	},
 

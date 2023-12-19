@@ -27,6 +27,20 @@
 				<Fa class="dropdownIcon" v-if="isMyRenote || (this.$i && (this.$i.isModerator || this.$i.isAdmin))" :icon="faEllipsisV"/>
 				<MkTime v-if="enableAbsoluteTime" :time="note.createdAt" mode="absolute"/>
 				<MkTime v-else-if="!enableAbsoluteTime" :time="note.createdAt" mode="relative"/>
+				{{ }}
+				<Fa v-if="note.updatedAt" :icon="faPencilAlt"/>
+				<MkTime
+								v-if="note.updatedAt && enableAbsoluteTime"
+								:time="note.updatedAt"
+								mode="detail"
+								></MkTime
+				>
+				<MkTime
+								v-if="note.updatedAt && !enableAbsoluteTime"
+								:time="note.updatedAt"
+								mode="relative"
+								></MkTime
+				>
 			</button>
 			<VisibilityIcon class="visibility" v-if="note.visibility !== 'public' || note.localOnly || note.remoteFollowersOnly"
 				:visibility="note.visibility"
@@ -128,7 +142,7 @@
 
 <script lang="ts">
 import { defineAsyncComponent, defineComponent, markRaw } from 'vue';
-import { faSatelliteDish, faFireAlt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faHome, faLock, faEnvelope, faThumbtack, faBan, faQuoteLeft, faQuoteRight, faHeart as faHeartS, faEllipsisV, faUsers, faHeartbeat, faPlug, faExclamationCircle, faAlignLeft, faPaperclip, faClipboardList } from '@fortawesome/free-solid-svg-icons';
+import { faSatelliteDish, faFireAlt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faHome, faLock, faEnvelope, faThumbtack, faBan, faQuoteLeft, faQuoteRight, faHeart as faHeartS, faEllipsisV, faUsers, faHeartbeat, faPlug, faExclamationCircle, faAlignLeft, faPaperclip, faClipboardList, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { faCopy, faTrashAlt, faEdit, faEye, faEyeSlash, faMehRollingEyes, faClock, faHeart as faHeartR } from '@fortawesome/free-regular-svg-icons';
 import * as mfm from 'mfm-js';
 import { sum } from '../../prelude/array';
@@ -503,6 +517,17 @@ export default defineComponent({
 
 				case 'deleted': {
 					this.isDeleted = true;
+					break;
+				}
+
+				case 'updated': {
+					let n = {
+						...this.appearNote,
+					};
+					n.updatedAt = body.updatedAt;
+					n.text = body.text;
+					n.cw = body.cw;
+					this.updateAppearNote(n);
 					break;
 				}
 			}

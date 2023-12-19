@@ -171,7 +171,7 @@ export class NoteRepository extends Repository<Note> {
 				all = concat([all, tmp]);
 			}
 
-			if (accts.length > 0) { 
+			if (accts.length > 0) {
 				const tmp = await Promise.all(
 					accts
 						.map(acct => ({ acct, parsed: parseAcct(acct) }))
@@ -245,6 +245,7 @@ export class NoteRepository extends Repository<Note> {
 		const packed = await awaitAll({
 			id: note.id,
 			createdAt: note.createdAt.toISOString(),
+			updatedAt: note.updatedAt?.toISOString(),
 			userId: note.userId,
 			user: Users.pack(note.user || note.userId, meId),
 			text: text,
@@ -337,6 +338,12 @@ export const packedNoteSchema = {
 			optional: false as const, nullable: false as const,
 			format: 'date-time',
 			description: 'The date that the Note was created on Groundpolis.'
+		},
+		updatedAt: {
+			type: 'string' as const,
+			optional: true as const, nullable: true as const,
+			format: 'date-time',
+			description: 'The date that the Note was updated on Groundpolis.'
 		},
 		text: {
 			type: 'string' as const,

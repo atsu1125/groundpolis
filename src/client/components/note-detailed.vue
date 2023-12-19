@@ -85,6 +85,14 @@
 				<div class="info">
 					<div class="created-at">
 						<MkTime :time="note.createdAt" mode="detail"/>
+						{{ }}
+						<Fa v-if="note.updatedAt" :icon="faPencilAlt"/>
+						<MkTime
+										v-if="note.updatedAt"
+										:time="note.updatedAt"
+										mode="detail"
+										></MkTime
+						>
 					</div>
 					<div>
 						<VisibilityIcon class="visibility _mr-1"
@@ -150,7 +158,7 @@
 
 <script lang="ts">
 import { defineAsyncComponent, defineComponent, markRaw } from 'vue';
-import { faSatelliteDish, faBolt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faEllipsisH, faHome, faUnlock, faEnvelope, faThumbtack, faBan, faQuoteRight, faPlug, faExclamationCircle, faPaperclip, faUsers, faGlobe, faHeart as faHeartS, faAlignLeft, faBookmark, faClipboardList } from '@fortawesome/free-solid-svg-icons';
+import { faSatelliteDish, faBolt, faTimes, faBullhorn, faStar, faLink, faExternalLinkSquareAlt, faPlus, faMinus, faRetweet, faReply, faReplyAll, faEllipsisH, faHome, faUnlock, faEnvelope, faThumbtack, faBan, faQuoteRight, faPlug, faExclamationCircle, faPaperclip, faUsers, faGlobe, faHeart as faHeartS, faAlignLeft, faBookmark, faClipboardList, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { faCopy, faTrashAlt, faEdit, faEye, faEyeSlash, faHeart as faHeartR, faMehRollingEyes, faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
 import { sum } from '../../prelude/array';
 import * as mfm from 'mfm-js';
@@ -226,7 +234,7 @@ export default defineComponent({
 			} | null,
 			isPlainMode: false,
 			host,
-			faEdit, faBolt, faTimes, faBullhorn, faPlus, faMinus, faRetweet, faReply, faReplyAll, faEllipsisH, faHome, faUnlock, faEnvelope, faThumbtack, faBan, faPlug, faSatelliteDish, faUsers, faGlobe, faHeartS, faHeartR, faBookmark, farBookmark,
+			faEdit, faBolt, faTimes, faBullhorn, faPlus, faMinus, faRetweet, faReply, faReplyAll, faEllipsisH, faHome, faUnlock, faEnvelope, faThumbtack, faBan, faPlug, faSatelliteDish, faUsers, faGlobe, faHeartS, faHeartR, faBookmark, farBookmark, faPencilAlt,
 		};
 	},
 
@@ -513,6 +521,17 @@ export default defineComponent({
 
 				case 'deleted': {
 					this.isDeleted = true;
+					break;
+				}
+
+				case 'updated': {
+					let n = {
+						...this.appearNote,
+					};
+					n.updatedAt = body.updatedAt;
+					n.text = body.text;
+					n.cw = body.cw;
+					this.updateAppearNote(n);
 					break;
 				}
 			}
