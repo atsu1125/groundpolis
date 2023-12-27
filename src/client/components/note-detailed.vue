@@ -433,7 +433,7 @@ export default defineComponent({
 		onStreamNoteUpdated(data) {
 			const { type, id, body } = data;
 
-			if ((id !== this.note.id) && (this.appearNote.id)) return;
+			if ((id !== this.note.id) && (id !== this.appearNote.id)) return;
 
 			switch (type) {
 				case 'reacted': {
