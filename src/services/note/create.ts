@@ -180,6 +180,7 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 			case 'specified':
 				// specified / direct noteはreject
 				throw new Error('Renote target is not public or home');
+				break;
 		}
 	}
 
@@ -429,7 +430,7 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 				if (noteActivity === null) {
 					return;
 				}
-				
+
 				const dm = new DeliverManager(user, noteActivity);
 
 				// メンションされたリモートユーザーに配送
