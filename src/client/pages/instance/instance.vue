@@ -174,6 +174,7 @@ export default defineComponent({
 			chartInstance: null,
 			chartSrc: 'requests',
 			chartSpan: 'hour',
+			meta: null,
 			faTimes, faCrosshairs, faCloudDownloadAlt, faCloudUploadAlt, faUsers, faPencilAlt, faFileImage, faDatabase, faTrafficLight, faLongArrowAltUp, faLongArrowAltDown, faMinusCircle, faTrashAlt
 		};
 	},
@@ -206,7 +207,7 @@ export default defineComponent({
 		},
 
 		meta() {
-			return this.$instance;
+			return this.meta;
 		},
 
 		isBlocked() {
@@ -234,9 +235,10 @@ export default defineComponent({
 	async created() {
 		this.now = new Date();
 
-		const [perHour, perDay] = await Promise.all([
+		const [perHour, perDay, meta] = await Promise.all([
 			os.api('charts/instance', { host: this.instance.host, limit: chartLimit, span: 'hour' }),
 			os.api('charts/instance', { host: this.instance.host, limit: chartLimit, span: 'day' }),
+			os.api('meta', { detail: true }),
 		]);
 
 		const chart = {
@@ -245,6 +247,7 @@ export default defineComponent({
 		};
 
 		this.chart = chart;
+		this.meta = meta;
 
 		this.renderChart();
 	},
@@ -256,7 +259,9 @@ export default defineComponent({
 
 		changeBlock(e) {
 			os.api('admin/update-meta', {
-				blockedHosts: this.isBlocked ? this.meta.blockedHosts.concat([this.instance.host]) : this.meta.blockedHosts.filter(x => x !== this.instance.host)
+				blockedHosts: !this.isBlocked ? this.meta.blockedHosts.concat([this.instance.host]) : this.meta.blockedHosts.filter(x => x !== this.instance.host)
+			}).then(() => {
+				location.reload();
 			});
 		},
 
