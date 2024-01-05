@@ -103,7 +103,7 @@
 		<div class="operations section">
 			<span class="label">{{ $ts.operations }}</span>
 			<MkSwitch v-model:value="isSuspended" class="switch">{{ $ts.stopActivityDelivery }}</MkSwitch>
-			<MkSwitch :value="isBlocked" class="switch" @update:value="changeBlock">{{ $ts.blockThisInstance }}</MkSwitch>
+			<MkSwitch :disabled="!$i.isAdmin" :value="isBlocked" class="switch" @update:value="changeBlock">{{ $ts.blockThisInstance }}</MkSwitch>
 			<details>
 				<summary>{{ $ts.deleteAllFiles }}</summary>
 				<MkButton @click="deleteAllFiles()" style="margin: 0.5em 0 0.5em 0;"><Fa :icon="faTrashAlt"/> {{ $ts.deleteAllFiles }}</MkButton>
