@@ -937,6 +937,7 @@ active: "アクティブ"
 offline: "オフライン"
 leaveGroup: "グループから抜ける"
 leaveGroupConfirm: "「{name}」から抜けますか？"
+notSpecifiedMentionWarning: "宛先に含まれていないメンションがあります"
 
 _template:
   edit: "定型文を編集…"
