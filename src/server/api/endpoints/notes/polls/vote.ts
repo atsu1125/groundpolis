@@ -160,4 +160,8 @@ export default define(meta, async (ps, user) => {
 
 	// リモートフォロワーにUpdate配信
 	deliverQuestionUpdate(note.id);
+
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
 });

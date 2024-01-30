@@ -350,5 +350,9 @@ export default define(meta, async (ps, user, token) => {
 	// フォロワーにUpdateを配信
 	publishToFollowers(user.id);
 
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
+
 	return iObj;
 });
