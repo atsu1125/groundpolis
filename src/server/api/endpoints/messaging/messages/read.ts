@@ -2,7 +2,7 @@ import $ from 'cafy';
 import { ID } from '../../../../../misc/cafy-id';
 import define from '../../../define';
 import { ApiError } from '../../../error';
-import { MessagingMessages } from '../../../../../models';
+import { MessagingMessages, Users } from '../../../../../models';
 import { readUserMessagingMessage, readGroupMessagingMessage } from '../../../common/read-messaging-message';
 
 export const meta = {
@@ -54,4 +54,8 @@ export default define(meta, async (ps, user) => {
 			throw e;
 		});
 	}
+
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
 });

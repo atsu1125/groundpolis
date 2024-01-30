@@ -5,6 +5,7 @@ import * as ms from 'ms';
 import deleteReaction from '../../../../../services/note/reaction/delete';
 import { getNote } from '../../../common/getters';
 import { ApiError } from '../../../error';
+import { Users } from '../../../../../models';
 
 export const meta = {
 	desc: {
@@ -57,5 +58,8 @@ export default define(meta, async (ps, user) => {
 	await deleteReaction(user, note).catch(e => {
 		if (e.id === '60527ec9-b4cb-4a88-a6bd-32d3ad26817d') throw new ApiError(meta.errors.notReacted);
 		throw e;
+	});
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
 	});
 });

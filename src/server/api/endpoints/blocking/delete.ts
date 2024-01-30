@@ -82,6 +82,10 @@ export default define(meta, async (ps, user) => {
 	// Delete blocking
 	await deleteBlocking(blocker, blockee);
 
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
+
 	return await Users.pack(blockee.id, user, {
 		detail: true
 	});

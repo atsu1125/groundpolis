@@ -81,5 +81,9 @@ export default define(meta, async (ps, user) => {
 
 	await deleteFollowing(follower, followee);
 
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
+
 	return await Users.pack(followee.id, user);
 });

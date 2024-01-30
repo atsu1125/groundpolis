@@ -4,6 +4,7 @@ import acceptFollowRequest from '../../../../../services/following/requests/acce
 import define from '../../../define';
 import { ApiError } from '../../../error';
 import { getUser } from '../../../common/getters';
+import { Users } from '../../../../../models';
 
 export const meta = {
 	desc: {
@@ -51,6 +52,10 @@ export default define(meta, async (ps, user) => {
 	await acceptFollowRequest(user, follower).catch(e => {
 		if (e.id === '8884c2dd-5795-4ac9-b27e-6a01d38190f9') throw new ApiError(meta.errors.noFollowRequest);
 		throw e;
+	});
+
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
 	});
 
 	return;

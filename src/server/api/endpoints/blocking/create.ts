@@ -92,6 +92,10 @@ export default define(meta, async (ps, user) => {
 		noteUserId: blockee.id
 	});
 
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
+
 	return await Users.pack(blockee.id, user, {
 		detail: true
 	});

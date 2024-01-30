@@ -3,7 +3,7 @@ import { ID } from '../../../../../misc/cafy-id';
 import define from '../../../define';
 import { ApiError } from '../../../error';
 import { getUser } from '../../../common/getters';
-import { MessagingMessages, DriveFiles, UserGroups, UserGroupJoinings } from '../../../../../models';
+import { MessagingMessages, DriveFiles, UserGroups, UserGroupJoinings, Users } from '../../../../../models';
 import { User } from '../../../../../models/entities/user';
 import { UserGroup } from '../../../../../models/entities/user-group';
 import { createMessage } from '../../../../../services/messages/create';
@@ -143,4 +143,8 @@ export default define(meta, async (ps, user) => {
 	}
 
 	return await createMessage(user, recipientUser, recipientGroup, ps.text, file);
+
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
 });

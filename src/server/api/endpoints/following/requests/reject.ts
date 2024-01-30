@@ -4,6 +4,7 @@ import rejectFollowRequest from '../../../../../services/following/requests/reje
 import define from '../../../define';
 import { ApiError } from '../../../error';
 import { getUser } from '../../../common/getters';
+import { Users } from '../../../../../models';
 
 export const meta = {
 	desc: {
@@ -44,6 +45,10 @@ export default define(meta, async (ps, user) => {
 	});
 
 	await rejectFollowRequest(user, follower);
+
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
 
 	return;
 });

@@ -4,6 +4,7 @@ import createReaction from '../../../../../services/note/reaction/create';
 import define from '../../../define';
 import { getNote } from '../../../common/getters';
 import { ApiError } from '../../../error';
+import { Users } from '../../../../../models';
 
 export const meta = {
 	desc: {
@@ -63,6 +64,9 @@ export default define(meta, async (ps, user) => {
 	await createReaction(user, note, ps.reaction, !!ps.dislike).catch(e => {
 		if (e.id === '51c42bb4-931a-456b-bff7-e5a8a70dd298') throw new ApiError(meta.errors.alreadyReacted);
 		throw e;
+	});
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
 	});
 	return;
 });

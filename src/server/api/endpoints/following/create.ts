@@ -105,5 +105,9 @@ export default define(meta, async (ps, user) => {
 		throw e;
 	}
 
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
+
 	return await Users.pack(followee.id, user);
 });

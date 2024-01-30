@@ -3,7 +3,7 @@ import { ID } from '../../../../../misc/cafy-id';
 import define from '../../../define';
 import * as ms from 'ms';
 import { ApiError } from '../../../error';
-import { MessagingMessages } from '../../../../../models';
+import { MessagingMessages, Users } from '../../../../../models';
 import { deleteMessage } from '../../../../../services/messages/delete';
 
 export const meta = {
@@ -54,4 +54,8 @@ export default define(meta, async (ps, user) => {
 	}
 
 	await deleteMessage(message);
+
+	await Users.update(user.id, {
+		lastActiveDate: new Date(),
+	});
 });
