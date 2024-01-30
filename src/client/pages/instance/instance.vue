@@ -103,7 +103,6 @@
 		<div class="operations section">
 			<span class="label">{{ $ts.operations }}</span>
 			<MkSwitch v-model:value="isSuspended" class="switch">{{ $ts.stopActivityDelivery }}</MkSwitch>
-			<MkSwitch :disabled="!$i.isAdmin" :value="isBlocked" class="switch" @update:value="changeBlock">{{ $ts.blockThisInstance }}</MkSwitch>
 			<details>
 				<summary>{{ $ts.deleteAllFiles }}</summary>
 				<MkButton @click="deleteAllFiles()" style="margin: 0.5em 0 0.5em 0;"><Fa :icon="faTrashAlt"/> {{ $ts.deleteAllFiles }}</MkButton>
@@ -174,7 +173,6 @@ export default defineComponent({
 			chartInstance: null,
 			chartSrc: 'requests',
 			chartSpan: 'hour',
-			meta: null,
 			faTimes, faCrosshairs, faCloudDownloadAlt, faCloudUploadAlt, faUsers, faPencilAlt, faFileImage, faDatabase, faTrafficLight, faLongArrowAltUp, faLongArrowAltDown, faMinusCircle, faTrashAlt
 		};
 	},
@@ -204,14 +202,6 @@ export default defineComponent({
 				null;
 
 			return stats;
-		},
-
-		meta() {
-			return this.meta;
-		},
-
-		isBlocked() {
-			return this.meta && this.meta.blockedHosts && this.meta.blockedHosts.includes(this.instance.host);
 		}
 	},
 
@@ -235,10 +225,9 @@ export default defineComponent({
 	async created() {
 		this.now = new Date();
 
-		const [perHour, perDay, meta] = await Promise.all([
+		const [perHour, perDay] = await Promise.all([
 			os.api('charts/instance', { host: this.instance.host, limit: chartLimit, span: 'hour' }),
 			os.api('charts/instance', { host: this.instance.host, limit: chartLimit, span: 'day' }),
-			os.api('meta', { detail: true }),
 		]);
 
 		const chart = {
@@ -247,7 +236,6 @@ export default defineComponent({
 		};
 
 		this.chart = chart;
-		this.meta = meta;
 
 		this.renderChart();
 	},
@@ -255,14 +243,6 @@ export default defineComponent({
 	methods: {
 		setChart(el) {
 			this.canvas = el;
-		},
-
-		changeBlock(e) {
-			os.api('admin/update-meta', {
-				blockedHosts: !this.isBlocked ? this.meta.blockedHosts.concat([this.instance.host]) : this.meta.blockedHosts.filter(x => x !== this.instance.host)
-			}).then(() => {
-				location.reload();
-			});
 		},
 
 		setSrc(src) {
