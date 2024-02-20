@@ -46,6 +46,9 @@ export default defineComponent({
 	      case 'misskey':
 	        softwareColor = '#86b300';
 	        break;
+				case 'firefish':
+		      softwareColor = '#31748f';
+		      break;
 	      default:
 	        softwareColor = '#777777';
     	}
