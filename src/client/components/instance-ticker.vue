@@ -40,6 +40,9 @@ export default defineComponent({
 	      case 'groundpolis':
 	        softwareColor = '#251a10';
 	        break;
+				case 'groundpolis-milkey':
+		      softwareColor = '#ed6c8e';
+		      break;
 	      case 'cherrypick':
 	        softwareColor = '#ffbcdc';
 	        break;
