@@ -52,6 +52,9 @@ export default defineComponent({
 				case 'firefish':
 		      softwareColor = '#31748f';
 		      break;
+				case 'meisskey':
+					softwareColor = '#5A0608';
+					break;
 	      default:
 	        softwareColor = '#777777';
     	}
