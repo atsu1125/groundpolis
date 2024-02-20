@@ -31,7 +31,7 @@ export default defineComponent({
 		bg(): any {
 			const themeColor = this.info.themeColor || '#777777';
 			return {
-				background: `linear-gradient(90deg, ${themeColor}, ${themeColor + '00'})`
+				background: `linear-gradient(90deg, ${themeColor}, ${themeColor}00)`
 			};
 		}
 	}
