@@ -521,6 +521,10 @@ export const meta = {
 				'ja-JP': 'プレミアムユーザー1人あたりの絵文字の提案の最大値'
 			}
 		},
+
+		themeColor: {
+			validator: $.optional.nullable.str,
+		},
 	}
 };
 
@@ -841,6 +845,10 @@ export default define(meta, async (ps, me) => {
 
 	if (ps.emojiSuggestionLimitationPremium !== undefined) {
 		set.emojiSuggestionLimitationPremium = ps.emojiSuggestionLimitationPremium;
+	}
+
+	if (ps.themeColor !== undefined) {
+		set.themeColor = ps.themeColor;
 	}
 
 	await getConnection().transaction(async transactionalEntityManager => {
