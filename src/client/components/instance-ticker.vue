@@ -32,7 +32,11 @@ export default defineComponent({
 			let softwareColor = '';
 			switch (this.info.softwareName) {
 	      case 'mastodon':
-	        softwareColor = '#2b90d9';
+					if (this.info.softwareVersion && parseInt(this.info.softwareVersion) >= 4) {
+						softwareColor = '#563acc';
+					} else {
+						softwareColor = '#2b90d9';
+					}
 	        break;
 	      case 'pleroma':
 	        softwareColor = '#10181e';
