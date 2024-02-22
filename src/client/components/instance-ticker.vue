@@ -2,6 +2,7 @@
 <div class="hpaizdrt" :style="bg">
 	<img v-if="info.faviconUrl" class="icon" :src="info.faviconUrl"/>
 	<span class="name">{{ info.name }}</span>
+	<span v-if="info.softwareName" class="software">{{ info.softwareName }}</span>
 </div>
 </template>
 
@@ -22,7 +23,8 @@ export default defineComponent({
 			info: this.instance || {
 				faviconUrl: '/favicon.ico',
 				name: instanceName,
-				themeColor: (document.querySelector('meta[name="theme-color-orig"]') as HTMLMetaElement)?.content
+				themeColor: (document.querySelector('meta[name="theme-color-orig"]') as HTMLMetaElement)?.content,
+				softwareName: (document.querySelector('meta[name="application-name"]') as HTMLMetaElement)?.content,
 			}
 		}
 	},
@@ -79,6 +81,19 @@ export default defineComponent({
 	border-radius: 4px 0 0 4px;
 	overflow: hidden;
 	color: #fff;
+	text-shadow: /* .866 ≈ sin(60deg) */
+		1px 0 1px #000,
+		.866px .5px 1px #000,
+		.5px .866px 1px #000,
+		0 1px 1px #000,
+		-.5px .866px 1px #000,
+		-.866px .5px 1px #000,
+		-1px 0 1px #000,
+		-.866px -.5px 1px #000,
+		-.5px -.866px 1px #000,
+		0 -1px 1px #000,
+		.5px -.866px 1px #000,
+		.866px -.5px 1px #000;
 
 	> .icon {
 		height: 100%;
@@ -90,6 +105,17 @@ export default defineComponent({
 		font-size: 0.9em;
 		vertical-align: top;
 		font-weight: bold;
+	}
+
+	> .software {
+		float: right;
+		margin-right: .3em;
+		line-height: $height;
+		font-size: 0.9em;
+		vertical-align: top;
+		color: var(--fg);
+		text-shadow: none;
+		text-transform: capitalize;
 	}
 }
 </style>
