@@ -221,6 +221,11 @@ export default async (user: User, data: Option, silent = false) => new Promise<N
 
 	if (data.text) {
 		data.text = data.text.trim();
+		if (data.text === '') {
+			data.text = null;
+		}
+	} else {
+		data.text = null;
 	}
 
 	let tags = data.apHashtags;
