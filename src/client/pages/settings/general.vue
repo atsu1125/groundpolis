@@ -83,6 +83,7 @@
 			<option value="remote">{{ $ts._instanceTicker.remote }}</option>
 			<option value="always">{{ $ts._instanceTicker.always }}</option>
 		</FormSelect>
+		<FormSwitch v-model:value="preferTickerSoftwareColor">{{ $ts.preferTickerSoftwareColor }}</FormSwitch>
 		<FormSwitch v-model:value="showTickerSoftwareName">{{ $ts.showTickerSoftwareName }}</FormSwitch>
 	</FormGroup>
 
@@ -236,6 +237,7 @@ export default defineComponent({
 		enableAbsoluteTime: defaultStore.makeGetterSetter('enableAbsoluteTime'),
 		enableBotLoggedinWarning: defaultStore.makeGetterSetter('enableBotLoggedinWarning'),
 		showTickerSoftwareName: defaultStore.makeGetterSetter('showTickerSoftwareName'),
+		preferTickerSoftwareColor: defaultStore.makeGetterSetter('preferTickerSoftwareColor'),
 	},
 
 	watch: {

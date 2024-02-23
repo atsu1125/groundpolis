@@ -891,6 +891,7 @@ loggedInAsBot: "Logging in As Bot Account"
 enableBotLoggedinWarning: "Show warning of logging in as bot account"
 themeColor: "Theme Color"
 showTickerSoftwareName: "Show Software Name on instance ticker"
+preferTickerSoftwareColor: "Prefer Software Color on instance ticker"
 
 _template:
   edit: "Edit Template..."
