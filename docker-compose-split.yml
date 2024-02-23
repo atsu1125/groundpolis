@@ -18,7 +18,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "wget -q --spider --proxy=off localhost:3000/info || exit 1"]
     volumes:
-      - ./.config/dockerdefault.yml:/misskey/.config/default.yml
+      - ./.config:/misskey/.config
       - ./files:/misskey/files
       - .:/misskey
 
@@ -40,7 +40,7 @@ services:
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "example-misskey-user", "-d", "groundpolis"]
     env_file:
-      - .config/docker_example.env
+      - .config/docker.env
     volumes:
       - ./db:/var/lib/postgresql/data
 

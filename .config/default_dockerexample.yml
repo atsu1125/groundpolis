@@ -6,7 +6,7 @@
 #───┘ URL └─────────────────────────────────────────────────────
 
 # Final accessible URL seen by a user.
-url: http://localhost:3000/
+url: https://example.tld/
 
 # ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE
 # URL SETTINGS AFTER THAT!
@@ -89,8 +89,8 @@ redis:
 #  host: es
 #  port: 9200
 #  ssl: false
-#  user: 
-#  pass: 
+#  user:
+#  pass:
 
 #   ┌───────────────┐
 #───┘ ID generation └───────────────────────────────────────────
@@ -112,6 +112,8 @@ id: 'aid'
 
 #   ┌─────────────────────┐
 #───┘ Other configuration └─────────────────────────────────────
+# Whether disable Federation
+#disableFederation: true
 
 # Whether disable HSTS
 #disableHsts: true
@@ -158,6 +160,12 @@ id: 'aid'
 # Sign to ActivityPub GET request (default: false)
 #signToActivityPubGet: true
 
-allowedPrivateNetworks: [
-  '127.0.0.1/32'
-]
+#allowedPrivateNetworks: [
+#  '127.0.0.1/32'
+#]
+
+# サーバー情報を隠す (default: false)
+#hideServerInfo: true
+
+# Upload or download file size limits (bytes)
+#maxFileSize: 262144000

@@ -13,6 +13,7 @@ report.*.json
 /.config/*
 !/.config/example.yml
 !/.config/docker_example.env
+!/.config/default_dockerexample.yml
 
 # groundpolis
 /build
