@@ -2,13 +2,14 @@
 <div class="hpaizdrt" :style="bg">
 	<img v-if="info.faviconUrl" class="icon" :src="info.faviconUrl"/>
 	<span class="name">{{ info.name }}</span>
-	<span v-if="info.softwareName" class="software">{{ info.softwareName }}</span>
+	<span v-if="info.softwareName && showTickerSoftwareName" class="software">{{ info.softwareName }}</span>
 </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { instanceName } from '@/config';
+import { defaultStore } from '@/store';
 
 export default defineComponent({
 	props: {
@@ -68,7 +69,10 @@ export default defineComponent({
 			return {
 				background: `linear-gradient(90deg, ${themeColor}, ${themeColor}00)`
 			};
-		}
+		},
+		showTickerSoftwareName() {
+			return this.$store.reactiveState.showTickerSoftwareName.value;
+		},
 	}
 });
 </script>

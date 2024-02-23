@@ -76,12 +76,15 @@
 		<option value="veryLarge"><span style="font-size: 20px;">Aa</span></option>
 	</FormRadios>
 
-	<FormSelect v-model:value="instanceTicker">
-		<template #label>{{ $ts.instanceTicker }}</template>
-		<option value="none">{{ $ts._instanceTicker.none }}</option>
-		<option value="remote">{{ $ts._instanceTicker.remote }}</option>
-		<option value="always">{{ $ts._instanceTicker.always }}</option>
-	</FormSelect>
+	<FormGroup>
+		<FormSelect v-model:value="instanceTicker">
+			<template #label>{{ $ts.instanceTicker }}</template>
+			<option value="none">{{ $ts._instanceTicker.none }}</option>
+			<option value="remote">{{ $ts._instanceTicker.remote }}</option>
+			<option value="always">{{ $ts._instanceTicker.always }}</option>
+		</FormSelect>
+		<FormSwitch v-model:value="showTickerSoftwareName">{{ $ts.showTickerSoftwareName }}</FormSwitch>
+	</FormGroup>
 
 	<FormSelect v-model:value="nsfw">
 		<template #label>{{ $ts.nsfw }}</template>
@@ -232,6 +235,7 @@ export default defineComponent({
 		renoteButtonMode: defaultStore.makeGetterSetter('renoteButtonMode'),
 		enableAbsoluteTime: defaultStore.makeGetterSetter('enableAbsoluteTime'),
 		enableBotLoggedinWarning: defaultStore.makeGetterSetter('enableBotLoggedinWarning'),
+		showTickerSoftwareName: defaultStore.makeGetterSetter('showTickerSoftwareName'),
 	},
 
 	watch: {

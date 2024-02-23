@@ -403,6 +403,11 @@ export const defaultStore = markRaw(new Storage('base', {
 		default: true
 	},
 
+	showTickerSoftwareName: {
+		where: 'device',
+		default: true
+	},
+
 	//#endregion
 }));
 
