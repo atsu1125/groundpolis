@@ -892,6 +892,7 @@ enableBotLoggedinWarning: "Show warning of logging in as bot account"
 themeColor: "Theme Color"
 showTickerSoftwareName: "Show Software Name on instance ticker"
 preferTickerSoftwareColor: "Prefer Software Color on instance ticker"
+typeToConfirm: "Please enter {x} to confirm"
 
 _template:
   edit: "Edit Template..."

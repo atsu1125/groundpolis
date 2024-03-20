@@ -941,6 +941,7 @@ notSpecifiedMentionWarning: "宛先に含まれていないメンションがあ
 themeColor: "テーマカラー"
 showTickerSoftwareName: "インスタンスティッカーにソフトウェア名を表示する"
 preferTickerSoftwareColor: "インスタンスティッカーにソフトウェアカラーを採用して表示する"
+typeToConfirm: "この操作を行うには {x} と入力してください"
 
 _template:
   edit: "定型文を編集…"
