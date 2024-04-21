@@ -233,12 +233,7 @@ const Component = defineComponent({
 				});
 			}
 
-			if (_isBottom) {
-				// Scroll to bottom
-				this.$nextTick(() => {
-					this.scrollToBottom();
-				});
-			} else if (message.userId != this.$i.id) {
+			if (message.userId != this.$i.id) {
 				// Notify
 				this.notifyNewMessage();
 			}
