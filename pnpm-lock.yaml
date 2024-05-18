@@ -241,7 +241,7 @@ specifiers:
   web-push: 3.5.0
   webpack: 5.72.1
   webpack-cli: 4.9.2
-  websocket: 1.0.34
+  websocket: 1.0.35
   ws: 8.8.0
   xev: 2.0.1
 
@@ -472,7 +472,7 @@ dependencies:
   web-push: 3.5.0
   webpack: 5.72.1_webpack-cli@4.9.2
   webpack-cli: 4.9.2_webpack@5.72.1
-  websocket: 1.0.34
+  websocket: 1.0.35
   ws: 8.8.0
   xev: 2.0.1
 
@@ -3913,7 +3913,7 @@ packages:
   /d/1.0.1:
     resolution: {integrity: sha512-m62ShEObQ39CfralilEQRjH6oAMtNCV1xJyEx5LpRYUVN+EviphDgUc/F3hnYbADmkiNs67Y+3ylmlG7Lnu+FA==}
     dependencies:
-      es5-ext: 0.10.53
+      es5-ext: 0.10.64
       type: 1.2.0
     dev: false
 
@@ -4432,19 +4432,22 @@ packages:
       is-symbol: 1.0.4
     dev: false
 
-  /es5-ext/0.10.53:
-    resolution: {integrity: sha512-Xs2Stw6NiNHWypzRTY1MtaG/uJlwCk8kH81920ma8mvN8Xq1gsfhZvpkImLQArw8AHnv8MT2I45J3c0R8slE+Q==}
+  /es5-ext/0.10.64:
+    resolution: {integrity: sha512-p2snDhiLaXe6dahss1LddxqEm+SkuDvV8dnIQG0MWjyHpcMNfXKPE+/Cc0y+PhxJX3A4xGNeFCj5oc0BUh6deg==}
+    engines: {node: '>=0.10'}
+    requiresBuild: true
     dependencies:
       es6-iterator: 2.0.3
       es6-symbol: 3.1.3
-      next-tick: 1.0.0
+      esniff: 2.0.1
+      next-tick: 1.1.0
     dev: false
 
   /es6-iterator/2.0.3:
     resolution: {integrity: sha512-zw4SRzoUkd+cl+ZoE15A9o1oQd920Bb0iOJMQkQhl3jNc03YqVjAhG7scf9C5KWRU/R13Orf588uCC6525o02g==}
     dependencies:
       d: 1.0.1
-      es5-ext: 0.10.53
+      es5-ext: 0.10.64
       es6-symbol: 3.1.3
     dev: false
 
@@ -4463,7 +4466,7 @@ packages:
     resolution: {integrity: sha512-p5um32HOTO1kP+w7PRnB+5lQ43Z6muuMuIMffvDN8ZB4GcnjLBV6zGStpbASIMk4DCAvEaamhe2zhyCb/QXXsA==}
     dependencies:
       d: 1.0.1
-      es5-ext: 0.10.53
+      es5-ext: 0.10.64
       es6-iterator: 2.0.3
       es6-symbol: 3.1.3
     dev: false
@@ -4645,6 +4648,16 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /esniff/2.0.1:
+    resolution: {integrity: sha512-kTUIGKQ/mDPFoJ0oVfcmyJn4iBDRptjNVIzwIFR7tqWXdVI9xfA2RMwY/gbSpJG3lkdWNEjLap/NqVHZiJsdfg==}
+    engines: {node: '>=0.10'}
+    dependencies:
+      d: 1.0.1
+      es5-ext: 0.10.64
+      event-emitter: 0.3.5
+      type: 2.7.2
+    dev: false
+
   /espree/9.4.0:
     resolution: {integrity: sha512-DQmnRpLj7f6TgN/NYb0MTzJXL+vJF9h3pHy4JhCIs3zwcgez8xmGg3sXHcEO97BrmO2OSvCwMdfdlyl+E9KjOw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -4694,6 +4707,13 @@ packages:
   /esutils/2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
+
+  /event-emitter/0.3.5:
+    resolution: {integrity: sha512-D9rRn9y7kLPnJ+hMq7S/nhvoKwwvVJahBi2BPmx3bvbsEdK3W9ii8cBSGjP+72/LnM4n6fo3+dkCX5FeTQruXA==}
+    dependencies:
+      d: 1.0.1
+      es5-ext: 0.10.64
+    dev: false
 
   /event-target-shim/5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
@@ -7570,8 +7590,8 @@ packages:
     resolution: {integrity: sha512-+I10J3wKNoKddNxn0CNpoZ3eTZuqxjNM3b1GImVx22+ePI+Y15P8g/j3WsbP0fhzzrFzrtjOAoq5NCCucswXOQ==}
     dev: false
 
-  /next-tick/1.0.0:
-    resolution: {integrity: sha512-mc/caHeUcdjnC/boPWJefDr4KUIWQNv+tlnFnJd38QMou86QtxQzBJfxgGRzvx8jazYRqrVlaHarfO72uNxPOg==}
+  /next-tick/1.1.0:
+    resolution: {integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==}
     dev: false
 
   /nice-try/1.0.5:
@@ -10860,6 +10880,10 @@ packages:
     resolution: {integrity: sha512-KBt58xCHry4Cejnc2ISQAF7QY+ORngsWfxezO68+12hKV6lQY8P/psIkcbjeHWn7MqcgciWJyCCevFMJdIXpow==}
     dev: false
 
+  /type/2.7.2:
+    resolution: {integrity: sha512-dzlvlNlt6AXU7EBSfpAscydQ7gXB+pPGsPnfJnZpiNJBDj7IaJzQlBZYGdEi4R9HmPdBv2XmWJ6YUtoTa7lmCw==}
+    dev: false
+
   /typedarray-to-buffer/3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
     dependencies:
@@ -11466,13 +11490,13 @@ packages:
       - uglify-js
     dev: false
 
-  /websocket/1.0.34:
-    resolution: {integrity: sha512-PRDso2sGwF6kM75QykIesBijKSVceR6jL2G8NGYyq2XrItNC2P5/qL5XeR056GhA+Ly7JMFvJb9I312mJfmqnQ==}
+  /websocket/1.0.35:
+    resolution: {integrity: sha512-/REy6amwPZl44DDzvRCkaI1q1bIiQB0mEFQLUrhz3z2EK91cp3n72rAjUlrTP0zV22HJIUOVHQGPxhFRjxjt+Q==}
     engines: {node: '>=4.0.0'}
     dependencies:
       bufferutil: 4.0.1
       debug: 2.6.9
-      es5-ext: 0.10.53
+      es5-ext: 0.10.64
       typedarray-to-buffer: 3.1.5
       utf-8-validate: 5.0.2
       yaeti: 0.0.6
