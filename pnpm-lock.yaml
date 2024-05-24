@@ -182,7 +182,7 @@ specifiers:
   probe-image-size: 7.2.3
   promise-limit: 2.7.0
   promise-sequential: 1.1.1
-  pug: 3.0.2
+  pug: 3.0.3
   punycode: 2.1.1
   pureimage: 0.3.17
   qrcode: 1.5.3
@@ -283,7 +283,7 @@ dependencies:
   '@types/koa-logger': 3.1.5
   '@types/koa-mount': 4.0.5
   '@types/koa-send': 4.1.6
-  '@types/koa-views': 7.0.0_gudyprbunxvk76igg2usafr23u
+  '@types/koa-views': 7.0.0_543wloen52xiqizjcia2v6vsxm
   '@types/koa__cors': 3.3.1
   '@types/koa__multer': 2.0.7
   '@types/koa__router': 8.0.11
@@ -385,7 +385,7 @@ dependencies:
   koa-mount: 4.0.0
   koa-send: 5.0.1
   koa-slow: 2.1.0
-  koa-views: 8.0.0_gudyprbunxvk76igg2usafr23u
+  koa-views: 8.0.0_543wloen52xiqizjcia2v6vsxm
   langmap: 0.0.16
   markdown-it: 12.3.2
   markdown-it-anchor: 8.4.1_2zb4u3vubltivolgu556vv4aom
@@ -413,7 +413,7 @@ dependencies:
   probe-image-size: 7.2.3
   promise-limit: 2.7.0
   promise-sequential: 1.1.1
-  pug: 3.0.2
+  pug: 3.0.3
   punycode: 2.1.1
   pureimage: 0.3.17
   qrcode: 1.5.3
@@ -1407,11 +1407,11 @@ packages:
       '@types/koa': 2.13.12
     dev: false
 
-  /@types/koa-views/7.0.0_gudyprbunxvk76igg2usafr23u:
+  /@types/koa-views/7.0.0_543wloen52xiqizjcia2v6vsxm:
     resolution: {integrity: sha512-AB/NB+oFHcLOZJYFv3bG5Af8YbwYCD9/zK0WcKALsbjI/FRKrcXTUTC64RebDrkyOkBm3bpCgpGndhAH/3YQ2Q==}
     deprecated: This is a stub types definition. koa-views provides its own type definitions, so you do not need this installed.
     dependencies:
-      koa-views: 8.0.0_gudyprbunxvk76igg2usafr23u
+      koa-views: 8.0.0_543wloen52xiqizjcia2v6vsxm
     transitivePeerDependencies:
       - '@types/koa'
       - arc-templates
@@ -3425,7 +3425,7 @@ packages:
     resolution: {integrity: sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==}
     dev: false
 
-  /consolidate/0.16.0_pug@3.0.2:
+  /consolidate/0.16.0_pug@3.0.3:
     resolution: {integrity: sha512-Nhl1wzCslqXYTJVDyJCu3ODohy9OfBMB5uD2BiBTzd7w+QY0lBzafkR8y8755yMYHAaMD4NuzbAw03/xzfw+eQ==}
     engines: {node: '>= 0.10.0'}
     peerDependencies:
@@ -3591,7 +3591,7 @@ packages:
         optional: true
     dependencies:
       bluebird: 3.7.2
-      pug: 3.0.2
+      pug: 3.0.3
     dev: false
 
   /constantinople/4.0.1:
@@ -6728,7 +6728,7 @@ packages:
       q: 1.4.1
     dev: false
 
-  /koa-views/8.0.0_gudyprbunxvk76igg2usafr23u:
+  /koa-views/8.0.0_543wloen52xiqizjcia2v6vsxm:
     resolution: {integrity: sha512-nvGKdG8yVyomhouwN060SWd7Q9kGYRr322dwN6jvI04hgiDEW9vsPXEje9OEtBgGXxHURe7xOzo3bxQ3DBc1Nw==}
     peerDependencies:
       '@types/koa': ^2.13.1
@@ -6737,7 +6737,7 @@ packages:
         optional: true
     dependencies:
       '@types/koa': 2.13.12
-      consolidate: 0.16.0_pug@3.0.2
+      consolidate: 0.16.0_pug@3.0.3
       debug: 4.3.4
       get-paths: 0.0.7
       koa-send: 5.0.1
@@ -9050,14 +9050,14 @@ packages:
       pug-runtime: 3.0.1
     dev: false
 
-  /pug-code-gen/3.0.2:
-    resolution: {integrity: sha512-nJMhW16MbiGRiyR4miDTQMRWDgKplnHyeLvioEJYbk1RsPI3FuA3saEP8uwnTb2nTJEKBU90NFVWJBk4OU5qyg==}
+  /pug-code-gen/3.0.3:
+    resolution: {integrity: sha512-cYQg0JW0w32Ux+XTeZnBEeuWrAY7/HNE6TWnhiHGnnRYlCgyAUPoyh9KzCMa9WhcJlJ1AtQqpEYHc+vbCzA+Aw==}
     dependencies:
       constantinople: 4.0.1
       doctypes: 1.1.0
       js-stringify: 1.0.2
       pug-attrs: 3.0.0
-      pug-error: 2.0.0
+      pug-error: 2.1.0
       pug-runtime: 3.0.1
       void-elements: 3.1.0
       with: 7.0.2
@@ -9065,6 +9065,10 @@ packages:
 
   /pug-error/2.0.0:
     resolution: {integrity: sha512-sjiUsi9M4RAGHktC1drQfCr5C5eriu24Lfbt4s+7SykztEOwVZtbFk1RRq0tzLxcMxMYTBR+zMQaG07J/btayQ==}
+    dev: false
+
+  /pug-error/2.1.0:
+    resolution: {integrity: sha512-lv7sU9e5Jk8IeUheHata6/UThZ7RK2jnaaNztxfPYUY+VxZyk/ePVaNZ/vwmH8WqGvDz3LrNYt/+gA55NDg6Pg==}
     dev: false
 
   /pug-filters/4.0.0:
@@ -9120,10 +9124,10 @@ packages:
     resolution: {integrity: sha512-yYELe9Q5q9IQhuvqsZNwA5hfPkMJ8u92bQLIMcsMxf/VADjNtEYptU+inlufAFYcWdHlwNfZOEnOOQrZrcyJCQ==}
     dev: false
 
-  /pug/3.0.2:
-    resolution: {integrity: sha512-bp0I/hiK1D1vChHh6EfDxtndHji55XP/ZJKwsRqrz6lRia6ZC2OZbdAymlxdVFwd1L70ebrVJw4/eZ79skrIaw==}
+  /pug/3.0.3:
+    resolution: {integrity: sha512-uBi6kmc9f3SZ3PXxqcHiUZLmIXgfgWooKWXcwSGwQd2Zi5Rb0bT14+8CJjJgI8AB+nndLaNgHGrcc6bPIB665g==}
     dependencies:
-      pug-code-gen: 3.0.2
+      pug-code-gen: 3.0.3
       pug-filters: 4.0.0
       pug-lexer: 5.0.1
       pug-linker: 4.0.0
