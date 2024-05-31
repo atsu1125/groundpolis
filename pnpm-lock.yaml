@@ -36,7 +36,7 @@ specifiers:
   '@types/is-url': 1.2.32
   '@types/js-yaml': 4.0.9
   '@types/jsdom': 16.2.15
-  '@types/jsonld': 1.5.13
+  '@types/jsonld': 1.5.14
   '@types/katex': 0.11.1
   '@types/koa': 2.13.12
   '@types/koa-bodyparser': 4.3.12
@@ -274,7 +274,7 @@ dependencies:
   '@types/is-url': 1.2.32
   '@types/js-yaml': 4.0.9
   '@types/jsdom': 16.2.15
-  '@types/jsonld': 1.5.13
+  '@types/jsonld': 1.5.14
   '@types/katex': 0.11.1
   '@types/koa': 2.13.12
   '@types/koa-bodyparser': 4.3.12
@@ -1347,8 +1347,8 @@ packages:
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
 
-  /@types/jsonld/1.5.13:
-    resolution: {integrity: sha512-n7fUU6W4kSYK8VQlf/LsE9kddBHPKhODoVOjsZswmve+2qLwBy6naWxs/EiuSZN9NU0N06Ra01FR+j87C62T0A==}
+  /@types/jsonld/1.5.14:
+    resolution: {integrity: sha512-z4IRf5oRgjPTkazDDv94sjzI5iK3DrDEW7Y5Gk4VO4+ANymgtHtNaXWi93+BmiAoG3PB9QTv5DgSpKWGYVvysA==}
     dev: false
 
   /@types/katex/0.11.1:
