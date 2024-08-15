@@ -893,6 +893,7 @@ themeColor: "Theme Color"
 showTickerSoftwareName: "Show Software Name on instance ticker"
 preferTickerSoftwareColor: "Prefer Software Color on instance ticker"
 typeToConfirm: "Please enter {x} to confirm"
+rateLimitExceeded: "Rate limit exceeded"
 
 _template:
   edit: "Edit Template..."
