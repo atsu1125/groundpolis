@@ -5,7 +5,7 @@ import define from '../../define';
 import { publishAdminStream } from '../../../../services/stream';
 import { ApiError } from '../../error';
 import { getUser } from '../../common/getters';
-import { AbuseUserReports, Users } from '../../../../models';
+import { AbuseUserReports, Users, UserProfiles } from '../../../../models';
 import { genId } from '../../../../misc/gen-id';
 import { sendEmail } from '../../../../services/send-email';
 import { fetchMeta } from '../../../../misc/fetch-meta';
@@ -96,6 +96,14 @@ export default define(meta, async (ps, me) => {
 				reporterId: report.reporterId,
 				comment: report.comment,
 			});
+			const emailRecipientProfile = await UserProfiles.findOne({
+				userId: moderator.id,
+			});
+			if (emailRecipientProfile.email && emailRecipientProfile.emailVerified) {
+				emailDeliver(emailRecipientProfile.email, 'New abuse report',
+					sanitizeHtml(ps.comment),
+					sanitizeHtml(ps.comment));
+			}
 		}
 
 		const meta = await fetchMeta();
