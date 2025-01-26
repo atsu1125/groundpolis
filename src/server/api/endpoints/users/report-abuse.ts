@@ -87,9 +87,15 @@ export default define(meta, async (ps, me) => {
 			}, {
 				isModerator: true,
 			}],
+			order: {
+				lastActiveDate: 'DESC',
+			},
 		});
 
+		let emailSentCount = 0;
+
 		for (const moderator of moderators) {
+			if (emailSentCount >= 3) break;
 			publishAdminStream(moderator.id, 'newAbuseUserReport', {
 				id: report.id,
 				targetUserId: report.targetUserId,
@@ -100,9 +106,10 @@ export default define(meta, async (ps, me) => {
 				userId: moderator.id,
 			});
 			if (emailRecipientProfile.email && emailRecipientProfile.emailVerified) {
-				emailDeliver(emailRecipientProfile.email, 'New abuse report',
+				sendEmail(emailRecipientProfile.email, 'New abuse report',
 					sanitizeHtml(ps.comment),
 					sanitizeHtml(ps.comment));
+				emailSentCount++;
 			}
 		}
 
