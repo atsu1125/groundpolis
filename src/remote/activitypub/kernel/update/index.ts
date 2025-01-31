@@ -30,7 +30,7 @@ export default async (actor: IRemoteUser, activity: IUpdate): Promise<string> =>
 		await updatePerson(actor.uri!, resolver, object);
 		return `ok: Person updated`;
 	} else if (object.type === 'Question') {
-		await updateQuestion(object, resolver).catch(e => console.log(e));
+		await updateQuestion(object, actor, resolver).catch(e => console.log(e));
 		return `ok: Question updated`;
 	} else if (validPost.includes(object.type)) {
 		return await updateNote(actor, object);
