@@ -23,7 +23,7 @@ WORKDIR /misskey
 RUN corepack enable pnpm
 
 RUN apt-get update
-RUN apt-get install -y ffmpeg wget
+RUN apt-get install -y ffmpeg wget curl
 
 COPY --from=builder /misskey/node_modules ./node_modules
 COPY --from=builder /misskey/built ./built
