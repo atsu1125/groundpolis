@@ -1,6 +1,9 @@
 name: Node.js CI
 on: [push]
 
+env:
+  COREPACK_DEFAULT_TO_LATEST: 0
+
 jobs:
   build_and_test:
     runs-on: ubuntu-latest

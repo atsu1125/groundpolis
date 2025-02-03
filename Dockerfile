@@ -1,6 +1,7 @@
 FROM node:18.20.6-bookworm AS builder
 
 ENV NODE_ENV=production
+ENV COREPACK_DEFAULT_TO_LATEST=0
 
 WORKDIR /misskey
 
@@ -18,6 +19,7 @@ RUN pnpm build
 FROM node:18.20.6-bookworm-slim AS runner
 
 ENV NODE_ENV=production
+ENV COREPACK_DEFAULT_TO_LATEST=0
 WORKDIR /misskey
 
 RUN corepack enable pnpm
