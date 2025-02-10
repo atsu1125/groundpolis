@@ -26,6 +26,12 @@ export const $i = i && i.token ? reactive(i) : null;
 
 export function signout() {
 	if ($i === null) return;
+	document.cookie.split(";").forEach((cookie) => {
+		const cookieName = cookie.split("=")[0].trim();
+		if (cookieName === "token") {
+				document.cookie = `${cookieName}=; max-age=0; path=/`;
+		}
+	});
 	localStorage.removeItem('account');
 	const accounts = getAccounts();
 	const current = accounts.findIndex(a => a.id === $i.id);
@@ -41,6 +47,12 @@ export function signout() {
 }
 
 export function signoutAll() {
+	document.cookie.split(";").forEach((cookie) => {
+		const cookieName = cookie.split("=")[0].trim();
+		if (cookieName === "token") {
+				document.cookie = `${cookieName}=; max-age=0; path=/`;
+		}
+	});
 	localStorage.removeItem('account');
 	localStorage.removeItem('accounts');
 	document.cookie = `igi=; path=/`;
@@ -61,6 +73,9 @@ export function addAccount(id: Account['id'], token: Account['token']) {
 }
 
 function fetchAccount(token): Promise<Account> {
+	document.cookie = "token=; path=/; max-age=0"; // remove old token
+	document.cookie = `token=${token}; path=/queue; max-age=86400; SameSite=Strict; Secure`; // bull dashboardの認証で使う
+
 	return new Promise((done, fail) => {
 		// Fetch user
 		fetch(`${apiUrl}/i`, {
@@ -101,7 +116,6 @@ export async function login(token: Account['token']) {
 	if (_DEV_) console.log('logging as token ', token);
 	const me = await fetchAccount(token);
 	localStorage.setItem('account', JSON.stringify(me));
-	document.cookie = `token=${token}; path=/; max-age=31536000`; // bull dashboardの認証とかで使う
 	addAccount(me.id, token);
 	location.reload();
 }
