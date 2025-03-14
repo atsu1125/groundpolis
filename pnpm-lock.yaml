@@ -171,7 +171,7 @@ specifiers:
   node-fetch: 2.6.13
   nodemailer: 6.8.0
   npm-run-all: 4.1.5
-  oauth: 0.10.0
+  oauth: 0.10.2
   object-assign-deep: 0.4.0
   os-utils: 0.0.14
   p-cancelable: 4.0.1
@@ -405,7 +405,7 @@ dependencies:
   node-fetch: 2.6.13
   nodemailer: 6.8.0
   npm-run-all: 4.1.5
-  oauth: 0.10.0
+  oauth: 0.10.2
   object-assign-deep: 0.4.0
   os-utils: 0.0.14
   p-cancelable: 4.0.1
@@ -8226,8 +8226,8 @@ packages:
     resolution: {integrity: sha512-90yv+6538zuvUMnN+zCr8LuV6bPFdq50304114vJYJ8RDyK8D5O9Phpbd6SZWgI7PwzmmfN1upeOJlvybDSgCw==}
     dev: false
 
-  /oauth/0.10.0:
-    resolution: {integrity: sha512-1orQ9MT1vHFGQxhuy7E/0gECD3fd2fCC+PIX+/jgmU/gI3EpRocXtmtvxCO5x3WZ443FLTLFWNDjl5MPJf9u+Q==}
+  /oauth/0.10.2:
+    resolution: {integrity: sha512-JtFnB+8nxDEXgNyniwz573xxbKSOu3R8D40xQKqcjwJ2CDkYqUDI53o6IuzDJBx60Z8VKCm271+t8iFjakrl8Q==}
     dev: false
 
   /oauth/0.9.15:
