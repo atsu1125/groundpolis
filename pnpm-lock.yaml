@@ -166,7 +166,7 @@ specifiers:
   mocha: 10.1.0
   moment: 2.29.4
   ms: 2.1.3
-  multer: 1.4.5-lts.1
+  multer: 1.4.5-lts.2
   nested-property: 4.0.0
   node-fetch: 2.6.13
   nodemailer: 6.8.0
@@ -260,7 +260,7 @@ dependencies:
   '@fortawesome/free-solid-svg-icons': 5.15.4
   '@fortawesome/vue-fontawesome': 3.0.8_juxtjrsokaue4ncxo3vblwmgom
   '@koa/cors': 3.1.0
-  '@koa/multer': 3.0.2_multer@1.4.5-lts.1
+  '@koa/multer': 3.0.2_multer@1.4.5-lts.2
   '@koa/router': 9.0.1
   '@peertube/http-signature': 1.7.0
   '@sentry/browser': 7.5.1
@@ -400,7 +400,7 @@ dependencies:
   mfm-js: github.com/groundpolis/gpfm.js/c9feabf35841b0dc33161653e12f9494f71979d6
   moment: 2.29.4
   ms: 2.1.3
-  multer: 1.4.5-lts.1
+  multer: 1.4.5-lts.2
   nested-property: 4.0.0
   node-fetch: 2.6.13
   nodemailer: 6.8.0
@@ -1038,14 +1038,14 @@ packages:
       vary: 1.1.2
     dev: false
 
-  /@koa/multer/3.0.2_multer@1.4.5-lts.1:
+  /@koa/multer/3.0.2_multer@1.4.5-lts.2:
     resolution: {integrity: sha512-Q6WfPpE06mJWyZD1fzxM6zWywaoo+zocAn2YA9QYz4RsecoASr1h/kSzG0c5seDpFVKCMZM9raEfuM7XfqbRLw==}
     engines: {node: '>= 8'}
     peerDependencies:
       multer: '*'
     dependencies:
       fix-esm: 1.0.1
-      multer: 1.4.5-lts.1
+      multer: 1.4.5-lts.2
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -7905,8 +7905,8 @@ packages:
       msgpackr-extract: 1.0.16
     dev: false
 
-  /multer/1.4.5-lts.1:
-    resolution: {integrity: sha512-ywPWvcDMeH+z9gQq5qYHCCy+ethsk4goepZ45GLD63fOu0YcNecQxi64nDs3qluZB+murG3/D4dJ7+dGctcCQQ==}
+  /multer/1.4.5-lts.2:
+    resolution: {integrity: sha512-VzGiVigcG9zUAoCNU+xShztrlr1auZOlurXynNvO9GiWD1/mTBbUljOKY+qMeazBqXgRnjzeEgJI/wyjJUHg9A==}
     engines: {node: '>= 6.0.0'}
     dependencies:
       append-field: 1.0.0
