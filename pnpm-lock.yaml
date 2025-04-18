@@ -234,7 +234,7 @@ specifiers:
   v-debounce: 0.1.2
   vanilla-tilt: 1.7.2
   vue: 3.2.47
-  vue-color: 2.8.1
+  vue-color: 2.8.2
   vue-json-pretty: 2.1.1
   vue-loader: 17.0.1
   vue-prism-editor: 2.0.0-alpha.2
@@ -468,7 +468,7 @@ dependencies:
   v-debounce: 0.1.2
   vanilla-tilt: 1.7.2
   vue: 3.2.47
-  vue-color: 2.8.1
+  vue-color: 2.8.2
   vue-json-pretty: 2.1.1_vue@3.2.47
   vue-loader: 17.0.1_lx6tu23o4v6sgq23epr5u7thia
   vue-prism-editor: 2.0.0-alpha.2_vue@3.2.47
@@ -11699,8 +11699,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /vue-color/2.8.1:
-    resolution: {integrity: sha512-BoLCEHisXi2QgwlhZBg9UepvzZZmi4176vbr+31Shen5WWZwSLVgdScEPcB+yrAtuHAz42309C0A4+WiL9lNBw==}
+  /vue-color/2.8.2:
+    resolution: {integrity: sha512-1qmsxl5GiIjx/jApBbTGr2r4bN/7WRKUTl3tc53vkXb9Ua0rZmiqsdq6VdG1e7dVNTLJahdsRGWcjeU2+98+NA==}
     dependencies:
       clamp: 1.0.1
       lodash.throttle: 4.1.1
