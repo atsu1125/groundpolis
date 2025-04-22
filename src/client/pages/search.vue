@@ -124,7 +124,6 @@ export default defineComponent({
 			} : {
 				endpoint: 'users/search-keyword',
 				limit: 10,
-				offsetMode: true,
 				params: () => ({ query })
 			};
 		},
@@ -211,7 +210,7 @@ export default defineComponent({
 					user,
 				};
 			}
-
+			
 		},
 	}
 });
