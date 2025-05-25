@@ -243,7 +243,7 @@ specifiers:
   web-push: 3.5.0
   webpack: 5.72.1
   webpack-cli: 4.9.2
-  ws: 8.18.0
+  ws: 8.18.2
   xev: 2.0.1
 
 dependencies:
@@ -475,7 +475,7 @@ dependencies:
   web-push: 3.5.0
   webpack: 5.72.1_webpack-cli@4.9.2
   webpack-cli: 4.9.2_webpack@5.72.1
-  ws: 8.18.0
+  ws: 8.18.2
   xev: 2.0.1
 
 devDependencies:
@@ -6762,7 +6762,7 @@ packages:
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
       whatwg-url: 10.0.0
-      ws: 8.18.0
+      ws: 8.18.2
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -12066,8 +12066,8 @@ packages:
       write-file-atomic: 2.4.3
     dev: false
 
-  /ws/8.18.0:
-    resolution: {integrity: sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==}
+  /ws/8.18.2:
+    resolution: {integrity: sha512-DMricUmwGZUVr++AEAe2uiVM7UoO9MAVZMDu05UQOaUII0lp+zOzLLU4Xqh/JvTqklB1T4uELaaPBKyjE1r4fQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
