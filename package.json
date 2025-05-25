@@ -272,7 +272,7 @@
 		"web-push": "3.5.0",
 		"webpack": "5.72.1",
 		"webpack-cli": "4.9.2",
-		"ws": "8.18.0",
+		"ws": "8.18.2",
 		"xev": "2.0.1"
 	},
 	"devDependencies": {
