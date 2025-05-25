@@ -84,7 +84,6 @@ specifiers:
   '@types/web-push': 3.3.2
   '@types/webpack': 4.41.40
   '@types/webpack-stream': 3.2.15
-  '@types/websocket': 1.0.10
   '@types/ws': 8.5.14
   '@typescript-eslint/eslint-plugin': 5.45.0
   '@typescript-eslint/parser': 5.39.0
@@ -244,8 +243,7 @@ specifiers:
   web-push: 3.5.0
   webpack: 5.72.1
   webpack-cli: 4.9.2
-  websocket: 1.0.35
-  ws: 8.8.0
+  ws: 8.18.0
   xev: 2.0.1
 
 dependencies:
@@ -325,7 +323,6 @@ dependencies:
   '@types/web-push': 3.3.2
   '@types/webpack': 4.41.40
   '@types/webpack-stream': 3.2.15
-  '@types/websocket': 1.0.10
   '@types/ws': 8.5.14
   '@vue/compiler-sfc': 3.2.47
   abort-controller: 3.0.0
@@ -478,8 +475,7 @@ dependencies:
   web-push: 3.5.0
   webpack: 5.72.1_webpack-cli@4.9.2
   webpack-cli: 4.9.2_webpack@5.72.1
-  websocket: 1.0.35
-  ws: 8.8.0
+  ws: 8.18.0
   xev: 2.0.1
 
 devDependencies:
@@ -2024,12 +2020,6 @@ packages:
       source-map: 0.8.0-beta.0
     dev: false
 
-  /@types/websocket/1.0.10:
-    resolution: {integrity: sha512-svjGZvPB7EzuYS94cI7a+qhwgGU1y89wUgjT6E2wVUfmAGIvRfT7obBvRtnhXCSsoMdlG4gBFGE7MfkIXZLoww==}
-    dependencies:
-      '@types/node': 18.11.18
-    dev: false
-
   /@types/ws/8.5.14:
     resolution: {integrity: sha512-bd/YFLW+URhBzMXurx7lWByOu+xzU9+kb3RboOteXYDfW+tr+JZa99OyNmPINEGB/ahzKrEuc8rcv4gnpJmxTw==}
     dependencies:
@@ -3078,13 +3068,6 @@ packages:
     dependencies:
       base64-js: 1.3.1
       ieee754: 1.2.1
-    dev: false
-
-  /bufferutil/4.0.1:
-    resolution: {integrity: sha512-xowrxvpxojqkagPcWRQVXZl0YXhRhAtBEIq3VoER1NH5Mw1n1o0ojdspp+GS2J//2gCVyrzQDApQ4unGF+QOoA==}
-    requiresBuild: true
-    dependencies:
-      node-gyp-build: 3.7.0
     dev: false
 
   /bull/4.10.4:
@@ -6581,10 +6564,6 @@ packages:
       has-tostringtag: 1.0.0
     dev: false
 
-  /is-typedarray/1.0.0:
-    resolution: {integrity: sha512-cyA56iCMHAh5CdzjJIa4aohJyeO1YbwLi3Jc35MmRU6poroFjIGZzUzupGiRPOjgHg9TLu43xbpwXk523fMxKA==}
-    dev: false
-
   /is-unc-path/1.0.0:
     resolution: {integrity: sha512-mrGpVd0fs7WWLfVsStvgF6iEJnbjDFZh9/emhRDcGWTduTfNHd9CHeUwH3gYIjdbwo4On6hunkztwOaAw0yllQ==}
     engines: {node: '>=0.10.0'}
@@ -6783,7 +6762,7 @@ packages:
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
       whatwg-url: 10.0.0
-      ws: 8.8.0
+      ws: 8.18.0
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -8062,11 +8041,6 @@ packages:
       fetch-blob: 2.1.2
     transitivePeerDependencies:
       - domexception
-    dev: false
-
-  /node-gyp-build/3.7.0:
-    resolution: {integrity: sha512-L/Eg02Epx6Si2NXmedx+Okg+4UHqmaf3TNcxd50SF9NQGcJaON3AtU++kax69XV7YWz4tUspqZSAsVofhFKG2w==}
-    hasBin: true
     dev: false
 
   /node-gyp-build/4.3.0:
@@ -11339,12 +11313,6 @@ packages:
     resolution: {integrity: sha512-dzlvlNlt6AXU7EBSfpAscydQ7gXB+pPGsPnfJnZpiNJBDj7IaJzQlBZYGdEi4R9HmPdBv2XmWJ6YUtoTa7lmCw==}
     dev: false
 
-  /typedarray-to-buffer/3.1.5:
-    resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
-    dependencies:
-      is-typedarray: 1.0.0
-    dev: false
-
   /typedarray/0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: false
@@ -11548,13 +11516,6 @@ packages:
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}
     engines: {node: '>=0.10.0'}
-    dev: false
-
-  /utf-8-validate/5.0.2:
-    resolution: {integrity: sha512-SwV++i2gTD5qh2XqaPzBnNX88N6HdyhQrNNRykvcS0QKvItV9u3vPEJr+X5Hhfb1JC0r0e1alL0iB09rY8+nmw==}
-    requiresBuild: true
-    dependencies:
-      node-gyp-build: 3.7.0
     dev: false
 
   /util-deprecate/1.0.2:
@@ -11945,20 +11906,6 @@ packages:
       - uglify-js
     dev: false
 
-  /websocket/1.0.35:
-    resolution: {integrity: sha512-/REy6amwPZl44DDzvRCkaI1q1bIiQB0mEFQLUrhz3z2EK91cp3n72rAjUlrTP0zV22HJIUOVHQGPxhFRjxjt+Q==}
-    engines: {node: '>=4.0.0'}
-    dependencies:
-      bufferutil: 4.0.1
-      debug: 2.6.9
-      es5-ext: 0.10.64
-      typedarray-to-buffer: 3.1.5
-      utf-8-validate: 5.0.2
-      yaeti: 0.0.6
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /whatwg-encoding/2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
@@ -12119,12 +12066,12 @@ packages:
       write-file-atomic: 2.4.3
     dev: false
 
-  /ws/8.8.0:
-    resolution: {integrity: sha512-JDAgSYQ1ksuwqfChJusw1LSJ8BizJ2e/vVu5Lxjq3YvNJNlROv1ui4i+c/kUUrPheBvQl4c5UbERhTwKa6QBJQ==}
+  /ws/8.18.0:
+    resolution: {integrity: sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
-      utf-8-validate: ^5.0.2
+      utf-8-validate: '>=5.0.2'
     peerDependenciesMeta:
       bufferutil:
         optional: true
@@ -12192,11 +12139,6 @@ packages:
   /y18n/5.0.5:
     resolution: {integrity: sha512-hsRUr4FFrvhhRH12wOdfs38Gy7k2FFzB9qgN9v3aLykRq0dRcdcpz5C9FxdS2NuhOrI/628b/KSTJ3rwHysYSg==}
     engines: {node: '>=10'}
-
-  /yaeti/0.0.6:
-    resolution: {integrity: sha512-MvQa//+KcZCUkBTIC9blM+CU9J2GzuTytsOUwf2lidtvkx/6gnEp1QvJv34t9vdjhFmha/mUiNDbN0D0mJWdug==}
-    engines: {node: '>=0.10.32'}
-    dev: false
 
   /yallist/2.1.2:
     resolution: {integrity: sha512-ncTzHV7NvsQZkYe1DW7cbDLm0YpzHmZF5r/iyP3ZnQtMiJ+pjzisCiMNI+Sj+xQF5pXhSHxSB3uDbsBTzY/c2A==}

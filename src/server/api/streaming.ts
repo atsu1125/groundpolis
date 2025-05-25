@@ -1,9 +1,8 @@
 import * as http from 'http';
-import * as websocket from 'websocket';
+import { WebSocketServer } from 'ws';
 import * as redis from 'redis';
 
-import MainStreamConnection from './stream';
-import { ParsedUrlQuery } from 'querystring';
+import { Connection } from './stream';
 import authenticate from './authenticate';
 import { EventEmitter } from 'events';
 import config from '../../config';
@@ -11,63 +10,102 @@ import { Users } from '../../models';
 
 module.exports = (server: http.Server) => {
 	// Init websocket server
-	const ws = new websocket.server({
-		httpServer: server
-	});
+	const ws = new WebSocketServer({ noServer: true });
 
-	ws.on('request', async (request) => {
-		const q = request.resourceURL.query as ParsedUrlQuery;
-
-		// TODO: トークンが間違ってるなどしてauthenticateに失敗したら
-		// コネクション切断するなりエラーメッセージ返すなりする
-		// (現状はエラーがキャッチされておらずサーバーのログに流れて邪魔なので)
-		const [user, app] = await authenticate(q.i as string);
-
-		const connection = request.accept();
-
-		let ev: EventEmitter;
-
-		// Connect to Redis
-		const subscriber = redis.createClient(
-			config.redis.port,
-			config.redis.host,
-			{
-				password: config.redis.pass
-			}
-		);
-
-		subscriber.subscribe(config.host);
-
-		ev = new EventEmitter();
-
-		subscriber.on('message', async (_, data) => {
-			const obj = JSON.parse(data);
-
-			ev.emit(obj.channel, obj.message);
-		});
-
-		connection.once('close', () => {
-			subscriber.unsubscribe();
-			subscriber.quit();
-		});
-
-		const main = new MainStreamConnection(connection, ev, user, app);
-
-		connection.once('close', () => {
-			ev.removeAllListeners();
-			main.dispose();
-		});
-
-		connection.on('message', async (data) => {
-			if (data.utf8Data === 'ping') {
-				connection.send('pong');
-			}
-		});
-
-		if (user) {
-			Users.update(user.id, {
-				lastActiveDate: new Date(),
-			});
+	server.on('upgrade', async (request, socket, head)=> {
+		if (!request.url.startsWith('/streaming?')) {
+			socket.write('HTTP/1.1 400 Bad Request\r\n\r\n', undefined, () => socket.destroy());
+			return;
 		}
+		const q = new URLSearchParams(request.url.slice(11));
+
+		const [user, app] = await authenticate(q.get('i'))
+			.catch(err => {
+				socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n', undefined, () => socket.destroy());
+				return [];
+			});
+		if (typeof user === 'undefined') return;
+
+		if (user?.isSuspended) {
+			request.reject(400);
+			socket.write('HTTP/1.1 403 Forbidden\r\n\r\n', undefined, () => socket.destroy());
+			return;
+		}
+
+		ws.handleUpgrade(request, socket, head, (socket) => {
+
+			let ev: EventEmitter;
+
+			// Connect to Redis
+			const subscriber = redis.createClient(
+				config.redis.port,
+				config.redis.host,
+				{
+					password: config.redis.pass
+				}
+			);
+
+			subscriber.subscribe(config.host);
+
+			ev = new EventEmitter();
+
+			subscriber.on('message', async (_, data) => {
+				const obj = JSON.parse(data);
+
+				ev.emit(obj.channel, obj.message);
+			});
+
+			socket.once('close', () => {
+				subscriber.unsubscribe();
+				subscriber.quit();
+			});
+
+			const main = new Connection(socket, ev, user, app);
+
+			// ping/pong mechanism
+			let pingTimeout: NodeJS.Timeout | null = null;
+			let disconnectTimeout = setTimeout(() => {
+				socket.terminate();
+			}, 1000 * 60);;
+			function sendPing() {
+				socket.ping();
+				pingTimeout = setTimeout(() => {
+					sendPing();
+				}, 1000 * 30);
+			}
+			function onPong() {
+				disconnectTimeout.refresh()
+			}
+			sendPing();
+			socket.on('pong', onPong);
+
+			// keep user "online" while a stream is connected
+			const intervalId = user ? setInterval(() => {
+				Users.update(user.id, {
+					lastActiveDate: new Date(),
+				});
+			}, 1000 * 60 * 5) : null;
+			if (user) {
+				Users.update(user.id, {
+					lastActiveDate: new Date(),
+				});
+			}
+
+			socket.once('close', () => {
+				ev.removeAllListeners();
+				main.dispose();
+				if (intervalId) clearInterval(intervalId);
+				if (pingTimeout) clearTimeout(pingTimeout);
+				if (disconnectTimeout) clearTimeout(disconnectTimeout);
+			});
+
+			// ping/pong mechanism
+			// TODO: the websocket protocol already specifies a ping/pong mechanism, why is this necessary?
+			socket.on('message', async (data) => {
+				if (data.toString() === 'ping') {
+					socket.send('pong');
+				}
+			});
+		});
 	});
 };
