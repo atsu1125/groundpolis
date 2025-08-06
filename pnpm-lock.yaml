@@ -221,7 +221,7 @@ specifiers:
   three: 0.125.0
   throttle-debounce: 3.0.1
   tinycolor2: 1.4.2
-  tmp: 0.2.3
+  tmp: 0.2.4
   ts-loader: 9.4.4
   ts-node: 10.9.2
   twemoji-parser: git+https://github.com/mei23/twemoji-parser.git#15.0.2
@@ -453,7 +453,7 @@ dependencies:
   three: 0.125.0
   throttle-debounce: 3.0.1
   tinycolor2: 1.4.2
-  tmp: 0.2.3
+  tmp: 0.2.4
   ts-loader: 9.4.4_qxmop7qm3p2gztclsm6u7lnpfu
   ts-node: 10.9.2_bdgp3l2zgaopogaavxusmetvge
   twemoji-parser: github.com/mei23/twemoji-parser/b92e0023f9f325d642f93c2ecbcd29e1c2267d4d
@@ -11083,8 +11083,8 @@ packages:
     resolution: {integrity: sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==}
     dev: false
 
-  /tmp/0.2.3:
-    resolution: {integrity: sha512-nZD7m9iCPC5g0pYmcaxogYKggSfLsdxl8of3Q/oIbqCqLLIO9IAF0GWjX1z9NZRHPiXv8Wex4yDCaZsgEw0Y8w==}
+  /tmp/0.2.4:
+    resolution: {integrity: sha512-UdiSoX6ypifLmrfQ/XfiawN6hkjSBpCjhKxxZcWlUUmoXLaCKQU0bx4HF/tdDK2uzRuchf1txGvrWBzYREssoQ==}
     engines: {node: '>=14.14'}
     dev: false
 
