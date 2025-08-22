@@ -57,7 +57,7 @@ specifiers:
   '@types/mocha': 10.0.10
   '@types/node': 18.11.18
   '@types/node-fetch': 2.6.13
-  '@types/nodemailer': 6.4.18
+  '@types/nodemailer': 6.4.19
   '@types/nprogress': 0.2.3
   '@types/oauth': 0.9.6
   '@types/object-assign-deep': 0.4.3
@@ -296,7 +296,7 @@ dependencies:
   '@types/mocha': 10.0.10
   '@types/node': 18.11.18
   '@types/node-fetch': 2.6.13
-  '@types/nodemailer': 6.4.18
+  '@types/nodemailer': 6.4.19
   '@types/nprogress': 0.2.3
   '@types/oauth': 0.9.6
   '@types/object-assign-deep': 0.4.3
@@ -2635,8 +2635,8 @@ packages:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: false
 
-  /@types/nodemailer/6.4.18:
-    resolution: {integrity: sha512-K+OGGXYCxIGkZ59EzoEFkKDkxUT2yQ4f5zgLb+bOJ+pPTZd8M2i/DGMVYrRigUwFnL76URW5VMqMCkgHgjLX0w==}
+  /@types/nodemailer/6.4.19:
+    resolution: {integrity: sha512-Fi8DwmuAduTk1/1MpkR9EwS0SsDvYXx5RxivAVII1InDCIxmhj/iQm3W8S3EVb/0arnblr6PK0FK4wYa7bwdLg==}
     dependencies:
       '@aws-sdk/client-ses': 3.864.0
       '@types/node': 18.11.18
