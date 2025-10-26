@@ -42,7 +42,7 @@ specifiers:
   '@types/jsonld': 1.5.15
   '@types/katex': 0.11.1
   '@types/koa': 2.13.12
-  '@types/koa-bodyparser': 4.3.12
+  '@types/koa-bodyparser': 4.3.13
   '@types/koa-cors': 0.0.6
   '@types/koa-favicon': 2.0.22
   '@types/koa-logger': 3.1.5
@@ -281,7 +281,7 @@ dependencies:
   '@types/jsonld': 1.5.15
   '@types/katex': 0.11.1
   '@types/koa': 2.13.12
-  '@types/koa-bodyparser': 4.3.12
+  '@types/koa-bodyparser': 4.3.13
   '@types/koa-cors': 0.0.6
   '@types/koa-favicon': 2.0.22
   '@types/koa-logger': 3.1.5
@@ -2457,8 +2457,8 @@ packages:
       '@types/node': 18.11.18
     dev: false
 
-  /@types/koa-bodyparser/4.3.12:
-    resolution: {integrity: sha512-hKMmRMVP889gPIdLZmmtou/BijaU1tHPyMNmcK7FAHAdATnRcGQQy78EqTTxLH1D4FTsrxIzklAQCso9oGoebQ==}
+  /@types/koa-bodyparser/4.3.13:
+    resolution: {integrity: sha512-yW9afsDnV1ymnhMBfAlzsKZ45sYnvIlTRS+eF5MUZOQ8ePIIj3ajwi+9b4a0vdyYvh6uJKYibU8R1zrUIpCmCA==}
     dependencies:
       '@types/koa': 2.13.12
     dev: false
