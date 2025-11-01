@@ -83,7 +83,7 @@ specifiers:
   '@types/uuid': 8.3.4
   '@types/web-push': 3.3.2
   '@types/webpack': 4.41.40
-  '@types/webpack-stream': 3.2.15
+  '@types/webpack-stream': 3.2.16
   '@types/ws': 8.5.14
   '@typescript-eslint/eslint-plugin': 5.45.0
   '@typescript-eslint/parser': 5.39.0
@@ -322,7 +322,7 @@ dependencies:
   '@types/uuid': 8.3.4
   '@types/web-push': 3.3.2
   '@types/webpack': 4.41.40
-  '@types/webpack-stream': 3.2.15
+  '@types/webpack-stream': 3.2.16
   '@types/ws': 8.5.14
   '@vue/compiler-sfc': 3.2.47
   abort-controller: 3.0.0
@@ -2850,8 +2850,8 @@ packages:
       source-map: 0.8.0-beta.0
     dev: false
 
-  /@types/webpack-stream/3.2.15:
-    resolution: {integrity: sha512-Rg/nwWB8lIrruModwACwewwTYlisYJ7trb/8ofl62L6E+aBg0YGua0TCgPmPPLkT28WJMs9O0+cGyH8CzYb7LQ==}
+  /@types/webpack-stream/3.2.16:
+    resolution: {integrity: sha512-0AbwxcIv1wLAPwa2DWdcmShKdqR/ZxUaUF4nOrzBINt9yNS6S7KWe6MRl4EqcXw7JgWXEYTs0V3So15rPFs+nA==}
     dependencies:
       '@types/node': 18.11.18
       '@types/webpack': 4.41.40

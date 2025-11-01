@@ -119,7 +119,7 @@
 		"@types/uuid": "8.3.4",
 		"@types/web-push": "3.3.2",
 		"@types/webpack": "4.41.40",
-		"@types/webpack-stream": "3.2.15",
+		"@types/webpack-stream": "3.2.16",
 		"@types/ws": "8.5.14",
 		"@vue/compiler-sfc": "3.2.47",
 		"abort-controller": "3.0.0",
