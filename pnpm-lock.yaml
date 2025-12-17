@@ -94,8 +94,8 @@ importers:
         specifier: 7.1.3
         version: 7.1.3
       '@types/gulp':
-        specifier: 4.0.9
-        version: 4.0.9
+        specifier: 4.0.18
+        version: 4.0.18
       '@types/gulp-rename':
         specifier: 2.0.7
         version: 2.0.7
@@ -1779,8 +1779,8 @@ packages:
     resolution: {integrity: sha512-nRV4sV2Kc4s1MvQ1H/ZE9tjHxIuyhOliVTVmtcDxVvgngAX9nNgaf1rey6q67J8wVIKQxihCsToHXNB+FXb5kw==}
     deprecated: This is a stub types definition. gulp-replace provides its own type definitions, so you do not need this installed.
 
-  '@types/gulp@4.0.9':
-    resolution: {integrity: sha512-zzT+wfQ8uwoXjDhRK9Zkmmk09/fbLLmN/yDHFizJiEKIve85qutOnXcP/TM2sKPBTU+Jc16vfPbOMkORMUBN7Q==}
+  '@types/gulp@4.0.18':
+    resolution: {integrity: sha512-IqkYa4sXkwH2uwqO2aXYOoAisJpLX13BPaS6lmEAoG4BbgOay3qqGQFsT9LMSSQVMQlEKU7wTUW0sPV46V0olw==}
 
   '@types/http-assert@1.5.6':
     resolution: {integrity: sha512-TTEwmtjgVbYAzZYWyeHPrrtWnfVkm8tQkP8P21uQifPgMRgjrow3XDEYqucuC8SKZJT7pUnhU/JymvjggxO9vw==}
@@ -9379,8 +9379,9 @@ snapshots:
     dependencies:
       gulp-replace: 1.1.4
 
-  '@types/gulp@4.0.9':
+  '@types/gulp@4.0.18':
     dependencies:
+      '@types/node': 18.11.18
       '@types/undertaker': 1.2.12
       '@types/vinyl-fs': 3.0.7
       chokidar: 3.6.0
