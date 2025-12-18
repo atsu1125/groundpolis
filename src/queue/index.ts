@@ -1,5 +1,6 @@
 import * as Queue from 'bull';
 import * as httpSignature from '@peertube/http-signature';
+import { cpus } from 'os';
 
 import config from '../config';
 import { ILocalUser } from '../models/entities/user';
@@ -263,8 +264,8 @@ export function createCleanRemoteFilesJob() {
 
 export default function() {
 	if (!program.onlyServer) {
-		deliverQueue.process(config.deliverJobConcurrency || 128, processDeliver);
-		inboxQueue.process(config.inboxJobConcurrency || 16, processInbox);
+		deliverQueue.process(config.deliverJobConcurrency || ((cpus().length || 4) * 8) || 128, processDeliver);
+		inboxQueue.process(config.inboxJobConcurrency || ((cpus().length || 4) * 1) || 16, processInbox);
 		processDb(dbQueue);
 		procesObjectStorage(objectStorageQueue);
 	}
