@@ -279,7 +279,7 @@
 		"@typescript-eslint/eslint-plugin": "5.45.0",
 		"@typescript-eslint/parser": "5.39.0",
 		"cross-env": "7.0.3",
-		"eslint": "8.25.0",
+		"eslint": "9.26.0",
 		"eslint-plugin-node": "11.1.0",
 		"eslint-plugin-vue": "9.6.0",
 		"mocha": "11.7.5"
