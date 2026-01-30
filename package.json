@@ -94,7 +94,7 @@
 		"@types/mocha": "10.0.10",
 		"@types/node": "18.11.18",
 		"@types/node-fetch": "2.6.13",
-		"@types/nodemailer": "6.4.21",
+		"@types/nodemailer": "6.4.22",
 		"@types/nprogress": "0.2.3",
 		"@types/oauth": "0.9.6",
 		"@types/object-assign-deep": "0.4.3",
