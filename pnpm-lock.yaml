@@ -6,7 +6,7 @@ settings:
 
 overrides:
   chokidar: ^3.3.1
-  lodash: ^4.17.20
+  lodash: ^4.17.23
   source-map: ^0.8.0-beta.0
 
 importers:
@@ -21,7 +21,7 @@ importers:
         version: 6.5.4(@bull-board/ui@6.5.4)
       '@bull-board/koa':
         specifier: 6.5.4
-        version: 6.5.4(@babel/core@7.28.5)(@types/koa@2.13.12)(lodash@4.17.21)(pug@3.0.4)
+        version: 6.5.4(@babel/core@7.28.5)(@types/koa@2.13.12)(lodash@4.17.23)(pug@3.0.4)
       '@bull-board/ui':
         specifier: 6.5.4
         version: 6.5.4
@@ -138,7 +138,7 @@ importers:
         version: 4.1.6
       '@types/koa-views':
         specifier: 7.0.0
-        version: 7.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4)
+        version: 7.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4)
       '@types/koa__cors':
         specifier: 3.3.1
         version: 3.3.1
@@ -438,7 +438,7 @@ importers:
         version: 2.1.0
       koa-views:
         specifier: 8.0.0
-        version: 8.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4)
+        version: 8.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4)
       langmap:
         specifier: 0.0.16
         version: 0.0.16
@@ -1134,7 +1134,7 @@ packages:
       just: ^0.1.8
       liquid-node: ^3.0.1
       liquor: ^0.0.5
-      lodash: ^4.17.20
+      lodash: ^4.17.23
       mote: ^0.2.0
       mustache: ^4.0.1
       nunjucks: ^3.2.2
@@ -2678,7 +2678,7 @@ packages:
       just: ^0.1.8
       liquid-node: ^3.0.1
       liquor: ^0.0.5
-      lodash: ^4.17.20
+      lodash: ^4.17.23
       marko: ^3.14.4
       mote: ^0.2.0
       mustache: ^4.0.1
@@ -4782,8 +4782,8 @@ packages:
   lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
 
-  lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+  lodash@4.17.23:
+    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
 
   log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
@@ -7753,7 +7753,7 @@ snapshots:
       '@bull-board/ui': 6.5.4
       redis-info: 3.1.0
 
-  '@bull-board/koa@6.5.4(@babel/core@7.28.5)(@types/koa@2.13.12)(lodash@4.17.21)(pug@3.0.4)':
+  '@bull-board/koa@6.5.4(@babel/core@7.28.5)(@types/koa@2.13.12)(lodash@4.17.23)(pug@3.0.4)':
     dependencies:
       '@bull-board/api': 6.5.4(@bull-board/ui@6.5.4)
       '@bull-board/ui': 6.5.4
@@ -7763,7 +7763,7 @@ snapshots:
       koa-mount: 4.0.0
       koa-router: 13.1.1
       koa-static: 5.0.0
-      koa-views: 8.1.0(@babel/core@7.28.5)(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4)
+      koa-views: 8.1.0(@babel/core@7.28.5)(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4)
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/koa'
@@ -8081,11 +8081,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ladjs/consolidate@1.0.4(@babel/core@7.28.5)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4)':
+  '@ladjs/consolidate@1.0.4(@babel/core@7.28.5)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4)':
     optionalDependencies:
       '@babel/core': 7.28.5
       ejs: 3.1.10
-      lodash: 4.17.21
+      lodash: 4.17.23
       pug: 3.0.4
 
   '@misskey-dev/summaly@5.2.5':
@@ -8418,9 +8418,9 @@ snapshots:
     dependencies:
       '@types/koa': 2.13.12
 
-  '@types/koa-views@7.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4)':
+  '@types/koa-views@7.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4)':
     dependencies:
-      koa-views: 8.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4)
+      koa-views: 8.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4)
     transitivePeerDependencies:
       - '@types/koa'
       - arc-templates
@@ -9352,7 +9352,7 @@ snapshots:
       debuglog: 1.0.1
       get-port: 5.1.1
       ioredis: 5.8.2
-      lodash: 4.17.21
+      lodash: 4.17.23
       msgpackr: 1.11.7
       semver: 7.7.3
       uuid: 8.3.2
@@ -9775,12 +9775,12 @@ snapshots:
       ini: 1.3.8
       proto-list: 1.2.4
 
-  consolidate@0.16.0(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4):
+  consolidate@0.16.0(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4):
     dependencies:
       bluebird: 3.7.2
     optionalDependencies:
       ejs: 3.1.10
-      lodash: 4.17.21
+      lodash: 4.17.23
       pug: 3.0.4
 
   constantinople@4.0.1:
@@ -11092,7 +11092,7 @@ snapshots:
       chalk: 2.4.2
       find-cache-dir: 2.1.0
       graceful-fs: 4.2.11
-      lodash: 4.17.21
+      lodash: 4.17.23
       mkdirp: 0.5.6
       node-object-hash: 1.4.2
       parse-json: 4.0.0
@@ -11908,9 +11908,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  koa-views@8.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4):
+  koa-views@8.0.0(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4):
     dependencies:
-      consolidate: 0.16.0(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4)
+      consolidate: 0.16.0(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4)
       debug: 4.4.3(supports-color@8.1.1)
       get-paths: 0.0.7
       koa-send: 5.0.1
@@ -11975,9 +11975,9 @@ snapshots:
       - walrus
       - whiskers
 
-  koa-views@8.1.0(@babel/core@7.28.5)(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4):
+  koa-views@8.1.0(@babel/core@7.28.5)(@types/koa@2.13.12)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4):
     dependencies:
-      '@ladjs/consolidate': 1.0.4(@babel/core@7.28.5)(ejs@3.1.10)(lodash@4.17.21)(pug@3.0.4)
+      '@ladjs/consolidate': 1.0.4(@babel/core@7.28.5)(ejs@3.1.10)(lodash@4.17.23)(pug@3.0.4)
       debug: 4.4.3(supports-color@8.1.1)
       get-paths: 0.0.7
       koa-send: 5.0.1
@@ -12178,7 +12178,7 @@ snapshots:
 
   lodash.uniq@4.5.0: {}
 
-  lodash@4.17.21: {}
+  lodash@4.17.23: {}
 
   log-symbols@4.1.0:
     dependencies:
@@ -13593,7 +13593,7 @@ snapshots:
 
   redis-info@3.1.0:
     dependencies:
-      lodash: 4.17.21
+      lodash: 4.17.23
 
   redis-lock@0.1.4: {}
 
@@ -14838,7 +14838,7 @@ snapshots:
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
       esquery: 1.6.0
-      lodash: 4.17.21
+      lodash: 4.17.23
       semver: 7.7.3
     transitivePeerDependencies:
       - supports-color
