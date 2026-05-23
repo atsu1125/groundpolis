@@ -129,8 +129,6 @@ export default async (job: Bull.Job<InboxJobData>): Promise<string> => {
 				return `skip: LD-Signatureの検証に失敗しました`;
 			}
 
-			activity = await ldSignature.compactToWellKnown(activity);
-
 			// もう一度actorチェック
 			if (authUser.user.uri !== activity.actor) {
 				return `skip: LD-Signature user(${authUser.user.uri}) !== activity.actor(${activity.actor})`;
