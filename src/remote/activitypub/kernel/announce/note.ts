@@ -32,7 +32,8 @@ export default async function(resolver: Resolver, actor: IRemoteUser, activity: 
 	const meta = await fetchMeta();
 	if (meta.blockedHosts.includes(extractDbHost(uri))) return;
 
-	const unlock = await getApLock(uri);
+	const activityUri = getApId(activity);
+	const unlock = await getApLock(activityUri);
 
 	try {
 		// 既に同じURIを持つものが登録されていないかチェック
