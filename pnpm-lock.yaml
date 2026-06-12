@@ -164,8 +164,8 @@ importers:
         specifier: 2.6.13
         version: 2.6.13
       '@types/nodemailer':
-        specifier: 6.4.23
-        version: 6.4.23
+        specifier: 6.4.24
+        version: 6.4.24
       '@types/nprogress':
         specifier: 0.2.3
         version: 0.2.3
@@ -1586,8 +1586,8 @@ packages:
   '@types/node@18.11.18':
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
 
-  '@types/nodemailer@6.4.23':
-    resolution: {integrity: sha512-aFV3/NsYFLSx9mbb5gtirBSXJnAlrusoKNuPbxsASWc7vrKLmIrTQRpdcxNcSFL3VW2A2XpeLEavwb2qMi6nlQ==}
+  '@types/nodemailer@6.4.24':
+    resolution: {integrity: sha512-Ww4u0rT9wQNXh4JiQaIwx3QWdcOFXzOjQA2zc+jtFYNmQiT4mIUqcDin51bDFdkzKubFnQCZNK7FIHlPKQ/q9w==}
 
   '@types/nprogress@0.2.3':
     resolution: {integrity: sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==}
@@ -8529,7 +8529,7 @@ snapshots:
 
   '@types/node@18.11.18': {}
 
-  '@types/nodemailer@6.4.23':
+  '@types/nodemailer@6.4.24':
     dependencies:
       '@types/node': 18.11.18
 
