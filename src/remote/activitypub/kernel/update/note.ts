@@ -6,6 +6,7 @@ import { publishNoteStream } from "../../../../services/stream";
 import DbResolver from "../../db-resolver";
 import { apLogger } from "../../logger";
 import { htmlToMfm } from "../../misc/html-to-mfm";
+import { DB_MAX_NOTE_TEXT_LENGTH } from '../../../../misc/hard-limits';
 import { IPost, getApId } from "../../type";
 
 const logger = apLogger;
@@ -42,18 +43,24 @@ export default async function(actor: IRemoteUser, note: IPost): Promise<string> 
 			return '投稿をUpdateしようとしているユーザーは投稿の作成者ではありません';
 		}
 
-		// validateはinboxのハードリミットでいい
-
 		// テキストのパース
-    let text: string | null = null;
-    if (note.source?.mediaType === 'text/x.misskeymarkdown' && typeof note.source?.content === 'string') {
-      text = note.source.content;
-    } else if (typeof note._misskey_content !== 'undefined') {
-      text = note._misskey_content;
-    } else if (typeof note.content === 'string') {
-      text = htmlToMfm(note.content, note.tag);
-    }
+		let text: string | null = null;
+		if (note.source?.mediaType === 'text/x.misskeymarkdown' && typeof note.source?.content === 'string') {
+			text = note.source.content;
+		} else if (typeof note._misskey_content !== 'undefined') {
+			text = note._misskey_content;
+		} else if (typeof note.content === 'string') {
+			text = htmlToMfm(note.content, note.tag);
+		}
 		const cw = note.summary === '' ? null : note.summary;
+
+		if (cw && cw.length > 512) {
+			return 'skip: cw limit exceeded';
+		}
+
+		if (text && text.length > DB_MAX_NOTE_TEXT_LENGTH) {
+			return 'skip: text limit exceeded';
+		}
 
 		// Update
 		const updates = {
