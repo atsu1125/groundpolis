@@ -58,7 +58,7 @@ export class NoteRepository extends Repository<Note> {
 						},
 						take: 1,
 					}),
-					Users.findOneByOrFail({ id: meId }),
+					Users.findOneOrFail({ id: meId }),
 				]);
 
 				/* If we know the following, everyhting is fine.
