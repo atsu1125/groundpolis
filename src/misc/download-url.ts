@@ -6,8 +6,7 @@ import { getAgentByUrl, httpAgent, httpsAgent, StatusError } from './fetch';
 import config from '../config';
 import * as chalk from 'chalk';
 import Logger from '../services/logger';
-import * as IPCIDR from 'ip-cidr';
-const PrivateIp = require('private-ip');
+import ipaddr from 'ipaddr.js';
 import { isValidUrl } from './is-valid-url';
 
 const pipeline = util.promisify(stream.pipeline);
@@ -91,12 +90,13 @@ export async function downloadUrl(url: string, path: string) {
 }
 
 function isPrivateIp(ip: string) {
+	const parsedIp = ipaddr.parse(ip);
 	for (const net of config.allowedPrivateNetworks || []) {
-		const cidr = new IPCIDR(net);
-		if (cidr.contains(ip)) {
+		const cidr = ipaddr.parseCIDR(net);
+		if (cidr[0].kind() === parsedIp.kind() && parsedIp.match(ipaddr.parseCIDR(net))) {
 			return false;
 		}
 	}
 
-	return PrivateIp(ip);
+	return parsedIp.range() !== 'unicast';
 }

@@ -388,6 +388,9 @@ importers:
       ip-cidr:
         specifier: 3.0.10
         version: 3.0.10
+      ipaddr.js:
+        specifier: 2.1.0
+        version: 2.1.0
       is-svg:
         specifier: 4.3.2
         version: 4.3.2
@@ -508,9 +511,6 @@ importers:
       prismjs:
         specifier: 1.28.0
         version: 1.28.0
-      private-ip:
-        specifier: 2.3.4
-        version: 2.3.4
       probe-image-size:
         specifier: 7.2.3
         version: 7.2.3
@@ -4187,16 +4187,12 @@ packages:
     resolution: {integrity: sha512-PXSsrRYirsuaCI1qBVyVXRLUIpNzxm76eHd3UvN5NXTMUG85GWGZpr6P+70mimc5e7Nfh/tShmjk0oSywErMWg==}
     engines: {node: '>=10.0.0'}
 
-  ip-regex@4.3.0:
-    resolution: {integrity: sha512-B9ZWJxHHOHUhUjCPrMpLD4xEq35bUTClHM1S6CBU5ixQnkZmwipwgc96vAd7AAGM9TGHvJR+Uss+/Ak6UphK+Q==}
-    engines: {node: '>=8'}
-
   ip-regex@5.0.0:
     resolution: {integrity: sha512-fOCG6lhoKKakwv+C6KdsOnGvgXnmgfmp0myi3bcNwj3qfwPAxRKWEuFhvEFF7ceYIz6+1jRZ+yguLFAmUNPEfw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  ipaddr.js@2.3.0:
-    resolution: {integrity: sha512-Zv/pA+ciVFbCSBBjGfaKUya/CcGmUHzTydLMaTwrUUEM2DIEO3iZvueGxmacvmN50fGpGVKeTXpb2LcYQxeVdg==}
+  ipaddr.js@2.1.0:
+    resolution: {integrity: sha512-LlbxQ7xKzfBusov6UMi4MFpEg0m+mAm9xyNGEduwXMEDuf4WfzB/RZwMVYEd7IKGvh4IUkEXYxtAVu9T3OelJQ==}
     engines: {node: '>= 10'}
 
   is-absolute-url@2.1.0:
@@ -4307,10 +4303,6 @@ packages:
   is-glob@4.0.3:
     resolution: {integrity: sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==}
     engines: {node: '>=0.10.0'}
-
-  is-ip@3.1.0:
-    resolution: {integrity: sha512-35vd5necO7IitFPjd/YBeqwWnyDWbuLH9ZXQdMfDA8TEo7pv5X8yfrvVO3xbJbLUlERCMvf6X0hTUamQxCYJ9Q==}
-    engines: {node: '>=8'}
 
   is-map@2.0.3:
     resolution: {integrity: sha512-1Qed0/Hr2m+YqxnM09CjA2d/i6YZNfF6R2oRAOj36eUdS6qIV/huPJNSEpKbupewFs+ZsJlxsjjPbc0/afW6Lw==}
@@ -5946,9 +5938,6 @@ packages:
   prismjs@1.28.0:
     resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}
     engines: {node: '>=6'}
-
-  private-ip@2.3.4:
-    resolution: {integrity: sha512-ts/YFVwfBeLq61f9+KsOhXW6RH0wvY0gU50R6QZYzgFhggyyLK6WDFeYdjfi/HMnBm2hecLvsR3PB3JcRxDk+A==}
 
   private-ip@3.0.2:
     resolution: {integrity: sha512-2pkOVPGYD/4QyAg95c6E/4bLYXPthT5Xw4ocXYzIIsMBhskOMn6IwkWXmg6ZiA6K58+O6VD/n02r1hDhk7vDPw==}
@@ -11484,11 +11473,9 @@ snapshots:
       ip-address: 7.1.0
       jsbn: 1.1.0
 
-  ip-regex@4.3.0: {}
-
   ip-regex@5.0.0: {}
 
-  ipaddr.js@2.3.0: {}
+  ipaddr.js@2.1.0: {}
 
   is-absolute-url@2.1.0: {}
 
@@ -11606,10 +11593,6 @@ snapshots:
   is-glob@4.0.3:
     dependencies:
       is-extglob: 2.1.1
-
-  is-ip@3.1.0:
-    dependencies:
-      ip-regex: 4.3.0
 
   is-map@2.0.3: {}
 
@@ -13417,18 +13400,11 @@ snapshots:
 
   prismjs@1.28.0: {}
 
-  private-ip@2.3.4:
-    dependencies:
-      ip-regex: 4.3.0
-      ipaddr.js: 2.3.0
-      is-ip: 3.1.0
-      netmask: 2.0.2
-
   private-ip@3.0.2:
     dependencies:
       '@chainsafe/is-ip': 2.1.0
       ip-regex: 5.0.0
-      ipaddr.js: 2.3.0
+      ipaddr.js: 2.1.0
       netmask: 2.0.2
 
   probe-image-size@7.2.3:
