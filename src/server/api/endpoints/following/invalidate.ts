@@ -85,5 +85,5 @@ export default define(meta, async (ps, user) => {
 		lastActiveDate: new Date(),
 	});
 
-	return await Users.pack(followee.id, user);
+	return await Users.pack(follower.id, user);
 });
