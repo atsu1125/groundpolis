@@ -188,7 +188,7 @@
 		"koa-slow": "2.1.0",
 		"koa-views": "8.0.0",
 		"langmap": "0.0.16",
-		"markdown-it": "12.3.2",
+		"markdown-it": "14.3.2",
 		"markdown-it-anchor": "8.4.1",
 		"matter-js": "0.18.0",
 		"memoji": "mei23/memoji#15.0.2",
